@@ -1,0 +1,19 @@
+Comandos git
+git add . -> guardar nuevos cambios
+git push -> subir los cambios guardados al repo
+git status -> se observa el estado del proyecto. *Si hay cambios sin guardar, aparecen en color rojo. *Si ya se guardaron pero se pushearon, aparecen en verde. *Si no hay codigo por guardar, no aparece nada.
+git log --oneline -> se observan los commits realizados hasta el momento
+
+NUEVOS!
+git add .
+git commit -m "msj"
+.....
+
+*Antes de pushear nuevos cambios, hay que traerse lo que ya existe en el repo. Para eso hay que usar los siguientes comandos en orden:
+git fetch -> trae lo que hay en el repo
+git pull -> confirma lo que trae y lo guarda. (similar al add y push)
+
+-pusheas tus cambios
+git push
+
+-Conflictos: si utilizamos el mismo archivo
