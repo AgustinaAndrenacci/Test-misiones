@@ -12,3 +12,5 @@ Test Setup     Abrir navegador
 Test Teardown  Cerrar navegador
 
 ***Test Cases***
+
+prueba
