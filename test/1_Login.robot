@@ -7,6 +7,7 @@ Library    DateTime
 Library    OperatingSystem
 Library    Dialogs
 
+#modificar
 Library    D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/QA/Portal Leandro git/Test-Portal-main/Resources/EmbedScreenshotLibrary.py
 Resource        ../Resources/KeywordsPortal.robot
 Resource        ../Resources/KeywordsMio.robot
@@ -24,8 +25,8 @@ Login Ciudadano - Correcto
     Verificar presencia de  ${tituloPagina}  No se pudo iniciar sesion
 
 Login Ciudadano - sin completar campos
-    Iniciar sesion  ${userFake}  ${passFake}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Verificar presencia de... con...  ${leyendaIniciarSesion}  Datos de inicio de sesion incorrectos
+    Iniciar sesion  ${EMPTY}  ${EMPTY}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar presencia de... con...  ${leyendaIniciarSesion}  Por favor complete todos los campos
 
 Login Ciudadano - sin completar el user
     Iniciar sesion  ${EMPTY}  ${passFake}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
@@ -39,7 +40,8 @@ Login Ciudadano - con cuit menor a 7 digitos
     Iniciar sesion  ${userFake7}  ${passFake}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar presencia de... con...  ${leyendaIniciarSesion}  El CUIT debe tener entre 8 y 11 dígitos
 
-Login Ciudadano - con cuit menor a 12 digitos
+#!
+Login Ciudadano - con cuit mayor a 12 digitos
     Iniciar sesion  ${userFake12}  ${passFake}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar presencia de... con...  ${leyendaIniciarSesion}  El CUIT debe tener entre 8 y 11 dígitos
 
@@ -57,8 +59,8 @@ Login Personal - Correcto
 
 Login Personal - sin completar campos
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestaña personal
-    Iniciar sesion  ${userFake}  ${passFake}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar presencia de... con...  ${leyendaIniciarSesion}  Datos de inicio de sesion incorrectos
+    Iniciar sesion  ${EMPTY}  ${EMPTY}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar presencia de... con...  ${leyendaIniciarSesion}  Por favor complete todos los campos
 
 Login Personal - sin completar el user
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestaña personal
@@ -70,10 +72,13 @@ Login Personal - sin completar la pass
     Iniciar sesion  ${userFake}  ${EMPTY}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar presencia de... con...  ${leyendaIniciarSesion}  Por favor complete todos los campos
 
-#Ver los msj que tiene el campo
+Cerrar sesion
+
+#Ver los msj que tiene el campo - PlaceHolder
 #Ver si entro con un user del otro que pasa
 #cerrar sesion
 #acomodar la parte de variables
+
 *** Keywords ***
 Verificar presencia de... con...
     [Arguments]    ${campo_localizador}    ${frase_texto}
@@ -95,3 +100,7 @@ Verificar presencia de... con...
 Configuracion
     Abrir navegador
     Set Selenium Speed    0.1s
+
+    #vamos a hacer nuevos cambios
+    #kn
+    #:)
