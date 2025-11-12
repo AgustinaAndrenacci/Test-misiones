@@ -101,8 +101,6 @@ Configuracion
     Abrir navegador
     Set Selenium Speed    0.1s
 
-    #vamos a hacer nuevos cambios
-    #kn
-    #:)
-    #:)
-    hola
+
+hola
+esto es la nueva conf
