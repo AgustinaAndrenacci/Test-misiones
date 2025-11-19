@@ -16,6 +16,9 @@ Resource        ../Resources/VariablesPortal.robot
 Test Setup     Abrir navegador
 Test Teardown  Cerrar navegador
 
+*** Variables ***
+${CHROME_OPTIONS}    chrome_options=args:['--incognito']
+
 ***Test Cases***
 #Login ciudadano --------------------------------------------------------------------------
 Login Ciudadano - Correcto
