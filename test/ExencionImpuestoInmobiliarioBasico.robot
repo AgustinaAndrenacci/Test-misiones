@@ -8,25 +8,16 @@ Library    OperatingSystem
 Library    Dialogs
 
 Library    C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/EmbedScreenshotLibrary.py
+Library    C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/InternetOculto.py
 
 Resource        ../Resources/KeywordsPortal.robot
 Resource        ../Resources/KeywordsMio.robot
 Resource        ../Resources/VariablesPortal.robot
 
-Test Setup     Abrir navegador
+Test Setup     Abrir Navegador en modo incognito
 Test Teardown  Cerrar navegador
 
 *** Variables ***
-
-${botonComenzarAhora}    //a[normalize-space()='Comenzar ahora']
-${botonExencionImpuestoInmobiliarioBasico}    //h3[normalize-space()='Exención de Impuesto Inmobiliario Básico']
-${asuntoExencionImpuestoIB}    //input[@id='cmhy6sett000gnocln3chn0tn']
-${detalleExencionImpuestoIB}    //textarea[@id='cmhy6t90w000inocljvj5tanb']
-${botonAniadir}    //button[normalize-space()='Añadir']
-${botonEnviarSolicitud}    //button[normalize-space()='Enviar Solicitud']
-
-${UPLOAD_INPUT}    xpath=//input[@type='file'][1]
-${FILE_PATH}       C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/DniPrueba.png
 
 #Chequear si funcionan
 ${UPLOAD_INPUT2}    xpath=//input[@type='file'][2]
@@ -43,14 +34,14 @@ ExencionImpuestoInmobiliarioBasico Paso 1
     Validar y hacer clic en el boton    ${botonExencionImpuestoInmobiliarioBasico}    botonExencionImpuestoInmobiliarioBasico
     Validar y completar campo    ${asuntoExencionImpuestoIB}  Asunto test1    asuntoExencionImpuestoIB
     Validar y completar campo    ${detalleExencionImpuestoIB}  Descripcion test1  detalleExencionImpuestoIB
-    Verificar y presionar ítem en lista    xpath=(//select)[1]    DNI del Solicitante
-    Choose File    ${UPLOAD_INPUT}    ${FILE_PATH}
+    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+    Choose File    ${InputTypeFile}    ${FILE}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    xpath=(//select)[1]    Copia del documento que acredite la representación del solicitante
-    Choose File    ${UPLOAD_INPUT}    ${FILE_PATH}
+    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+    Choose File    ${InputTypeFile}    ${FILE}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    xpath=(//select)[1]    Constancia de CUIT del titular/Organismo/Institucion
-    Choose File    ${UPLOAD_INPUT}    ${FILE_PATH}
+    Verificar y presionar ítem en lista    ${select}    Constancia de CUIT del titular/Organismo/Institucion
+    Choose File    ${InputTypeFile}    ${FILE}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 #Ver despues como poder aniadir el ultimo select
 #    Verificar y presionar ítem en lista    xpath=(//select)[2]    Constancia de inscripción en el Registro Nacional de Cultos
@@ -59,7 +50,7 @@ ExencionImpuestoInmobiliarioBasico Paso 1
 #    Verificar y presionar ítem en lista    xpath=(//select)[2]    Constancia de inscripción en el Registro Nacional de Cultos
 #    Choose File    ${UPLOAD_INPUT2}    ${FILE_PATH}
 #    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Validar y hacer clic en el boton    //button[normalize-space()='Enviar Solicitud']    botonEnviarSolicitud
+    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
 
 ExencionImpuestoInmobiliarioBasico Paso 2
@@ -67,15 +58,15 @@ ExencionImpuestoInmobiliarioBasico Paso 2
     [tags]    test_02
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Validar y hacer clic en el boton    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']    botonBandejaEntrada
-    Validar y hacer clic en el boton    //tbody/tr[1]/td[8]    flechaSiguiente
-    Validar y hacer clic en el boton    //h4[normalize-space()='Agregar Nota']    agregarNota
-    Validar y completar campo    //textarea[@id='action-notes']    Nota OperadorMesa    campoComentarioNota
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']   botonConfirmar
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar y hacer clic en el boton    ${abrirPrimerTramite}    flechaSiguiente
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
+    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Validar y hacer clic en el boton    //h4[normalize-space()='Enviar a Secretaria']    enviarASecretaria
-    Validar y completar campo    //textarea[@id='action-notes']    Enviar a Secretaria    campoComentario
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']    botonConfirmar
+    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
+    Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 ExencionImpuestoInmobiliarioBasico Paso 3
@@ -83,15 +74,15 @@ ExencionImpuestoInmobiliarioBasico Paso 3
     [tags]    test_03
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Validar y hacer clic en el boton    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']    botonBandejaEntrada
-    Validar y hacer clic en el boton    //tbody/tr[1]/td[8]    flechaSiguiente
-    Validar y hacer clic en el boton    //h4[normalize-space()='Agregar Nota']    agregarNota
-    Validar y completar campo    //textarea[@id='action-notes']    Nota Secretaria    campoComentarios
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']   botonConfirmar
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar y hacer clic en el boton    ${abrirPrimerTramite}    flechaSiguiente
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y completar campo    ${campoComentario}    Nota Secretaria    campoComentarios
+    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Validar y hacer clic en el boton    //h4[normalize-space()='Para Resolver']    paraResolver
-    Validar y completar campo    //textarea[@id='action-notes']    Para Resolver    campoComentario
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']    botonConfirmar
+    Validar y hacer clic en el boton    ${paraResolver}    paraResolver
+    Validar y completar campo    ${campoComentario}    Para Resolver    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 ExencionImpuestoInmobiliarioBasico Paso 4
@@ -99,16 +90,15 @@ ExencionImpuestoInmobiliarioBasico Paso 4
     [tags]    test_04
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Pause Execution
-    Validar y hacer clic en el boton    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']    botonBandejaEntrada
-    Validar y hacer clic en el boton    //tbody/tr[1]/td[1]    flechaSiguiente
-    Validar y hacer clic en el boton    //h4[normalize-space()='Agregar Nota']    agregarNota
-    Validar y completar campo    //textarea[@id='action-notes']    Nota Gestion    campoComentarios
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']   botonConfirmar
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar y hacer clic en el boton    ${abrirPrimerTramite}    flechaSiguiente
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y completar campo    ${campoComentario}    Nota Gestion    campoComentarios
+    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Validar y hacer clic en el boton    //h4[normalize-space()='Aprobar']    Aprobar
-    Validar y completar campo    //textarea[@id='action-notes']    Aprobado    campoComentario
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']    botonConfirmar
+    Validar y hacer clic en el boton    ${botonAprobar}    botonAprobar
+    Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 ExencionImpuestoInmobiliarioBasico Paso 5
@@ -116,12 +106,12 @@ ExencionImpuestoInmobiliarioBasico Paso 5
     [tags]    test_05
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Validar y hacer clic en el boton    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']    botonBandejaEntrada
-    Validar y hacer clic en el boton    //tbody/tr[1]/td[8]    flechaSiguiente
-    Validar y hacer clic en el boton    //h4[normalize-space()='Agregar Nota']    agregarNota
-    Validar y hacer clic en el boton    //button[normalize-space()='Cancelar']    botonCancelar
-    Validar y hacer clic en el boton    //h4[normalize-space()='Informar al Contribuyente']    informarContribuyente
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']    botonConfirmar
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar y hacer clic en el boton    ${abrirPrimerTramite}    flechaSiguiente
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
+    Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 
