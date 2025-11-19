@@ -25,8 +25,7 @@ ${passFake}  asd
 ${userFake}  123456789
 ${userFake7}  1234567
 ${userFake12}  123456789101112
-${campoVacio}
-${botonLoginGoogle}    /html/body/div[1]/div[5]/div/div/div
+
 #MENU------------------------------------------------------------------------------------
 #----------------------------------------------------------------------------------------
 ${tituloPagina}    //h1[normalize-space()='Portal del Ciudadano']

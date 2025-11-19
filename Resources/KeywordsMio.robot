@@ -8,7 +8,6 @@ Library  BuiltIn
 *** Keywords ***
 #Navegador-----------------------------------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 Abrir Navegador
     Open Browser    ${page}    ${browser}
     ...    options=add_argument("--disable-features=PasswordManagerEnabled,LeakDetection,SafeBrowsingEnhancedProtection,SafeBrowsingProtectionLevel")
@@ -21,6 +20,17 @@ Cerrar Navegador
     Close browser
     Sleep  2s
 
+Abrir Navegador en modo incognito
+    [Documentation]    Abre el navegador usando la función de Python para configurar opciones.
+
+    # 1. Llama a la función de Python para obtener el objeto Options
+    ${chrome_options_object}=    get chrome options
+
+    #options: configuracion para abrir el navegador
+    Open Browser    ${page}    ${browser}    options=${chrome_options_object}
+
+    Maximize Browser Window
+
 #Login---------------------------------------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -29,7 +39,7 @@ Iniciar sesion
     Validar y completar campo    ${uCampo}    ${u}    campo usuario
     Validar y completar campo    ${pCampo}    ${p}    campo contraseña
     Validar y hacer clic en el boton    ${boton}    iniciar sesion
-    Sleep    2s
+    Sleep  2s
 
 Cerrar Sesion
     ${icono_existe} =    Run Keyword And Return Status    Page Should Contain Element    xpath=/html/body/nav/div[2]/ul/li/a/i
