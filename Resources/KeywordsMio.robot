@@ -41,6 +41,7 @@ Iniciar sesion
     Validar y hacer clic en el boton    ${boton}    iniciar sesion
     Sleep  2s
 
+
 Cerrar Sesion
     ${icono_existe} =    Run Keyword And Return Status    Page Should Contain Element    xpath=/html/body/nav/div[2]/ul/li/a/i
 
@@ -101,6 +102,15 @@ Contar Filas Reales En Tabla
 
 #Verificar Automatico------------------------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Verificar Boton Sin Fallar
+    [Arguments]    ${locator}    ${nombreBoton}
+
+    ${status}    ${value}=    Run Keyword And Ignore Error    Element Should Be Visible    ${locator}
+
+    Run Keyword If    '${status}' == 'FAIL'    Log    El botón con locator ${nombreBoton} NO está visible (Error: ${value})    WARN
+    Run Keyword If    '${status}' == 'PASS'    Log To Console    El botón con locator ${nombreBoton} está visible.
+
 
 Verificar Toast
     [Arguments]    ${tipo_esperado}    ${mensaje_esperado}    ${modo_validacion}=exacto    ${timeout}=3s

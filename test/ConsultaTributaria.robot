@@ -8,47 +8,16 @@ Library    OperatingSystem
 Library    Dialogs
 
 Library    C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/EmbedScreenshotLibrary.py
+Library    C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/InternetOculto.py
 
 Resource        ../Resources/KeywordsPortal.robot
 Resource        ../Resources/KeywordsMio.robot
 Resource        ../Resources/VariablesPortal.robot
 
-Test Setup     Abrir navegador
+Test Setup     Abrir Navegador en modo incognito
 Test Teardown  Cerrar navegador
 
-*** Variables ***
-
-${botonComenzarAhora}    //a[normalize-space()='Comenzar ahora']
-${botonConsultaTributaria}    //h3[normalize-space()='Consulta Tributaria']
-${asuntoConsultaTributaria}    //input[@id='cmhmi8ndf001xnowdryf6h1jo']
-${detalleConsultaTributaria}    //textarea[@id='cmhmi8p0l001znowdbqy9xmv6']
-${botonAniadir}    //button[normalize-space()='Añadir']
-${botonEnviarSolicitud}    //button[normalize-space()='Enviar Solicitud']
-
-${UPLOAD_INPUT}    xpath=//input[@type='file']
-${FILE_PATH}       C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/DniPrueba.png
-
-${pruebaBoton}    //h4[normalize-space()='No Corresponde']
-
 ***Test Cases***
-
-Consulta Tributaria Correcta Paso 4
-    [Documentation]    Entra como Gestion para continuar con el proceso
-    [tags]    test_18
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Pause Execution
-    Validar y hacer clic en el boton    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']    botonBandejaEntrada
-    Validar y hacer clic en el boton    //tbody/tr[1]/td[1]    flechaSiguiente
-    Validar y hacer clic en el boton    //h4[normalize-space()='Agregar Nota']    agregarNota
-    Validar y completar campo    //textarea[@id='action-notes']    Nota Gestion    campoComentarios
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Validar y hacer clic en el boton    //h4[normalize-space()='Aprobar']    Aprobar
-    Validar y completar campo    //textarea[@id='action-notes']    Aprobado    campoComentario
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-
 
 Consulta Tributaria Documentacion NoCorresponde Paso 1
     [Documentation]    Crear una nueva consulta tributaria sin completar
@@ -56,7 +25,7 @@ Consulta Tributaria Documentacion NoCorresponde Paso 1
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y hacer clic en el boton    //button[normalize-space()='Enviar Solicitud']    botonEnviarSolicitud
+    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
 
 Consulta Tributaria Documentacion NoCorresponde Paso 2
@@ -64,15 +33,15 @@ Consulta Tributaria Documentacion NoCorresponde Paso 2
     [tags]    test_02
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Validar y hacer clic en el boton    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']    botonBandejaEntrada
-    Validar y hacer clic en el boton    //tbody/tr[1]/td[8]    flechaSiguiente
-    Validar y hacer clic en el boton    //h4[normalize-space()='Agregar Nota']    agregarNota
-    Validar y completar campo    //textarea[@id='action-notes']    Nota OperadorMesa    campoComentarioNota
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']   botonConfirmar
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
+    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Validar y hacer clic en el boton    //h4[normalize-space()='No Corresponde']    botonNoCorresponde
-    Validar y completar campo    //textarea[@id='action-notes']    No Corresponde    campoComentario
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']    botonConfirmar
+    Validar y hacer clic en el boton    ${botonNoCorresponde}    botonNoCorresponde
+    Validar y completar campo    ${campoComentario}    No Corresponde    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Consulta Tributaria Devuelto a Mesa de Entrada Paso 1
@@ -83,16 +52,16 @@ Consulta Tributaria Devuelto a Mesa de Entrada Paso 1
     Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
     Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test1    asuntoConsultaTributaria
     Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test1  detalleConsultaTributaria
-    Verificar y presionar ítem en lista    xpath=//select    DNI del Solicitante
-    Choose File    ${UPLOAD_INPUT}    ${FILE_PATH}
+    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+    Choose File    ${InputTypeFile}    ${FILE}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    xpath=//select    Copia del documento que acredite la representación del solicitante
-    Choose File    ${UPLOAD_INPUT}    ${FILE_PATH}
+    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+    Choose File    ${InputTypeFile}    ${FILE}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    xpath=//select    Copia del instrumento que origina el acto
-    Choose File    ${UPLOAD_INPUT}    ${FILE_PATH}
+    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
+    Choose File    ${InputTypeFile}    ${FILE}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Validar y hacer clic en el boton    //button[normalize-space()='Enviar Solicitud']    botonEnviarSolicitud
+    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
 
 Consulta Tributaria Devuelto a Mesa de Entrada Paso 2
@@ -100,15 +69,15 @@ Consulta Tributaria Devuelto a Mesa de Entrada Paso 2
     [tags]    test_04
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Validar y hacer clic en el boton    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']    botonBandejaEntrada
-    Validar y hacer clic en el boton    //tbody/tr[1]/td[8]    flechaSiguiente
-    Validar y hacer clic en el boton    //h4[normalize-space()='Agregar Nota']    agregarNota
-    Validar y completar campo    //textarea[@id='action-notes']    Nota OperadorMesa    campoComentarioNota
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']   botonConfirmar
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
+    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Validar y hacer clic en el boton    //h4[normalize-space()='Enviar a Secretaria']    enviarASecretaria
-    Validar y completar campo    //textarea[@id='action-notes']    Enviar a Secretaria    campoComentario
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']    botonConfirmar
+    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
+    Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Consulta Tributaria Devuelto a Mesa de Entrada Paso 3
@@ -116,15 +85,15 @@ Consulta Tributaria Devuelto a Mesa de Entrada Paso 3
     [tags]    test_05
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Validar y hacer clic en el boton    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']    botonBandejaEntrada
-    Validar y hacer clic en el boton    //tbody/tr[1]/td[8]    flechaSiguiente
-    Validar y hacer clic en el boton    //h4[normalize-space()='Agregar Nota']    agregarNota
-    Validar y completar campo    //textarea[@id='action-notes']    Nota Secretaria    campoComentarios
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']   botonConfirmar
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y completar campo    ${campoComentario}    Nota Secretaria    campoComentarios
+    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Validar y hacer clic en el boton    //h4[normalize-space()='No Corresponde']    botonNoCorresponde
-    Validar y completar campo    //textarea[@id='action-notes']    No Corresponde    campoComentario
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']    botonConfirmar
+    Validar y hacer clic en el boton    ${botonNoCorresponde}    botonNoCorresponde
+    Validar y completar campo    ${campoComentario}    No Corresponde    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Consulta Tributaria Devuelto a Mesa de Entrada Paso 4
@@ -132,17 +101,17 @@ Consulta Tributaria Devuelto a Mesa de Entrada Paso 4
     [tags]    test_06
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Validar y hacer clic en el boton    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']    botonBandejaEntrada
-    Validar y hacer clic en el boton    //tbody/tr[1]/td[8]    flechaSiguiente
-    Validar y hacer clic en el boton    //h4[normalize-space()='Agregar Nota']    agregarNota
-    Validar y completar campo    //textarea[@id='action-notes']    Nota OperadorMesa, tramite devuelto    campoComentarioNota
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']   botonConfirmar
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y completar campo    ${campoComentario}    Nota OperadorMesa, tramite devuelto    campoComentarioNota
+    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Verificar Boton Sin Fallar    ${pruebaBoton}    botonNoCorresponde
-    Verificar Boton Sin Fallar    //h4[normalize-space()='Solicitar Datos Adicionales']    botonSolicitarDatosAdicionales
-    Validar y hacer clic en el boton    //h4[normalize-space()='Enviar a Secretaria']    enviarASecretaria
-    Validar y completar campo    //textarea[@id='action-notes']    Enviar a Secretaria, todo ok    campoComentario
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']    botonConfirmar
+    Verificar Boton Sin Fallar    ${botonNoCorresponde}    botonNoCorresponde
+    Verificar Boton Sin Fallar    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
+    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
+    Validar y completar campo    ${campoComentario}    Enviar a Secretaria, todo ok    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Consulta Tributaria Devuelto a Mesa de Entrada Paso 5
@@ -150,15 +119,15 @@ Consulta Tributaria Devuelto a Mesa de Entrada Paso 5
     [tags]    test_07
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Validar y hacer clic en el boton    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']    botonBandejaEntrada
-    Validar y hacer clic en el boton    //tbody/tr[1]/td[8]    flechaSiguiente
-    Validar y hacer clic en el boton    //h4[normalize-space()='Agregar Nota']    agregarNota
-    Validar y completar campo    //textarea[@id='action-notes']    Nota Secretaria    campoComentarios
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']   botonConfirmar
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y completar campo    ${campoComentario}    Nota Secretaria    campoComentarios
+    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Validar y hacer clic en el boton    //h4[normalize-space()='Para Resolver']    paraResolver
-    Validar y completar campo    //textarea[@id='action-notes']    Para Resolver    campoComentario
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']    botonConfirmar
+    Validar y hacer clic en el boton    ${paraResolver}    paraResolver
+    Validar y completar campo    ${campoComentario}    Para Resolver    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Consulta Tributaria Devuelto a Mesa de Entrada Paso 6
@@ -166,16 +135,15 @@ Consulta Tributaria Devuelto a Mesa de Entrada Paso 6
     [tags]    test_08
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Pause Execution
-    Validar y hacer clic en el boton    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']    botonBandejaEntrada
-    Validar y hacer clic en el boton    //tbody/tr[1]/td[1]    flechaSiguiente
-    Validar y hacer clic en el boton    //h4[normalize-space()='Agregar Nota']    agregarNota
-    Validar y completar campo    //textarea[@id='action-notes']    Nota Gestion    campoComentarios
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']   botonConfirmar
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y completar campo    ${campoComentario}    Nota Gestion    campoComentarios
+    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Validar y hacer clic en el boton    //h4[normalize-space()='Aprobar']    Aprobar
-    Validar y completar campo    //textarea[@id='action-notes']    Aprobado    campoComentario
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']    botonConfirmar
+    Validar y hacer clic en el boton    ${botonAprobar}    botonAprobar
+    Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Consulta Tributaria Devuelto a Mesa de Entrada Paso 7
@@ -183,12 +151,12 @@ Consulta Tributaria Devuelto a Mesa de Entrada Paso 7
     [tags]    test_09
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Validar y hacer clic en el boton    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']    botonBandejaEntrada
-    Validar y hacer clic en el boton    //tbody/tr[1]/td[8]    flechaSiguiente
-    Validar y hacer clic en el boton    //h4[normalize-space()='Agregar Nota']    agregarNota
-    Validar y hacer clic en el boton    //button[normalize-space()='Cancelar']    botonCancelar
-    Validar y hacer clic en el boton    //h4[normalize-space()='Informar al Contribuyente']    informarContribuyente
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']    botonConfirmar
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
+    Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Consulta Tributaria Rechazado desde Gestion Paso 1
@@ -199,10 +167,10 @@ Consulta Tributaria Rechazado desde Gestion Paso 1
     Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
     Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test1    asuntoConsultaTributaria
     Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test1  detalleConsultaTributaria
-    Verificar y presionar ítem en lista    xpath=//select    DNI del Solicitante
-    Choose File    ${UPLOAD_INPUT}    ${FILE_PATH}
+    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+    Choose File    ${InputTypeFile}    ${FILE}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Validar y hacer clic en el boton    //button[normalize-space()='Enviar Solicitud']    botonEnviarSolicitud
+    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
 
 Consulta Tributaria Rechazado desde Gestion Paso 2
@@ -210,15 +178,15 @@ Consulta Tributaria Rechazado desde Gestion Paso 2
     [tags]    test_11
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Validar y hacer clic en el boton    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']    botonBandejaEntrada
-    Validar y hacer clic en el boton    //tbody/tr[1]/td[8]    flechaSiguiente
-    Validar y hacer clic en el boton    //h4[normalize-space()='Agregar Nota']    agregarNota
-    Validar y completar campo    //textarea[@id='action-notes']    Nota OperadorMesa    campoComentarioNota
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']   botonConfirmar
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
+    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Validar y hacer clic en el boton    //h4[normalize-space()='Enviar a Secretaria']    enviarASecretaria
-    Validar y completar campo    //textarea[@id='action-notes']    Enviar a Secretaria    campoComentario
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']    botonConfirmar
+    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
+    Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Consulta Tributaria Rechazado desde Gestion Paso 3
@@ -226,15 +194,15 @@ Consulta Tributaria Rechazado desde Gestion Paso 3
     [tags]    test_12
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Validar y hacer clic en el boton    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']    botonBandejaEntrada
-    Validar y hacer clic en el boton    //tbody/tr[1]/td[8]    flechaSiguiente
-    Validar y hacer clic en el boton    //h4[normalize-space()='Agregar Nota']    agregarNota
-    Validar y completar campo    //textarea[@id='action-notes']    Nota Secretaria    campoComentarios
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']   botonConfirmar
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y completar campo    ${campoComentario}    Nota Secretaria    campoComentarios
+    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Validar y hacer clic en el boton    //h4[normalize-space()='Para Resolver']    paraResolver
-    Validar y completar campo    //textarea[@id='action-notes']    Para Resolver    campoComentario
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']    botonConfirmar
+    Validar y hacer clic en el boton    ${paraResolver}    paraResolver
+    Validar y completar campo    ${campoComentario}    Para Resolver    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Consulta Tributaria Rechazado desde Gestion Paso 4
@@ -242,16 +210,15 @@ Consulta Tributaria Rechazado desde Gestion Paso 4
     [tags]    test_13
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Pause Execution
-    Validar y hacer clic en el boton    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']    botonBandejaEntrada
-    Validar y hacer clic en el boton    //tbody/tr[1]/td[1]    flechaSiguiente
-    Validar y hacer clic en el boton    //h4[normalize-space()='Agregar Nota']    agregarNota
-    Validar y completar campo    //textarea[@id='action-notes']    Nota Gestion    campoComentarios
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']   botonConfirmar
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y completar campo    ${campoComentario}    Nota Gestion    campoComentarios
+    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Validar y hacer clic en el boton    //h4[normalize-space()='Rechazar']    Rechazar
-    Validar y completar campo    //textarea[@id='action-notes']    Rechazado    campoComentario
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']    botonConfirmar
+    Validar y hacer clic en el boton    ${botonRechazar}    botonRechazar
+    Validar y completar campo    ${campoComentario}    Rechazado    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Consulta Tributaria Rechazado desde Gestion Paso 5
@@ -259,12 +226,12 @@ Consulta Tributaria Rechazado desde Gestion Paso 5
     [tags]    test_14
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Validar y hacer clic en el boton    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']    botonBandejaEntrada
-    Validar y hacer clic en el boton    //tbody/tr[1]/td[8]    flechaSiguiente
-    Validar y hacer clic en el boton    //h4[normalize-space()='Agregar Nota']    agregarNota
-    Validar y hacer clic en el boton    //button[normalize-space()='Cancelar']    botonCancelar
-    Validar y hacer clic en el boton    //h4[normalize-space()='Informar al Contribuyente']    informarContribuyente
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']    botonConfirmar
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
+    Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Consulta Tributaria Correcta Paso 1
@@ -275,20 +242,20 @@ Consulta Tributaria Correcta Paso 1
     Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
     Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test1    asuntoConsultaTributaria
     Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test1  detalleConsultaTributaria
-    Verificar y presionar ítem en lista    xpath=//select    DNI del Solicitante
-    Choose File    ${UPLOAD_INPUT}    ${FILE_PATH}
+    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+    Choose File    ${InputTypeFile}    ${FILE}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    xpath=//select    Copia del documento que acredite la representación del solicitante
-    Choose File    ${UPLOAD_INPUT}    ${FILE_PATH}
+    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+    Choose File    ${InputTypeFile}    ${FILE}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    xpath=//select    Copia del instrumento que origina el acto
-    Choose File    ${UPLOAD_INPUT}    ${FILE_PATH}
+    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
+    Choose File    ${InputTypeFile}    ${FILE}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 #Ver despues como poder aniadir el ultimo select
 #    Verificar y presionar ítem en lista index    xpath=//select    0
 #    Choose File    ${UPLOAD_INPUT}    ${FILE_PATH}
 #    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Validar y hacer clic en el boton    //button[normalize-space()='Enviar Solicitud']    botonEnviarSolicitud
+    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
 
 Consulta Tributaria Correcta Paso 2
@@ -296,15 +263,15 @@ Consulta Tributaria Correcta Paso 2
     [tags]    test_16
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Validar y hacer clic en el boton    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']    botonBandejaEntrada
-    Validar y hacer clic en el boton    //tbody/tr[1]/td[8]    flechaSiguiente
-    Validar y hacer clic en el boton    //h4[normalize-space()='Agregar Nota']    agregarNota
-    Validar y completar campo    //textarea[@id='action-notes']    Nota OperadorMesa    campoComentarioNota
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']   botonConfirmar
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
+    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Validar y hacer clic en el boton    //h4[normalize-space()='Enviar a Secretaria']    enviarASecretaria
-    Validar y completar campo    //textarea[@id='action-notes']    Enviar a Secretaria    campoComentario
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']    botonConfirmar
+    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
+    Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Consulta Tributaria Correcta Paso 3
@@ -312,15 +279,15 @@ Consulta Tributaria Correcta Paso 3
     [tags]    test_17
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Validar y hacer clic en el boton    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']    botonBandejaEntrada
-    Validar y hacer clic en el boton    //tbody/tr[1]/td[8]    flechaSiguiente
-    Validar y hacer clic en el boton    //h4[normalize-space()='Agregar Nota']    agregarNota
-    Validar y completar campo    //textarea[@id='action-notes']    Nota Secretaria    campoComentarios
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']   botonConfirmar
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y completar campo    ${campoComentario}    Nota Secretaria    campoComentarios
+    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Validar y hacer clic en el boton    //h4[normalize-space()='Para Resolver']    paraResolver
-    Validar y completar campo    //textarea[@id='action-notes']    Para Resolver    campoComentario
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']    botonConfirmar
+    Validar y hacer clic en el boton    ${paraResolver}    paraResolver
+    Validar y completar campo    ${campoComentario}    Para Resolver    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Consulta Tributaria Correcta Paso 4
@@ -328,16 +295,15 @@ Consulta Tributaria Correcta Paso 4
     [tags]    test_18
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Pause Execution
-    Validar y hacer clic en el boton    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']    botonBandejaEntrada
-    Validar y hacer clic en el boton    //tbody/tr[1]/td[1]    flechaSiguiente
-    Validar y hacer clic en el boton    //h4[normalize-space()='Agregar Nota']    agregarNota
-    Validar y completar campo    //textarea[@id='action-notes']    Nota Gestion    campoComentarios
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']   botonConfirmar
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y completar campo    ${campoComentario}    Nota Gestion    campoComentarios
+    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Validar y hacer clic en el boton    //h4[normalize-space()='Aprobar']    Aprobar
-    Validar y completar campo    //textarea[@id='action-notes']    Aprobado    campoComentario
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']    botonConfirmar
+    Validar y hacer clic en el boton    ${botonAprobar}    botonAprobar
+    Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Consulta Tributaria Correcta Paso 5
@@ -345,23 +311,15 @@ Consulta Tributaria Correcta Paso 5
     [tags]    test_19
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Validar y hacer clic en el boton    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']    botonBandejaEntrada
-    Validar y hacer clic en el boton    //tbody/tr[1]/td[8]    flechaSiguiente
-    Validar y hacer clic en el boton    //h4[normalize-space()='Agregar Nota']    agregarNota
-    Validar y hacer clic en el boton    //button[normalize-space()='Cancelar']    botonCancelar
-    Validar y hacer clic en el boton    //h4[normalize-space()='Informar al Contribuyente']    informarContribuyente
-    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']    botonConfirmar
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
+    Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-*** Keywords ***
 
-Verificar Boton Sin Fallar
-    [Arguments]    ${locator}    ${nombreBoton}
-
-    ${status}    ${value}=    Run Keyword And Ignore Error    Element Should Be Visible    ${locator}
-
-    Run Keyword If    '${status}' == 'FAIL'    Log    El botón con locator ${nombreBoton} NO está visible (Error: ${value})    WARN
-    Run Keyword If    '${status}' == 'PASS'    Log To Console    El botón con locator ${nombreBoton} está visible.
 
 
 
