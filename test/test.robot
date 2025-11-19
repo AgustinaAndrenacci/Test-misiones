@@ -23,23 +23,12 @@ ${PASSWORD}          TuContraseñaSegura
 *** Test Cases ***
 Login
     # Usa la keyword robusta para abrir el navegador
-    Abrir Navegador Robusto
+    Abrir Navegador en modo incognito
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestaña personal
     Iniciar sesion  gestion  admin123  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar presencia de  ${tituloPagina}  No se pudo iniciar sesion
 
 *** Keywords ***
-Abrir Navegador Robusto
-    [Documentation]    Abre el navegador usando la función de Python para configurar opciones.
-
-    # 1. Llama a la función de Python para obtener el objeto Options
-    ${chrome_options_object}=    get chrome options
-
-    #options: configuracion para abrir el navegador
-    Open Browser    ${URL}    ${BROWSER}    options=${chrome_options_object}
-
-    Maximize Browser Window
-
 Verificar presencia de... con...
     [Arguments]    ${campo_localizador}    ${frase_texto}
 
