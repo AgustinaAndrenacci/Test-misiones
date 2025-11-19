@@ -32,6 +32,24 @@ ${pruebaBoton}    //h4[normalize-space()='No Corresponde']
 
 ***Test Cases***
 
+Consulta Tributaria Correcta Paso 4
+    [Documentation]    Entra como Gestion para continuar con el proceso
+    [tags]    test_18
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Pause Execution
+    Validar y hacer clic en el boton    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']    botonBandejaEntrada
+    Validar y hacer clic en el boton    //tbody/tr[1]/td[1]    flechaSiguiente
+    Validar y hacer clic en el boton    //h4[normalize-space()='Agregar Nota']    agregarNota
+    Validar y completar campo    //textarea[@id='action-notes']    Nota Gestion    campoComentarios
+    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']   botonConfirmar
+    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Validar y hacer clic en el boton    //h4[normalize-space()='Aprobar']    Aprobar
+    Validar y completar campo    //textarea[@id='action-notes']    Aprobado    campoComentario
+    Validar y hacer clic en el boton    //button[normalize-space()='Confirmar']    botonConfirmar
+    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+
+
 Consulta Tributaria Documentacion NoCorresponde Paso 1
     [Documentation]    Crear una nueva consulta tributaria sin completar
     [tags]    test_01

@@ -11,6 +11,9 @@ Library  BuiltIn
 
 Abrir Navegador
     Open Browser    ${page}    ${browser}
+    ...    options=add_argument("--disable-features=PasswordManagerEnabled,LeakDetection,SafeBrowsingEnhancedProtection,SafeBrowsingProtectionLevel")
+    ...    options=add_argument("--disable-blink-features=AutomationControlled")
+    ...    options=add_argument("--password-store=basic")
     Maximize Browser Window
     Sleep    2s
 
