@@ -10,9 +10,9 @@ Library  BuiltIn
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Abrir Navegador
-    Open browser    ${page}    ${browser}
+    Open Browser    ${page}    ${browser}
     Maximize Browser Window
-    Sleep  2s
+    Sleep    2s
 
 Cerrar Navegador
     Close browser
