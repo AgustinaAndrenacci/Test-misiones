@@ -100,7 +100,3 @@ Verificar presencia de... con...
 Configuracion
     Abrir navegador
     Set Selenium Speed    0.1s
-
-
-hola
-esto es la nueva conf
