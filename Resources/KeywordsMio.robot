@@ -103,6 +103,14 @@ Contar Filas Reales En Tabla
 #Verificar Automatico------------------------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Validar Estado Primer Tramite
+    [Arguments]    ${locatorTabla}    @{permitidos}
+    ${primerEstadoCelda}=    Get WebElement    xpath=${locatorTabla}//tbody/tr[1]/td[3]
+    ${estado}=    Get Text    ${primerEstadoCelda}
+    Log to console    Estado del primer trámite: ${estado}
+    ${es_valido}=    Run Keyword And Return Status    Should Contain    ${permitidos}    ${estado}
+    Run Keyword If    not ${es_valido}    Fail    Aparecio el estado: '${estado}', cuando se esperaba que el tramite este en el estado: ${permitidos}
+
 Verificar Boton Sin Fallar
     [Arguments]    ${locator}    ${nombreBoton}
 

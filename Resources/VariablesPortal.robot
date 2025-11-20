@@ -66,7 +66,10 @@ ${informarContribuyente}    //h4[normalize-space()='Informar al Contribuyente']
 
 ${botonComenzarAhora}    //a[normalize-space()='Comenzar ahora']
 ${botonAniadir}    //button[normalize-space()='Añadir']
+${botonGuardarBorrador}    //button[normalize-space()='Guardar Borrador']
 ${botonEnviarSolicitud}    //button[normalize-space()='Enviar Solicitud']
+
+${tablaMisTramitesRecientes}    /html/body/div[2]/div/div[2]/main/div/div[3]/div/div[2]/div[2]/table
 
 ${select}    //select
 
