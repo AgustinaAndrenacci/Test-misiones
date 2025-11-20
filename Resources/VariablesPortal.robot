@@ -5,30 +5,39 @@ Library    Collections
 Library    BuiltIn
 
 ***Variables***
-#LOGIN-----------------------------------------------------------------------------------
-#----------------------------------------------------------------------------------------
-
+#Principal --------------------------------------------------------------------------------------
 ${browser}  Chrome
 ${page}  https://tsgqa.digitrack.com.ar/auth/signin
+
+#Usuarios --------------------------------------------------------------------------------------
 ${userCiudadano}  20401234560
 ${userCiudadano2}  20301112220
 ${passCiudadano}  123456
+
 ${userAdmin}  admin
 ${passAdmin}  Lpa23291
+
 ${userOperadorMesa}  operador.mesa
 ${userRespArea}  resp.area
 ${userSecretaria}  secretaria
 ${userGestion}  gestion
 ${pass}  admin123
+
 ${userFakeCorto}  asd
 ${passFake}  asd
 ${userFake}  123456789
 ${userFake7}  1234567
 ${userFake12}  123456789101112
 
-#MENU------------------------------------------------------------------------------------
-#----------------------------------------------------------------------------------------
-${tituloPagina}    //h1[normalize-space()='Portal del Ciudadano']
+#Pagina inicio-----------------------------------------------------------------------------------
+#Cerrar sesion///////////////////////////////////////////////
+${circuloUsuario}  css:.rounded-full
+${cerrarSesion}  //button[normalize-space()='Cerrar Sesión']
+${tituloPagina1}    //h1[normalize-space()='Portal del Ciudadano']
+${tituloPagina2}    //h1[normalize-space()='Portal de Administrador']
+
+#Pagina log-----------------------------------------------------------------------------------
+${loginFrase}    //h3[normalize-space()='Iniciar Sesión']
 ${campoCuit}    //input[@id='cuit']
 ${campoClaveFiscal}    //input[@id='fiscal-password']
 ${campoMail}    //input[@id='identifier']

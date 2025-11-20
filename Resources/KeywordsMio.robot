@@ -168,6 +168,7 @@ ${tipo_valido}=    Run Keyword And Return Status    Should Contain    ${tipo_rea
 
 Verificar presencia de
     [Arguments]    ${elemento}    ${mensajeExtra}
+    Wait Until Element Is Visible    ${elemento}    timeout=7s
     ${existe} =    Run Keyword And Return Status    Page Should Contain Element    ${elemento}
     IF    not ${existe}
         Captura Screenshot In Log
@@ -772,6 +773,25 @@ Normalizar Texto Para Ordenamiento
     END
     RETURN    @{normalizada}
 
+Verificar presencia de... con...
+    [Arguments]    ${campo_localizador}    ${frase_texto}
+
+    #Verificar el texto esperado
+    ${status_texto}=    Run Keyword And Return Status    Wait Until Page Contains    ${frase_texto}
+
+    #Obtener el texto real del elemento
+    ${texto_real}=    Run Keyword And Ignore Error    Get Text    ${campo_localizador}
+    #Para que solo muestre la frase
+    ${texto_real}=    Set Variable    ${texto_real}[1]
+
+    #mensajes
+    Run Keyword If    ${status_texto}
+    ...    Log    ÉXITO: El mensaje "${frase_texto}" fue encontrado.
+    ...    ELSE
+    ...    Run Keywords
+    ...    KeywordsMio.Captura Screenshot In Log
+    ...    AND
+    ...    Fail    FALLO: No se encontró la frase esperada "${frase_texto}", sino que apareció: "${texto_real}".
 
 
 
