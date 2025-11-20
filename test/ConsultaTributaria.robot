@@ -20,9 +20,29 @@ Test Teardown  Cerrar navegador
 
 ***Test Cases***
 
+Consulta Tributaria Correcta Paso 1
+    [Documentation]    Crear una nueva consulta tributaria
+    [tags]    test_01
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
+    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
+    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test1    asuntoConsultaTributaria
+    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test1  detalleConsultaTributaria
+    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+    Choose File    ${InputTypeFile}    ${FILE}
+    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+    Choose File    ${InputTypeFile}    ${FILE}
+    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
+    Choose File    ${InputTypeFile}    ${FILE}
+    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+    Validar y hacer clic en el boton    ${botonGuardarBorrador}    botonGuardarBorrador
+    Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
+
 Consulta Tributaria Solicitar Datos Adicionales Paso 1
     [Documentation]    Crear una nueva consulta tributaria sin agregar abjuntos
-    [tags]    test_01
+    [tags]    test_02
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
@@ -31,13 +51,13 @@ Consulta Tributaria Solicitar Datos Adicionales Paso 1
 
 Consulta Tributaria Solicitar Datos Adicionales Chequear Estado Desde Usuario Paso 1
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
-    [tags]    test_02
+    [tags]    test_03
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Pendiente
 
 Consulta Tributaria Solicitar Datos Adicionales Paso 2
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "Solicitar Datos Adicionales"
-    [tags]    test_03
+    [tags]    test_04
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -53,13 +73,13 @@ Consulta Tributaria Solicitar Datos Adicionales Paso 2
 
 Consulta Tributaria Solicitar Datos Adicionales Chequear Estado Desde Usuario Paso 2
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
-    [tags]    test_04
+    [tags]    test_05
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Pendiente Contribuyente
 
 Consulta Tributaria Documentacion NoCorresponde Paso 1
     [Documentation]    Crear una nueva consulta tributaria sin agregar abjuntos
-    [tags]    test_05
+    [tags]    test_06
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
@@ -68,13 +88,13 @@ Consulta Tributaria Documentacion NoCorresponde Paso 1
 
 Consulta Tributaria Documentacion NoCorresponde Chequear Estado Desde Usuario Paso 1
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
-    [tags]    test_06
+    [tags]    test_07
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Pendiente
 
 Consulta Tributaria Documentacion NoCorresponde Paso 2
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "No Corresponde"
-    [tags]    test_07
+    [tags]    test_08
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -90,13 +110,13 @@ Consulta Tributaria Documentacion NoCorresponde Paso 2
 
 Consulta Tributaria Documentacion NoCorresponde Chequear Estado Desde Usuario Paso 2
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
-    [tags]    test_08
+    [tags]    test_09
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Cerrado
 
 Consulta Tributaria Devuelto a Mesa de Entrada Paso 1
     [Documentation]    Crear una nueva consulta tributaria completando todos los campos
-    [tags]    test_09
+    [tags]    test_10
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
@@ -116,13 +136,13 @@ Consulta Tributaria Devuelto a Mesa de Entrada Paso 1
 
 Consulta Tributaria Devuelto a Mesa de Entrada Chequear Estado Desde Usuario Paso 1
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
-    [tags]    test_10
+    [tags]    test_11
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Pendiente
 
 Consulta Tributaria Devuelto a Mesa de Entrada Paso 2
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
-    [tags]    test_11
+    [tags]    test_12
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -138,13 +158,13 @@ Consulta Tributaria Devuelto a Mesa de Entrada Paso 2
 
 Consulta Tributaria Devuelto a Mesa de Entrada Chequear Estado Desde Usuario Paso 2
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
-    [tags]    test_12
+    [tags]    test_13
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
 
 Consulta Tributaria Devuelto a Mesa de Entrada Paso 3
     [Documentation]    Entra como Secretaria para continuar con el proceso dandole a la opcion "No Corresponde" devolviendo el tramite hacia Mesa de Entrada.
-    [tags]    test_13
+    [tags]    test_14
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -160,13 +180,13 @@ Consulta Tributaria Devuelto a Mesa de Entrada Paso 3
 
 Consulta Tributaria Devuelto a Mesa de Entrada Chequear Estado Desde Usuario Paso 3
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
-    [tags]    test_14
+    [tags]    test_15
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
 
 Consulta Tributaria Devuelto a Mesa de Entrada Paso 4
     [Documentation]    Entra como operador mesa entrada, verifica que los botones del operador se encuentren disponibles, y continua con el proceso del tramite enviandolo a secretaria nuevamente
-    [tags]    test_15
+    [tags]    test_16
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -184,13 +204,13 @@ Consulta Tributaria Devuelto a Mesa de Entrada Paso 4
 
 Consulta Tributaria Devuelto a Mesa de Entrada Chequear Estado Desde Usuario Paso 4
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
-    [tags]    test_16
+    [tags]    test_17
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
 
 Consulta Tributaria Devuelto a Mesa de Entrada Paso 5
     [Documentation]    Entra como Secretaria para continuar con el proceso, ahora si utilizando la opcion "Para Resolver" enviandolo hacia Gestion
-    [tags]    test_17
+    [tags]    test_18
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -206,13 +226,13 @@ Consulta Tributaria Devuelto a Mesa de Entrada Paso 5
 
 Consulta Tributaria Devuelto a Mesa de Entrada Chequear Estado Desde Usuario Paso 5
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
-    [tags]    test_18
+    [tags]    test_19
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
 
 Consulta Tributaria Devuelto a Mesa de Entrada Paso 6
     [Documentation]    Entra como Gestion aprobando el tramite para continuar con el proceso
-    [tags]    test_19
+    [tags]    test_20
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -228,7 +248,7 @@ Consulta Tributaria Devuelto a Mesa de Entrada Paso 6
 
 Consulta Tributaria Devuelto a Mesa de Entrada Paso 7
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso
-    [tags]    test_20
+    [tags]    test_21
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -241,13 +261,13 @@ Consulta Tributaria Devuelto a Mesa de Entrada Paso 7
 
 Consulta Tributaria Devuelto a Mesa de Entrada Chequear Estado Desde Usuario Paso 7
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
-    [tags]    test_21
+    [tags]    test_22
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Cerrado
 
 Consulta Tributaria Rechazado desde Gestion Paso 1
     [Documentation]    Crear una nueva consulta tributaria
-    [tags]    test_22
+    [tags]    test_23
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
@@ -261,13 +281,13 @@ Consulta Tributaria Rechazado desde Gestion Paso 1
 
 Consulta Tributaria Rechazado Chequear Estado Desde Usuario Paso 1
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
-    [tags]    test_23
+    [tags]    test_24
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Pendiente
 
 Consulta Tributaria Rechazado desde Gestion Paso 2
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
-    [tags]    test_24
+    [tags]    test_25
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -283,13 +303,13 @@ Consulta Tributaria Rechazado desde Gestion Paso 2
 
 Consulta Tributaria Rechazado Chequear Estado Desde Usuario Paso 2
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
-    [tags]    test_25
+    [tags]    test_26
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
 
 Consulta Tributaria Rechazado desde Gestion Paso 3
     [Documentation]    Entra como Secretaria para continuar con el proceso, utilizando la opcion "Para Resolver" enviandolo hacia Gestion
-    [tags]    test_26
+    [tags]    test_27
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -305,13 +325,13 @@ Consulta Tributaria Rechazado desde Gestion Paso 3
 
 Consulta Tributaria Rechazado Chequear Estado Desde Usuario Paso 3
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
-    [tags]    test_27
+    [tags]    test_28
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
 
 Consulta Tributaria Rechazado desde Gestion Paso 4
     [Documentation]     Entra como Gestion Rechazando el tramite y continua con el proceso
-    [tags]    test_28
+    [tags]    test_29
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -327,13 +347,13 @@ Consulta Tributaria Rechazado desde Gestion Paso 4
 
 Consulta Tributaria Rechazado Chequear Estado Desde Usuario Paso 4
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
-    [tags]    test_29
+    [tags]    test_30
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Resuelto
 
 Consulta Tributaria Rechazado desde Gestion Paso 5
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso, en este caso "Rechazado"
-    [tags]    test_30
+    [tags]    test_31
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -346,13 +366,13 @@ Consulta Tributaria Rechazado desde Gestion Paso 5
 
 Consulta Tributaria Rechazado Chequear Estado Desde Usuario Paso 5
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
-    [tags]    test_31
+    [tags]    test_32
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Cerrado
 
 Consulta Tributaria Correcta Paso 1
     [Documentation]    Crear una nueva consulta tributaria
-    [tags]    test_32
+    [tags]    test_33
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
@@ -376,13 +396,13 @@ Consulta Tributaria Correcta Paso 1
 
 Consulta Tributaria Correcta Chequear Estado Desde Usuario Paso 1
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
-    [tags]    test_33
+    [tags]    test_34
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Pendiente
 
 Consulta Tributaria Correcta Paso 2
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
-    [tags]    test_34
+    [tags]    test_35
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -398,13 +418,13 @@ Consulta Tributaria Correcta Paso 2
 
 Consulta Tributaria Correcta Chequear Estado Desde Usuario Paso 2
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
-    [tags]    test_35
+    [tags]    test_36
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
 
 Consulta Tributaria Correcta Paso 3
     [Documentation]    Entra como Secretaria para continuar con el proceso, utilizando la opcion "Para Resolver" enviandolo hacia Gestion
-    [tags]    test_36
+    [tags]    test_37
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -420,13 +440,13 @@ Consulta Tributaria Correcta Paso 3
 
 Consulta Tributaria Correcta Chequear Estado Desde Usuario Paso 3
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
-    [tags]    test_37
+    [tags]    test_38
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
 
 Consulta Tributaria Correcta Paso 4
     [Documentation]    Entra como Gestion y utiliza la opcion "Aprobar" para continuar con el proceso
-    [tags]    test_38
+    [tags]    test_39
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -442,13 +462,13 @@ Consulta Tributaria Correcta Paso 4
 
 Consulta Tributaria Correcta Chequear Estado Desde Usuario Paso 4
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
-    [tags]    test_39
+    [tags]    test_40
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Resuelto
 
 Consulta Tributaria Correcta Paso 5
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso, en este caso "Aprobado"
-    [tags]    test_40
+    [tags]    test_41
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -461,7 +481,7 @@ Consulta Tributaria Correcta Paso 5
 
 Consulta Tributaria Correcta Chequear Estado Desde Usuario Paso 5
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
-    [tags]    test_41
+    [tags]    test_42
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Cerrado
 
