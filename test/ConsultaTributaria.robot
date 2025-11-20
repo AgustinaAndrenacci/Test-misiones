@@ -17,11 +17,10 @@ Resource        ../Resources/VariablesPortal.robot
 Test Setup     Abrir Navegador en modo incognito
 Test Teardown  Cerrar navegador
 
-
 ***Test Cases***
 
-Consulta Tributaria Correcta Paso 1
-    [Documentation]    Crear una nueva consulta tributaria
+Consulta Tributaria Como Borrador Paso 1
+    [Documentation]    Crear una nueva consulta tributaria como borrador
     [tags]    test_01
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
