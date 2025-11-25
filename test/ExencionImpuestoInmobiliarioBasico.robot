@@ -26,7 +26,7 @@ ${UPLOAD_TEMPLOS}    xpath=//h4[contains(text(), 'Inmuebles destinados a templos
 
 ***Test Cases***
 
-ExencionImpuestoInmobiliarioBasico GuardarBorrador Paso 1
+Test 1 - ExencionImpuestoInmobiliarioBasico GuardarBorrador Paso 1
     [Documentation]    Crear una nueva ExencionImpuestoInmobiliarioBasico
     [tags]    test_01
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
@@ -43,13 +43,13 @@ ExencionImpuestoInmobiliarioBasico GuardarBorrador Paso 1
     Validar y hacer clic en el boton    ${botonGuardarBorrador}    botonGuardarBorrador
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
 
-ExencionImpuestoInmobiliarioBasico GuardarBorrador Chequear Estado Desde Usuario Paso 1
+Test 1 - ExencionImpuestoInmobiliarioBasico GuardarBorrador Chequear Estado Desde Usuario Paso 1
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     [tags]    test_02
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Borrador
 
-ExencionImpuestoInmobiliarioBasico Solicitar Datos Adicionales Paso 1
+Test 2 - ExencionImpuestoInmobiliarioBasico Solicitar Datos Adicionales Paso 1
     [Documentation]    Crear una nueva ExencionImpuestoInmobiliarioBasico sin agregar abjuntos
     [tags]    test_03
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
@@ -58,13 +58,13 @@ ExencionImpuestoInmobiliarioBasico Solicitar Datos Adicionales Paso 1
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
 
-ExencionImpuestoInmobiliarioBasico Solicitar Datos Adicionales Chequear Estado Desde Usuario Paso 1
+Test 2 - ExencionImpuestoInmobiliarioBasico Solicitar Datos Adicionales Chequear Estado Desde Usuario Paso 1
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     [tags]    test_04
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Pendiente
 
-ExencionImpuestoInmobiliarioBasico Solicitar Datos Adicionales Paso 2
+Test 2 - ExencionImpuestoInmobiliarioBasico Solicitar Datos Adicionales Paso 2
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "Solicitar Datos Adicionales"
     [tags]    test_05
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -80,13 +80,13 @@ ExencionImpuestoInmobiliarioBasico Solicitar Datos Adicionales Paso 2
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-ExencionImpuestoInmobiliarioBasico Solicitar Datos Adicionales Chequear Estado Desde Usuario Paso 2
+Test 2 - ExencionImpuestoInmobiliarioBasico Solicitar Datos Adicionales Chequear Estado Desde Usuario Paso 2
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     [tags]    test_06
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Pendiente Contribuyente
 
-ExencionImpuestoInmobiliarioBasico Documentacion NoCorresponde Paso 1
+Test 3 - ExencionImpuestoInmobiliarioBasico Documentacion NoCorresponde Paso 1
     [Documentation]    Crear una nueva ExencionImpuestoInmobiliarioBasico sin agregar abjuntos
     [tags]    test_07
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
@@ -95,13 +95,13 @@ ExencionImpuestoInmobiliarioBasico Documentacion NoCorresponde Paso 1
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
 
-ExencionImpuestoInmobiliarioBasico Documentacion NoCorresponde Chequear Estado Desde Usuario Paso 1
+Test 3 - ExencionImpuestoInmobiliarioBasico Documentacion NoCorresponde Chequear Estado Desde Usuario Paso 1
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     [tags]    test_08
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Pendiente
 
-ExencionImpuestoInmobiliarioBasico Documentacion NoCorresponde Paso 2
+Test 3 - ExencionImpuestoInmobiliarioBasico Documentacion NoCorresponde Paso 2
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "No Corresponde"
     [tags]    test_09
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -117,13 +117,13 @@ ExencionImpuestoInmobiliarioBasico Documentacion NoCorresponde Paso 2
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-ExencionImpuestoInmobiliarioBasico Documentacion NoCorresponde Chequear Estado Desde Usuario Paso 2
+Test 3 - ExencionImpuestoInmobiliarioBasico Documentacion NoCorresponde Chequear Estado Desde Usuario Paso 2
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     [tags]    test_10
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Cerrado
 
-ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Paso 1
+Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Paso 1
     [Documentation]    Crear una nueva ExencionImpuestoInmobiliarioBasico completando todos los campos
     [tags]    test_11
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
@@ -143,13 +143,13 @@ ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Paso 1
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
 
-ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Chequear Estado Desde Usuario Paso 1
+Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Chequear Estado Desde Usuario Paso 1
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     [tags]    test_12
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Pendiente
 
-ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Paso 2
+Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Paso 2
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
     [tags]    test_13
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -165,13 +165,13 @@ ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Paso 2
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Chequear Estado Desde Usuario Paso 2
+Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Chequear Estado Desde Usuario Paso 2
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     [tags]    test_14
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
 
-ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Paso 3
+Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Paso 3
     [Documentation]    Entra como Secretaria para continuar con el proceso dandole a la opcion "No Corresponde" devolviendo el tramite hacia Mesa de Entrada.
     [tags]    test_15
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -187,13 +187,13 @@ ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Paso 3
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Chequear Estado Desde Usuario Paso 3
+Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Chequear Estado Desde Usuario Paso 3
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     [tags]    test_16
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
 
-ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Paso 4
+Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Paso 4
     [Documentation]    Entra como operador mesa entrada, verifica que los botones del operador se encuentren disponibles, y continua con el proceso del tramite enviandolo a secretaria nuevamente
     [tags]    test_17
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -211,13 +211,13 @@ ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Paso 4
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Chequear Estado Desde Usuario Paso 4
+Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Chequear Estado Desde Usuario Paso 4
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     [tags]    test_18
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
 
-ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Paso 5
+Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Paso 5
     [Documentation]    Entra como Secretaria para continuar con el proceso, ahora si utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     [tags]    test_19
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -233,13 +233,13 @@ ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Paso 5
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Chequear Estado Desde Usuario Paso 5
+Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Chequear Estado Desde Usuario Paso 5
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     [tags]    test_20
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
 
-ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Paso 6
+Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Paso 6
     [Documentation]    Entra como Gestion aprobando el tramite para continuar con el proceso
     [tags]    test_21
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -255,9 +255,15 @@ ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Paso 6
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Paso 7
-    [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso
+Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Chequear Estado Desde Usuario Paso 7
+    [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     [tags]    test_22
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Resuelto
+
+Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Paso 7
+    [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso
+    [tags]    test_23
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -268,15 +274,15 @@ ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Paso 7
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Chequear Estado Desde Usuario Paso 7
+Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Chequear Estado Desde Usuario Paso 7
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
-    [tags]    test_23
+    [tags]    test_24
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Cerrado
 
-ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion Paso 1
+Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion Paso 1
     [Documentation]    Crear una nueva ExencionImpuestoInmobiliarioBasico
-    [tags]    test_24
+    [tags]    test_25
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExencionImpuestoInmobiliarioBasico}    botonExencionImpuestoInmobiliarioBasico
@@ -288,15 +294,15 @@ ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion Paso 1
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
 
-ExencionImpuestoInmobiliarioBasico Rechazado Chequear Estado Desde Usuario Paso 1
+Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado Chequear Estado Desde Usuario Paso 1
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
-    [tags]    test_25
+    [tags]    test_26
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Pendiente
 
-ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion Paso 2
+Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion Paso 2
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
-    [tags]    test_26
+    [tags]    test_27
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -310,13 +316,13 @@ ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion Paso 2
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-ExencionImpuestoInmobiliarioBasico Rechazado Chequear Estado Desde Usuario Paso 2
+Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado Chequear Estado Desde Usuario Paso 2
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     [tags]    test_27
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
 
-ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion Paso 3
+Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion Paso 3
     [Documentation]    Entra como Secretaria para continuar con el proceso, utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     [tags]    test_28
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -332,13 +338,13 @@ ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion Paso 3
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-ExencionImpuestoInmobiliarioBasico Rechazado Chequear Estado Desde Usuario Paso 3
+Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado Chequear Estado Desde Usuario Paso 3
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     [tags]    test_29
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
 
-ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion Paso 4
+Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion Paso 4
     [Documentation]     Entra como Gestion Rechazando el tramite y continua con el proceso
     [tags]    test_30
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -354,13 +360,13 @@ ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion Paso 4
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-ExencionImpuestoInmobiliarioBasico Rechazado Chequear Estado Desde Usuario Paso 4
+Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado Chequear Estado Desde Usuario Paso 4
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     [tags]    test_31
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Resuelto
 
-ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion Paso 5
+Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion Paso 5
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso, en este caso "Rechazado"
     [tags]    test_32
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -373,13 +379,13 @@ ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion Paso 5
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-ExencionImpuestoInmobiliarioBasico Rechazado Chequear Estado Desde Usuario Paso 5
+Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado Chequear Estado Desde Usuario Paso 5
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     [tags]    test_33
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Cerrado
 
-ExencionImpuestoInmobiliarioBasico Correcta Paso 1
+Test 6 - ExencionImpuestoInmobiliarioBasico Correcta Paso 1
     [Documentation]    Crear una nueva ExencionImpuestoInmobiliarioBasico
     [tags]    test_34
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
@@ -403,13 +409,13 @@ ExencionImpuestoInmobiliarioBasico Correcta Paso 1
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
 
-ExencionImpuestoInmobiliarioBasico Correcta Chequear Estado Desde Usuario Paso 1
+Test 6 - ExencionImpuestoInmobiliarioBasico Correcta Chequear Estado Desde Usuario Paso 1
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     [tags]    test_35
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Pendiente
 
-ExencionImpuestoInmobiliarioBasico Correcta Paso 2
+Test 6 - ExencionImpuestoInmobiliarioBasico Correcta Paso 2
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
     [tags]    test_36
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -425,13 +431,13 @@ ExencionImpuestoInmobiliarioBasico Correcta Paso 2
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-ExencionImpuestoInmobiliarioBasico Correcta Chequear Estado Desde Usuario Paso 2
+Test 6 - ExencionImpuestoInmobiliarioBasico Correcta Chequear Estado Desde Usuario Paso 2
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     [tags]    test_37
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
 
-ExencionImpuestoInmobiliarioBasico Correcta Paso 3
+Test 6 - ExencionImpuestoInmobiliarioBasico Correcta Paso 3
     [Documentation]    Entra como Secretaria para continuar con el proceso, utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     [tags]    test_38
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -447,13 +453,13 @@ ExencionImpuestoInmobiliarioBasico Correcta Paso 3
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-ExencionImpuestoInmobiliarioBasico Correcta Chequear Estado Desde Usuario Paso 3
+Test 6 - ExencionImpuestoInmobiliarioBasico Correcta Chequear Estado Desde Usuario Paso 3
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     [tags]    test_39
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
 
-ExencionImpuestoInmobiliarioBasico Correcta Paso 4
+Test 6 - ExencionImpuestoInmobiliarioBasico Correcta Paso 4
     [Documentation]    Entra como Gestion y utiliza la opcion "Aprobar" para continuar con el proceso
     [tags]    test_40
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -469,13 +475,13 @@ ExencionImpuestoInmobiliarioBasico Correcta Paso 4
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-ExencionImpuestoInmobiliarioBasico Correcta Chequear Estado Desde Usuario Paso 4
+Test 6 - ExencionImpuestoInmobiliarioBasico Correcta Chequear Estado Desde Usuario Paso 4
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     [tags]    test_41
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Resuelto
 
-ExencionImpuestoInmobiliarioBasico Correcta Paso 5
+Test 6 - ExencionImpuestoInmobiliarioBasico Correcta Paso 5
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso, en este caso "Aprobado"
     [tags]    test_42
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -488,7 +494,7 @@ ExencionImpuestoInmobiliarioBasico Correcta Paso 5
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-ExencionImpuestoInmobiliarioBasico Correcta Chequear Estado Desde Usuario Paso 5
+Test 6 - ExencionImpuestoInmobiliarioBasico Correcta Chequear Estado Desde Usuario Paso 5
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     [tags]    test_43
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
