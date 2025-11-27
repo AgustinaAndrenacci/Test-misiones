@@ -11,8 +11,8 @@ ${page}  https://tsgqa.digitrack.com.ar/auth/signin
 
 #Usuarios --------------------------------------------------------------------------------------
 ${userCiudadano}  20401234560
-${userCiudadano2}  20301112220
-${passCiudadano}  123456
+${userCiudadano2}  30709021296
+${passCiudadano}  1234
 
 ${userAdmin}  admin
 ${passAdmin}  Lpa23291
@@ -77,6 +77,9 @@ ${botonComenzarAhora}    //a[normalize-space()='Comenzar ahora']
 ${botonAniadir}    //button[normalize-space()='Añadir']
 ${botonGuardarBorrador}    //button[normalize-space()='Guardar Borrador']
 ${botonEnviarSolicitud}    //button[normalize-space()='Enviar Solicitud']
+
+${botonVerDetalle}    //a[contains(., 'Ver Detalle')]
+${botonExportarPDF}    //button[contains(., 'Exportar PDF')]
 
 ${tablaMisTramitesRecientes}    /html/body/div[2]/div/div[2]/main/div/div[3]/div/div[2]/div[2]/table
 
