@@ -42,16 +42,16 @@ Crear Consulta Tributaria
 #-------------MESA DE ENTRADA VIRTUAL----------------------
 
 Consulta Tributaria MesaEntrada verificar SubTitulo
-    [Documentation]
+    [Documentation]    Desde la Mesa de Entrada abre la Consulta Tributaria anteriormente creada y comprueba que el "subtitulo" sea visible y correcto
     [tags]    test_02
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
-    Verificar presencia de    //p[@class='text-muted-foreground']    El titulo no se encontro visible
+    Verificar presencia de    ${subtituloConsultaTributaria}    El titulo no se encontro visible
 
 Consulta Tributaria MesaEntrada Verificar NumeroTramite
-    [Documentation]
+    [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que el "Numero de Tramite" sea visible y correcto
     [tags]    test_03
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -61,17 +61,17 @@ Consulta Tributaria MesaEntrada Verificar NumeroTramite
     Verificar presencia parcial    ${NumeroTramite}    El Numero Tramite no se encontro visible
 
 Consulta Tributaria MesaEntrada Verificar Fecha de Creacion
-    [Documentation]
+    [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que el "Fecha de Creacion" sea visible y correcto
     [tags]    test_04
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
-    ${FECHA_COMPLETA}=    Get Text    xpath=//label[normalize-space(.)='Fecha de Creación']/following-sibling::p
+    ${FECHA_COMPLETA}=    Get Text    ${fechaCreacion}
     Comparar Fecha Creacion    ${FECHA_COMPLETA}
 
 Consulta Tributaria MesaEntrada Verificar Numero de Seguimiento
-    [Documentation]
+    [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que el "Fecha de Seguimiento" sea visible y correcto
     [tags]    test_05
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -81,7 +81,7 @@ Consulta Tributaria MesaEntrada Verificar Numero de Seguimiento
     Verificar Numero de Seguimiento    ${NumeroTramite}
 
 Consulta Tributaria MesaEntrada Verificar DatosPresentados Asunto
-    [Documentation]
+    [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Asunto"
     [tags]    test_06
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -90,7 +90,7 @@ Consulta Tributaria MesaEntrada Verificar DatosPresentados Asunto
     Validar Asunto    Asunto test1
 
 Consulta Tributaria MesaEntrada Verificar DatosPresentados Detalle
-    [Documentation]
+    [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Detalle"
     [tags]    test_07
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -99,7 +99,7 @@ Consulta Tributaria MesaEntrada Verificar DatosPresentados Detalle
     Validar Detalle    Descripcion test1
 
 Consulta Tributaria MesaEntrada verificar Estado
-    [Documentation]
+    [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que el "Estado del Tramite" sea visible y correcto
     [tags]    test_08
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -108,16 +108,16 @@ Consulta Tributaria MesaEntrada verificar Estado
     Validar Estado Del Tramite    Pendiente
 
 Consulta Tributaria MesaEntrada verificar Datos Ciudadano
-    [Documentation]
+    [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que los datos del ciudadano sean visibles y correctos
     [tags]    test_09
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
-    Validar Datos Identidad    CREDISER AR    30709021296@tsg.gob.ar    30709021296
+    Validar Datos Identidad    ${nombreCiudadano}    ${emailCiudadano}    ${cuitCiudadano}
 
 Consulta Tributaria MesaEntrada verificar Asignacion
-    [Documentation]
+    [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que los datos de "Asignacion" sean visibles y correctos
     [tags]    test_10
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -126,26 +126,26 @@ Consulta Tributaria MesaEntrada verificar Asignacion
     Validar Area Asignada    Mesa de Entrada Virtual
 
 Consulta Tributaria MesaEntrada verificar Boton Documentacion complementaria
-    [Documentation]
+    [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que se pueda agregar una "Documentacion complementaria" y subirla correctamente
     [tags]    test_11
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
-    Validar y hacer clic en el boton    //button[normalize-space()='Subir']    botonSubir
+    Validar y hacer clic en el boton    ${botonSubir}    botonSubir
     Choose File    ${InputTypeFile}    ${FILE}
-    Validar y completar campo    //textarea[@id='description']  Nota MesaEntrada  Descripcion
-    Validar y hacer clic en el boton    //button[normalize-space()='Subir Documento']  botonSubirDocumento
+    Validar y completar campo    ${campoDescripcion}  Nota MesaEntrada  Descripcion
+    Validar y hacer clic en el boton    ${botonSubirDocumento}  botonSubirDocumento
     Wait Until Page Contains    El documento se ha agregado correctamente al trámite.    timeout=10s
 
 Consulta Tributaria MesaEntrada verificar Historial
-    [Documentation]
+    [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y verificar que en el "Historial" se vean los mensajes de notas/cambios correspondientes
     [tags]    test_12
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
-    Validar y hacer clic en el boton    //h3[normalize-space()='Historial y Notas']    botonHistorial
+    Validar y hacer clic en el boton    ${historialAdmin}    botonHistorial
     Verificar presencia de    //p[normalize-space()='"Trámite enviado por el usuario."']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
     Verificar presencia de    //p[normalize-space()='"Se agregó el documento complementario: "Nota MesaEntrada""']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
 
@@ -163,16 +163,16 @@ Consulta Tributaria Enviar a Secretaria
 #-------------SECRETARIA----------------------
 
 Consulta Tributaria Secretaria verificar SubTitulo
-    [Documentation]
+    [Documentation]    Desde la Secretaria Dirección abre la Consulta Tributaria anteriormente creada y comprueba que el "subtitulo" sea visible y correcto
     [tags]    test_14
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
-    Verificar presencia de    //p[@class='text-muted-foreground']    El titulo no se encontro visible
+    Verificar presencia de    ${subtituloConsultaTributaria}    El titulo no se encontro visible
 
 Consulta Tributaria Secretaria Verificar NumeroTramite
-    [Documentation]
+    [Documentation]    Desde la Secretaria Dirección, abre la Consulta Tributaria y comprueba que el "Numero de Tramite" sea visible y correcto
     [tags]    test_15
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -182,17 +182,17 @@ Consulta Tributaria Secretaria Verificar NumeroTramite
     Verificar presencia parcial    ${NumeroTramite}    El Numero Tramite no se encontro visible
 
 Consulta Tributaria Secretaria Verificar Fecha de Creacion
-    [Documentation]
+    [Documentation]    Desde la Secretaria Dirección, abre la Consulta Tributaria y comprueba que el "Fecha de Creacion" sea visible y correcto
     [tags]    test_16
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
-    ${FECHA_COMPLETA}=    Get Text    xpath=//label[normalize-space(.)='Fecha de Creación']/following-sibling::p
+    ${FECHA_COMPLETA}=    Get Text    ${fechaCreacion}
     Comparar Fecha Creacion    ${FECHA_COMPLETA}
 
 Consulta Tributaria Secretaria Verificar Numero de Seguimiento
-    [Documentation]
+    [Documentation]    Desde la Secretaria Dirección, abre la Consulta Tributaria y comprueba que el "Fecha de Seguimiento" sea visible y correcto
     [tags]    test_17
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -202,7 +202,7 @@ Consulta Tributaria Secretaria Verificar Numero de Seguimiento
     Verificar Numero de Seguimiento    ${NumeroTramite}
 
 Consulta Tributaria Secretaria Verificar DatosPresentados Asunto
-    [Documentation]
+    [Documentation]    Desde la Secretaria Dirección, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Asunto"
     [tags]    test_18
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -211,7 +211,7 @@ Consulta Tributaria Secretaria Verificar DatosPresentados Asunto
     Validar Asunto    Asunto test1
 
 Consulta Tributaria Secretaria Verificar DatosPresentados Detalle
-    [Documentation]
+    [Documentation]    Desde la Secretaria Dirección, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Detalle"
     [tags]    test_19
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -220,7 +220,7 @@ Consulta Tributaria Secretaria Verificar DatosPresentados Detalle
     Validar Detalle    Descripcion test1
 
 Consulta Tributaria Secretaria verificar Estado
-    [Documentation]
+    [Documentation]    Desde la Secretaria Dirección, abre la Consulta Tributaria y comprueba que el "Estado del Tramite" sea visible y correcto
     [tags]    test_20
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -229,16 +229,16 @@ Consulta Tributaria Secretaria verificar Estado
     Validar Estado Del Tramite    Asignado
 
 Consulta Tributaria Secretaria verificar Datos Ciudadano
-    [Documentation]
+    [Documentation]    Desde la Secretaria Dirección, abre la Consulta Tributaria y comprueba que los datos del ciudadano sean visibles y correctos
     [tags]    test_21
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
-    Validar Datos Identidad    CREDISER AR    30709021296@tsg.gob.ar    30709021296
+    Validar Datos Identidad    ${nombreCiudadano}    ${emailCiudadano}    ${cuitCiudadano}
 
 Consulta Tributaria Secretaria verificar Asignacion
-    [Documentation]
+    [Documentation]    Desde la Secretaria Dirección, abre la Consulta Tributaria y comprueba que los datos de "Asignacion" sean visibles y correctos
     [tags]    test_22
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -247,26 +247,26 @@ Consulta Tributaria Secretaria verificar Asignacion
     Validar Area Asignada    Secretaria Dirección
 
 Consulta Tributaria Secretaria verificar Boton Documentacion complementaria
-    [Documentation]
+    [Documentation]    Desde la Secretaria Dirección, abre la Consulta Tributaria y comprueba que se pueda agregar una "Documentacion complementaria" y subirla correctamente
     [tags]    test_23
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
-    Validar y hacer clic en el boton    //button[normalize-space()='Subir']    botonSubir
+    Validar y hacer clic en el boton    ${botonSubir}    botonSubir
     Choose File    ${InputTypeFile}    ${FILE}
-    Validar y completar campo    //textarea[@id='description']  Nota Secretaria  Descripcion
-    Validar y hacer clic en el boton    //button[normalize-space()='Subir Documento']  botonSubirDocumento
+    Validar y completar campo    ${campoDescripcion}  Nota Secretaria  Descripcion
+    Validar y hacer clic en el boton    ${botonSubirDocumento}  botonSubirDocumento
     Wait Until Page Contains    El documento se ha agregado correctamente al trámite.    timeout=10s
 
 Consulta Tributaria Secretaria verificar Historial
-    [Documentation]
+    [Documentation]    Desde la Secretaria Dirección, abre la Consulta Tributaria y verificar que en el "Historial" se vean los mensajes de notas/cambios correspondientes
     [tags]    test_24
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}     ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
-    Validar y hacer clic en el boton    //h3[normalize-space()='Historial y Notas']    botonHistorial
+    Validar y hacer clic en el boton    ${historialAdmin}    botonHistorial
     Verificar presencia de    //p[normalize-space()='"Acción ejecutada: Enviar a Secretaria"']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
     Verificar presencia de    //p[normalize-space()='"Se agregó el documento complementario: "Nota Secretaria""']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
 
@@ -284,16 +284,16 @@ Consulta Tributaria Enviar a Gestion
 #-------------GESTION----------------------
 
 Consulta Tributaria Gestion verificar SubTitulo
-    [Documentation]
+    [Documentation]    Desde la Gestión Dirección abre la Consulta Tributaria anteriormente creada y comprueba que el "subtitulo" sea visible y correcto
     [tags]    test_26
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
-    Verificar presencia de    //p[@class='text-muted-foreground']    El titulo no se encontro visible
+    Verificar presencia de    ${subtituloConsultaTributaria}    El titulo no se encontro visible
 
 Consulta Tributaria Gestion Verificar NumeroTramite
-    [Documentation]
+    [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que el "Numero de Tramite" sea visible y correcto
     [tags]    test_27
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -303,17 +303,17 @@ Consulta Tributaria Gestion Verificar NumeroTramite
     Verificar presencia parcial    ${NumeroTramite}    El Numero Tramite no se encontro visible
 
 Consulta Tributaria Gestion Verificar Fecha de Creacion
-    [Documentation]
+    [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que el "Fecha de Creacion" sea visible y correcto
     [tags]    test_28
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
-    ${FECHA_COMPLETA}=    Get Text    xpath=//label[normalize-space(.)='Fecha de Creación']/following-sibling::p
+    ${FECHA_COMPLETA}=    Get Text    ${fechaCreacion}
     Comparar Fecha Creacion    ${FECHA_COMPLETA}
 
 Consulta Tributaria Gestion Verificar Numero de Seguimiento
-    [Documentation]
+    [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que el "Fecha de Seguimiento" sea visible y correcto
     [tags]    test_29
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -323,7 +323,7 @@ Consulta Tributaria Gestion Verificar Numero de Seguimiento
     Verificar Numero de Seguimiento    ${NumeroTramite}
 
 Consulta Tributaria Gestion Verificar DatosPresentados Asunto
-    [Documentation]
+    [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Asunto"
     [tags]    test_30
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -332,7 +332,7 @@ Consulta Tributaria Gestion Verificar DatosPresentados Asunto
     Validar Asunto    Asunto test1
 
 Consulta Tributaria Gestion Verificar DatosPresentados Detalle
-    [Documentation]
+    [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Detalle"
     [tags]    test_31
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -341,7 +341,7 @@ Consulta Tributaria Gestion Verificar DatosPresentados Detalle
     Validar Detalle    Descripcion test1
 
 Consulta Tributaria Gestion verificar Estado
-    [Documentation]
+    [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que el "Estado del Tramite" sea visible y correcto
     [tags]    test_32
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -350,16 +350,16 @@ Consulta Tributaria Gestion verificar Estado
     Validar Estado Del Tramite    En revisión
 
 Consulta Tributaria Gestion verificar Datos Ciudadano
-    [Documentation]
+    [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que los datos del ciudadano sean visibles y correctos
     [tags]    test_33
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
-    Validar Datos Identidad    CREDISER AR    30709021296@tsg.gob.ar    30709021296
+    Validar Datos Identidad    ${nombreCiudadano}    ${emailCiudadano}    ${cuitCiudadano}
 
 Consulta Tributaria Gestion verificar Asignacion
-    [Documentation]
+    [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que los datos de "Asignacion" sean visibles y correctos
     [tags]    test_34
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -368,26 +368,26 @@ Consulta Tributaria Gestion verificar Asignacion
     Validar Area Asignada    Gestión Dirección
 
 Consulta Tributaria Gestion verificar Boton Documentacion complementaria
-    [Documentation]
+    [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que se pueda agregar una "Documentacion complementaria" y subirla correctamente
     [tags]    test_35
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
-    Validar y hacer clic en el boton    //button[normalize-space()='Subir']    botonSubir
+    Validar y hacer clic en el boton    ${botonSubir}    botonSubir
     Choose File    ${InputTypeFile}    ${FILE}
-    Validar y completar campo    //textarea[@id='description']  Nota Gestion  Descripcion
-    Validar y hacer clic en el boton    //button[normalize-space()='Subir Documento']  botonSubirDocumento
+    Validar y completar campo    ${campoDescripcion}  Nota Gestion  Descripcion
+    Validar y hacer clic en el boton    ${botonSubirDocumento}  botonSubirDocumento
     Wait Until Page Contains    El documento se ha agregado correctamente al trámite.    timeout=10s
 
 Consulta Tributaria Secretaria verificar Historial
-    [Documentation]
+    [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y verificar que en el "Historial" se vean los mensajes de notas/cambios correspondientes
     [tags]    test_36
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}     ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
-    Validar y hacer clic en el boton    //h3[normalize-space()='Historial y Notas']    botonHistorial
+    Validar y hacer clic en el boton    ${historialAdmin}    botonHistorial
     Verificar presencia de    //p[normalize-space()='"Acción ejecutada: Para Resolver"']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
     Verificar presencia de    //p[normalize-space()='"Se agregó el documento complementario: "Nota Gestion""']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
 
@@ -405,7 +405,7 @@ Consulta Tributaria Aprobado Enviar a MesaEntrada
 #-------------APROBADO Y MESA DE ENTRADA VIRTUAL----------------------
 
 Consulta Tributaria MesaEntrada verificar Estado Aprobado
-    [Documentation]
+    [Documentation]    Nuevamente entra a la Mesa de Entrada, abre la Consulta Tributaria y comprueba que el "Estado del Tramite" sea visible y correcto. En este caso buscando el estado Aprobado
     [tags]    test_38
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -414,13 +414,13 @@ Consulta Tributaria MesaEntrada verificar Estado Aprobado
     Validar Estado Del Tramite    Aprobado
 
 Consulta Tributaria MesaEntrada verificar Historial Aprobado
-    [Documentation]
+    [Documentation]    Nuevamente entra a la Mesa de Entrada, abre la Consulta Tributaria y verificar que en el "Historial" se vean los mensajes de notas/cambios correspondientes
     [tags]    test_39
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
-    Validar y hacer clic en el boton    //h3[normalize-space()='Historial y Notas']    botonHistorial
+    Validar y hacer clic en el boton    ${historialAdmin}    botonHistorial
     Verificar presencia de    //p[normalize-space()='"Acción ejecutada: Aprobar"']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
 
 Consulta Tributaria Informar al Contribuyente
@@ -434,108 +434,3 @@ Consulta Tributaria Informar al Contribuyente
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-
-*** Keywords ***
-
-Verificar Numero de Seguimiento
-    [Arguments]    ${codigo_esperado}
-    Wait Until Element Is Visible    //label[normalize-space()='Número de Seguimiento']    timeout=5s
-    Log    El <p> con clase 'text-muted-foreground mt-1' está visible
-    ${codigo_actual}=    Get Text    (//p[@class='font-mono'])[1]
-    Log    Codigo de tramite capturado: ${codigo_actual}
-    Run Keyword If    '${codigo_actual}' != '${codigo_esperado}'    Fail    El Numero de Seguimiento no coincide con el esperado. Se esperaba: '${codigo_esperado}', sin embargo aparecio: '${codigo_actual}'
-    Log    El asunto coincide con el valor esperado
-
-
-Verificar presencia parcial
-    [Arguments]    ${textoEsperado}    ${mensajeExtra}
-    Wait Until Page Contains    ${textoEsperado}    timeout=7s
-    ${existe}=    Run Keyword And Return Status    Page Should Contain    ${textoEsperado}
-    IF    not ${existe}
-        Captura Screenshot In Log
-        Fail    ${mensajeExtra}
-    END
-    Sleep    2s
-
-
-Extraer Fecha Creado
-    ${FECHA_CREADO_RAW}=    Get Text    //label[normalize-space()='Fecha de Creación']
-    ${FECHA_CREADO_LIMPIA}=    Replace String    ${FECHA_CREADO_RAW}    Creado:    ${EMPTY}
-    RETURN    ${FECHA_CREADO_LIMPIA}
-
-Comparar Fecha Creacion
-    [Arguments]    ${FECHA_RAW}
-    ${partes}=    Split String    ${FECHA_RAW}    ,
-    ${FECHA_SOLO}=    Strip String    ${partes[0]}
-    Log To Console    Fecha sin hora: ${FECHA_SOLO}
-
-    ${FECHA_ISO}=    Convertir Fecha Slash A ISO    ${FECHA_SOLO}
-    ${FECHA_ACTUAL}=    Get Current Date    result_format=%Y-%m-%d
-
-    Log To Console    Fecha actual: ${FECHA_ACTUAL}
-    Log To Console    Fecha extraída (ISO): ${FECHA_ISO}
-
-    Should Be Equal    ${FECHA_ISO}    ${FECHA_ACTUAL}
-    Log To Console    La fecha de creación coincide con la fecha actual
-
-Convertir Fecha Slash A ISO
-    [Arguments]    ${fecha_slash}
-    ${partes}=    Split String    ${fecha_slash}    /
-    ${dia}=    Strip String    ${partes[0]}
-    ${mes}=    Strip String    ${partes[1]}
-    ${anio}=    Strip String    ${partes[2]}
-    ${fecha_iso}=    Set Variable    ${anio}-${mes}-${dia.zfill(2)}
-    RETURN    ${fecha_iso}
-
-Validar Detalle
-    [Arguments]    ${detalle_esperado}
-    ${detalle_actual}=    Get Text    xpath=//span[normalize-space(.)='Detalle']/following-sibling::span
-    Log    Detalle capturado: ${detalle_actual}
-    Run Keyword If    '${detalle_actual}' != '${detalle_esperado}'    Fail    El detalle no coincide con el esperado. Se esperaba: '${detalle_esperado}', sin embargo aparecio: '${detalle_actual}'
-    Log    El detalle coincide con el valor esperado
-
-Validar Asunto
-    [Arguments]    ${asunto_esperado}
-    Wait Until Element Is Visible    xpath=//div[@class="flex flex-col"]    timeout=5s
-    Log    El bloque de asunto está visible
-    ${asunto_actual}=    Get Text    xpath=(//div[@class="flex flex-col"]/span)[2]
-    Log    Asunto capturado: ${asunto_actual}
-    Run Keyword If    '${asunto_actual}' != '${asunto_esperado}'    Fail    El asunto no coincide con el esperado. Se esperaba: '${asunto_esperado}', sin embargo aparecio: '${asunto_actual}'
-    Log    El asunto coincide con el valor esperado
-
-Validar Datos Identidad
-    [Arguments]    ${nombreEsperado}    ${emailEsperado}    ${dniEsperado}
-
-    ${nombreHTML}=    Get Text    xpath=//div[.//h3[normalize-space(.)='Ciudadano']]//h4[contains(@class, 'font-semibold')]
-    Log To Console    \nNombre extraido: ${nombreHTML}
-    Should Contain    ${nombreHTML}    ${nombreEsperado}
-
-    ${emailHTML}=    Get Text    xpath=//div[.//h3[normalize-space(.)='Ciudadano']]//p[contains(text(), '@')]
-    Log To Console    Email extraido: ${emailHTML}
-    Should Be Equal    ${emailHTML}    ${emailEsperado}
-
-    ${dniHTML}=    Get Text    xpath=//div[.//h3[normalize-space(.)='Ciudadano']]//p[contains(text(), 'DNI')]
-    Log To Console    DNI extraido: ${dniHTML}
-    Should Contain    ${dniHTML}    ${dniEsperado}
-
-
-Validar Area Asignada
-    [Arguments]    ${areaEsperada}
-    ${areaHTML}=    Get Text    xpath=//label[normalize-space(.)='Área Asignada']/following-sibling::div//span
-    Log To Console    Area extraida: ${areaHTML}
-
-    IF    "${areaHTML}" == "${areaEsperada}"
-        Log To Console    Area asignada coincide con la esperada
-    ELSE
-        Fail    Area asignada no coincide: se esperaba '${areaEsperada}' pero se encontró '${areaHTML}'
-    END
-
-Validar Estado Del Tramite
-    [Arguments]    ${estado_esperado}
-    ${visible}=    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=//span[normalize-space(text())='${estado_esperado}']    timeout=10s
-    IF    ${visible}
-        ${estado_actual}=    Get Text    xpath=//span[normalize-space(text())='${estado_esperado}']
-        Log    Estado validado correctamente: ${estado_actual}
-    ELSE
-        Fail    No se encontro visible el estado esperado.
-    END

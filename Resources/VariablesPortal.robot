@@ -70,6 +70,22 @@ ${botonAprobar}    //h4[normalize-space()='Aprobar']
 ${botonRechazar}    //h4[normalize-space()='Rechazar']
 ${informarContribuyente}    //h4[normalize-space()='Informar al Contribuyente']
 
+${subtituloConsultaTributaria}    //p[@class='text-muted-foreground']
+${fechaCreacion}    //label[normalize-space(.)='Fecha de Creación']/following-sibling::p
+
+${botonSubir}    //button[normalize-space()='Subir']
+${campoDescripcion}    //textarea[@id='description']
+${botonSubirDocumento}    //button[normalize-space()='Subir Documento']
+${historialAdmin}    //h3[normalize-space()='Historial y Notas']
+
+#------------------------------DATOS DEL CIUDADANO---------------------------------------
+#----------------------------------------------------------------------------------------
+
+${nombreCiudadano}    CREDISER AR
+${emailCiudadano}    30709021296@tsg.gob.ar
+${cuitCiudadano}    30709021296
+
+
 #-------------------------VARIABLES GLOBALES TRAMITE-------------------------------------
 #----------------------------------------------------------------------------------------
 
@@ -87,6 +103,16 @@ ${select}    //select
 
 ${InputTypeFile}    xpath=//input[@type='file']
 ${FILE}       C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/DniPrueba.png
+
+${tituloConsultaTributaria}    //h1[normalize-space()='Consulta Tributaria']
+${datosPresentados}    //h3[normalize-space()='Datos Presentados']
+
+${botonMesaAyuda}    //button[normalize-space()='Contactar con Mesa de Ayuda']
+${botonCancelarTramite}    //button[normalize-space()='Cancelar Trámite']
+${botonVolver}    //button[normalize-space()='Volver']
+${botonSiCancelar}    //button[normalize-space()='Sí, cancelar']
+
+${historialCiudadano}    //h3[normalize-space()='Historial y Comunicaciones']
 
 #--------------------------------CONSULTA TRIBUTARIA-------------------------------------
 #----------------------------------------------------------------------------------------
