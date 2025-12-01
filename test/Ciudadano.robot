@@ -135,7 +135,7 @@ Consulta Tributaria verificar Boton CancelarTramite
 
 Consulta Tributaria verificar Estado Cancelado
     [Documentation]    Verifica que el ciudadano pueda ver correctamente el Estado de la consulta tributaria
-    [tags]    test_08
+    [tags]    test_14
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonVerDetalle}    botonVerDetalle
     Validar Estado Del Tramite    Cancelado

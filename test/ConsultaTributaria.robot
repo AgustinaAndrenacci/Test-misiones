@@ -245,7 +245,7 @@ Test 5 - Consulta Tributaria Devuelto a Mesa de Entrada Paso 6
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 5 - Consulta Tributaria Devuelto a Mesa de Entrada Chequear Estado Desde Usuario Paso 5
+Test 5 - Consulta Tributaria Devuelto a Mesa de Entrada Chequear Estado Desde Usuario Paso 6
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     [tags]    test_21
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
