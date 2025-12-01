@@ -111,13 +111,42 @@ Validar Estado Primer Tramite
     ${es_valido}=    Run Keyword And Return Status    Should Contain    ${permitidos}    ${estado}
     Run Keyword If    not ${es_valido}    Fail    Aparecio el estado: '${estado}', cuando se esperaba que el tramite este en el estado: ${permitidos}
 
+Validar Estado Primer Tramite personal
+    [Arguments]    ${locatorTabla}    @{permitidos}
+    ${primerEstadoCelda}=    Get WebElement    xpath=${locatorTabla}//tbody/tr[1]/td[4]
+    ${estado}=    Get Text    ${primerEstadoCelda}
+    Log to console    Estado del primer trámite: ${estado}
+    ${es_valido}=    Run Keyword And Return Status    Should Contain    ${permitidos}    ${estado}
+    Run Keyword If    not ${es_valido}    Fail    Aparecio el estado: '${estado}', cuando se esperaba que el tramite este en el estado: ${permitidos}
+
+Validar Estado Primer inexistente
+    [Arguments]    ${locatorTabla}    @{estadoViene}
+    ${primerEstadoCelda}=    Get WebElement    xpath=${locatorTabla}//tbody/tr[1]/td[4]
+    ${estado}=    Get Text    ${primerEstadoCelda}
+    Log to console    Estado del primer trámite: ${estado}
+    ${es_valido}=    Run Keyword And Return Status    Should Contain    ${estadoViene}    ${estado}
+    Run Keyword If    ${es_valido}    Fail    Aparecio el estado: '${estado}', cuando no se deberia observar
+
+
 Verificar Boton Sin Fallar
     [Arguments]    ${locator}    ${nombreBoton}
 
+    #agregue: para desplazarme hasta el boton
     ${status}    ${value}=    Run Keyword And Ignore Error    Element Should Be Visible    ${locator}
 
     Run Keyword If    '${status}' == 'FAIL'    Log    El botón con locator ${nombreBoton} NO está visible (Error: ${value})    WARN
     Run Keyword If    '${status}' == 'PASS'    Log To Console    El botón con locator ${nombreBoton} está visible.
+
+
+Verificar si el boton no existe Sin Fallar
+    [Arguments]    ${locator}    ${nombreBoton}
+
+    #agregue: para desplazarme hasta el boton
+    ${status}    ${value}=    Run Keyword And Ignore Error    Element Should Be Visible    ${locator}
+
+    Run Keyword If    '${status}' == 'FAIL'    Log    El botón con locator ${nombreBoton} no esta visible y es correcto
+    Run Keyword If    '${status}' == 'PASS'    Log    El botón con locator ${nombreBoton} está visible y no deberia (Error: ${value})    WARN
+
 
 
 Verificar Toast

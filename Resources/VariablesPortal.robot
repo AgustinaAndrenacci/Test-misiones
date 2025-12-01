@@ -1,4 +1,4 @@
-    ***Settings***
+***Settings***
 Library    SeleniumLibrary
 Library    String
 Library    Collections
@@ -12,7 +12,8 @@ ${page}  https://tsgqa.digitrack.com.ar/auth/signin
 #Usuarios --------------------------------------------------------------------------------------
 ${userCiudadano}  20401234560
 ${userCiudadano2}  20301112220
-${passCiudadano}  123456
+${userCiudadano3}  30709021296
+${passCiudadano}  1234
 
 ${userAdmin}  admin
 ${passAdmin}  Lpa23291
@@ -55,6 +56,7 @@ ${pestañaPersonal}    //button[text()='Personal']
 
 ${botonBandejaEntrada}    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']
 ${abrirPrimerTramite}    //tbody/tr[1]/td[1]
+${abrirPrimerTramiteAgus}    //tbody/tr[1]/td[1]//a
 
 ${agregarNota}    //h4[normalize-space()='Agregar Nota']
 ${campoComentario}    //textarea[@id='action-notes']
@@ -69,6 +71,7 @@ ${paraResolver}    //h4[normalize-space()='Para Resolver']
 ${botonAprobar}    //h4[normalize-space()='Aprobar']
 ${botonRechazar}    //h4[normalize-space()='Rechazar']
 ${informarContribuyente}    //h4[normalize-space()='Informar al Contribuyente']
+${botonAgregarNota}    //button[normalize-space()='Agregar Nota']
 
 #-------------------------VARIABLES GLOBALES TRAMITE-------------------------------------
 #----------------------------------------------------------------------------------------
@@ -79,11 +82,14 @@ ${botonGuardarBorrador}    //button[normalize-space()='Guardar Borrador']
 ${botonEnviarSolicitud}    //button[normalize-space()='Enviar Solicitud']
 
 ${tablaMisTramitesRecientes}    /html/body/div[2]/div/div[2]/main/div/div[3]/div/div[2]/div[2]/table
+${tablaOperador}    /html/body/div[2]/div[2]/main/div/div[2]/div[2]/div
+${tablaCiudadano}    //div[@class='p-6 pt-0']
 
 ${select}    //select
 
 ${InputTypeFile}    xpath=//input[@type='file']
 ${FILE}       C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/DniPrueba.png
+${FILE2}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/ADJUNTO.pdf
 
 #--------------------------------CONSULTA TRIBUTARIA-------------------------------------
 #----------------------------------------------------------------------------------------
@@ -106,4 +112,28 @@ ${detalleConsultaVinculante}    //textarea[@id='cmh99w1ak0003n2v87az51vqy']
 ${botonExencionImpuestoInmobiliarioBasico}    //h3[normalize-space()='Exención de Impuesto Inmobiliario Básico']
 ${asuntoExencionImpuestoIB}    //input[@id='cmhy6sett000gnocln3chn0tn']
 ${detalleExencionImpuestoIB}    //textarea[@id='cmhy6t90w000inocljvj5tanb']
+
+#-----------------------------------NOTA FORMAL------------------------------------------
+#----------------------------------------------------------------------------------------
+${botonNotaFormal}    //h3[normalize-space()='Nota Formal']
+${asuntoNotaFormal}    //input[@id='cmgzsgypz000xn27sdc6h01o9']
+${detalleNotaFormal}    //input[@id='cmi6sfs9600v6no9fds4l7cwv']
+${contenidoNotaFormal}    //textarea[@id='cmgzsgyq00010n27ssk5kwr8x']
+
+
+#-------------------EXENCION IMPUESTO SOBRE LOS INGRESOS BRUTOS---------------------------------
+
+${botonExencionImpuestoSobreLosIngresosBrutos}    //h3[normalize-space()='Exención Impuesto sobre los Ingresos Brutos']
+${asuntoExencionImpuestoSobreLosIngresosBrutos}    //input[@id='cmhy6z41g000snocl92vpu6kd']
+${detalleExencionImpuestoSobreLosIngresosBrutos}    //textarea[@id='cmhy6z4ku000unocl3m3glkcl']
+
+#-------------------Exención Impuesto Provincial Automotor---------------------------------------
+${botonExencionImpuestoProvincialAutomotor}    //h3[normalize-space()='Exención Impuesto Provincial Automotor']
+${asuntoExencionImpuestoProvincialAutomotor}    //input[@id='cmhy6wocq000mnoclzrsuf9db']
+${detalleExencionImpuestoProvincialAutomotor}    //textarea[@id='cmhy6wqsv000onoclwrg7k7oo']
+
+#--------------------------Exención Impuesto de Sellos--------------------------------------------
+${botonExenciónImpuestoDeSellos}    //h3[normalize-space()='Exención Impuesto de Sellos']
+${asuntoExenciónImpuestoDeSellos}    //input[@id='cmhy6g6hz000anoclh53yu9v1']
+${detalleExenciónImpuestoDeSellos}    //textarea[@id='cmhy6k427000cnocl5n1cgb7e']
 
