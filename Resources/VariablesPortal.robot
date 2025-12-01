@@ -11,8 +11,8 @@ ${page}  https://tsgqa.digitrack.com.ar/auth/signin
 
 #Usuarios --------------------------------------------------------------------------------------
 ${userCiudadano}  20401234560
-${userCiudadano2}  20301112220
 ${userCiudadano3}  30709021296
+${userCiudadano2}  30709021296
 ${passCiudadano}  1234
 
 ${userAdmin}  admin
@@ -73,6 +73,22 @@ ${botonRechazar}    //h4[normalize-space()='Rechazar']
 ${informarContribuyente}    //h4[normalize-space()='Informar al Contribuyente']
 ${botonAgregarNota}    //button[normalize-space()='Agregar Nota']
 
+${subtituloConsultaTributaria}    //p[@class='text-muted-foreground']
+${fechaCreacion}    //label[normalize-space(.)='Fecha de Creación']/following-sibling::p
+
+${botonSubir}    //button[normalize-space()='Subir']
+${campoDescripcion}    //textarea[@id='description']
+${botonSubirDocumento}    //button[normalize-space()='Subir Documento']
+${historialAdmin}    //h3[normalize-space()='Historial y Notas']
+
+#------------------------------DATOS DEL CIUDADANO---------------------------------------
+#----------------------------------------------------------------------------------------
+
+${nombreCiudadano}    CREDISER AR
+${emailCiudadano}    30709021296@tsg.gob.ar
+${cuitCiudadano}    30709021296
+
+
 #-------------------------VARIABLES GLOBALES TRAMITE-------------------------------------
 #----------------------------------------------------------------------------------------
 
@@ -80,6 +96,9 @@ ${botonComenzarAhora}    //a[normalize-space()='Comenzar ahora']
 ${botonAniadir}    //button[normalize-space()='Añadir']
 ${botonGuardarBorrador}    //button[normalize-space()='Guardar Borrador']
 ${botonEnviarSolicitud}    //button[normalize-space()='Enviar Solicitud']
+
+${botonVerDetalle}    //a[contains(., 'Ver Detalle')]
+${botonExportarPDF}    //button[contains(., 'Exportar PDF')]
 
 ${tablaMisTramitesRecientes}    /html/body/div[2]/div/div[2]/main/div/div[3]/div/div[2]/div[2]/table
 ${tablaOperador}    /html/body/div[2]/div[2]/main/div/div[2]/div[2]/div
@@ -90,6 +109,16 @@ ${select}    //select
 ${InputTypeFile}    xpath=//input[@type='file']
 ${FILE}       C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/DniPrueba.png
 ${FILE2}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/ADJUNTO.pdf
+
+${tituloConsultaTributaria}    //h1[normalize-space()='Consulta Tributaria']
+${datosPresentados}    //h3[normalize-space()='Datos Presentados']
+
+${botonMesaAyuda}    //button[normalize-space()='Contactar con Mesa de Ayuda']
+${botonCancelarTramite}    //button[normalize-space()='Cancelar Trámite']
+${botonVolver}    //button[normalize-space()='Volver']
+${botonSiCancelar}    //button[normalize-space()='Sí, cancelar']
+
+${historialCiudadano}    //h3[normalize-space()='Historial y Comunicaciones']
 
 #--------------------------------CONSULTA TRIBUTARIA-------------------------------------
 #----------------------------------------------------------------------------------------

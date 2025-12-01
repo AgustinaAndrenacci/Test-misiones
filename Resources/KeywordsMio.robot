@@ -205,6 +205,26 @@ Verificar presencia de
     END
     Sleep  2s
 
+Verificar no presencia de
+    [Arguments]    ${elemento}    ${mensajeExtra}
+    Wait Until Element Is Visible    ${elemento}    timeout=7s
+    ${existe} =    Run Keyword And Return Status    Page Should Contain Element    ${elemento}
+    IF    ${existe}
+        Captura Screenshot In Log
+        Fail    ${mensajeExtra}
+    END
+    Sleep  2s
+
+Verificar presencia parcial
+    [Arguments]    ${textoEsperado}    ${mensajeExtra}
+    Wait Until Page Contains    ${textoEsperado}    timeout=7s
+    ${existe}=    Run Keyword And Return Status    Page Should Contain    ${textoEsperado}
+    IF    not ${existe}
+        Captura Screenshot In Log
+        Fail    ${mensajeExtra}
+    END
+    Sleep    2s
+
 Verificar Boton Con Texto
     [Arguments]    ${texto}
     ${xpath}=    Set Variable    xpath=//a[contains(@class, 'page-link') and normalize-space(.)='${texto}']
@@ -823,5 +843,164 @@ Verificar presencia de... con...
     ...    Fail    FALLO: No se encontró la frase esperada "${frase_texto}", sino que apareció: "${texto_real}".
 
 
+#    NUEVAS KEYWORDS   CIUDADANO/PERSONAL
 
 
+Validar Estado Del Tramite
+    [Arguments]    ${estado_esperado}
+    ${visible}=    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=//span[normalize-space(text())='${estado_esperado}']    timeout=10s
+    IF    ${visible}
+        ${estado_actual}=    Get Text    xpath=//span[normalize-space(text())='${estado_esperado}']
+        Log    Estado validado correctamente: ${estado_actual}
+    ELSE
+        Fail    No se encontro visible el estado esperado.
+    END
+
+Validar Detalle
+    [Arguments]    ${detalle_esperado}
+    ${detalle_actual}=    Get Text    xpath=//span[normalize-space(.)='Detalle']/following-sibling::span
+    Log    Detalle capturado: ${detalle_actual}
+    Run Keyword If    '${detalle_actual}' != '${detalle_esperado}'    Fail    El detalle no coincide con el esperado. Se esperaba: '${detalle_esperado}', sin embargo aparecio: '${detalle_actual}'
+    Log    El detalle coincide con el valor esperado
+
+Validar Asunto
+    [Arguments]    ${asunto_esperado}
+    Wait Until Element Is Visible    xpath=//div[@class="flex flex-col"]    timeout=5s
+    Log    El bloque de asunto está visible
+    ${asunto_actual}=    Get Text    xpath=(//div[@class="flex flex-col"]/span)[2]
+    Log    Asunto capturado: ${asunto_actual}
+    Run Keyword If    '${asunto_actual}' != '${asunto_esperado}'    Fail    El asunto no coincide con el esperado. Se esperaba: '${asunto_esperado}', sin embargo aparecio: '${asunto_actual}'
+    Log    El asunto coincide con el valor esperado
+
+Verificar Tramite Y Capturar Numero
+    [Arguments]    ${codigo_esperado}
+    Wait Until Element Is Visible    xpath=//p[@class="text-muted-foreground mt-1"]    timeout=5s
+    Log    El <p> con clase 'text-muted-foreground mt-1' está visible
+    ${codigo_actual}=    Get Text    xpath=//p[@class="text-muted-foreground mt-1"]/span[@class="font-mono"]
+    Log    Codigo de tramite capturado: ${codigo_actual}
+    Run Keyword If    '${codigo_actual}' != '${codigo_esperado}'    Fail    El asunto no coincide con el esperado. Se esperaba: '${codigo_esperado}', sin embargo aparecio: '${codigo_actual}'
+    Log    El asunto coincide con el valor esperado
+
+
+Extraer Fecha Creado
+    ${FECHA_CREADO_RAW}=    Get Text    xpath=//span[contains(text(), 'Creado')]
+    ${FECHA_CREADO_LIMPIA}=    Replace String    ${FECHA_CREADO_RAW}    Creado:    ${EMPTY}
+    RETURN    ${FECHA_CREADO_LIMPIA}
+
+Extraer Fecha Actualizado
+    ${FECHA_CREADO_RAW}=    Get Text    xpath=//span[contains(text(), 'Actualizado')]
+    ${FECHA_CREADO_LIMPIA}=    Replace String    ${FECHA_CREADO_RAW}    Actualizado:     ${EMPTY}
+    RETURN    ${FECHA_CREADO_LIMPIA}
+
+Comparar Fechas
+    [Arguments]    ${FECHA_EXTRAIDA_WEB}
+    # 1. Obtener la fecha actual en formato ISO
+    ${FECHA_ACTUAL_ISO}=    Get Current Date    result_format=%Y-%m-%d
+    Log To Console    Fecha Actual (ISO): ${FECHA_ACTUAL_ISO}
+
+    # 2. Convertir la fecha extraída de la web a ISO
+    ${FECHA_EXTRAIDA_ISO}=    Convertir Fecha Web A ISO    ${FECHA_EXTRAIDA_WEB}
+    Log To Console    Fecha Extraída (ISO): ${FECHA_EXTRAIDA_ISO}
+
+    # 3. Comparar las fechas
+    Should Be Equal    ${FECHA_ACTUAL_ISO}    ${FECHA_EXTRAIDA_ISO}
+    Log To Console    ¡Las fechas son iguales!
+
+Convertir Fecha Web A ISO
+    [Arguments]    ${fecha_web}
+    # Diccionario de meses abreviados en español
+    ${meses}=    Create Dictionary    ene=01    feb=02    mar=03    abr=04    may=05    jun=06    jul=07    ago=08    sep=09    oct=10    nov=11    dic=12
+
+    # Separar la cadena "26 de nov de 2025"
+    ${partes}=    Split String    ${fecha_web}    de
+    ${dia}=    Strip String    ${partes[0]}
+    ${mes_abrev}=    Strip String    ${partes[1]}
+    ${anio}=    Strip String    ${partes[2]}
+
+    ${mes}=    Get From Dictionary    ${meses}    ${mes_abrev}
+    ${fecha_iso}=    Set Variable    ${anio}-${mes}-${dia.zfill(2)}
+    RETURN    ${fecha_iso}
+
+Validar Acciones Disponibles
+    [Arguments]    ${fallar_si_hay_acciones}=False
+    ${visible}=    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=//h3[normalize-space()='Acciones Disponibles']    timeout=10s
+    IF    ${visible}
+        Log    Verificado: 'Acciones Disponibles' está visible
+        ${texto_acciones}=    Get Text    xpath=//p[contains(text(), 'acciones disponibles')]
+        Log    Texto encontrado: ${texto_acciones}
+
+        ${hay_acciones}=    Run Keyword And Return Status    Should Not Contain    ${texto_acciones}    No hay acciones disponibles
+
+        IF    ${hay_acciones}
+            Log    Hay acciones disponibles
+            IF    ${fallar_si_hay_acciones}
+                Fail    Se detectaron acciones disponibles, y no deberia haber acciones disponibles
+            END
+        ELSE
+            Log    No hay acciones disponibles
+            IF    not ${fallar_si_hay_acciones}
+                Fail    No hay acciones disponibles, y deberia haber acciones disponibles
+            END
+        END
+    ELSE
+        Fail    El apartado de 'Acciones Disponibles' no se encuentra visible
+    END
+
+Verificar Numero de Seguimiento
+    [Arguments]    ${codigo_esperado}
+    Wait Until Element Is Visible    //label[normalize-space()='Número de Seguimiento']    timeout=5s
+    Log    El <p> con clase 'text-muted-foreground mt-1' está visible
+    ${codigo_actual}=    Get Text    (//p[@class='font-mono'])[1]
+    Log    Codigo de tramite capturado: ${codigo_actual}
+    Run Keyword If    '${codigo_actual}' != '${codigo_esperado}'    Fail    El Numero de Seguimiento no coincide con el esperado. Se esperaba: '${codigo_esperado}', sin embargo aparecio: '${codigo_actual}'
+    Log    El asunto coincide con el valor esperado
+
+Comparar Fecha Creacion
+    [Arguments]    ${FECHA_RAW}
+    ${partes}=    Split String    ${FECHA_RAW}    ,
+    ${FECHA_SOLO}=    Strip String    ${partes[0]}
+    Log To Console    Fecha sin hora: ${FECHA_SOLO}
+
+    ${FECHA_ISO}=    Convertir Fecha Slash A ISO    ${FECHA_SOLO}
+    ${FECHA_ACTUAL}=    Get Current Date    result_format=%Y-%m-%d
+
+    Log To Console    Fecha actual: ${FECHA_ACTUAL}
+    Log To Console    Fecha extraída (ISO): ${FECHA_ISO}
+
+    Should Be Equal    ${FECHA_ISO}    ${FECHA_ACTUAL}
+    Log To Console    La fecha de creación coincide con la fecha actual
+
+Convertir Fecha Slash A ISO
+    [Arguments]    ${fecha_slash}
+    ${partes}=    Split String    ${fecha_slash}    /
+    ${dia}=    Strip String    ${partes[0]}
+    ${mes}=    Strip String    ${partes[1]}
+    ${anio}=    Strip String    ${partes[2]}
+    ${fecha_iso}=    Set Variable    ${anio}-${mes}-${dia.zfill(2)}
+    RETURN    ${fecha_iso}
+
+Validar Datos Identidad
+    [Arguments]    ${nombreEsperado}    ${emailEsperado}    ${dniEsperado}
+
+    ${nombreHTML}=    Get Text    xpath=//div[.//h3[normalize-space(.)='Ciudadano']]//h4[contains(@class, 'font-semibold')]
+    Log To Console    \nNombre extraido: ${nombreHTML}
+    Should Contain    ${nombreHTML}    ${nombreEsperado}
+
+    ${emailHTML}=    Get Text    xpath=//div[.//h3[normalize-space(.)='Ciudadano']]//p[contains(text(), '@')]
+    Log To Console    Email extraido: ${emailHTML}
+    Should Be Equal    ${emailHTML}    ${emailEsperado}
+
+    ${dniHTML}=    Get Text    xpath=//div[.//h3[normalize-space(.)='Ciudadano']]//p[contains(text(), 'DNI')]
+    Log To Console    DNI extraido: ${dniHTML}
+    Should Contain    ${dniHTML}    ${dniEsperado}
+
+Validar Area Asignada
+    [Arguments]    ${areaEsperada}
+    ${areaHTML}=    Get Text    xpath=//label[normalize-space(.)='Área Asignada']/following-sibling::div//span
+    Log To Console    Area extraida: ${areaHTML}
+
+    IF    "${areaHTML}" == "${areaEsperada}"
+        Log To Console    Area asignada coincide con la esperada
+    ELSE
+        Fail    Area asignada no coincide: se esperaba '${areaEsperada}' pero se encontró '${areaHTML}'
+    END
