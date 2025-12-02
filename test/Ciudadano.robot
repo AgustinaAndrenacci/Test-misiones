@@ -17,11 +17,13 @@ Resource        ../Resources/VariablesPortal.robot
 Test Setup     Abrir Navegador en modo incognito
 Test Teardown  Cerrar navegador
 
+Suite Setup    Inicializar Contador
+
 ***Test Cases***
 
 Crear Consulta Tributaria
     [Documentation]    Crear una nueva consulta tributaria
-    [tags]    test_01
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
@@ -41,14 +43,14 @@ Crear Consulta Tributaria
 
 Consulta Tributaria verificar Titulo
     [Documentation]    Verifica que el ciudadano pueda ver correctamente el Titulo de la consulta tributaria
-    [tags]    test_02
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonVerDetalle}    botonVerDetalle
     Verificar presencia de    ${tituloConsultaTributaria}    El titulo no se encontro visible
 
 Consulta Tributaria Verificar NumeroTramite
     [Documentation]    Verifica que el ciudadano pueda ver correctamente el Numero de Tramite de la consulta tributaria
-    [tags]    test_03
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     ${NumeroTramite}=    Get text    ${abrirPrimerTramite}
     Validar y hacer clic en el boton    ${botonVerDetalle}    botonVerDetalle
@@ -56,7 +58,7 @@ Consulta Tributaria Verificar NumeroTramite
 
 Consulta Tributaria Verificar Fecha de Creacion
     [Documentation]    Verifica que el ciudadano pueda ver correctamente el Fecha de Creacion de la consulta tributaria
-    [tags]    test_04
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonVerDetalle}    botonVerDetalle
     ${FECHA_EXTRAIDA_WEB}=    Extraer Fecha Creado
@@ -64,7 +66,7 @@ Consulta Tributaria Verificar Fecha de Creacion
 
 Consulta Tributaria Verificar Fecha de Actualizado
     [Documentation]    Verifica que el ciudadano pueda ver correctamente el Fecha de Actualizado de la consulta tributaria
-    [tags]    test_05
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonVerDetalle}    botonVerDetalle
     ${FECHA_EXTRAIDA_WEB}=    Extraer Fecha Actualizado
@@ -72,28 +74,28 @@ Consulta Tributaria Verificar Fecha de Actualizado
 
 Consulta Tributaria Verificar DatosPresentados Asunto
     [Documentation]    Verifica que el ciudadano pueda ver correctamente los Datos Presentados de la consulta tributaria, en este caso especificamente el asunto
-    [tags]    test_06
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonVerDetalle}    botonVerDetalle
     Validar Asunto    Asunto test1
 
 Consulta Tributaria Verificar DatosPresentados Detalle
     [Documentation]    Verifica que el ciudadano pueda ver correctamente los Datos Presentados de la consulta tributaria, en este caso especificamente el detalle
-    [tags]    test_07
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonVerDetalle}    botonVerDetalle
     Validar Detalle    Descripcion test1
 
 Consulta Tributaria verificar Estado
     [Documentation]    Verifica que el ciudadano pueda ver correctamente el Estado de la consulta tributaria
-    [tags]    test_08
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonVerDetalle}    botonVerDetalle
     Validar Estado Del Tramite    Pendiente
 
 Consulta Tributaria verificar Contactar con Mesa de Ayuda
     [Documentation]    Verifica que el ciudadano pueda ver correctamente el boton "Contactar con Mesa de Ayuda" de la consulta tributaria y este funcione adecuadamente
-    [tags]    test_09
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonVerDetalle}    botonVerDetalle
     Validar y hacer clic en el boton    ${botonMesaAyuda}    botonContactarMesaAyuda
@@ -101,14 +103,14 @@ Consulta Tributaria verificar Contactar con Mesa de Ayuda
 
 Consulta Tributaria verificar Acciones Disponibles
     [Documentation]    Comprueba las acciones disponibles del ciudadano, buscando como resultado que no tenga ninguna accion disponible ya que acaba de crear la consulta tributaria
-    [tags]    test_10
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonVerDetalle}    botonVerDetalle
     Validar Acciones Disponibles    True
 
 Consulta Tributaria verificar Historial
     [Documentation]    Verifica que el ciudadano pueda ver correctamente los distintos mensajes/notas/acciones dentro historial de la consulta tributaria
-    [tags]    test_11
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonVerDetalle}    botonVerDetalle
     Validar y hacer clic en el boton    ${historialCiudadano}    botonHistorial
@@ -116,7 +118,7 @@ Consulta Tributaria verificar Historial
 
 Consulta Tributaria verificar Boton ExportarPDF
     [Documentation]    Comprueba que el boton "ExportarPDF" funcione adecuadamente
-    [tags]    test_12
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonVerDetalle}    botonVerDetalle
     Validar y hacer clic en el boton    ${botonExportarPDF}    botonExportarPDF
@@ -124,7 +126,7 @@ Consulta Tributaria verificar Boton ExportarPDF
 
 Consulta Tributaria verificar Boton CancelarTramite
     [Documentation]    Comprueba que el boton "CancelarTramite" funcione adecuadamente
-    [tags]    test_13
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonVerDetalle}    botonVerDetalle
     Validar y hacer clic en el boton    ${botonCancelarTramite}    botonCancelarTramite
@@ -135,7 +137,7 @@ Consulta Tributaria verificar Boton CancelarTramite
 
 Consulta Tributaria verificar Estado Cancelado
     [Documentation]    Verifica que el ciudadano pueda ver correctamente el Estado de la consulta tributaria
-    [tags]    test_14
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonVerDetalle}    botonVerDetalle
     Validar Estado Del Tramite    Cancelado
