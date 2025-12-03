@@ -48,6 +48,10 @@ Test 0 - Nota formal: crear tramite como borrador [ciudadano]
     #Verificar y presionar ítem en lista    ${select}    DNI/CUIT
     #Choose file    ${InputTypeFile}    ${FILE2}
     #Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+   # Verificar y presionar ítem en lista index    ${select}    1
+    #Verificar y presionar ítem en lista index    ${select}    0
+    #Choose file    ${InputTypeFile}    ${FILE2}
+    #Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
     Verificar y presionar ítem en lista    ${select}    Poder/Representación
     Choose file    ${InputTypeFile}    ${FILE2}
@@ -114,6 +118,13 @@ Test 1 - Nota formal: crear tramite como borrador [ciudadano]
     Validar y hacer clic en el boton    ${botonGuardarBorrador}    botonGuardarBorrador
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
 
+    ${tramite}=    Obtener Numero De Tramite
+    Set Suite Variable    ${tramite}
+
+Test 1 - Nota formal: Indicacion del numero de proceso creado
+    [Documentation]    Numero del proceso creado: ${tramite}
+    Log To Console    Comentario del proceso
+
 Test 1 - Nota formal: verificar el estado del tramite (borrador) [ciudadano] 1
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     [tags]    test_02
@@ -158,7 +169,12 @@ Test 2 - Nota formal: crear tramite [ciudadano]
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
 
+    ${tramite}=    Obtener Numero De Tramite
+    Set Suite Variable    ${tramite}
 
+Test 2 - Nota formal: Indicacion del numero de proceso creado
+    [Documentation]    Numero del proceso creado: ${tramite}
+    Log To Console    Comentario del proceso
 
 Test 2 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 3
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
@@ -179,7 +195,8 @@ Test 2 - Nota formal: verificar si los botones de acciones son correctos [operad
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
 
     Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
 
@@ -200,7 +217,8 @@ Test 2 - Nota formal: se selecciona la opcion "solicitar datos adicionales" [ope
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
@@ -256,6 +274,13 @@ Test 3 - Nota formal: Se crea un tramite de Nota formal [ciudadano]
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
 
+    ${tramite}=    Obtener Numero De Tramite
+    Set Suite Variable    ${tramite}
+
+Test 3 - Nota formal: Indicacion del numero de proceso creado
+    [Documentation]    Numero del proceso creado: ${tramite}
+    Log To Console    Comentario del proceso
+
 Test 3 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 1
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     [tags]    test_08
@@ -275,7 +300,8 @@ Test 3 - Nota formal: verificar si los botones de acciones son correctos [operad
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
 
     Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
 
@@ -296,7 +322,8 @@ Test 3 - Nota formal: se selecciona la opcion "no corresponde" [operador mesa]
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
@@ -347,6 +374,13 @@ Test 4 - Nota formal: se crea un tramite de norta formal [ciudadano]
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
 
+    ${tramite}=    Obtener Numero De Tramite
+    Set Suite Variable    ${tramite}
+
+Test 4 - Nota formal: Indicacion del numero de proceso creado
+    [Documentation]    Numero del proceso creado: ${tramite}
+    Log To Console    Comentario del proceso
+
 Test 4 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 1
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     [tags]    test_12
@@ -367,7 +401,8 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [operad
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
 
     Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
 
@@ -389,7 +424,8 @@ Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador me
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
 
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
@@ -421,7 +457,8 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [secret
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
 
     Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
 
@@ -435,14 +472,14 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [secret
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-#ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 Test 4 - Nota formal: se selecciona la opcion "no corresponde" [secretaria]
     [Documentation]    Entra como Secretaria para continuar con el proceso dandole a la opcion "No Corresponde" devolviendo el tramite hacia Mesa de Entrada.
     [tags]    test_15
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota Secretaria    campoComentarios
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
@@ -472,7 +509,8 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [operad
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
 
     Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
 
@@ -492,7 +530,8 @@ Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria". [operador m
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+   # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
@@ -522,7 +561,8 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [secret
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
 
     Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
 
@@ -545,7 +585,8 @@ Test 4 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+   # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota Secretaria    campoComentarios
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
@@ -575,7 +616,8 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [gestio
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
 
     Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
 
@@ -596,12 +638,13 @@ Test 4 - Nota formal: se selecciona la opcion "aprobado" [gestion]
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota Gestion    campoComentarios
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Sleep  6s
+    Sleep  7s
     Validar y hacer clic en el boton    ${botonAprobar}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
@@ -626,7 +669,8 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [operad
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
 
     Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
 
@@ -646,7 +690,8 @@ Test 4 - Nota formal: se selecciona la opcion "informar al contribuyente" [opera
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
     Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
@@ -690,6 +735,13 @@ Test 5 - Nota formal: se crea un tramite de nota formal [ciudadano]
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
 
+    ${tramite}=    Obtener Numero De Tramite
+    Set Suite Variable    ${tramite}
+
+Test 5 - Nota formal: Indicacion del numero de proceso creado
+    [Documentation]    Numero del proceso creado: ${tramite}
+    Log To Console    Comentario del proceso
+
 Test 5 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 1
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     [tags]    test_25
@@ -709,7 +761,8 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [operad
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
 
     Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
 
@@ -729,7 +782,8 @@ Test 5 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador en
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
@@ -771,7 +825,8 @@ Test 5 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota Secretaria    campoComentarios
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
@@ -801,7 +856,8 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [gestio
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
 
     Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
 
@@ -821,7 +877,8 @@ Test 5 - Nota formal: se selecciona la opcion "rechazar" [gestion]
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota Gestion    campoComentarios
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
@@ -851,7 +908,8 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [operad
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
 
     Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
 
@@ -871,7 +929,8 @@ Test 5 - Nota formal: se selecciona la opcion "informar contribuyente" [operador
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
     Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente

@@ -100,6 +100,23 @@ Contar Filas Reales En Tabla
         Log    Se encontraron ${cantidad} filas con datos como se esperaba.
     END
 
+#Abrir tramite por numero ----------------------------------------------------------------------------------------------
+Obtener Numero De Tramite
+    ${texto}=    Get Text    //div[@class='text-sm opacity-90']
+    # dividir en palabras separadas por espacio
+    ${partes}=    Split String    ${texto}    ${SPACE}
+    # tercera palabra → índice 2
+    ${tramite}=    Set Variable    ${partes[2]}
+    Log To Console    TEXTO OBTENIDO: ${tramite}
+    [Return]    ${tramite}
+
+
+Abrir Tramite Por Numero
+    [Arguments]    ${numero_tramite}
+    ${xpath}=    Set Variable    //a[normalize-space()='${numero_tramite}']
+    Wait Until Element Is Visible    ${xpath}    10s
+    Click Element    ${xpath}
+
 #Verificar Automatico------------------------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
