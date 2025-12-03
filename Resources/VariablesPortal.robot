@@ -5,6 +5,9 @@ Library    Collections
 Library    BuiltIn
 
 ***Variables***
+#Variable Para Tags Automatica-------------------------------------------------------------------
+${COUNTER}    0
+
 #Principal --------------------------------------------------------------------------------------
 ${browser}  Chrome
 ${page}  https://tsgqa.digitrack.com.ar/auth/signin

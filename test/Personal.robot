@@ -17,11 +17,13 @@ Resource        ../Resources/VariablesPortal.robot
 Test Setup     Abrir Navegador en modo incognito
 Test Teardown  Cerrar navegador
 
+Suite Setup    Inicializar Contador
+
 ***Test Cases***
 
-Crear Consulta Tributaria
+Crear Consulta Tributaria [ciudadano]
     [Documentation]    Crear una nueva consulta tributaria
-    [tags]    test_01
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
@@ -41,18 +43,18 @@ Crear Consulta Tributaria
 
 #-------------MESA DE ENTRADA VIRTUAL----------------------
 
-Consulta Tributaria MesaEntrada verificar SubTitulo
+Consulta Tributaria MesaEntrada verificar SubTitulo [operador mesa]
     [Documentation]    Desde la Mesa de Entrada abre la Consulta Tributaria anteriormente creada y comprueba que el "subtitulo" sea visible y correcto
-    [tags]    test_02
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Verificar presencia de    ${subtituloConsultaTributaria}    El titulo no se encontro visible
 
-Consulta Tributaria MesaEntrada Verificar NumeroTramite
+Consulta Tributaria MesaEntrada Verificar NumeroTramite [operador mesa]
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que el "Numero de Tramite" sea visible y correcto
-    [tags]    test_03
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -60,9 +62,9 @@ Consulta Tributaria MesaEntrada Verificar NumeroTramite
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Verificar presencia parcial    ${NumeroTramite}    El Numero Tramite no se encontro visible
 
-Consulta Tributaria MesaEntrada Verificar Fecha de Creacion
+Consulta Tributaria MesaEntrada Verificar Fecha de Creacion [operador mesa]
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que el "Fecha de Creacion" sea visible y correcto
-    [tags]    test_04
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -70,9 +72,9 @@ Consulta Tributaria MesaEntrada Verificar Fecha de Creacion
     ${FECHA_COMPLETA}=    Get Text    ${fechaCreacion}
     Comparar Fecha Creacion    ${FECHA_COMPLETA}
 
-Consulta Tributaria MesaEntrada Verificar Numero de Seguimiento
+Consulta Tributaria MesaEntrada Verificar Numero de Seguimiento [operador mesa]
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que el "Fecha de Seguimiento" sea visible y correcto
-    [tags]    test_05
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -80,54 +82,54 @@ Consulta Tributaria MesaEntrada Verificar Numero de Seguimiento
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Verificar Numero de Seguimiento    ${NumeroTramite}
 
-Consulta Tributaria MesaEntrada Verificar DatosPresentados Asunto
+Consulta Tributaria MesaEntrada Verificar DatosPresentados Asunto [operador mesa]
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Asunto"
-    [tags]    test_06
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Validar Asunto    Asunto test1
 
-Consulta Tributaria MesaEntrada Verificar DatosPresentados Detalle
+Consulta Tributaria MesaEntrada Verificar DatosPresentados Detalle [operador mesa]
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Detalle"
-    [tags]    test_07
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Validar Detalle    Descripcion test1
 
-Consulta Tributaria MesaEntrada verificar Estado
+Consulta Tributaria MesaEntrada verificar Estado [operador mesa]
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que el "Estado del Tramite" sea visible y correcto
-    [tags]    test_08
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Validar Estado Del Tramite    Pendiente
 
-Consulta Tributaria MesaEntrada verificar Datos Ciudadano
+Consulta Tributaria MesaEntrada verificar Datos Ciudadano [operador mesa]
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que los datos del ciudadano sean visibles y correctos
-    [tags]    test_09
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Validar Datos Identidad    ${nombreCiudadano}    ${emailCiudadano}    ${cuitCiudadano}
 
-Consulta Tributaria MesaEntrada verificar Asignacion
+Consulta Tributaria MesaEntrada verificar Asignacion [operador mesa]
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que los datos de "Asignacion" sean visibles y correctos
-    [tags]    test_10
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Validar Area Asignada    Mesa de Entrada Virtual
 
-Consulta Tributaria MesaEntrada verificar Boton Documentacion complementaria
+Consulta Tributaria MesaEntrada verificar Boton Documentacion complementaria [operador mesa]
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que se pueda agregar una "Documentacion complementaria" y subirla correctamente
-    [tags]    test_11
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -138,9 +140,9 @@ Consulta Tributaria MesaEntrada verificar Boton Documentacion complementaria
     Validar y hacer clic en el boton    ${botonSubirDocumento}  botonSubirDocumento
     Wait Until Page Contains    El documento se ha agregado correctamente al trámite.    timeout=10s
 
-Consulta Tributaria MesaEntrada verificar Historial
+Consulta Tributaria MesaEntrada verificar Historial [operador mesa]
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y verificar que en el "Historial" se vean los mensajes de notas/cambios correspondientes
-    [tags]    test_12
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -149,9 +151,9 @@ Consulta Tributaria MesaEntrada verificar Historial
     Verificar presencia de    //p[normalize-space()='"Trámite enviado por el usuario."']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
     Verificar presencia de    //p[normalize-space()='"Se agregó el documento complementario: "Nota MesaEntrada""']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
 
-Consulta Tributaria Enviar a Secretaria
+Consulta Tributaria Enviar a Secretaria [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
-    [tags]    test_13
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -162,18 +164,18 @@ Consulta Tributaria Enviar a Secretaria
 
 #-------------SECRETARIA----------------------
 
-Consulta Tributaria Secretaria verificar SubTitulo
+Consulta Tributaria Secretaria verificar SubTitulo [secretaria]
     [Documentation]    Desde la Secretaria Dirección abre la Consulta Tributaria anteriormente creada y comprueba que el "subtitulo" sea visible y correcto
-    [tags]    test_14
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Verificar presencia de    ${subtituloConsultaTributaria}    El titulo no se encontro visible
 
-Consulta Tributaria Secretaria Verificar NumeroTramite
+Consulta Tributaria Secretaria Verificar NumeroTramite [secretaria]
     [Documentation]    Desde la Secretaria Dirección, abre la Consulta Tributaria y comprueba que el "Numero de Tramite" sea visible y correcto
-    [tags]    test_15
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -181,9 +183,9 @@ Consulta Tributaria Secretaria Verificar NumeroTramite
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Verificar presencia parcial    ${NumeroTramite}    El Numero Tramite no se encontro visible
 
-Consulta Tributaria Secretaria Verificar Fecha de Creacion
+Consulta Tributaria Secretaria Verificar Fecha de Creacion [secretaria]
     [Documentation]    Desde la Secretaria Dirección, abre la Consulta Tributaria y comprueba que el "Fecha de Creacion" sea visible y correcto
-    [tags]    test_16
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -191,9 +193,9 @@ Consulta Tributaria Secretaria Verificar Fecha de Creacion
     ${FECHA_COMPLETA}=    Get Text    ${fechaCreacion}
     Comparar Fecha Creacion    ${FECHA_COMPLETA}
 
-Consulta Tributaria Secretaria Verificar Numero de Seguimiento
+Consulta Tributaria Secretaria Verificar Numero de Seguimiento [secretaria]
     [Documentation]    Desde la Secretaria Dirección, abre la Consulta Tributaria y comprueba que el "Fecha de Seguimiento" sea visible y correcto
-    [tags]    test_17
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -201,54 +203,54 @@ Consulta Tributaria Secretaria Verificar Numero de Seguimiento
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Verificar Numero de Seguimiento    ${NumeroTramite}
 
-Consulta Tributaria Secretaria Verificar DatosPresentados Asunto
+Consulta Tributaria Secretaria Verificar DatosPresentados Asunto [secretaria]
     [Documentation]    Desde la Secretaria Dirección, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Asunto"
-    [tags]    test_18
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Validar Asunto    Asunto test1
 
-Consulta Tributaria Secretaria Verificar DatosPresentados Detalle
+Consulta Tributaria Secretaria Verificar DatosPresentados Detalle [secretaria]
     [Documentation]    Desde la Secretaria Dirección, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Detalle"
-    [tags]    test_19
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Validar Detalle    Descripcion test1
 
-Consulta Tributaria Secretaria verificar Estado
+Consulta Tributaria Secretaria verificar Estado [secretaria]
     [Documentation]    Desde la Secretaria Dirección, abre la Consulta Tributaria y comprueba que el "Estado del Tramite" sea visible y correcto
-    [tags]    test_20
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Validar Estado Del Tramite    Asignado
 
-Consulta Tributaria Secretaria verificar Datos Ciudadano
+Consulta Tributaria Secretaria verificar Datos Ciudadano [secretaria]
     [Documentation]    Desde la Secretaria Dirección, abre la Consulta Tributaria y comprueba que los datos del ciudadano sean visibles y correctos
-    [tags]    test_21
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Validar Datos Identidad    ${nombreCiudadano}    ${emailCiudadano}    ${cuitCiudadano}
 
-Consulta Tributaria Secretaria verificar Asignacion
+Consulta Tributaria Secretaria verificar Asignacion [secretaria]
     [Documentation]    Desde la Secretaria Dirección, abre la Consulta Tributaria y comprueba que los datos de "Asignacion" sean visibles y correctos
-    [tags]    test_22
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Validar Area Asignada    Secretaria Dirección
 
-Consulta Tributaria Secretaria verificar Boton Documentacion complementaria
+Consulta Tributaria Secretaria verificar Boton Documentacion complementaria [secretaria]
     [Documentation]    Desde la Secretaria Dirección, abre la Consulta Tributaria y comprueba que se pueda agregar una "Documentacion complementaria" y subirla correctamente
-    [tags]    test_23
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -259,9 +261,9 @@ Consulta Tributaria Secretaria verificar Boton Documentacion complementaria
     Validar y hacer clic en el boton    ${botonSubirDocumento}  botonSubirDocumento
     Wait Until Page Contains    El documento se ha agregado correctamente al trámite.    timeout=10s
 
-Consulta Tributaria Secretaria verificar Historial
+Consulta Tributaria Secretaria verificar Historial [secretaria]
     [Documentation]    Desde la Secretaria Dirección, abre la Consulta Tributaria y verificar que en el "Historial" se vean los mensajes de notas/cambios correspondientes
-    [tags]    test_24
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}     ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -270,9 +272,9 @@ Consulta Tributaria Secretaria verificar Historial
     Verificar presencia de    //p[normalize-space()='"Acción ejecutada: Enviar a Secretaria"']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
     Verificar presencia de    //p[normalize-space()='"Se agregó el documento complementario: "Nota Secretaria""']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
 
-Consulta Tributaria Enviar a Gestion
+Consulta Tributaria Enviar a Gestion [secretaria]
     [Documentation]    Entra como Secretaria para continuar con el proceso, utilizando la opcion "Para Resolver" enviandolo hacia Gestion
-    [tags]    test_25
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -283,18 +285,18 @@ Consulta Tributaria Enviar a Gestion
 
 #-------------GESTION----------------------
 
-Consulta Tributaria Gestion verificar SubTitulo
+Consulta Tributaria Gestion verificar SubTitulo [gestion]
     [Documentation]    Desde la Gestión Dirección abre la Consulta Tributaria anteriormente creada y comprueba que el "subtitulo" sea visible y correcto
-    [tags]    test_26
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Verificar presencia de    ${subtituloConsultaTributaria}    El titulo no se encontro visible
 
-Consulta Tributaria Gestion Verificar NumeroTramite
+Consulta Tributaria Gestion Verificar NumeroTramite [gestion]
     [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que el "Numero de Tramite" sea visible y correcto
-    [tags]    test_27
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -302,9 +304,9 @@ Consulta Tributaria Gestion Verificar NumeroTramite
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Verificar presencia parcial    ${NumeroTramite}    El Numero Tramite no se encontro visible
 
-Consulta Tributaria Gestion Verificar Fecha de Creacion
+Consulta Tributaria Gestion Verificar Fecha de Creacion [gestion]
     [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que el "Fecha de Creacion" sea visible y correcto
-    [tags]    test_28
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -312,9 +314,9 @@ Consulta Tributaria Gestion Verificar Fecha de Creacion
     ${FECHA_COMPLETA}=    Get Text    ${fechaCreacion}
     Comparar Fecha Creacion    ${FECHA_COMPLETA}
 
-Consulta Tributaria Gestion Verificar Numero de Seguimiento
+Consulta Tributaria Gestion Verificar Numero de Seguimiento [gestion]
     [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que el "Fecha de Seguimiento" sea visible y correcto
-    [tags]    test_29
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -322,54 +324,54 @@ Consulta Tributaria Gestion Verificar Numero de Seguimiento
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Verificar Numero de Seguimiento    ${NumeroTramite}
 
-Consulta Tributaria Gestion Verificar DatosPresentados Asunto
+Consulta Tributaria Gestion Verificar DatosPresentados Asunto [gestion]
     [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Asunto"
-    [tags]    test_30
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Validar Asunto    Asunto test1
 
-Consulta Tributaria Gestion Verificar DatosPresentados Detalle
+Consulta Tributaria Gestion Verificar DatosPresentados Detalle [gestion]
     [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Detalle"
-    [tags]    test_31
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Validar Detalle    Descripcion test1
 
-Consulta Tributaria Gestion verificar Estado
+Consulta Tributaria Gestion verificar Estado [gestion]
     [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que el "Estado del Tramite" sea visible y correcto
-    [tags]    test_32
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Validar Estado Del Tramite    En revisión
 
-Consulta Tributaria Gestion verificar Datos Ciudadano
+Consulta Tributaria Gestion verificar Datos Ciudadano [gestion]
     [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que los datos del ciudadano sean visibles y correctos
-    [tags]    test_33
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Validar Datos Identidad    ${nombreCiudadano}    ${emailCiudadano}    ${cuitCiudadano}
 
-Consulta Tributaria Gestion verificar Asignacion
+Consulta Tributaria Gestion verificar Asignacion [gestion]
     [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que los datos de "Asignacion" sean visibles y correctos
-    [tags]    test_34
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Validar Area Asignada    Gestión Dirección
 
-Consulta Tributaria Gestion verificar Boton Documentacion complementaria
+Consulta Tributaria Gestion verificar Boton Documentacion complementaria [gestion]
     [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que se pueda agregar una "Documentacion complementaria" y subirla correctamente
-    [tags]    test_35
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -380,9 +382,9 @@ Consulta Tributaria Gestion verificar Boton Documentacion complementaria
     Validar y hacer clic en el boton    ${botonSubirDocumento}  botonSubirDocumento
     Wait Until Page Contains    El documento se ha agregado correctamente al trámite.    timeout=10s
 
-Consulta Tributaria Secretaria verificar Historial
+Consulta Tributaria Secretaria verificar Historial [gestion]
     [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y verificar que en el "Historial" se vean los mensajes de notas/cambios correspondientes
-    [tags]    test_36
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}     ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -391,9 +393,9 @@ Consulta Tributaria Secretaria verificar Historial
     Verificar presencia de    //p[normalize-space()='"Acción ejecutada: Para Resolver"']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
     Verificar presencia de    //p[normalize-space()='"Se agregó el documento complementario: "Nota Gestion""']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
 
-Consulta Tributaria Aprobado Enviar a MesaEntrada
+Consulta Tributaria Aprobado Enviar a MesaEntrada [gestion]
     [Documentation]    Entra como Gestion y utiliza la opcion "Aprobar" para continuar con el proceso
-    [tags]    test_37
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -404,18 +406,18 @@ Consulta Tributaria Aprobado Enviar a MesaEntrada
 
 #-------------APROBADO Y MESA DE ENTRADA VIRTUAL----------------------
 
-Consulta Tributaria MesaEntrada verificar Estado Aprobado
+Consulta Tributaria MesaEntrada verificar Estado Aprobado [operador mesa]
     [Documentation]    Nuevamente entra a la Mesa de Entrada, abre la Consulta Tributaria y comprueba que el "Estado del Tramite" sea visible y correcto. En este caso buscando el estado Aprobado
-    [tags]    test_38
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
     Validar Estado Del Tramite    Aprobado
 
-Consulta Tributaria MesaEntrada verificar Historial Aprobado
+Consulta Tributaria MesaEntrada verificar Historial Aprobado [operador mesa]
     [Documentation]    Nuevamente entra a la Mesa de Entrada, abre la Consulta Tributaria y verificar que en el "Historial" se vean los mensajes de notas/cambios correspondientes
-    [tags]    test_39
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -423,9 +425,9 @@ Consulta Tributaria MesaEntrada verificar Historial Aprobado
     Validar y hacer clic en el boton    ${historialAdmin}    botonHistorial
     Verificar presencia de    //p[normalize-space()='"Acción ejecutada: Aprobar"']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
 
-Consulta Tributaria Informar al Contribuyente
+Consulta Tributaria Informar al Contribuyente [operador mesa]
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso, en este caso "Aprobado"
-    [tags]    test_40
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
