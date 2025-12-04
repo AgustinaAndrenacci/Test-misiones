@@ -20,6 +20,8 @@ Resource        ../Resources/VariablesPortal.robot
 Test Setup    Abrir Navegador en modo incognito
 Test Teardown    Cerrar navegador
 
+Suite Setup    Inicializar Contador
+
 #IMPORTANTE **************************************************************************************************
 #Leandro: ${FILE}
 #Agustina: ${FILE2}
@@ -32,11 +34,12 @@ Test Teardown    Cerrar navegador
 Test 0 - Nota formal: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 1 es el siguiente:
     ...    ... crear tramite como borrador [ciudadano]
+    Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
 Test 0 - Nota formal: crear tramite como borrador [ciudadano]
     [Documentation]    El ciudadano crea un tramite de Nota formal
-    [tags]    test_01
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
@@ -68,29 +71,38 @@ Test 0 - Nota formal: crear tramite como borrador [ciudadano]
     Validar y hacer clic en el boton    ${botonGuardarBorrador}    botonGuardarBorrador
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
 
+    ${tramite}=    Obtener Numero De Tramite
+    Set Suite Variable    ${tramite}
+
+Test 0 - Nota formal: Indicacion del numero de proceso creado
+    [Documentation]    Numero del proceso creado: ${tramite}
+    Asignar Tag Numerado
+    Log To Console    Comentario del proceso
+
 Test 0 - Nota formal: verificar el estado del tramite (borrador) [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_02
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Borrador
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Borrador
 
 Test 0 - Nota formal: verificar el estado del tramite (Borrador) [operador mesa] 2
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_04
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar Estado Primer inexistente    ${tablaOperador}    Borrador
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 1 - Nota formal: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 1 es el siguiente:
     ...    ... crear tramite como borrador [ciudadano]
     ...    ... se guarda el tramite [ciudadano]
+    Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
 Test 1 - Nota formal: crear tramite como borrador [ciudadano]
     [Documentation]    El ciudadano crea un tramite de Nota formal
-    [tags]    test_01
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
@@ -125,40 +137,42 @@ Test 1 - Nota formal: crear tramite como borrador [ciudadano]
 
 Test 1 - Nota formal: Indicacion del numero de proceso creado
     [Documentation]    Numero del proceso creado: ${tramite}
+    Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
 Test 1 - Nota formal: verificar el estado del tramite (borrador) [ciudadano] 1
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_02
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Borrador
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Borrador
 
 Test 1 - Nota formal: pasar de borrador a guardado
     [Documentation]    Desde el ciudadano, se entra al tramite y se guarda para que deje de estar en borrador
-    [tags]    test_05
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar y hacer clic en el boton    //tbody/tr[1]    abrirPrimerTramite
+    Validar y hacer clic en el boton    ${tramiteBorrador}    abrirPrimerTramite
 
-    Validar y hacer clic en el boton    //a[normalize-space()='Continuar Borrador']    abrirPrimerTramite
-    Validar y hacer clic en el boton    //button[normalize-space()='Enviar Trámite']    botonEnviarTramite
+    Validar y hacer clic en el boton    ${botonContinuarBorrador}    abrirPrimerTramite
+    Validar y hacer clic en el boton    ${botonEnviarTramite}    botonEnviarTramite
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 
 Test 1 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 2
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_02
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Pendiente
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 2 - Nota formal: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 2 es el siguiente:
     ...    ... crear tramite [ciudadano] -
     ...    ... solicitar datos adicionales [operador mesa]
+    Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
 Test 2 - Nota formal: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Nota formal sin agregar adjuntos
-    [tags]    test_03
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    ${botonExenciónImpuestoDeSellos}
@@ -185,25 +199,27 @@ Test 2 - Nota formal: crear tramite [ciudadano]
 
 Test 2 - Nota formal: Indicacion del numero de proceso creado
     [Documentation]    Numero del proceso creado: ${tramite}
+    Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
 
 Test 2 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 3
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_04
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Pendiente
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 2 - Nota formal: verificar el estado del tramite (pendiente) [operador] 4
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_04
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar Estado Primer Tramite personal    ${tablaOperador}    Pendiente
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
 Test 2 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 1
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -211,7 +227,7 @@ Test 2 - Nota formal: verificar si los botones de acciones son correctos [operad
     Abrir Tramite Por Numero    ${tramite}
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
+    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
 
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
@@ -226,7 +242,7 @@ Test 2 - Nota formal: verificar si los botones de acciones son correctos [operad
 
 Test 2 - Nota formal: se selecciona la opcion "solicitar datos adicionales" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "Solicitar Datos Adicionales"
-    [tags]    test_05
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -236,7 +252,7 @@ Test 2 - Nota formal: se selecciona la opcion "solicitar datos adicionales" [ope
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    execute javascript    window.scrollTo(0,800)
+    Execute Javascript    window.scrollTo(0,800)
     Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
     Validar y completar campo    ${campoComentario}    Solicitar Datos Adicionales    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
@@ -244,13 +260,13 @@ Test 2 - Nota formal: se selecciona la opcion "solicitar datos adicionales" [ope
 
 Test 2 - Nota formal: verificar el estado del tramite (pendiente contributente) [ciudadano] 5
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_06
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Pendiente Contribuyente
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente Contribuyente
 
 Test 2 - Nota formal: el ciudadano avanza en el tramite [ciudadano] 6
     [Documentation]    Se verifica si el usuario puede avanzar en el tramite debido a que le solicitaron datos adicionales
-    [tags]    test_06
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     #ATENCION! - Modificar debido a que aún no se sabe el método en que el usuario podrá cargar datos adicionales
     Fail    Fallo: el ciudadano no puede cargar datos adicionales
@@ -259,11 +275,12 @@ Test 3 - Nota formal: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 3 es el siguiente:
     ...    ... crear tramite [ciudadano] -
     ...    ... no corresponde [operador mesa]
+    Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
 Test 3 - Nota formal: Se crea un tramite de Nota formal [ciudadano]
     [Documentation]    El ciudadano crea una nueva Nota formal
-    [tags]    test_07
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    ${botonExenciónImpuestoDeSellos}
@@ -293,31 +310,33 @@ Test 3 - Nota formal: Se crea un tramite de Nota formal [ciudadano]
 
 Test 3 - Nota formal: Indicacion del numero de proceso creado
     [Documentation]    Numero del proceso creado: ${tramite}
+    Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
 Test 3 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 1
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_08
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Pendiente
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 3 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 2
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_04
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar Estado Primer Tramite personal    ${tablaOperador}    Pendiente
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
 Test 3 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 1
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
+    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
 
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
@@ -332,7 +351,7 @@ Test 3 - Nota formal: verificar si los botones de acciones son correctos [operad
 
 Test 3 - Nota formal: se selecciona la opcion "no corresponde" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "No Corresponde"
-    [tags]    test_09
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -350,9 +369,9 @@ Test 3 - Nota formal: se selecciona la opcion "no corresponde" [operador mesa]
 
 Test 3 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 3
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_10
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Cerrado
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
 
 Test 4 - Nota formal: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 4 es el siguiente:
@@ -363,11 +382,12 @@ Test 4 - Nota formal: Indicacion del proceso
     ...    ... para resolver [secretaria]
     ...    ... aprobar [gestion]
     ...    ... informar al contribuyente [operador mesa]
+    Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
 Test 4 - Nota formal: se crea un tramite de norta formal [ciudadano]
     [Documentation]    Crear una nueva Nota formal
-    [tags]    test_11
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    ${botonExenciónImpuestoDeSellos}
@@ -394,33 +414,34 @@ Test 4 - Nota formal: se crea un tramite de norta formal [ciudadano]
 
 Test 4 - Nota formal: Indicacion del numero de proceso creado
     [Documentation]    Numero del proceso creado: ${tramite}
+    Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
 Test 4 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 1
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_12
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Pendiente
-
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 2
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_04
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar Estado Primer Tramite personal    ${tablaOperador}    Pendiente
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
 #VER ESTE ---------------------------------------------------------------------------------------------------------------
 Test 4 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 1
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
+    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
 
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
@@ -436,7 +457,7 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [operad
 
 Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
-    [tags]    test_13
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -456,27 +477,28 @@ Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador me
 
 Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 3
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_14
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    /html/body/div[2]/div/div[2]/main/div/div[3]/div/div[2]    En curso
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 4
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_14
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar Estado Primer Tramite personal    ${tablaOperador}    Asignado
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
 Test 4 - Nota formal: verificar si los botones de acciones son correctos [secretaria] 2
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
+    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
@@ -491,7 +513,7 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [secret
 #ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 Test 4 - Nota formal: se selecciona la opcion "no corresponde" [secretaria]
     [Documentation]    Entra como Secretaria para continuar con el proceso dandole a la opcion "No Corresponde" devolviendo el tramite hacia Mesa de Entrada.
-    [tags]    test_15
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -502,7 +524,7 @@ Test 4 - Nota formal: se selecciona la opcion "no corresponde" [secretaria]
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
     Sleep  6s
-    ejecute javascript    window.scrollTo(0,1200)
+    Execute Javascript    window.scrollTo(0,1200)
     Validar y hacer clic en el boton    ${botonNoCorresponde}    botonNoCorresponde
     Validar y completar campo    ${campoComentario}    No Corresponde    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
@@ -510,27 +532,28 @@ Test 4 - Nota formal: se selecciona la opcion "no corresponde" [secretaria]
 
 Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 5
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_16
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaCiudadano}    En curso
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 6
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_04
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar Estado Primer Tramite personal    ${tablaOperador}    Devuelto
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Devuelto
 
 Test 4 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 3
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
+    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
@@ -544,7 +567,7 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [operad
 
 Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria". [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
-    [tags]    test_13
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -562,27 +585,28 @@ Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria". [operador m
 
 Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 7
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_18
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaCiudadano}    En curso
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 4 - Nota formal: verificar el estado del tramite (pendiente) [secretaria] 8
     [Documentation]    Desde la secretaria, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_04
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar Estado Primer Tramite personal    ${tablaOperador}    Asignado
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
 Test 4 - Nota formal: verificar si los botones de acciones son correctos [secretaria] 4
     [Documentation]    Se ingresa como secretaria y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
+    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
 
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar si el boton no existe Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
@@ -594,12 +618,9 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [secret
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${paraResolver}  boton para resolver
 
-
-
-
 Test 4 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
     [Documentation]    Entra como Secretaria para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
-    [tags]    test_19
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -617,27 +638,28 @@ Test 4 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
 
 Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 9
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_20
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaCiudadano}    En curso
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 4 - Nota formal: verificar el estado del tramite (en curso) [gestion] 10
     [Documentation]    Desde el usuario gestion, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_20
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar Estado Primer Tramite personal    ${tablaOperador}    En revisión
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    En revisión
 
 Test 4 - Nota formal: verificar si los botones de acciones son correctos [gestion] 5
     [Documentation]    Se ingresa como gestion y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
+    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonAprobar}  boton aprobar
@@ -652,7 +674,7 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [gestio
 
 Test 4 - Nota formal: se selecciona la opcion "aprobado" [gestion]
     [Documentation]    Entra como Gestion aprobando el tramite para continuar con el proceso
-    [tags]    test_21
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -670,27 +692,28 @@ Test 4 - Nota formal: se selecciona la opcion "aprobado" [gestion]
 
 Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 11
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_22
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaCiudadano}    Aprobado
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
 Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 12
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_04
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar Estado Primer Tramite personal    ${tablaOperador}    Aprobado
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Aprobado
 
 Test 4 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 6
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
+    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${informarContribuyente}  boton informar al contribuyente
@@ -704,7 +727,7 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [operad
 
 Test 4 - Nota formal: se selecciona la opcion "informar al contribuyente" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso
-    [tags]    test_22
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -718,11 +741,9 @@ Test 4 - Nota formal: se selecciona la opcion "informar al contribuyente" [opera
 
 Test 4 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 13
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_23
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaCiudadano}    Cerrado
-
-#---------------------------------------------------------------------
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
 
 Test 5 - Nota formal: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 5 es el siguiente:
@@ -731,11 +752,12 @@ Test 5 - Nota formal: Indicacion del proceso
     ...    ... para resolver [secretaria]
     ...    ... rechazar [gestion]
     ...    ... informar al contribuyente [operador mesa]
+    Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
 Test 5 - Nota formal: se crea un tramite de nota formal [ciudadano]
     [Documentation]    Crear una nueva Nota formal
-    [tags]    test_24
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    ${botonExenciónImpuestoDeSellos}
@@ -758,31 +780,33 @@ Test 5 - Nota formal: se crea un tramite de nota formal [ciudadano]
 
 Test 5 - Nota formal: Indicacion del numero de proceso creado
     [Documentation]    Numero del proceso creado: ${tramite}
+    Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
 Test 5 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 1
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_25
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaCiudadano}    Pendiente
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 5 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 2
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_04
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar Estado Primer Tramite personal    ${tablaOperador}    Pendiente
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
 Test 5 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 1
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
+    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
@@ -796,7 +820,7 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [operad
 
 Test 5 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador entrada]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
-    [tags]    test_26
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -814,18 +838,19 @@ Test 5 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador en
 
 Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 3
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_27
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaCiudadano}    En curso
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 5 - Nota formal: verificar si los botones de acciones son correctos [secretaria] 2
     [Documentation]    Se ingresa como secretaria y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar Estado Primer Tramite personal    ${tablaOperador}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
+    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
@@ -839,7 +864,7 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [secret
 
 Test 5 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
     [Documentation]    Entra como Secretaria para continuar con el proceso, utilizando la opcion "Para Resolver" enviandolo hacia Gestion
-    [tags]    test_28
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -857,27 +882,28 @@ Test 5 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
 
 Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 4
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_29
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaCiudadano}    En curso
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 5 - Nota formal: verificar el estado del tramite (en curso) [gestion] 5
     [Documentation]    Desde el usuario gestion, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_20
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar Estado Primer Tramite personal    ${tablaOperador}    En revisión
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    En revisión
 
 Test 5 - Nota formal: verificar si los botones de acciones son correctos [gestion] 3
     [Documentation]    Se ingresa como gestion y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
+    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonAprobar}  boton aprobar
@@ -891,7 +917,7 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [gestio
 
 Test 5 - Nota formal: se selecciona la opcion "rechazar" [gestion]
     [Documentation]     Entra como Gestion Rechazando el tramite y continua con el proceso
-    [tags]    test_30
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -909,27 +935,28 @@ Test 5 - Nota formal: se selecciona la opcion "rechazar" [gestion]
 
 Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 6
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_22
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaCiudadano}    Resuelto
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
 Test 5 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 7
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_04
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar Estado Primer Tramite personal    ${tablaOperador}    Rechazado
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Rechazado
 
 Test 5 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 4
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
+    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${informarContribuyente}  boton informar al contribuyente
@@ -943,7 +970,7 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [operad
 
 Test 5 - Nota formal: se selecciona la opcion "informar contribuyente" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso, en este caso "Rechazado"
-    [tags]    test_32
+    Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -957,9 +984,9 @@ Test 5 - Nota formal: se selecciona la opcion "informar contribuyente" [operador
 
 Test 5 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 8
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
-    [tags]    test_33
+    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaCiudadano}    Cerrado
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Cerrado
 
 #-----------------------------------------------------------------------------------------------
 
