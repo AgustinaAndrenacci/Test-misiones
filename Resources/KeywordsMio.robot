@@ -120,14 +120,39 @@ Obtener Numero De Tramite
     # tercera palabra → índice 2
     ${tramite}=    Set Variable    ${partes[2]}
     Log To Console    TEXTO OBTENIDO: ${tramite}
-    [Return]    ${tramite}
-
+    RETURN    ${tramite}
 
 Abrir Tramite Por Numero
     [Arguments]    ${numero_tramite}
     ${xpath}=    Set Variable    //a[normalize-space()='${numero_tramite}']
     Wait Until Element Is Visible    ${xpath}    10s
     Click Element    ${xpath}
+
+Validar Estado Tramite Por Numero
+    [Arguments]    ${locatorTabla}    ${numero_tramite}    @{permitidos}
+    # Buscar la fila que contiene el número de trámite
+    ${filaXpath}=    Set Variable    ${locatorTabla}//tbody/tr[td[normalize-space()='${numero_tramite}']]
+    ${existe}=    Run Keyword And Return Status    Element Should Be Visible    xpath=${filaXpath}
+    Run Keyword If    not ${existe}    Fail    No se encontró el trámite con número: ${numero_tramite}
+    # Dentro de esa fila, tomar la celda de estado (columna 3)
+    ${estadoCelda}=    Get WebElement    xpath=${filaXpath}/td[3]
+    ${estado}=    Get Text    ${estadoCelda}
+    Log To Console    Estado del trámite ${numero_tramite}: ${estado}
+    ${es_valido}=    Run Keyword And Return Status    Should Contain    ${permitidos}    ${estado}
+    Run Keyword If    not ${es_valido}    Fail    Aparecio el estado: '${estado}', cuando se esperaba que el tramite este en el estado: ${permitidos}
+
+Validar Estado Tramite Por Numero Admin
+    [Arguments]    ${locatorTabla}    ${numero_tramite}    @{permitidos}
+    # Buscar la fila que contiene el número de trámite
+    ${filaXpath}=    Set Variable    ${locatorTabla}//tbody/tr[td[normalize-space()='${numero_tramite}']]
+    ${existe}=    Run Keyword And Return Status    Element Should Be Visible    xpath=${filaXpath}
+    Run Keyword If    not ${existe}    Fail    No se encontró el trámite con número: ${numero_tramite}
+    # Dentro de esa fila, tomar la celda de estado (columna 3)
+    ${estadoCelda}=    Get WebElement    xpath=${filaXpath}/td[4]
+    ${estado}=    Get Text    ${estadoCelda}
+    Log To Console    Estado del trámite ${numero_tramite}: ${estado}
+    ${es_valido}=    Run Keyword And Return Status    Should Contain    ${permitidos}    ${estado}
+    Run Keyword If    not ${es_valido}    Fail    Aparecio el estado: '${estado}', cuando se esperaba que el tramite este en el estado: ${permitidos}
 
 #Verificar Automatico------------------------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
