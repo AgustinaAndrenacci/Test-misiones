@@ -314,7 +314,7 @@ Test 2 - Nota formal: verificar el estado del tramite (pendiente) [operador] 5
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
 Test 2 - Nota formal: verificar que el tramite no exista [responsable area] 6
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -323,7 +323,7 @@ Test 2 - Nota formal: verificar que el tramite no exista [responsable area] 6
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 2 - Nota formal: verificar que el tramite no exista [secretaria] 7
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -332,7 +332,7 @@ Test 2 - Nota formal: verificar que el tramite no exista [secretaria] 7
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 2 - Nota formal: verificar que el tramite no exista [gestion] 8
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -391,7 +391,7 @@ Test 2 - Nota formal: verificar el estado del tramite (pendiente contributente) 
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente Contribuyente
 
 Test 2 - Nota formal: verificar que el tramite no exista [operador mesa] 12
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -400,7 +400,7 @@ Test 2 - Nota formal: verificar que el tramite no exista [operador mesa] 12
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 2 - Nota formal: verificar que el tramite no exista [responsable area] 13
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -409,7 +409,7 @@ Test 2 - Nota formal: verificar que el tramite no exista [responsable area] 13
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 2 - Nota formal: verificar que el tramite no exista [secretaria] 14
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -418,7 +418,7 @@ Test 2 - Nota formal: verificar que el tramite no exista [secretaria] 14
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 2 - Nota formal: verificar que el tramite no exista [gestion] 15
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -494,7 +494,7 @@ Test 3 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
 Test 3 - Nota formal: verificar que el tramite no exista [responsable area] 6
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -503,7 +503,7 @@ Test 3 - Nota formal: verificar que el tramite no exista [responsable area] 6
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 3 - Nota formal: verificar que el tramite no exista [secretaria] 7
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -512,7 +512,7 @@ Test 3 - Nota formal: verificar que el tramite no exista [secretaria] 7
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 3 - Nota formal: verificar que el tramite no exista [gestion] 8
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -571,7 +571,7 @@ Test 3 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 11
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
 
 Test 3 - Nota formal: verificar que el tramite no exista [operador mesa] 12
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -580,7 +580,7 @@ Test 3 - Nota formal: verificar que el tramite no exista [operador mesa] 12
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 3 - Nota formal: verificar que el tramite no exista [responsable area] 13
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -589,7 +589,7 @@ Test 3 - Nota formal: verificar que el tramite no exista [responsable area] 13
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 3 - Nota formal: verificar que el tramite no exista [secretaria] 14
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -598,7 +598,7 @@ Test 3 - Nota formal: verificar que el tramite no exista [secretaria] 14
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 3 - Nota formal: verificar que el tramite no exista [gestion] 15
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -668,7 +668,7 @@ Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
 Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 6
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -677,7 +677,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 6
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 7
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -686,7 +686,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 7
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 4 - Nota formal: verificar que el tramite no exista [gestion] 8
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -745,8 +745,8 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 11
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
-Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 12
-    [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
+Test 4 - Nota formal: verificar el estado del tramite (asignado) [secretaria] 12
+    [Documentation]    Desde secretaria, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -754,8 +754,8 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 12
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
-Test 4 - Nota formal: verificar el estado del tramite (en curso) [responsable area] 12
-    [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
+Test 4 - Nota formal: verificar el estado del tramite (asignado) [responsable area] 12
+    [Documentation]    Desde resp area, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -764,7 +764,7 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [responsable ar
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
 Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 13
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -773,7 +773,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 13
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 4 - Nota formal: verificar que el tramite no exista [gestion] 15
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -783,7 +783,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [gestion] 15
 
 
 Test 4 - Nota formal: verificar si los botones de acciones son correctos [secretaria] 2
-    [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
+    [Documentation]    Se ingresa como secretaria y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -830,7 +830,7 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 18
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
-Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 19
+Test 4 - Nota formal: verificar el estado del tramite (deuelto) [operador mesa] 19
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -840,7 +840,7 @@ Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Devuelto
 
 Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 20
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -849,7 +849,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 20
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 21
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -858,7 +858,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 21
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 4 - Nota formal: verificar que el tramite no exista [gestion] 22
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -914,7 +914,7 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 25
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
-Test 4 - Nota formal: verificar el estado del tramite (pendiente) [secretaria] 26
+Test 4 - Nota formal: verificar el estado del tramite (asignado) [secretaria] 26
     [Documentation]    Desde la secretaria, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -923,8 +923,8 @@ Test 4 - Nota formal: verificar el estado del tramite (pendiente) [secretaria] 2
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
-Test 4 - Nota formal: verificar el estado del tramite (en curso) [responsable area] 12
-    [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
+Test 4 - Nota formal: verificar el estado del tramite (asignado) [responsable area] 12
+    [Documentation]    Desde resp area, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -933,7 +933,7 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [responsable ar
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
 Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 27
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -942,7 +942,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 27
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 4 - Nota formal: verificar que el tramite no exista [gestion] 29
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -999,7 +999,7 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 32
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
-Test 4 - Nota formal: verificar el estado del tramite (en curso) [gestion] 33
+Test 4 - Nota formal: verificar el estado del tramite (en revision) [gestion] 33
     [Documentation]    Desde el usuario gestion, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1009,7 +1009,7 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [gestion] 33
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    En revisión
 
 Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 34
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1018,7 +1018,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 34
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 35
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1027,7 +1027,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 35
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 36
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1078,14 +1078,14 @@ Test 4 - Nota formal: se selecciona la opcion "aprobado" [gestion]
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 39
+Test 4 - Nota formal: verificar el estado del tramite (resuelto) [ciudadano] 39
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
-Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 40
+Test 4 - Nota formal: verificar el estado del tramite (aprobado) [operador mesa] 40
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1095,7 +1095,7 @@ Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Aprobado
 
 Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 41
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1104,7 +1104,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 41
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 42
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde el secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1113,7 +1113,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 42
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 4 - Nota formal: verificar que el tramite no exista [gestion] 43
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1167,7 +1167,7 @@ Test 4 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 46
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
 
 Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 47
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1176,7 +1176,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 47
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 48
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1185,7 +1185,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 48
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 49
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1194,7 +1194,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 49
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 4 - Nota formal: verificar que el tramite no exista [gestion] 50
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1259,7 +1259,7 @@ Test 5 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
 Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 6
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1268,7 +1268,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 6
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 7
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1277,7 +1277,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 7
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 5 - Nota formal: verificar que el tramite no exista [gestion] 8
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1308,7 +1308,7 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [operad
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-Test 5 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador entrada]
+Test 5 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1334,7 +1334,7 @@ Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 11
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
-Test 5 - Nota formal: verificar el estado del tramite (pendiente) [secretaria] 12
+Test 5 - Nota formal: verificar el estado del tramite (asignado) [secretaria] 12
     [Documentation]    Desde la secretaria, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1343,8 +1343,8 @@ Test 5 - Nota formal: verificar el estado del tramite (pendiente) [secretaria] 1
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
-Test 4 - Nota formal: verificar el estado del tramite (en curso) [responsable area] 12
-    [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
+Test 4 - Nota formal: verificar el estado del tramite (asignado) [responsable area] 12
+    [Documentation]    Desde resp area, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1353,7 +1353,7 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [responsable ar
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
 Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 13
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1362,7 +1362,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 13
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 5 - Nota formal: verificar que el tramite no exista [gestion] 15
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde el gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1419,7 +1419,7 @@ Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 18
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
-Test 5 - Nota formal: verificar el estado del tramite (en curso) [gestion] 19
+Test 5 - Nota formal: verificar el estado del tramite (en revision) [gestion] 19
     [Documentation]    Desde el usuario gestion, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1429,7 +1429,7 @@ Test 5 - Nota formal: verificar el estado del tramite (en curso) [gestion] 19
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    En revisión
 
 Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 20
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1438,7 +1438,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 20
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 21
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1447,7 +1447,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 21
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 22
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1497,14 +1497,14 @@ Test 5 - Nota formal: se selecciona la opcion "rechazar" [gestion]
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 25
+Test 5 - Nota formal: verificar el estado del tramite (resuelto) [ciudadano] 25
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
-Test 5 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 26
+Test 5 - Nota formal: verificar el estado del tramite (rechazado) [operador mesa] 26
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1514,7 +1514,7 @@ Test 5 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Rechazado
 
 Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 27
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1523,7 +1523,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 27
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 28
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1532,7 +1532,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 28
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 5 - Nota formal: verificar que el tramite no exista [gestion] 29
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1586,7 +1586,7 @@ Test 5 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 32
     Validar Estado con numero de tramite    ${tablaOperador}    3    ${tramite}    Cerrado
 
 Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 33
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1595,7 +1595,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 33
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 34
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1604,7 +1604,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 34
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 35
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
@@ -1613,7 +1613,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 35
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 5 - Nota formal: verificar que el tramite no exista [gestion] 36
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
