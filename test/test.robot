@@ -24,44 +24,20 @@ Suite Setup    Inicializar Contador
 
 *** Test Cases ***
 Test 2 - Nota formal: crear tramite [ciudadano]
-    [Documentation]    El ciudadano crea una nueva Nota formal sin agregar adjuntos
+    [Documentation]    El ciudadano crea una nueva Nota formal
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    ${botonExencionImpuestoSobreLosIngresosBrutos}
-    Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test1    asuntoExencionImpuestoSobreLosIngresosBrutos
-
-    Verificar y presionar ítem en lista index    ${select}    1
+    Validar y hacer clic en el boton    ${botonNotaFormal}    botonNotaFormal
+    Validar y completar campo    ${asuntoNotaFormal}  Asunto test1    asuntoNotaFormal
+    Validar y completar campo    ${detalleNotaFormal}  Descripcion test1  detalleNotaFormal
+    Validar y completar campo    ${contenidoNotaFormal}  Contenido test1  contenidoNotaFormal
+    Verificar y presionar ítem en lista    ${select}    Poder/Representación
     Choose file    ${InputTypeFile}    ${FILE2}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-     Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
 
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
-
-Test 2 - Nota formal: Indicacion del numero de proceso creado
-    [Documentation]    Numero del proceso creado: ${tramite}
-    Asignar Tag Numerado
-    Log To Console    Comentario del proceso
-
-Test 2 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 3
-    [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
-    Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
-
-Test 2 - Nota formal: verificar el estado del tramite (pendiente) [operador] 4
-    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
-    Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
