@@ -172,3 +172,8 @@ ${botonExenciónImpuestoDeSellos}    //h3[normalize-space()='Exención Impuesto 
 ${asuntoExenciónImpuestoDeSellos}    //input[@id='cmhy6g6hz000anoclh53yu9v1']
 ${detalleExenciónImpuestoDeSellos}    //textarea[@id='cmhy6k427000cnocl5n1cgb7e']
 
+
+${tramiteBorrador}    //tbody/tr[1]
+${botonContinuarBorrador}    //a[normalize-space()='Continuar Borrador']
+${botonEnviarTramite}    //button[normalize-space()='Enviar Trámite']
+${mensajeSeleccioneUnaAccionParaContinuar}    //p[contains(text(),'Seleccione una acción para continuar con el proces')]

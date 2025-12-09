@@ -128,32 +128,6 @@ Abrir Tramite Por Numero
     Wait Until Element Is Visible    ${xpath}    10s
     Click Element    ${xpath}
 
-Validar Estado Tramite Por Numero
-    [Arguments]    ${locatorTabla}    ${numero_tramite}    @{permitidos}
-    # Buscar la fila que contiene el número de trámite
-    ${filaXpath}=    Set Variable    ${locatorTabla}//tbody/tr[td[normalize-space()='${numero_tramite}']]
-    ${existe}=    Run Keyword And Return Status    Element Should Be Visible    xpath=${filaXpath}
-    Run Keyword If    not ${existe}    Fail    No se encontró el trámite con número: ${numero_tramite}
-    # Dentro de esa fila, tomar la celda de estado (columna 3)
-    ${estadoCelda}=    Get WebElement    xpath=${filaXpath}/td[3]
-    ${estado}=    Get Text    ${estadoCelda}
-    Log To Console    Estado del trámite ${numero_tramite}: ${estado}
-    ${es_valido}=    Run Keyword And Return Status    Should Contain    ${permitidos}    ${estado}
-    Run Keyword If    not ${es_valido}    Fail    Aparecio el estado: '${estado}', cuando se esperaba que el tramite este en el estado: ${permitidos}
-
-Validar Estado Tramite Por Numero Admin
-    [Arguments]    ${locatorTabla}    ${numero_tramite}    @{permitidos}
-    # Buscar la fila que contiene el número de trámite
-    ${filaXpath}=    Set Variable    ${locatorTabla}//tbody/tr[td[normalize-space()='${numero_tramite}']]
-    ${existe}=    Run Keyword And Return Status    Element Should Be Visible    xpath=${filaXpath}
-    Run Keyword If    not ${existe}    Fail    No se encontró el trámite con número: ${numero_tramite}
-    # Dentro de esa fila, tomar la celda de estado (columna 3)
-    ${estadoCelda}=    Get WebElement    xpath=${filaXpath}/td[4]
-    ${estado}=    Get Text    ${estadoCelda}
-    Log To Console    Estado del trámite ${numero_tramite}: ${estado}
-    ${es_valido}=    Run Keyword And Return Status    Should Contain    ${permitidos}    ${estado}
-    Run Keyword If    not ${es_valido}    Fail    Aparecio el estado: '${estado}', cuando se esperaba que el tramite este en el estado: ${permitidos}
-
 #Verificar Automatico------------------------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -164,6 +138,19 @@ Validar Estado Primer Tramite
     Log to console    Estado del primer trámite: ${estado}
     ${es_valido}=    Run Keyword And Return Status    Should Contain    ${permitidos}    ${estado}
     Run Keyword If    not ${es_valido}    Fail    Aparecio el estado: '${estado}', cuando se esperaba que el tramite este en el estado: ${permitidos}
+
+Validar Estado con numero de tramite
+    [Arguments]    ${locatorTabla}    ${numColumnaEstado}    ${numTramite}    @{permitidos}
+
+    #Armar xpath de la fila
+    ${xpathEstadoCelda}=    Set Variable    ${locatorTabla}//tbody/tr[td[1]="${numTramite}"]/td[${numColumnaEstado}]
+    #Obtener estado
+    ${primerEstadoCelda}=    Get WebElement    xpath=${xpathEstadoCelda}
+    ${estado}=    Get Text    ${primerEstadoCelda}
+    #Chequeo si los estados son iguales
+    ${es_valido}=    Run Keyword And Return Status    Should Contain    ${permitidos}    ${estado}
+    #Fallar si el estado no es válido
+    Run Keyword If    not ${es_valido}    Fail    El trámite ${numTramite} tiene el estado: '${estado}', cuando se esperaba: ${permitidos}
 
 Validar Estado Primer Tramite personal
     [Arguments]    ${locatorTabla}    @{permitidos}
@@ -181,6 +168,12 @@ Validar Estado Primer inexistente
     ${es_valido}=    Run Keyword And Return Status    Should Contain    ${estadoViene}    ${estado}
     Run Keyword If    ${es_valido}    Fail    Aparecio el estado: '${estado}', cuando no se deberia observar
 
+Validar Tramite Inexistente
+    [Arguments]    ${locatorTabla}    ${numTramite}
+
+    ${xpathFilaTramite}=    Set Variable    ${locatorTabla}//tbody/tr[td[1]="${numTramite}"]
+    ${tramite_encontrado}=    Run Keyword And Return Status    Wait Until Page Contains Element    xpath=${xpathFilaTramite}    timeout=1s
+    Run Keyword If    ${tramite_encontrado}    Fail    El trámite ${numTramite} fue encontrado en la tabla cuando se esperaba que fuera inexistente.
 
 Verificar Boton Sin Fallar
     [Arguments]    ${locator}    ${nombreBoton}
@@ -188,7 +181,7 @@ Verificar Boton Sin Fallar
     #agregue: para desplazarme hasta el boton
     ${status}    ${value}=    Run Keyword And Ignore Error    Element Should Be Visible    ${locator}
 
-    Run Keyword If    '${status}' == 'FAIL'    Log    El botón con locator ${nombreBoton} NO está visible (Error: ${value})    WARN
+    Run Keyword If    '${status}' == 'FAIL'    Log    El botón con locator ${nombreBoton} NO está visible    WARN
     Run Keyword If    '${status}' == 'PASS'    Log To Console    El botón con locator ${nombreBoton} está visible.
 
 
@@ -199,7 +192,7 @@ Verificar si el boton no existe Sin Fallar
     ${status}    ${value}=    Run Keyword And Ignore Error    Element Should Be Visible    ${locator}
 
     Run Keyword If    '${status}' == 'FAIL'    Log    El botón con locator ${nombreBoton} no esta visible y es correcto
-    Run Keyword If    '${status}' == 'PASS'    Log    El botón con locator ${nombreBoton} está visible y no deberia (Error: ${value})    WARN
+    Run Keyword If    '${status}' == 'PASS'    Log    El botón con locator ${nombreBoton} está visible y no deberia    WARN
 
 
 
