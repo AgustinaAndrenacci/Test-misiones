@@ -244,7 +244,6 @@ Test 2 - Consulta Vinculante agregar nota [operador mesa] Paso 2
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-
 Test 2 - Consulta Vinculante Solicitar Datos Adicionales [operador mesa] Paso 2
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "Solicitar Datos Adicionales"
