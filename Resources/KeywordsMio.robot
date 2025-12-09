@@ -14,7 +14,7 @@ Inicializar Contador
 
 Asignar Tag Numerado
     ${COUNTER}=    Evaluate    ${COUNTER} + 1
-    ${TAG_NUM}=    Evaluate    "{:02}".format(${COUNTER})
+    ${TAG_NUM}=    Evaluate    "{:03}".format(${COUNTER})
     Set Suite Variable    ${COUNTER}
     Set Tags    test_${TAG_NUM}
 
@@ -122,13 +122,11 @@ Obtener Numero De Tramite
     Log To Console    TEXTO OBTENIDO: ${tramite}
     RETURN    ${tramite}
 
-
 Abrir Tramite Por Numero
     [Arguments]    ${numero_tramite}
     ${xpath}=    Set Variable    //a[normalize-space()='${numero_tramite}']
     Wait Until Element Is Visible    ${xpath}    10s
     Click Element    ${xpath}
-
 
 #verificacion de datos en el campo --------------------------------------------------------------
 Verificar Contenido De Campos
@@ -146,7 +144,6 @@ Limpieza de variable
 Verificacion de si se creo el tramite
     [arguments]    ${var}
     If    ${var}=0   Fail    El tramite no se creó.
-
 
 
 #Verificar Automatico------------------------------------------------------------------------------------------------------------------------------------------------

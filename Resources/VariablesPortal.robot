@@ -101,6 +101,9 @@ ${botonAniadir}    //button[normalize-space()='Añadir']
 ${botonGuardarBorrador}    //button[normalize-space()='Guardar Borrador']
 ${botonEnviarSolicitud}    //button[normalize-space()='Enviar Solicitud']
 
+${abrirTramiteGenerado}    //td[normalize-space()='${tramite}']/..//a[contains(text(),'Continuar Borrador')]
+${botonEnviarTramite}    //button[normalize-space()='Enviar Trámite']
+
 ${botonVerDetalle}    //a[contains(., 'Ver Detalle')]
 ${botonExportarPDF}    //button[contains(., 'Exportar PDF')]
 

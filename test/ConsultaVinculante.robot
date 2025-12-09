@@ -17,14 +17,18 @@ Resource        ../Resources/VariablesPortal.robot
 Test Setup     Abrir Navegador en modo incognito
 Test Teardown  Cerrar navegador
 
-Suite Setup    Inicializar Contador
+#Suite Setup    Inicializar Contador
 
 ***Test Cases***
 
 Test 1 - Consulta Vinculante: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 1 es el siguiente:
     ...    ... crear tramite como borrador [ciudadano]
-    ...    ... chequear estado del tramite [ciudadano]
+    ...    ... chequear estado del tramite(borrador) [ciudadano]
+    ...    ... chequear que no aparezca el tramite(borrador) [operador mesa]
+    ...    ... pasar de borrador a guardado [ciudadano]
+    ...    ... chequear estado del tramite(pendiente) [ciudadano]
+    ...    ... chequear estado del tramite(pendiente) [operador mesa]
     Log To Console    Comentario del proceso
 
 Test 1 - Consulta Vinculante GuardarBorrador [ciudadano] Paso 1
@@ -46,19 +50,58 @@ Test 1 - Consulta Vinculante GuardarBorrador [ciudadano] Paso 1
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonGuardarBorrador}    botonGuardarBorrador
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
+    ${tramite}=    Obtener Numero De Tramite
+    Set Suite Variable    ${tramite}
+
+Test 1 - Indicacion del numero de proceso creado
+    [Documentation]    Numero del proceso creado: ${tramite}
+    Log To Console    Comentario del proceso
 
 Test 1 - Consulta Vinculante GuardarBorrador Chequear Estado Desde Usuario [ciudadano] Paso 1
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Borrador
+    Validar Estado Tramite Por Numero    ${tablaMisTramitesRecientes}    ${tramite}    Borrador
+
+Test 1 - Consulta Vinculante: verificar que no aparezca el tramite(borrador) [operador mesa] Paso 1
+    [Documentation]    Desde el operador mesa, se verifica que el tramite(borrador) no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado Primer inexistente    ${tablaOperador}    Borrador
+
+Test 1 - Consulta Vinculante: pasar de borrador a guardado [ciudadano]
+    [Documentation]    Desde el ciudadano, se entra al tramite y se guarda para que deje de estar en borrador
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Validar y hacer clic en el boton    ${abrirTramiteGenerado}    abrirTramiteGenerado
+    Validar y hacer clic en el boton    ${botonEnviarTramite}    botonEnviarTramite
+    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+
+Test 1 - Consulta Vinculante: verificar el estado del tramite (pendiente) [ciudadano]
+    [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Validar Estado Tramite Por Numero    ${tablaMisTramitesRecientes}    ${tramite}    Pendiente
+
+Test 1 - Consulta Vinculante: verificar el estado del tramite (Pendiente) [operador mesa] Paso 2
+    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado Tramite Por Numero    ${tablaOperador}    ${tramite}    Pendiente
 
 Test 2 - Consulta Vinculante: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 2 es el siguiente:
     ...    ... crear tramite [ciudadano]
     ...    ... chequear estado del tramite [ciudadano]
+    ...    ... verificar estado del tramite [operador mesa]
+    ...    ... verificar si los botones de acciones son correctos [operador mesa]
     ...    ... solicitar datos adicionales [operador mesa]
     ...    ... chequear estado del tramite [ciudadano]
+    ...    ... verifica si se pueden cargar datos adicionales [ciudadano]
     Log To Console    Comentario del proceso
 
 Test 2 - Consulta Vinculante Solicitar Datos Adicionales [ciudadano] Paso 1
@@ -69,12 +112,46 @@ Test 2 - Consulta Vinculante Solicitar Datos Adicionales [ciudadano] Paso 1
     Validar y hacer clic en el boton    ${botonConsultaVinculante}    botonConsultaVinculante
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
+    ${tramite}=    Obtener Numero De Tramite
+    Set Suite Variable    ${tramite}
+
+Test 2 - Indicacion del numero de proceso creado
+    [Documentation]    Numero del proceso creado: ${tramite}
+    Log To Console    Comentario del proceso
 
 Test 2 - Consulta Vinculante Solicitar Datos Adicionales Chequear Estado Desde Usuario [ciudadano] Paso 1
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Pendiente
+    Validar Estado Tramite Por Numero    ${tablaMisTramitesRecientes}    ${tramite}    Pendiente
+
+Test 2 - Consulta Vinculante: verificar el estado del tramite (pendiente) [operador mesa] Paso 1
+    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado Tramite Por Numero    ${tablaOperador}    ${tramite}    Pendiente
+
+Test 2 - Consulta Vinculante: verificar si los botones de acciones son correctos [operador mesa] Paso 1
+    [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+
+    Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
+
+    Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
+    Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
+    Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
+
+    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
+    Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
+    Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
+    Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
 
 Test 2 - Consulta Vinculante Solicitar Datos Adicionales [operador mesa] Paso 2
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "Solicitar Datos Adicionales"
@@ -82,7 +159,7 @@ Test 2 - Consulta Vinculante Solicitar Datos Adicionales [operador mesa] Paso 2
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
@@ -96,12 +173,21 @@ Test 2 - Consulta Vinculante Solicitar Datos Adicionales Chequear Estado Desde U
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Pendiente Contribuyente
+    Validar Estado Tramite Por Numero    ${tablaMisTramitesRecientes}    ${tramite}    Pendiente Contribuyente
+
+Test 2 - Consulta Vinculante: el ciudadano avanza en el tramite [ciudadano] Paso 3
+    [Documentation]    Se verifica si el usuario puede avanzar en el tramite debido a que le solicitaron datos adicionales
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    #ATENCION! - Modificar debido a que aún no se sabe el método en que el usuario podrá cargar datos adicionales
+    Fail    Fallo: el ciudadano no puede cargar datos adicionales
 
 Test 3 - Consulta Vinculante: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 3 es el siguiente:
     ...    ... crear tramite [ciudadano]
     ...    ... chequear estado del tramite [ciudadano]
+    ...    ... verificar estado del tramite [operador mesa]
+    ...    ... verificar si los botones de acciones son correctos [operador mesa]
     ...    ... documentacion no corresponde [operador mesa]
     ...    ... chequear estado del tramite [ciudadano]
     Log To Console    Comentario del proceso
@@ -114,12 +200,46 @@ Test 3 - Consulta Vinculante Documentacion NoCorresponde [ciudadano] Paso 1
     Validar y hacer clic en el boton    ${botonConsultaVinculante}    botonConsultaVinculante
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
+    ${tramite}=    Obtener Numero De Tramite
+    Set Suite Variable    ${tramite}
+
+Test 3 - Indicacion del numero de proceso creado
+    [Documentation]    Numero del proceso creado: ${tramite}
+    Log To Console    Comentario del proceso
 
 Test 3 - Consulta Vinculante Documentacion NoCorresponde Chequear Estado Desde Usuario [ciudadano] Paso 1
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Pendiente
+    Validar Estado Tramite Por Numero    ${tablaMisTramitesRecientes}    ${tramite}    Pendiente
+
+Test 3 - Consulta Vinculante: verificar el estado del tramite (pendiente) [operador mesa] Paso 1
+    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado Tramite Por Numero    ${tablaOperador}    ${tramite}    Pendiente
+
+Test 3 - Consulta Vinculante: verificar si los botones de acciones son correctos [operador mesa] Paso 1
+    [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+
+    Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
+
+    Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
+    Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
+    Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
+
+    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
+    Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
+    Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
+    Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
 
 Test 3 - Consulta Vinculante Documentacion NoCorresponde [operador mesa] Paso 2
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "No Corresponde"
@@ -127,7 +247,7 @@ Test 3 - Consulta Vinculante Documentacion NoCorresponde [operador mesa] Paso 2
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
@@ -141,7 +261,7 @@ Test 3 - Consulta Vinculante Documentacion NoCorresponde Chequear Estado Desde U
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Cerrado
+    Validar Estado Tramite Por Numero    ${tablaMisTramitesRecientes}    ${tramite}    Cerrado
 
 Test 4 - Consulta Vinculante: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 4 es el siguiente:
@@ -180,12 +300,18 @@ Test 4 - Consulta Vinculante Devuelto a Mesa de Entrada [ciudadano] Paso 1
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
+    ${tramite}=    Obtener Numero De Tramite
+    Set Suite Variable    ${tramite}
+
+Test 4 - Indicacion del numero de proceso creado
+    [Documentation]    Numero del proceso creado: ${tramite}
+    Log To Console    Comentario del proceso
 
 Test 4 - Consulta Vinculante Devuelto a Mesa de Entrada Chequear Estado Desde Usuario [ciudadano] Paso 1
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Pendiente
+    Validar Estado Tramite Por Numero    ${tablaMisTramitesRecientes}    ${tramite}    Pendiente
 
 Test 4 - Consulta Vinculante Devuelto a Mesa de Entrada [operador mesa] Paso 2
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
@@ -193,7 +319,7 @@ Test 4 - Consulta Vinculante Devuelto a Mesa de Entrada [operador mesa] Paso 2
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
@@ -207,7 +333,7 @@ Test 4 - Consulta Vinculante Devuelto a Mesa de Entrada Chequear Estado Desde Us
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
+    Validar Estado Tramite Por Numero    ${tablaMisTramitesRecientes}    ${tramite}    En curso
 
 Test 4 - Consulta Vinculante Devuelto a Mesa de Entrada [secretaria] Paso 3
     [Documentation]    Entra como Secretaria para continuar con el proceso dandole a la opcion "No Corresponde" devolviendo el tramite hacia Mesa de Entrada.
@@ -215,7 +341,7 @@ Test 4 - Consulta Vinculante Devuelto a Mesa de Entrada [secretaria] Paso 3
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota Secretaria    campoComentarios
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
@@ -229,7 +355,7 @@ Test 4 - Consulta Vinculante Devuelto a Mesa de Entrada Chequear Estado Desde Us
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
+    Validar Estado Tramite Por Numero    ${tablaMisTramitesRecientes}    ${tramite}    En curso
 
 Test 4 - Consulta Vinculante Devuelto a Mesa de Entrada [operador mesa] Paso 4
     [Documentation]    Entra como operador mesa entrada, verifica que los botones del operador se encuentren disponibles, y continua con el proceso del tramite enviandolo a secretaria nuevamente
@@ -237,7 +363,7 @@ Test 4 - Consulta Vinculante Devuelto a Mesa de Entrada [operador mesa] Paso 4
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa, tramite devuelto    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
@@ -253,7 +379,7 @@ Test 4 - Consulta Vinculante Devuelto a Mesa de Entrada Chequear Estado Desde Us
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
+    Validar Estado Tramite Por Numero    ${tablaMisTramitesRecientes}    ${tramite}    En curso
 
 Test 4 - Consulta Vinculante Devuelto a Mesa de Entrada [secretaria] Paso 5
     [Documentation]    Entra como Secretaria para continuar con el proceso, ahora si utilizando la opcion "Para Resolver" enviandolo hacia Gestion
@@ -261,7 +387,7 @@ Test 4 - Consulta Vinculante Devuelto a Mesa de Entrada [secretaria] Paso 5
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota Secretaria    campoComentarios
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
@@ -275,7 +401,7 @@ Test 4 - Consulta Vinculante Devuelto a Mesa de Entrada Chequear Estado Desde Us
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
+    Validar Estado Tramite Por Numero    ${tablaMisTramitesRecientes}    ${tramite}    En curso
 
 Test 4 - Consulta Vinculante Devuelto a Mesa de Entrada [gestion] Paso 6
     [Documentation]    Entra como Gestion aprobando el tramite para continuar con el proceso
@@ -283,7 +409,7 @@ Test 4 - Consulta Vinculante Devuelto a Mesa de Entrada [gestion] Paso 6
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota Gestion    campoComentarios
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
@@ -297,7 +423,7 @@ Test 4 - Consulta Vinculante Devuelto a Mesa de Entrada Chequear Estado Desde Us
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Resuelto
+    Validar Estado Tramite Por Numero    ${tablaMisTramitesRecientes}    ${tramite}    Resuelto
 
 Test 4 - Consulta Vinculante Devuelto a Mesa de Entrada [operador mesa] Paso 7
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso
@@ -305,7 +431,7 @@ Test 4 - Consulta Vinculante Devuelto a Mesa de Entrada [operador mesa] Paso 7
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
     Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
@@ -316,7 +442,7 @@ Test 4 - Consulta Vinculante Devuelto a Mesa de Entrada Chequear Estado Desde Us
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Cerrado
+    Validar Estado Tramite Por Numero    ${tablaMisTramitesRecientes}    ${tramite}    Cerrado
 
 Test 5 - Consulta Vinculante: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 5 es el siguiente:
@@ -345,12 +471,18 @@ Test 5 - Consulta Vinculante Rechazado desde Gestion [ciudadano] Paso 1
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
+    ${tramite}=    Obtener Numero De Tramite
+    Set Suite Variable    ${tramite}
+
+Test 5 - Indicacion del numero de proceso creado
+    [Documentation]    Numero del proceso creado: ${tramite}
+    Log To Console    Comentario del proceso
 
 Test 5 - Consulta Vinculante Rechazado Chequear Estado Desde Usuario [ciudadano] Paso 1
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Pendiente
+    Validar Estado Tramite Por Numero    ${tablaMisTramitesRecientes}    ${tramite}    Pendiente
 
 Test 5 - Consulta Vinculante Rechazado desde Gestion [operador mesa] Paso 2
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
@@ -358,7 +490,7 @@ Test 5 - Consulta Vinculante Rechazado desde Gestion [operador mesa] Paso 2
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
@@ -372,7 +504,7 @@ Test 5 - Consulta Vinculante Rechazado Chequear Estado Desde Usuario [ciudadano]
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
+    Validar Estado Tramite Por Numero    ${tablaMisTramitesRecientes}    ${tramite}    En curso
 
 Test 5 - Consulta Vinculante Rechazado desde Gestion [secretaria] Paso 3
     [Documentation]    Entra como Secretaria para continuar con el proceso, utilizando la opcion "Para Resolver" enviandolo hacia Gestion
@@ -380,7 +512,7 @@ Test 5 - Consulta Vinculante Rechazado desde Gestion [secretaria] Paso 3
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota Secretaria    campoComentarios
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
@@ -394,7 +526,7 @@ Test 5 - Consulta Vinculante Rechazado Chequear Estado Desde Usuario [ciudadano]
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
+    Validar Estado Tramite Por Numero    ${tablaMisTramitesRecientes}    ${tramite}    En curso
 
 Test 5 - Consulta Vinculante Rechazado desde Gestion [gestion] Paso 4
     [Documentation]     Entra como Gestion Rechazando el tramite y continua con el proceso
@@ -402,7 +534,7 @@ Test 5 - Consulta Vinculante Rechazado desde Gestion [gestion] Paso 4
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota Gestion    campoComentarios
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
@@ -416,7 +548,7 @@ Test 5 - Consulta Vinculante Rechazado Chequear Estado Desde Usuario [ciudadano]
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Resuelto
+    Validar Estado Tramite Por Numero    ${tablaMisTramitesRecientes}    ${tramite}    Resuelto
 
 Test 5 - Consulta Vinculante Rechazado desde Gestion [operador mesa] Paso 5
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso, en este caso "Rechazado"
@@ -424,7 +556,7 @@ Test 5 - Consulta Vinculante Rechazado desde Gestion [operador mesa] Paso 5
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
     Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
@@ -435,7 +567,7 @@ Test 5 - Consulta Vinculante Rechazado Chequear Estado Desde Usuario [ciudadano]
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Cerrado
+    Validar Estado Tramite Por Numero    ${tablaMisTramitesRecientes}    ${tramite}    Cerrado
 
 Test 6 - Consulta Vinculante: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 6 es el siguiente:
@@ -474,12 +606,18 @@ Test 6 - Consulta Vinculante Correcta [ciudadano] Paso 1
 #    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
+    ${tramite}=    Obtener Numero De Tramite
+    Set Suite Variable    ${tramite}
+
+Test 6 - Indicacion del numero de proceso creado
+    [Documentation]    Numero del proceso creado: ${tramite}
+    Log To Console    Comentario del proceso
 
 Test 6 - Consulta Vinculante Correcta Chequear Estado Desde Usuario [ciudadano] Paso 1
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Pendiente
+    Validar Estado Tramite Por Numero    ${tablaMisTramitesRecientes}    ${tramite}    Pendiente
 
 Test 6 - Consulta Vinculante Correcta [operador mesa] Paso 2
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
@@ -487,7 +625,7 @@ Test 6 - Consulta Vinculante Correcta [operador mesa] Paso 2
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
@@ -501,7 +639,7 @@ Test 6 - Consulta Vinculante Correcta Chequear Estado Desde Usuario [ciudadano] 
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
+    Validar Estado Tramite Por Numero    ${tablaMisTramitesRecientes}    ${tramite}    En curso
 
 Test 6 - Consulta Vinculante Correcta [secretaria] Paso 3
     [Documentation]    Entra como Secretaria para continuar con el proceso, utilizando la opcion "Para Resolver" enviandolo hacia Gestion
@@ -509,7 +647,7 @@ Test 6 - Consulta Vinculante Correcta [secretaria] Paso 3
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota Secretaria    campoComentarios
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
@@ -523,7 +661,7 @@ Test 6 - Consulta Vinculante Correcta Chequear Estado Desde Usuario [ciudadano] 
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    En curso
+    Validar Estado Tramite Por Numero    ${tablaMisTramitesRecientes}    ${tramite}    En curso
 
 Test 6 - Consulta Vinculante Correcta [gestion] Paso 4
     [Documentation]    Entra como Gestion y utiliza la opcion "Aprobar" para continuar con el proceso
@@ -531,7 +669,7 @@ Test 6 - Consulta Vinculante Correcta [gestion] Paso 4
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota Gestion    campoComentarios
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
@@ -545,7 +683,7 @@ Test 6 - Consulta Vinculante Correcta Chequear Estado Desde Usuario [ciudadano] 
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Resuelto
+    Validar Estado Tramite Por Numero    ${tablaMisTramitesRecientes}    ${tramite}    Resuelto
 
 Test 6 - Consulta Vinculante Correcta [operador mesa] Paso 5
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso, en este caso "Aprobado"
@@ -553,7 +691,7 @@ Test 6 - Consulta Vinculante Correcta [operador mesa] Paso 5
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar y hacer clic en el boton    ${abrirPrimerTramite}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
     Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
@@ -564,5 +702,5 @@ Test 6 - Consulta Vinculante Correcta Chequear Estado Desde Usuario [ciudadano] 
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado Primer Tramite    ${tablaMisTramitesRecientes}    Cerrado
+    Validar Estado Tramite Por Numero    ${tablaMisTramitesRecientes}    ${tramite}    Cerrado
 

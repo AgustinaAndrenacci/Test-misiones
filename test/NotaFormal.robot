@@ -62,7 +62,7 @@ Test 0 - Nota formal: crear tramite como borrador [ciudadano]
     Verificar y presionar ítem en lista    ${select}    Documentación Específica
     Choose file    ${InputTypeFile}    ${FILE2}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Antecedentes
+    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
     Choose file    ${InputTypeFile}    ${FILE2}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Verificar y presionar ítem en lista    ${select}    Otros
@@ -74,7 +74,14 @@ Test 0 - Nota formal: crear tramite como borrador [ciudadano]
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
 
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+
 Test 0 - Nota formal: Indicacion del numero de proceso creado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -82,6 +89,9 @@ Test 0 - Nota formal: Indicacion del numero de proceso creado
 Test 0 - Nota formal: verificar el estado del tramite (borrador) [ciudadano] 4
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Borrador
@@ -89,6 +99,9 @@ Test 0 - Nota formal: verificar el estado del tramite (borrador) [ciudadano] 4
 Test 0 - Nota formal: verificar que el tramite no exista [operador mesa] 5
     [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -98,6 +111,9 @@ Test 0 - Nota formal: verificar que el tramite no exista [operador mesa] 5
 Test 0 - Nota formal: verificar que el tramite no exista [responsable area] 6
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -107,6 +123,9 @@ Test 0 - Nota formal: verificar que el tramite no exista [responsable area] 6
 Test 0 - Nota formal: verificar que el tramite no exista [secretaria] 7
     [Documentation]    Desde la secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -116,6 +135,9 @@ Test 0 - Nota formal: verificar que el tramite no exista [secretaria] 7
 Test 0 - Nota formal: verificar que el tramite no exista [gestion] 8
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -150,7 +172,7 @@ Test 1 - Nota formal: crear tramite como borrador [ciudadano]
     Verificar y presionar ítem en lista    ${select}    Documentación Específica
     Choose file    ${InputTypeFile}    ${FILE2}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Antecedentes
+    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
     Choose file    ${InputTypeFile}    ${FILE2}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Verificar y presionar ítem en lista    ${select}    Otros
@@ -162,7 +184,14 @@ Test 1 - Nota formal: crear tramite como borrador [ciudadano]
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
 
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
 Test 1 - Nota formal: Indicacion del numero de proceso creado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -170,6 +199,9 @@ Test 1 - Nota formal: Indicacion del numero de proceso creado
 Test 1 - Nota formal: verificar el estado del tramite (borrador) [ciudadano] 4
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Borrador
@@ -177,6 +209,9 @@ Test 1 - Nota formal: verificar el estado del tramite (borrador) [ciudadano] 4
 Test 1 - Nota formal: verificar que el tramite no exista [operador mesa] 5
     [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -186,6 +221,9 @@ Test 1 - Nota formal: verificar que el tramite no exista [operador mesa] 5
 Test 1 - Nota formal: verificar que el tramite no exista [responsable area] 6
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -195,6 +233,9 @@ Test 1 - Nota formal: verificar que el tramite no exista [responsable area] 6
 Test 1 - Nota formal: verificar que el tramite no exista [secretaria] 7
     [Documentation]    Desde la secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -204,6 +245,9 @@ Test 1 - Nota formal: verificar que el tramite no exista [secretaria] 7
 Test 1 - Nota formal: verificar que el tramite no exista [gestion] 8
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -213,6 +257,9 @@ Test 1 - Nota formal: verificar que el tramite no exista [gestion] 8
 Test 1 - Nota formal: pasar de borrador a guardado
     [Documentation]    Desde el ciudadano, se entra al tramite y se guarda para que deje de estar en borrador
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar y hacer clic en el boton    ${tramiteBorrador}    abrirPrimerTramite
@@ -220,10 +267,15 @@ Test 1 - Nota formal: pasar de borrador a guardado
     Validar y hacer clic en el boton    ${botonContinuarBorrador}    abrirPrimerTramite
     Validar y hacer clic en el boton    ${botonEnviarTramite}    botonEnviarTramite
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    #Condicion para los proximos test
+    #[Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 1 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 10
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
@@ -231,6 +283,9 @@ Test 1 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 10
 Test 1 - Nota formal: verificar el estado del tramite (pendiente) [operador] 4
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -240,6 +295,9 @@ Test 1 - Nota formal: verificar el estado del tramite (pendiente) [operador] 4
 Test 1 - Nota formal: verificar que el tramite no exista [responsable area] 12
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -249,6 +307,9 @@ Test 1 - Nota formal: verificar que el tramite no exista [responsable area] 12
 Test 1 - Nota formal: verificar que el tramite no exista [secretaria] 13
     [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -258,6 +319,9 @@ Test 1 - Nota formal: verificar que el tramite no exista [secretaria] 13
 Test 1 - Nota formal: verificar que el tramite no exista [gestion] 14
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -291,7 +355,13 @@ Test 2 - Nota formal: crear tramite [ciudadano]
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
 
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
 Test 2 - Nota formal: Indicacion del numero de proceso creado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -299,6 +369,9 @@ Test 2 - Nota formal: Indicacion del numero de proceso creado
 Test 2 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 4
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
@@ -306,6 +379,9 @@ Test 2 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 4
 Test 2 - Nota formal: verificar el estado del tramite (pendiente) [operador] 5
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -315,6 +391,9 @@ Test 2 - Nota formal: verificar el estado del tramite (pendiente) [operador] 5
 Test 2 - Nota formal: verificar que el tramite no exista [responsable area] 6
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -324,6 +403,9 @@ Test 2 - Nota formal: verificar que el tramite no exista [responsable area] 6
 Test 2 - Nota formal: verificar que el tramite no exista [secretaria] 7
     [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -333,6 +415,9 @@ Test 2 - Nota formal: verificar que el tramite no exista [secretaria] 7
 Test 2 - Nota formal: verificar que el tramite no exista [gestion] 8
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -343,6 +428,9 @@ Test 2 - Nota formal: verificar que el tramite no exista [gestion] 8
 Test 2 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 1
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -365,6 +453,9 @@ Test 2 - Nota formal: verificar si los botones de acciones son correctos [operad
 Test 2 - Nota formal: se agrega una nota [operador mesa]
     [Documentation]    Entra como operador mesa entrada y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -379,6 +470,9 @@ Test 2 - Nota formal: se agrega una nota [operador mesa]
 Test 2 - Nota formal: se selecciona la opcion "solicitar datos adicionales" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "Solicitar Datos Adicionales"
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -390,11 +484,15 @@ Test 2 - Nota formal: se selecciona la opcion "solicitar datos adicionales" [ope
     Validar y completar campo    ${campoComentario}    Solicitar Datos Adicionales    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-#-----------------------------------------
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 2 - Nota formal: verificar el estado del tramite (pendiente contributente) [ciudadano] 11
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente Contribuyente
@@ -402,6 +500,9 @@ Test 2 - Nota formal: verificar el estado del tramite (pendiente contributente) 
 Test 2 - Nota formal: verificar que el tramite no exista [operador mesa] 12
     [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -411,6 +512,9 @@ Test 2 - Nota formal: verificar que el tramite no exista [operador mesa] 12
 Test 2 - Nota formal: verificar que el tramite no exista [responsable area] 13
     [Documentation]    Desde resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -420,6 +524,9 @@ Test 2 - Nota formal: verificar que el tramite no exista [responsable area] 13
 Test 2 - Nota formal: verificar que el tramite no exista [secretaria] 14
     [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -429,6 +536,9 @@ Test 2 - Nota formal: verificar que el tramite no exista [secretaria] 14
 Test 2 - Nota formal: verificar que el tramite no exista [gestion] 15
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -439,6 +549,9 @@ Test 2 - Nota formal: verificar que el tramite no exista [gestion] 15
 Test 2 - Nota formal: el ciudadano avanza en el tramite [ciudadano] 6
     [Documentation]    Se verifica si el usuario puede avanzar en el tramite debido a que le solicitaron datos adicionales
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     #ATENCION! - Modificar debido a que aún no se sabe el método en que el usuario podrá cargar datos adicionales
@@ -472,7 +585,7 @@ Test 3 - Nota formal: Se crea un tramite de Nota formal [ciudadano]
     Verificar y presionar ítem en lista    ${select}    Documentación Específica
     Choose file    ${InputTypeFile}    ${FILE2}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Antecedentes
+    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
     Choose file    ${InputTypeFile}    ${FILE2}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
@@ -481,7 +594,13 @@ Test 3 - Nota formal: Se crea un tramite de Nota formal [ciudadano]
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
 
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
 Test 3 - Nota formal: Indicacion del numero de proceso creado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -489,6 +608,9 @@ Test 3 - Nota formal: Indicacion del numero de proceso creado
 Test 3 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 4
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
@@ -496,6 +618,9 @@ Test 3 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 4
 Test 3 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 5
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -505,6 +630,9 @@ Test 3 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa
 Test 3 - Nota formal: verificar que el tramite no exista [responsable area] 6
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -514,6 +642,9 @@ Test 3 - Nota formal: verificar que el tramite no exista [responsable area] 6
 Test 3 - Nota formal: verificar que el tramite no exista [secretaria] 7
     [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -523,6 +654,9 @@ Test 3 - Nota formal: verificar que el tramite no exista [secretaria] 7
 Test 3 - Nota formal: verificar que el tramite no exista [gestion] 8
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -533,6 +667,9 @@ Test 3 - Nota formal: verificar que el tramite no exista [gestion] 8
 Test 3 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 1
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -555,6 +692,9 @@ Test 3 - Nota formal: verificar si los botones de acciones son correctos [operad
 Test 3 - Nota formal: se agrega una nota [operador mesa]
     [Documentation]    Entra como operador mesa entrada y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -569,6 +709,9 @@ Test 3 - Nota formal: se agrega una nota [operador mesa]
 Test 3 - Nota formal: se selecciona la opcion "no corresponde" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "No Corresponde"
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -579,10 +722,15 @@ Test 3 - Nota formal: se selecciona la opcion "no corresponde" [operador mesa]
     Validar y completar campo    ${campoComentario}    No Corresponde    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 3 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 11
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
@@ -590,6 +738,9 @@ Test 3 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 11
 Test 3 - Nota formal: verificar que el tramite no exista [operador mesa] 12
     [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -599,6 +750,9 @@ Test 3 - Nota formal: verificar que el tramite no exista [operador mesa] 12
 Test 3 - Nota formal: verificar que el tramite no exista [responsable area] 13
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -608,6 +762,9 @@ Test 3 - Nota formal: verificar que el tramite no exista [responsable area] 13
 Test 3 - Nota formal: verificar que el tramite no exista [secretaria] 14
     [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -617,6 +774,9 @@ Test 3 - Nota formal: verificar que el tramite no exista [secretaria] 14
 Test 3 - Nota formal: verificar que el tramite no exista [gestion] 15
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -663,7 +823,13 @@ Test 4 - Nota formal: se crea un tramite de norta formal [ciudadano]
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
 
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
 Test 4 - Nota formal: Indicacion del numero de proceso creado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -671,6 +837,9 @@ Test 4 - Nota formal: Indicacion del numero de proceso creado
 Test 4 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 4
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
@@ -678,6 +847,9 @@ Test 4 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 4
 Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 5
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -687,6 +859,9 @@ Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa
 Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 6
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -696,6 +871,9 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 6
 Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 7
     [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -705,16 +883,21 @@ Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 7
 Test 4 - Nota formal: verificar que el tramite no exista [gestion] 8
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-#VER ESTE ---------------------------------------------------------------------------------------------------------------
 Test 4 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 1
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -737,6 +920,9 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [operad
 Test 4 - Nota formal: se agrega una nota [operador mesa]
     [Documentation]    Entra como operador mesa entrada y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -751,6 +937,9 @@ Test 4 - Nota formal: se agrega una nota [operador mesa]
 Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -761,10 +950,15 @@ Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador me
     Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 11
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
@@ -772,6 +966,9 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 11
 Test 4 - Nota formal: verificar el estado del tramite (asignado) [secretaria] 12
     [Documentation]    Desde secretaria, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -781,6 +978,9 @@ Test 4 - Nota formal: verificar el estado del tramite (asignado) [secretaria] 12
 Test 4 - Nota formal: verificar el estado del tramite (asignado) [responsable area] 12
     [Documentation]    Desde resp area, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -790,6 +990,9 @@ Test 4 - Nota formal: verificar el estado del tramite (asignado) [responsable ar
 Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 13
     [Documentation]    Desde operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -799,6 +1002,9 @@ Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 13
 Test 4 - Nota formal: verificar que el tramite no exista [gestion] 15
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -809,6 +1015,9 @@ Test 4 - Nota formal: verificar que el tramite no exista [gestion] 15
 Test 4 - Nota formal: verificar si los botones de acciones son correctos [secretaria] 2
     [Documentation]    Se ingresa como secretaria y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -831,6 +1040,9 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [secret
 Test 4 - Nota formal: se agrega una nota [secretaria]
     [Documentation]    Entra como secretaria y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -845,6 +1057,9 @@ Test 4 - Nota formal: se agrega una nota [secretaria]
 Test 4 - Nota formal: se selecciona la opcion "no corresponde" [secretaria]
     [Documentation]    Entra como Secretaria para continuar con el proceso dandole a la opcion "No Corresponde" devolviendo el tramite hacia Mesa de Entrada.
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -855,10 +1070,15 @@ Test 4 - Nota formal: se selecciona la opcion "no corresponde" [secretaria]
     Validar y completar campo    ${campoComentario}    No Corresponde    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 18
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
@@ -866,6 +1086,9 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 18
 Test 4 - Nota formal: verificar el estado del tramite (deuelto) [operador mesa] 19
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -875,6 +1098,9 @@ Test 4 - Nota formal: verificar el estado del tramite (deuelto) [operador mesa] 
 Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 20
     [Documentation]    Desde resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -884,6 +1110,9 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 20
 Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 21
     [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -893,6 +1122,9 @@ Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 21
 Test 4 - Nota formal: verificar que el tramite no exista [gestion] 22
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -902,6 +1134,9 @@ Test 4 - Nota formal: verificar que el tramite no exista [gestion] 22
 Test 4 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 3
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -924,6 +1159,9 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [operad
 Test 4 - Nota formal: se agrega una nota [operador mesa]
     [Documentation]    Entra como operador mesa entrada y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -938,6 +1176,9 @@ Test 4 - Nota formal: se agrega una nota [operador mesa]
 Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria". [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -948,10 +1189,15 @@ Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria". [operador m
     Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 25
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
@@ -959,6 +1205,9 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 25
 Test 4 - Nota formal: verificar el estado del tramite (asignado) [secretaria] 26
     [Documentation]    Desde la secretaria, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -968,6 +1217,9 @@ Test 4 - Nota formal: verificar el estado del tramite (asignado) [secretaria] 26
 Test 4 - Nota formal: verificar el estado del tramite (asignado) [responsable area] 12
     [Documentation]    Desde resp area, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -977,6 +1229,9 @@ Test 4 - Nota formal: verificar el estado del tramite (asignado) [responsable ar
 Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 27
     [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -986,6 +1241,9 @@ Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 27
 Test 4 - Nota formal: verificar que el tramite no exista [gestion] 29
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -996,6 +1254,9 @@ Test 4 - Nota formal: verificar que el tramite no exista [gestion] 29
 Test 4 - Nota formal: verificar si los botones de acciones son correctos [secretaria] 4
     [Documentation]    Se ingresa como secretaria y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1018,6 +1279,9 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [secret
 Test 4 - Nota formal: se agrega una nota [secretaria]
     [Documentation]    Entra como secretaria y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1032,6 +1296,9 @@ Test 4 - Nota formal: se agrega una nota [secretaria]
 Test 4 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
     [Documentation]    Entra como Secretaria para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1042,10 +1309,15 @@ Test 4 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
     Validar y completar campo    ${campoComentario}    Para Resolver    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 32
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
@@ -1053,6 +1325,9 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 32
 Test 4 - Nota formal: verificar el estado del tramite (en revision) [gestion] 33
     [Documentation]    Desde el usuario gestion, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1062,6 +1337,9 @@ Test 4 - Nota formal: verificar el estado del tramite (en revision) [gestion] 33
 Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 34
     [Documentation]    Desde operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1071,6 +1349,9 @@ Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 34
 Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 35
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1080,6 +1361,9 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 35
 Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 36
     [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1090,6 +1374,9 @@ Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 36
 Test 4 - Nota formal: verificar si los botones de acciones son correctos [gestion] 5
     [Documentation]    Se ingresa como gestion y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1112,6 +1399,9 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [gestio
 Test 4 - Nota formal: se agrega una nota [gestion]
     [Documentation]    Entra como gestion y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1126,6 +1416,9 @@ Test 4 - Nota formal: se agrega una nota [gestion]
 Test 4 - Nota formal: se selecciona la opcion "aprobado" [gestion]
     [Documentation]    Entra como Gestion aprobando el tramite para continuar con el proceso
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1136,10 +1429,16 @@ Test 4 - Nota formal: se selecciona la opcion "aprobado" [gestion]
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
 
 Test 4 - Nota formal: verificar el estado del tramite (resuelto) [ciudadano] 39
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
@@ -1147,6 +1446,9 @@ Test 4 - Nota formal: verificar el estado del tramite (resuelto) [ciudadano] 39
 Test 4 - Nota formal: verificar el estado del tramite (aprobado) [operador mesa] 40
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1156,6 +1458,9 @@ Test 4 - Nota formal: verificar el estado del tramite (aprobado) [operador mesa]
 Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 41
     [Documentation]    Desde resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1165,6 +1470,9 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 41
 Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 42
     [Documentation]    Desde el secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1174,6 +1482,9 @@ Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 42
 Test 4 - Nota formal: verificar que el tramite no exista [gestion] 43
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1184,6 +1495,9 @@ Test 4 - Nota formal: verificar que el tramite no exista [gestion] 43
 Test 4 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 6
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1206,6 +1520,9 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [operad
 Test 4 - Nota formal: se agrega una nota [operador mesa]
     [Documentation]    Entra como operador mesa entrada y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1218,6 +1535,9 @@ Test 4 - Nota formal: se agrega una nota [operador mesa]
 Test 4 - Nota formal: se selecciona la opcion "informar al contribuyente" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1227,10 +1547,15 @@ Test 4 - Nota formal: se selecciona la opcion "informar al contribuyente" [opera
     Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 4 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 46
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
@@ -1238,6 +1563,9 @@ Test 4 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 46
 Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 47
     [Documentation]    Desde operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1247,6 +1575,9 @@ Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 47
 Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 48
     [Documentation]    Desde resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1256,6 +1587,9 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 48
 Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 49
     [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1265,6 +1599,9 @@ Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 49
 Test 4 - Nota formal: verificar que el tramite no exista [gestion] 50
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1306,7 +1643,13 @@ Test 5 - Nota formal: se crea un tramite de nota formal [ciudadano]
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
 
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
 Test 5 - Nota formal: Indicacion del numero de proceso creado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -1314,6 +1657,9 @@ Test 5 - Nota formal: Indicacion del numero de proceso creado
 Test 5 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 4
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
@@ -1321,6 +1667,9 @@ Test 5 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 4
 Test 5 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 5
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1330,6 +1679,9 @@ Test 5 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa
 Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 6
     [Documentation]    Desde resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1339,6 +1691,9 @@ Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 6
 Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 7
     [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1348,6 +1703,9 @@ Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 7
 Test 5 - Nota formal: verificar que el tramite no exista [gestion] 8
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1358,6 +1716,9 @@ Test 5 - Nota formal: verificar que el tramite no exista [gestion] 8
 Test 5 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 1
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1380,6 +1741,9 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [operad
 Test 5 - Nota formal: se agrega una nota [operador mesa]
     [Documentation]    Entra como operador mesa y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1394,6 +1758,9 @@ Test 5 - Nota formal: se agrega una nota [operador mesa]
 Test 5 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1404,10 +1771,15 @@ Test 5 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador me
     Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 11
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
@@ -1415,6 +1787,9 @@ Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 11
 Test 5 - Nota formal: verificar el estado del tramite (asignado) [secretaria] 12
     [Documentation]    Desde la secretaria, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
@@ -1424,6 +1799,9 @@ Test 5 - Nota formal: verificar el estado del tramite (asignado) [secretaria] 12
 Test 4 - Nota formal: verificar el estado del tramite (asignado) [responsable area] 12
     [Documentation]    Desde resp area, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1433,6 +1811,9 @@ Test 4 - Nota formal: verificar el estado del tramite (asignado) [responsable ar
 Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 13
     [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1442,17 +1823,21 @@ Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 13
 Test 5 - Nota formal: verificar que el tramite no exista [gestion] 15
     [Documentation]    Desde el gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-
-
 Test 5 - Nota formal: verificar si los botones de acciones son correctos [secretaria] 2
     [Documentation]    Se ingresa como secretaria y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1474,6 +1859,9 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [secret
 Test 5 - Nota formal: se agrega una nota [secretaria]
     [Documentation]    Entra como secretaria y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1488,6 +1876,9 @@ Test 5 - Nota formal: se agrega una nota [secretaria]
 Test 5 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
     [Documentation]    Entra como Secretaria para continuar con el proceso, utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1498,10 +1889,15 @@ Test 5 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
     Validar y completar campo    ${campoComentario}    Para Resolver    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 18
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
@@ -1509,6 +1905,9 @@ Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 18
 Test 5 - Nota formal: verificar el estado del tramite (en revision) [gestion] 19
     [Documentation]    Desde el usuario gestion, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1518,6 +1917,9 @@ Test 5 - Nota formal: verificar el estado del tramite (en revision) [gestion] 19
 Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 20
     [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1527,6 +1929,9 @@ Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 20
 Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 21
     [Documentation]    Desde resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1536,6 +1941,9 @@ Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 21
 Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 22
     [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1546,6 +1954,9 @@ Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 22
 Test 5 - Nota formal: verificar si los botones de acciones son correctos [gestion] 3
     [Documentation]    Se ingresa como gestion y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1568,6 +1979,9 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [gestio
 Test 5 - Nota formal: se agrega una nota [gestion]
     [Documentation]    Entra como gestion y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1582,6 +1996,9 @@ Test 5 - Nota formal: se agrega una nota [gestion]
 Test 5 - Nota formal: se selecciona la opcion "rechazar" [gestion]
     [Documentation]     Entra como Gestion Rechazando el tramite y continua con el proceso
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1592,10 +2009,15 @@ Test 5 - Nota formal: se selecciona la opcion "rechazar" [gestion]
     Validar y completar campo    ${campoComentario}    Rechazado    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 5 - Nota formal: verificar el estado del tramite (resuelto) [ciudadano] 25
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
@@ -1603,6 +2025,9 @@ Test 5 - Nota formal: verificar el estado del tramite (resuelto) [ciudadano] 25
 Test 5 - Nota formal: verificar el estado del tramite (rechazado) [operador mesa] 26
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1612,6 +2037,9 @@ Test 5 - Nota formal: verificar el estado del tramite (rechazado) [operador mesa
 Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 27
     [Documentation]    Desde resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1621,6 +2049,9 @@ Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 27
 Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 28
     [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1630,6 +2061,9 @@ Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 28
 Test 5 - Nota formal: verificar que el tramite no exista [gestion] 29
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1640,6 +2074,9 @@ Test 5 - Nota formal: verificar que el tramite no exista [gestion] 29
 Test 5 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 4
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1662,6 +2099,9 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [operad
 Test 5 - Nota formal: se agrega una nota [operador mesa]
     [Documentation]    Entra como operador mesa y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1674,6 +2114,9 @@ Test 5 - Nota formal: se agrega una nota [operador mesa]
 Test 5 - Nota formal: se selecciona la opcion "informar contribuyente" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso, en este caso "Rechazado"
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1683,10 +2126,15 @@ Test 5 - Nota formal: se selecciona la opcion "informar contribuyente" [operador
     Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 5 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 32
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaOperador}    3    ${tramite}    Cerrado
@@ -1694,6 +2142,9 @@ Test 5 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 32
 Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 33
     [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1703,6 +2154,9 @@ Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 33
 Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 34
     [Documentation]    Desde resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1712,6 +2166,9 @@ Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 34
 Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 35
     [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
@@ -1721,11 +2178,13 @@ Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 35
 Test 5 - Nota formal: verificar que el tramite no exista [gestion] 36
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-#-----------------------------------------------------------------------------------------------
 
