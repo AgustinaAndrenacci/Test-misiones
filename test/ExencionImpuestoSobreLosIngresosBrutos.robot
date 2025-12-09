@@ -31,22 +31,23 @@ Suite Setup    Inicializar Contador
 #Ver que no funciona seleccionar la flecha
 
 ***Test Cases***
-Test 0 - Nota formal: Indicacion del proceso
+Test 0 - Excencion Impuesto Sobre los Ingresos Brutos: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 1 es el siguiente:
     ...    ... crear tramite como borrador [ciudadano]
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 0 - Nota formal: crear tramite como borrador [ciudadano]
-    [Documentation]    El ciudadano crea un tramite de Nota formal
+Test 0 - Excencion Impuesto Sobre los Ingresos Brutos: crear tramite como borrador [ciudadano]
+    [Documentation]    El ciudadano crea un tramite de Excencion Impuesto Sobre los Ingresos Brutos
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    ${botonExencionImpuestoSobreLosIngresosBrutos}
-    Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test1    asuntoExencionImpuestoSobreLosIngresosBrutos
-    Validar y completar campo    ${detalleExencionImpuestoSobreLosIngresosBrutos}  Descripcion test1  detalleExencionImpuestoSobreLosIngresosBrutos
-    
+    Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test0    asuntoExencionImpuestoSobreLosIngresosBrutos
+    Validar y completar campo    ${detalleExencionImpuestoSobreLosIngresosBrutos}  Descripcion test0  detalleExencionImpuestoSobreLosIngresosBrutos
+    Validar y completar campo    ${contenidoImpuestoSobreLosIngresosBrutos}  Contenido test0  contenidoExencionImpuestoSobreLosIngresosBrutos
+
     #Verificar y presionar ítem en lista    ${select}    DNI/CUIT
     #Choose file    ${InputTypeFile}    ${FILE2}
     #Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
@@ -73,20 +74,20 @@ Test 0 - Nota formal: crear tramite como borrador [ciudadano]
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
 
-Test 0 - Nota formal: Indicacion del numero de proceso creado
+Test 0 - Excencion Impuesto Sobre los Ingresos Brutos: Indicacion del numero de proceso creado
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
 
-Test 0 - Nota formal: verificar el estado del tramite (borrador) [ciudadano] 4
+Test 0 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (borrador) [ciudadano] 4
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Borrador
 
-Test 0 - Nota formal: verificar el estado del tramite (Borrador) [operador mesa] 5
+Test 0 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (Borrador) [operador mesa] 5
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -95,7 +96,7 @@ Test 0 - Nota formal: verificar el estado del tramite (Borrador) [operador mesa]
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 0 - Nota formal: verificar que el tramite no exista [responsable area] 6
+Test 0 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [responsable area] 6
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -104,7 +105,7 @@ Test 0 - Nota formal: verificar que el tramite no exista [responsable area] 6
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 0 - Nota formal: verificar que el tramite no exista [secretaria] 7
+Test 0 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [secretaria] 7
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -113,7 +114,7 @@ Test 0 - Nota formal: verificar que el tramite no exista [secretaria] 7
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 0 - Nota formal: verificar que el tramite no exista [gestion] 8
+Test 0 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [gestion] 8
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -123,15 +124,15 @@ Test 0 - Nota formal: verificar que el tramite no exista [gestion] 8
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 
-Test 1 - Nota formal: Indicacion del proceso
+Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 1 es el siguiente:
     ...    ... crear tramite como borrador [ciudadano]
     ...    ... se guarda el tramite [ciudadano]
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 1 - Nota formal: crear tramite como borrador [ciudadano]
-    [Documentation]    El ciudadano crea un tramite de Nota formal
+Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: crear tramite como borrador [ciudadano]
+    [Documentation]    El ciudadano crea un tramite de Excencion Impuesto Sobre los Ingresos Brutos
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
@@ -139,7 +140,8 @@ Test 1 - Nota formal: crear tramite como borrador [ciudadano]
     Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    ${botonExencionImpuestoSobreLosIngresosBrutos}
     Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test1    asuntoExencionImpuestoSobreLosIngresosBrutos
     Validar y completar campo    ${detalleExencionImpuestoSobreLosIngresosBrutos}  Descripcion test1  detalleExencionImpuestoSobreLosIngresosBrutos
-    
+    Validar y completar campo    ${contenidoImpuestoSobreLosIngresosBrutos}  Contenido test1  contenidoExencionImpuestoSobreLosIngresosBrutos
+
     #Verificar y presionar ítem en lista    ${select}    DNI/CUIT
     #Choose file    ${InputTypeFile}    ${FILE2}
     #Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
@@ -163,19 +165,19 @@ Test 1 - Nota formal: crear tramite como borrador [ciudadano]
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
 
-Test 1 - Nota formal: Indicacion del numero de proceso creado
+Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: Indicacion del numero de proceso creado
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 1 - Nota formal: verificar el estado del tramite (borrador) [ciudadano] 4
+Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (borrador) [ciudadano] 4
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Borrador
 
-Test 1 - Nota formal: verificar que el tramite no exista [operador mesa] 5
+Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [operador mesa] 5
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -184,7 +186,7 @@ Test 1 - Nota formal: verificar que el tramite no exista [operador mesa] 5
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 1 - Nota formal: verificar que el tramite no exista [responsable area] 6
+Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [responsable area] 6
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -193,7 +195,7 @@ Test 1 - Nota formal: verificar que el tramite no exista [responsable area] 6
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 1 - Nota formal: verificar que el tramite no exista [secretaria] 7
+Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [secretaria] 7
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -202,7 +204,7 @@ Test 1 - Nota formal: verificar que el tramite no exista [secretaria] 7
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 1 - Nota formal: verificar que el tramite no exista [gestion] 8
+Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [gestion] 8
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -211,7 +213,7 @@ Test 1 - Nota formal: verificar que el tramite no exista [gestion] 8
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 1 - Nota formal: pasar de borrador a guardado
+Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: pasar de borrador a guardado
     [Documentation]    Desde el ciudadano, se entra al tramite y se guarda para que deje de estar en borrador
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
@@ -221,14 +223,14 @@ Test 1 - Nota formal: pasar de borrador a guardado
     Validar y hacer clic en el boton    ${botonEnviarTramite}    botonEnviarTramite
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 1 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 10
+Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [ciudadano] 10
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
-Test 1 - Nota formal: verificar el estado del tramite (pendiente) [operador] 4
+Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador] 4
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -237,7 +239,7 @@ Test 1 - Nota formal: verificar el estado del tramite (pendiente) [operador] 4
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
-Test 1 - Nota formal: verificar que el tramite no exista [responsable area] 12
+Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [responsable area] 12
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -246,7 +248,7 @@ Test 1 - Nota formal: verificar que el tramite no exista [responsable area] 12
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 1 - Nota formal: verificar que el tramite no exista [secretaria] 13
+Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [secretaria] 13
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -255,7 +257,7 @@ Test 1 - Nota formal: verificar que el tramite no exista [secretaria] 13
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 1 - Nota formal: verificar que el tramite no exista [gestion] 14
+Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [gestion] 14
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -265,20 +267,22 @@ Test 1 - Nota formal: verificar que el tramite no exista [gestion] 14
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 
-Test 2 - Nota formal: Indicacion del proceso
+Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 2 es el siguiente:
     ...    ... crear tramite [ciudadano] -
     ...    ... solicitar datos adicionales [operador mesa]
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 2 - Nota formal: crear tramite [ciudadano]
-    [Documentation]    El ciudadano crea una nueva Nota formal sin agregar adjuntos
+Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: crear tramite [ciudadano]
+    [Documentation]    El ciudadano crea una nueva Excencion Impuesto Sobre los Ingresos Brutos sin agregar adjuntos
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    ${botonExencionImpuestoSobreLosIngresosBrutos}
-    Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test1    asuntoExencionImpuestoSobreLosIngresosBrutos
+    Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test2    asuntoExencionImpuestoSobreLosIngresosBrutos
+    Validar y completar campo    ${detalleExencionImpuestoSobreLosIngresosBrutos}  Descripcion test2  detalleExencionImpuestoSobreLosIngresosBrutos
+    Validar y completar campo    ${contenidoImpuestoSobreLosIngresosBrutos}  Contenido test2  contenidoExencionImpuestoSobreLosIngresosBrutos
 
     Verificar y presionar ítem en lista index    ${select}    1
     Choose file    ${InputTypeFile}    ${FILE2}
@@ -296,19 +300,19 @@ Test 2 - Nota formal: crear tramite [ciudadano]
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
 
-Test 2 - Nota formal: Indicacion del numero de proceso creado
+Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: Indicacion del numero de proceso creado
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 2 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 4
+Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [ciudadano] 4
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
-Test 2 - Nota formal: verificar el estado del tramite (pendiente) [operador] 5
+Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador] 5
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -317,7 +321,7 @@ Test 2 - Nota formal: verificar el estado del tramite (pendiente) [operador] 5
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
-Test 2 - Nota formal: verificar que el tramite no exista [responsable area] 6
+Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [responsable area] 6
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -326,7 +330,7 @@ Test 2 - Nota formal: verificar que el tramite no exista [responsable area] 6
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 2 - Nota formal: verificar que el tramite no exista [secretaria] 7
+Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [secretaria] 7
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -335,7 +339,7 @@ Test 2 - Nota formal: verificar que el tramite no exista [secretaria] 7
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 2 - Nota formal: verificar que el tramite no exista [gestion] 8
+Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [gestion] 8
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -345,7 +349,7 @@ Test 2 - Nota formal: verificar que el tramite no exista [gestion] 8
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 
-Test 2 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 1
+Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones de acciones son correctos [operador mesa] 1
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -366,12 +370,12 @@ Test 2 - Nota formal: verificar si los botones de acciones son correctos [operad
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
 
-
-Test 2 - Nota formal: se selecciona la opcion "solicitar datos adicionales" [operador mesa]
-    [Documentation]    Entra como operador mesa entrada para indicar la opcion "Solicitar Datos Adicionales"
+Test 2 - Nota formal: se agrega una nota [operador mesa]
+    [Documentation]    Entra como operador mesa y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -379,6 +383,15 @@ Test 2 - Nota formal: se selecciona la opcion "solicitar datos adicionales" [ope
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+
+Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "solicitar datos adicionales" [operador mesa]
+    [Documentation]    Entra como operador mesa entrada para indicar la opcion "Solicitar Datos Adicionales"
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Execute Javascript    window.scrollTo(0,800)
     Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
     Validar y completar campo    ${campoComentario}    Solicitar Datos Adicionales    campoComentario
@@ -386,14 +399,14 @@ Test 2 - Nota formal: se selecciona la opcion "solicitar datos adicionales" [ope
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 
-Test 2 - Nota formal: verificar el estado del tramite (pendiente contributente) [ciudadano] 11
+Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente contributente) [ciudadano] 11
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente Contribuyente
 
-Test 2 - Nota formal: verificar que el tramite no exista [operador mesa] 12
+Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [operador mesa] 12
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -402,7 +415,7 @@ Test 2 - Nota formal: verificar que el tramite no exista [operador mesa] 12
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 2 - Nota formal: verificar que el tramite no exista [responsable area] 13
+Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [responsable area] 13
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -411,7 +424,7 @@ Test 2 - Nota formal: verificar que el tramite no exista [responsable area] 13
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 2 - Nota formal: verificar que el tramite no exista [secretaria] 14
+Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [secretaria] 14
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -420,7 +433,7 @@ Test 2 - Nota formal: verificar que el tramite no exista [secretaria] 14
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 2 - Nota formal: verificar que el tramite no exista [gestion] 15
+Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [gestion] 15
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -430,29 +443,30 @@ Test 2 - Nota formal: verificar que el tramite no exista [gestion] 15
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 
-Test 2 - Nota formal: el ciudadano avanza en el tramite [ciudadano] 6
+Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: el ciudadano avanza en el tramite [ciudadano] 6
     [Documentation]    Se verifica si el usuario puede avanzar en el tramite debido a que le solicitaron datos adicionales
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     #ATENCION! - Modificar debido a que aún no se sabe el método en que el usuario podrá cargar datos adicionales
     Fail    Fallo: el ciudadano no puede cargar datos adicionales
 
-Test 3 - Nota formal: Indicacion del proceso
+Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 3 es el siguiente:
     ...    ... crear tramite [ciudadano] -
     ...    ... no corresponde [operador mesa]
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 3 - Nota formal: Se crea un tramite de Nota formal [ciudadano]
-    [Documentation]    El ciudadano crea una nueva Nota formal
+Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: Se crea un tramite de Excencion Impuesto Sobre los Ingresos Brutos [ciudadano]
+    [Documentation]    El ciudadano crea una nueva Excencion Impuesto Sobre los Ingresos Brutos
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    ${botonExencionImpuestoSobreLosIngresosBrutos}
-    Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test1    asuntoExencionImpuestoSobreLosIngresosBrutos
-    Validar y completar campo    ${detalleExencionImpuestoSobreLosIngresosBrutos}  Descripcion test1  detalleExencionImpuestoSobreLosIngresosBrutos
-    
+    Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test3    asuntoExencionImpuestoSobreLosIngresosBrutos
+    Validar y completar campo    ${detalleExencionImpuestoSobreLosIngresosBrutos}  Descripcion test3  detalleExencionImpuestoSobreLosIngresosBrutos
+    Validar y completar campo    ${contenidoImpuestoSobreLosIngresosBrutos}  Contenido test3  contenidoExencionImpuestoSobreLosIngresosBrutos
+
     #Verificar y presionar ítem en lista    ${select}    DNI/CUIT
     #Choose file    ${InputTypeFile}    ${FILE2}
     #Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
@@ -470,19 +484,19 @@ Test 3 - Nota formal: Se crea un tramite de Nota formal [ciudadano]
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
 
-Test 3 - Nota formal: Indicacion del numero de proceso creado
+Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: Indicacion del numero de proceso creado
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 3 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 4
+Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [ciudadano] 4
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
-Test 3 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 5
+Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador mesa] 5
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -491,7 +505,7 @@ Test 3 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
-Test 3 - Nota formal: verificar que el tramite no exista [responsable area] 6
+Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [responsable area] 6
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -500,7 +514,7 @@ Test 3 - Nota formal: verificar que el tramite no exista [responsable area] 6
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 3 - Nota formal: verificar que el tramite no exista [secretaria] 7
+Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [secretaria] 7
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -509,7 +523,7 @@ Test 3 - Nota formal: verificar que el tramite no exista [secretaria] 7
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 3 - Nota formal: verificar que el tramite no exista [gestion] 8
+Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [gestion] 8
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -519,7 +533,7 @@ Test 3 - Nota formal: verificar que el tramite no exista [gestion] 8
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 
-Test 3 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 1
+Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones de acciones son correctos [operador mesa] 1
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -540,12 +554,12 @@ Test 3 - Nota formal: verificar si los botones de acciones son correctos [operad
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
 
-
-Test 3 - Nota formal: se selecciona la opcion "no corresponde" [operador mesa]
-    [Documentation]    Entra como operador mesa entrada para indicar la opcion "No Corresponde"
+Test 3 - Nota formal: se agrega una nota [operador mesa]
+    [Documentation]    Entra como operador mesa y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -553,20 +567,28 @@ Test 3 - Nota formal: se selecciona la opcion "no corresponde" [operador mesa]
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Sleep    7s
+
+Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "no corresponde" [operador mesa]
+    [Documentation]    Entra como operador mesa entrada para indicar la opcion "No Corresponde"
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonNoCorresponde}    botonNoCorresponde
     Validar y completar campo    ${campoComentario}    No Corresponde    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 3 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 11
+Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (cerrado) [ciudadano] 11
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
 
-Test 3 - Nota formal: verificar que el tramite no exista [operador mesa] 12
+Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [operador mesa] 12
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -575,7 +597,7 @@ Test 3 - Nota formal: verificar que el tramite no exista [operador mesa] 12
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 3 - Nota formal: verificar que el tramite no exista [responsable area] 13
+Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [responsable area] 13
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -584,7 +606,7 @@ Test 3 - Nota formal: verificar que el tramite no exista [responsable area] 13
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 3 - Nota formal: verificar que el tramite no exista [secretaria] 14
+Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [secretaria] 14
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -593,7 +615,7 @@ Test 3 - Nota formal: verificar que el tramite no exista [secretaria] 14
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 3 - Nota formal: verificar que el tramite no exista [gestion] 15
+Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [gestion] 15
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -603,7 +625,7 @@ Test 3 - Nota formal: verificar que el tramite no exista [gestion] 15
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 
-Test 4 - Nota formal: Indicacion del proceso
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 4 es el siguiente:
     ...    ... crear tramite [ciudadano] -
     ...    ... enviar a secretaria [operador mesa]
@@ -615,15 +637,16 @@ Test 4 - Nota formal: Indicacion del proceso
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 4 - Nota formal: se crea un tramite de norta formal [ciudadano]
-    [Documentation]    Crear una nueva Nota formal
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se crea un tramite de norta formal [ciudadano]
+    [Documentation]    Crear una nueva Excencion Impuesto Sobre los Ingresos Brutos
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    ${botonExencionImpuestoSobreLosIngresosBrutos}
-    Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test1    asuntoExencionImpuestoSobreLosIngresosBrutos
-    Validar y completar campo    ${detalleExencionImpuestoSobreLosIngresosBrutos}  Descripcion test1  detalleExencionImpuestoSobreLosIngresosBrutos
-    
+    Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test4    asuntoExencionImpuestoSobreLosIngresosBrutos
+    Validar y completar campo    ${detalleExencionImpuestoSobreLosIngresosBrutos}  Descripcion test4  detalleExencionImpuestoSobreLosIngresosBrutos
+    Validar y completar campo    ${contenidoImpuestoSobreLosIngresosBrutos}  Contenido test4  contenidoExencionImpuestoSobreLosIngresosBrutos
+
     #Verificar y presionar ítem en lista    ${select}    DNI/CUIT
     #Choose file    ${InputTypeFile}    ${FILE2}
     #Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
@@ -638,20 +661,20 @@ Test 4 - Nota formal: se crea un tramite de norta formal [ciudadano]
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
 
-Test 4 - Nota formal: Indicacion del numero de proceso creado
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: Indicacion del numero de proceso creado
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
 
-Test 4 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 4
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [ciudadano] 4
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
-Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 5
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador mesa] 5
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -660,7 +683,7 @@ Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
-Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 6
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [responsable area] 6
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -669,7 +692,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 6
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 7
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [secretaria] 7
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -678,7 +701,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 7
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 4 - Nota formal: verificar que el tramite no exista [gestion] 8
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [gestion] 8
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -689,7 +712,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [gestion] 8
 
 
 #VER ESTE ---------------------------------------------------------------------------------------------------------------
-Test 4 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 1
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones de acciones son correctos [operador mesa] 1
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -710,9 +733,21 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [operad
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
 
+Test 4 - Nota formal: se agrega una nota [operador mesa]
+    [Documentation]    Entra como operador mesa y el mismo agrega una nota en el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
+    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
+    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-
-Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador mesa]
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "enviar a secretaria" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -720,26 +755,19 @@ Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador me
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Sleep  6s
-
     Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
     Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 11
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (en curso) [ciudadano] 11
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
-Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 12
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (en curso) [ciudadano] 12
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -748,7 +776,7 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 12
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
-Test 4 - Nota formal: verificar el estado del tramite (en curso) [responsable area] 12
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (en curso) [responsable area] 12
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -757,7 +785,7 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [responsable ar
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
-Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 13
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [operador mesa] 13
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -766,7 +794,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 13
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 4 - Nota formal: verificar que el tramite no exista [gestion] 15
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [gestion] 15
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -776,7 +804,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [gestion] 15
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 
-Test 4 - Nota formal: verificar si los botones de acciones son correctos [secretaria] 2
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones de acciones son correctos [secretaria] 2
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -797,8 +825,21 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [secret
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-#ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-Test 4 - Nota formal: se selecciona la opcion "no corresponde" [secretaria]
+Test 4 - Nota formal: se agrega una nota [secretaria]
+    [Documentation]    Entra como secretaria y el mismo agrega una nota en el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
+    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
+    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "no corresponde" [secretaria]
     [Documentation]    Entra como Secretaria para continuar con el proceso dandole a la opcion "No Corresponde" devolviendo el tramite hacia Mesa de Entrada.
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -806,24 +847,19 @@ Test 4 - Nota formal: se selecciona la opcion "no corresponde" [secretaria]
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota Secretaria    campoComentarios
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Sleep  6s
     Validar y hacer clic en el boton    ${botonNoCorresponde}    botonNoCorresponde
     Validar y completar campo    ${campoComentario}    No Corresponde    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 18
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (en curso) [ciudadano] 18
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
-Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 19
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador mesa] 19
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -832,7 +868,7 @@ Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Devuelto
 
-Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 20
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [responsable area] 20
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -841,7 +877,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 20
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 21
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [secretaria] 21
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -850,7 +886,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 21
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 4 - Nota formal: verificar que el tramite no exista [gestion] 22
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [gestion] 22
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -860,7 +896,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [gestion] 22
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 
-Test 4 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 3
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones de acciones son correctos [operador mesa] 3
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -881,11 +917,12 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [operad
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria". [operador mesa]
-    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
+Test 4 - Nota formal: se agrega una nota [operador mesa]
+    [Documentation]    Entra como operador mesa y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -893,20 +930,28 @@ Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria". [operador m
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Sleep  6s
+
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "enviar a secretaria". [operador mesa]
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
     Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 25
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (en curso) [ciudadano] 25
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
-Test 4 - Nota formal: verificar el estado del tramite (pendiente) [secretaria] 26
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [secretaria] 26
     [Documentation]    Desde la secretaria, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -915,7 +960,7 @@ Test 4 - Nota formal: verificar el estado del tramite (pendiente) [secretaria] 2
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
-Test 4 - Nota formal: verificar el estado del tramite (en curso) [responsable area] 12
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (en curso) [responsable area] 12
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -924,7 +969,7 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [responsable ar
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
-Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 27
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [operador mesa] 27
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -933,7 +978,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 27
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 4 - Nota formal: verificar que el tramite no exista [gestion] 29
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [gestion] 29
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -943,7 +988,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [gestion] 29
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 
-Test 4 - Nota formal: verificar si los botones de acciones son correctos [secretaria] 4
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones de acciones son correctos [secretaria] 4
     [Documentation]    Se ingresa como secretaria y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -964,7 +1009,21 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [secret
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${paraResolver}  boton para resolver
 
-Test 4 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
+Test 4 - Nota formal: se agrega una nota [secretaria]
+    [Documentation]    Entra como secretaria y el mismo agrega una nota en el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
+    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
+    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "para resolver" [secretaria]
     [Documentation]    Entra como Secretaria para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -972,24 +1031,19 @@ Test 4 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota Secretaria    campoComentarios
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Sleep  6s
     Validar y hacer clic en el boton    ${paraResolver}    paraResolver
     Validar y completar campo    ${campoComentario}    Para Resolver    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 32
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (en curso) [ciudadano] 32
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
-Test 4 - Nota formal: verificar el estado del tramite (en curso) [gestion] 33
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (en curso) [gestion] 33
     [Documentation]    Desde el usuario gestion, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -998,7 +1052,7 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [gestion] 33
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    En revisión
 
-Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 34
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [operador mesa] 34
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1007,7 +1061,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 34
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 35
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [responsable area] 35
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1016,7 +1070,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 35
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 36
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [secretaria] 36
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1026,7 +1080,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 36
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 
-Test 4 - Nota formal: verificar si los botones de acciones son correctos [gestion] 5
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones de acciones son correctos [gestion] 5
     [Documentation]    Se ingresa como gestion y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1047,8 +1101,21 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [gestio
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
+Test 4 - Nota formal: se agrega una nota [gestion]
+    [Documentation]    Entra como gestion y el mismo agrega una nota en el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
+    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
+    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 4 - Nota formal: se selecciona la opcion "aprobado" [gestion]
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "aprobado" [gestion]
     [Documentation]    Entra como Gestion aprobando el tramite para continuar con el proceso
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1056,24 +1123,19 @@ Test 4 - Nota formal: se selecciona la opcion "aprobado" [gestion]
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota Gestion    campoComentarios
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Sleep  6s
     Validar y hacer clic en el boton    ${botonAprobar}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 39
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (en curso) [ciudadano] 39
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
-Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 40
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador mesa] 40
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1082,7 +1144,7 @@ Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Aprobado
 
-Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 41
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [responsable area] 41
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1091,7 +1153,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 41
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 42
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [secretaria] 42
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1100,7 +1162,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 42
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 4 - Nota formal: verificar que el tramite no exista [gestion] 43
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [gestion] 43
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1110,7 +1172,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [gestion] 43
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 
-Test 4 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 6
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones de acciones son correctos [operador mesa] 6
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1131,7 +1193,19 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [operad
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
 
-Test 4 - Nota formal: se selecciona la opcion "informar al contribuyente" [operador mesa]
+Test 4 - Nota formal: se agrega una nota [operador mesa]
+    [Documentation]    Entra como operador mesa y el mismo agrega una nota en el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
+
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "informar al contribuyente" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1139,20 +1213,18 @@ Test 4 - Nota formal: se selecciona la opcion "informar al contribuyente" [opera
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
     Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 4 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 46
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (cerrado) [ciudadano] 46
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
 
-Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 47
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [operador mesa] 47
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1161,7 +1233,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 47
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 48
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [responsable area] 48
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1170,7 +1242,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 48
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 49
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [secretaria] 49
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1179,7 +1251,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 49
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 4 - Nota formal: verificar que el tramite no exista [gestion] 50
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [gestion] 50
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1189,7 +1261,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [gestion] 50
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 
-Test 5 - Nota formal: Indicacion del proceso
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 5 es el siguiente:
     ...    ... crear tramite [ciudadano] -
     ...    ... enviar a secretaria [operador mesa]
@@ -1199,14 +1271,15 @@ Test 5 - Nota formal: Indicacion del proceso
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 5 - Nota formal: se crea un tramite de nota formal [ciudadano]
-    [Documentation]    Crear una nueva Nota formal
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: se crea un tramite de Excencion Impuesto Sobre los Ingresos Brutos [ciudadano]
+    [Documentation]    Crear una nueva Excencion Impuesto Sobre los Ingresos Brutos
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    ${botonExencionImpuestoSobreLosIngresosBrutos}
-    Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test1    asuntoExencionImpuestoSobreLosIngresosBrutos
-    Validar y completar campo    ${detalleExencionImpuestoSobreLosIngresosBrutos}  Descripcion test1  detalleExencionImpuestoSobreLosIngresosBrutos
+    Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test5    asuntoExencionImpuestoSobreLosIngresosBrutos
+    Validar y completar campo    ${detalleExencionImpuestoSobreLosIngresosBrutos}  Descripcion test5  detalleExencionImpuestoSobreLosIngresosBrutos
+    Validar y completar campo    ${contenidoImpuestoSobreLosIngresosBrutos}  Contenido test5  contenidoExencionImpuestoSobreLosIngresosBrutos
 
     #Verificar y presionar ítem en lista    ${select}    DNI/CUIT
     #Choose file    ${InputTypeFile}    ${FILE2}
@@ -1234,19 +1307,19 @@ Test 5 - Nota formal: se crea un tramite de nota formal [ciudadano]
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
 
-Test 5 - Nota formal: Indicacion del numero de proceso creado
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: Indicacion del numero de proceso creado
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 5 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 4
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [ciudadano] 4
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
-Test 5 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 5
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador mesa] 5
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1255,7 +1328,7 @@ Test 5 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
-Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 6
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [responsable area] 6
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1264,7 +1337,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 6
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 7
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [secretaria] 7
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1273,7 +1346,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 7
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 5 - Nota formal: verificar que el tramite no exista [gestion] 8
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [gestion] 8
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1283,7 +1356,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [gestion] 8
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 
-Test 5 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 1
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones de acciones son correctos [operador mesa] 1
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1304,11 +1377,12 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [operad
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-Test 5 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador entrada]
-    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
+Test 5 - Nota formal: se agrega una nota [operador mesa]
+    [Documentation]    Entra como operdor mesa y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -1316,20 +1390,28 @@ Test 5 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador en
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Sleep  6s
+
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "enviar a secretaria" [operador entrada]
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
     Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 11
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (en curso) [ciudadano] 11
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
-Test 5 - Nota formal: verificar el estado del tramite (pendiente) [secretaria] 12
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [secretaria] 12
     [Documentation]    Desde la secretaria, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1338,7 +1420,7 @@ Test 5 - Nota formal: verificar el estado del tramite (pendiente) [secretaria] 1
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
-Test 4 - Nota formal: verificar el estado del tramite (en curso) [responsable area] 12
+Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (en curso) [responsable area] 12
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1347,7 +1429,7 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [responsable ar
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
-Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 13
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [operador mesa] 13
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1356,7 +1438,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 13
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 5 - Nota formal: verificar que el tramite no exista [gestion] 15
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [gestion] 15
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1366,7 +1448,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [gestion] 15
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 
-Test 5 - Nota formal: verificar si los botones de acciones son correctos [secretaria] 2
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones de acciones son correctos [secretaria] 2
     [Documentation]    Se ingresa como secretaria y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1386,7 +1468,21 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [secret
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-Test 5 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
+Test 5 - Nota formal: se agrega una nota [secretaria]
+    [Documentation]    Entra como secretaria y el mismo agrega una nota en el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
+    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
+    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "para resolver" [secretaria]
     [Documentation]    Entra como Secretaria para continuar con el proceso, utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1394,24 +1490,19 @@ Test 5 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota Secretaria    campoComentarios
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Sleep  6s
     Validar y hacer clic en el boton    ${paraResolver}    paraResolver
     Validar y completar campo    ${campoComentario}    Para Resolver    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 18
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (en curso) [ciudadano] 18
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
-Test 5 - Nota formal: verificar el estado del tramite (en curso) [gestion] 19
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (en curso) [gestion] 19
     [Documentation]    Desde el usuario gestion, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1420,7 +1511,7 @@ Test 5 - Nota formal: verificar el estado del tramite (en curso) [gestion] 19
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    En revisión
 
-Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 20
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [operador mesa] 20
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1429,7 +1520,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 20
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 21
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [responsable area] 21
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1438,7 +1529,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 21
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 22
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [secretaria] 22
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1448,7 +1539,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 22
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 
-Test 5 - Nota formal: verificar si los botones de acciones son correctos [gestion] 3
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones de acciones son correctos [gestion] 3
     [Documentation]    Se ingresa como gestion y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1469,7 +1560,21 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [gestio
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-Test 5 - Nota formal: se selecciona la opcion "rechazar" [gestion]
+Test 5 - Nota formal: se agrega una nota [gestion]
+    [Documentation]    Entra como gestion y el mismo agrega una nota en el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
+    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
+    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "rechazar" [gestion]
     [Documentation]     Entra como Gestion Rechazando el tramite y continua con el proceso
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1477,24 +1582,19 @@ Test 5 - Nota formal: se selecciona la opcion "rechazar" [gestion]
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota Gestion    campoComentarios
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    Sleep  6s
     Validar y hacer clic en el boton    ${botonRechazar}    botonRechazar
     Validar y completar campo    ${campoComentario}    Rechazado    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 25
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (en curso) [ciudadano] 25
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
-Test 5 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 26
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador mesa] 26
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1503,7 +1603,7 @@ Test 5 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Rechazado
 
-Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 27
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [responsable area] 27
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1512,7 +1612,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 27
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 28
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [secretaria] 28
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1521,7 +1621,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 28
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 5 - Nota formal: verificar que el tramite no exista [gestion] 29
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [gestion] 29
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1531,7 +1631,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [gestion] 29
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 
-Test 5 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 4
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones de acciones son correctos [operador mesa] 4
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1552,7 +1652,20 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [operad
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
 
-Test 5 - Nota formal: se selecciona la opcion "informar contribuyente" [operador mesa]
+Test 5 - Nota formal: se agrega una nota [operador mesa]
+    [Documentation]    Entra como operador mesa y el mismo agrega una nota en el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
+    Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
+
+
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "informar contribuyente" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso, en este caso "Rechazado"
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1560,20 +1673,18 @@ Test 5 - Nota formal: se selecciona la opcion "informar contribuyente" [operador
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
     Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 5 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 32
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (cerrado) [ciudadano] 32
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaOperador}    3    ${tramite}    Cerrado
 
-Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 33
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [operador mesa] 33
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1582,7 +1693,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 33
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 34
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [responsable area] 34
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1591,7 +1702,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 34
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 35
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [secretaria] 35
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -1600,7 +1711,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 35
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 5 - Nota formal: verificar que el tramite no exista [gestion] 36
+Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [gestion] 36
     [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal

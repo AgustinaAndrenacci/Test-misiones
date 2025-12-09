@@ -66,6 +66,7 @@ ${campoComentario}    //textarea[@id='action-notes']
 
 ${botonConfirmar}    //button[normalize-space()='Confirmar']
 ${botonCancelar}    //button[normalize-space()='Cancelar']
+${botonActualizarBorrador}    //button[normalize-space()='Actualizar Borrador']
 
 ${botonSolicitarDatosAdicionales}    //h4[normalize-space()='Solicitar Datos Adicionales']
 ${botonNoCorresponde}    //h4[normalize-space()='No Corresponde']
@@ -158,17 +159,19 @@ ${contenidoNotaFormal}    //textarea[@id='cmgzsgyq00010n27ssk5kwr8x']
 ${botonExencionImpuestoSobreLosIngresosBrutos}    //h3[normalize-space()='Exención Impuesto sobre los Ingresos Brutos']
 ${asuntoExencionImpuestoSobreLosIngresosBrutos}    //input[@id='cmhy6z41g000snocl92vpu6kd']
 ${detalleExencionImpuestoSobreLosIngresosBrutos}    //textarea[@id='cmhy6z4ku000unocl3m3glkcl']
+${contenidoImpuestoSobreLosIngresosBrutos}    //textarea[@id='cmist09qd00vbnonaxnvwh9yj']
 
 #-------------------Exención Impuesto Provincial Automotor---------------------------------------
 ${botonExencionImpuestoProvincialAutomotor}    //h3[normalize-space()='Exención Impuesto Provincial Automotor']
 ${asuntoExencionImpuestoProvincialAutomotor}    //input[@id='cmhy6wocq000mnoclzrsuf9db']
 ${detalleExencionImpuestoProvincialAutomotor}    //textarea[@id='cmhy6wqsv000onoclwrg7k7oo']
+${contenidoExencionImpuestoProvincialAutomotor}    //textarea[@id='cmissydfl00v9nona59u5g8dg']
 
 #--------------------------Exención Impuesto de Sellos--------------------------------------------
 ${botonExenciónImpuestoDeSellos}    //h3[normalize-space()='Exención Impuesto de Sellos']
 ${asuntoExenciónImpuestoDeSellos}    //input[@id='cmhy6g6hz000anoclh53yu9v1']
 ${detalleExenciónImpuestoDeSellos}    //textarea[@id='cmhy6k427000cnocl5n1cgb7e']
-
+${contenidoExenciónImpuestoDeSellos}    //input[@id='cmisswslj00v7nona8nw5wo5f']
 
 ${tramiteBorrador}    //tbody/tr[1]
 ${botonContinuarBorrador}    //a[normalize-space()='Continuar Borrador']

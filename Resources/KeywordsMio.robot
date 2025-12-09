@@ -130,6 +130,23 @@ Abrir Tramite Por Numero
     Click Element    ${xpath}
 
 
+#verificacion de datos en el campo --------------------------------------------------------------
+Verificar Contenido De Campos
+    [arguments]    ${campo}    ${dato}
+    Input Text Should Be    ${campo}    ${dato}
+
+#Limpiar contador del tramite ---------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------------------------
+Limpieza de variable
+    [arguments]    ${var}
+    ${var}=    0
+    Log to console    Variable limpia con valor: ${var}
+    RETURN    ${var}
+
+Verificacion de si se creo el tramite
+    [arguments]    ${var}
+    If    ${var}=0   Fail    El tramite no se creó.
+
 
 
 #Verificar Automatico------------------------------------------------------------------------------------------------------------------------------------------------
