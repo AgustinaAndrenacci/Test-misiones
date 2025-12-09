@@ -31,13 +31,13 @@ Suite Setup    Inicializar Contador
 #Ver que no funciona seleccionar la flecha
 
 ***Test Cases***
-Test 0 - Nota formal: Indicacion del proceso
+Test 0 - Nota formal: Indicacion del proceso 1
     [Documentation]    El proceso que se realiza en el TEST 1 es el siguiente:
     ...    ... crear tramite como borrador [ciudadano]
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 0 - Nota formal: crear tramite como borrador [ciudadano]
+Test 0 - Nota formal: crear tramite como borrador [ciudadano] 2
     [Documentation]    El ciudadano crea un tramite de Nota formal
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
@@ -71,36 +71,67 @@ Test 0 - Nota formal: crear tramite como borrador [ciudadano]
     Validar y hacer clic en el boton    ${botonGuardarBorrador}    botonGuardarBorrador
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
 
+    Limpieza de variable    ${tramite}
     ${tramite}=    Obtener Numero De Tramite
+    Verificacion de si se creo el tramite   ${tramite}
     Set Suite Variable    ${tramite}
 
-Test 0 - Nota formal: Indicacion del numero de proceso creado
+Test 0 - Nota formal: Indicacion del numero de proceso creado 3
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 0 - Nota formal: verificar el estado del tramite (borrador) [ciudadano]
+Test 0 - Nota formal: verificar el estado del tramite (borrador) [ciudadano] 4
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Borrador
 
-Test 0 - Nota formal: verificar el estado del tramite (Borrador) [operador mesa] 2
+Test 0 - Nota formal: verificar el estado del tramite (Borrador) [operador mesa] 5
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 1 - Nota formal: Indicacion del proceso
+Test 0 - Nota formal: verificar que el tramite no exista [responsable area] 6
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 0 - Nota formal: verificar que el tramite no exista [secretaria] 7
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 0 - Nota formal: verificar que el tramite no exista [gestion] 8
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 1 - Nota formal: Indicacion del proceso 1
     [Documentation]    El proceso que se realiza en el TEST 1 es el siguiente:
     ...    ... crear tramite como borrador [ciudadano]
     ...    ... se guarda el tramite [ciudadano]
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 1 - Nota formal: crear tramite como borrador [ciudadano]
+Test 1 - Nota formal: crear tramite como borrador [ciudadano] 2
     [Documentation]    El ciudadano crea un tramite de Nota formal
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
@@ -132,48 +163,124 @@ Test 1 - Nota formal: crear tramite como borrador [ciudadano]
 
     Validar y hacer clic en el boton    ${botonGuardarBorrador}    botonGuardarBorrador
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
 
-Test 1 - Nota formal: Indicacion del numero de proceso creado
+Test 1 - Nota formal: Indicacion del numero de proceso creado 3
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 1 - Nota formal: verificar el estado del tramite (borrador) [ciudadano] 1
+Test 1 - Nota formal: verificar el estado del tramite (borrador) [ciudadano] 4
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Borrador
 
-Test 1 - Nota formal: pasar de borrador a guardado
+Test 1 - Nota formal: verificar que el tramite no exista [operador mesa] 5
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 1 - Nota formal: verificar que el tramite no exista [responsable area] 6
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 1 - Nota formal: verificar que el tramite no exista [secretaria] 7
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 1 - Nota formal: verificar que el tramite no exista [gestion] 8
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 1 - Nota formal: pasar de borrador a guardado 9
     [Documentation]    Desde el ciudadano, se entra al tramite y se guarda para que deje de estar en borrador
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar y hacer clic en el boton    ${tramiteBorrador}    abrirPrimerTramite
 
     Validar y hacer clic en el boton    ${botonContinuarBorrador}    abrirPrimerTramite
     Validar y hacer clic en el boton    ${botonEnviarTramite}    botonEnviarTramite
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-
-Test 1 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 2
+Test 1 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 10
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
-Test 2 - Nota formal: Indicacion del proceso
+Test 1 - Nota formal: verificar el estado del tramite (pendiente) [operador] 4
+    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
+
+Test 1 - Nota formal: verificar que el tramite no exista [responsable area] 12
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 1 - Nota formal: verificar que el tramite no exista [secretaria] 13
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 1 - Nota formal: verificar que el tramite no exista [gestion] 14
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 2 - Nota formal: Indicacion del proceso 1
     [Documentation]    El proceso que se realiza en el TEST 2 es el siguiente:
     ...    ... crear tramite [ciudadano] -
     ...    ... solicitar datos adicionales [operador mesa]
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 2 - Nota formal: crear tramite [ciudadano]
+Test 2 - Nota formal: crear tramite [ciudadano] 2
     [Documentation]    El ciudadano crea una nueva Nota formal sin agregar adjuntos
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    ${botonExenciónImpuestoDeSellos}
     Validar y completar campo    ${asuntoExenciónImpuestoDeSellos}  Asunto test1    asuntoExenciónImpuestoDeSellos
@@ -197,34 +304,62 @@ Test 2 - Nota formal: crear tramite [ciudadano]
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
 
-Test 2 - Nota formal: Indicacion del numero de proceso creado
+Test 2 - Nota formal: Indicacion del numero de proceso creado 3
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-
-Test 2 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 3
+Test 2 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 4
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
-Test 2 - Nota formal: verificar el estado del tramite (pendiente) [operador] 4
+Test 2 - Nota formal: verificar el estado del tramite (pendiente) [operador] 5
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
-Test 2 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 1
+Test 2 - Nota formal: verificar que el tramite no exista [responsable area] 6
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 2 - Nota formal: verificar que el tramite no exista [secretaria] 7
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 2 - Nota formal: verificar que el tramite no exista [gestion] 8
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 2 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 9
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     ##Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
-    Abrir Tramite Por Numero    ${tramite}
     Abrir Tramite Por Numero    ${tramite}
 
     Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
@@ -240,11 +375,12 @@ Test 2 - Nota formal: verificar si los botones de acciones son correctos [operad
     Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
 
 
-Test 2 - Nota formal: se selecciona la opcion "solicitar datos adicionales" [operador mesa]
+Test 2 - Nota formal: se selecciona la opcion "solicitar datos adicionales" [operador mesa] 10
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "Solicitar Datos Adicionales"
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -258,30 +394,70 @@ Test 2 - Nota formal: se selecciona la opcion "solicitar datos adicionales" [ope
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 2 - Nota formal: verificar el estado del tramite (pendiente contributente) [ciudadano] 5
+
+Test 2 - Nota formal: verificar el estado del tramite (pendiente contributente) [ciudadano] 11
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente Contribuyente
 
-Test 2 - Nota formal: el ciudadano avanza en el tramite [ciudadano] 6
+Test 2 - Nota formal: verificar que el tramite no exista [operador mesa] 12
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 2 - Nota formal: verificar que el tramite no exista [responsable area] 13
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 2 - Nota formal: verificar que el tramite no exista [secretaria] 14
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 2 - Nota formal: verificar que el tramite no exista [gestion] 15
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 2 - Nota formal: el ciudadano avanza en el tramite [ciudadano] 16
     [Documentation]    Se verifica si el usuario puede avanzar en el tramite debido a que le solicitaron datos adicionales
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     #ATENCION! - Modificar debido a que aún no se sabe el método en que el usuario podrá cargar datos adicionales
     Fail    Fallo: el ciudadano no puede cargar datos adicionales
 
-Test 3 - Nota formal: Indicacion del proceso
+Test 3 - Nota formal: Indicacion del proceso 1
     [Documentation]    El proceso que se realiza en el TEST 3 es el siguiente:
     ...    ... crear tramite [ciudadano] -
     ...    ... no corresponde [operador mesa]
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 3 - Nota formal: Se crea un tramite de Nota formal [ciudadano]
+Test 3 - Nota formal: Se crea un tramite de Nota formal [ciudadano] 2
     [Documentation]    El ciudadano crea una nueva Nota formal
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    ${botonExenciónImpuestoDeSellos}
     Validar y completar campo    ${asuntoExenciónImpuestoDeSellos}  Asunto test1    asuntoExenciónImpuestoDeSellos
@@ -308,30 +484,60 @@ Test 3 - Nota formal: Se crea un tramite de Nota formal [ciudadano]
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
 
-Test 3 - Nota formal: Indicacion del numero de proceso creado
+Test 3 - Nota formal: Indicacion del numero de proceso creado 3
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 3 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 1
+Test 3 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 4
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
-Test 3 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 2
+Test 3 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 5
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
-Test 3 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 1
+Test 3 - Nota formal: verificar que el tramite no exista [responsable area] 6
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 3 - Nota formal: verificar que el tramite no exista [secretaria] 7
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 3 - Nota formal: verificar que el tramite no exista [gestion] 8
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 3 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 9
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -349,11 +555,12 @@ Test 3 - Nota formal: verificar si los botones de acciones son correctos [operad
     Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
 
 
-Test 3 - Nota formal: se selecciona la opcion "no corresponde" [operador mesa]
+Test 3 - Nota formal: se selecciona la opcion "no corresponde" [operador mesa] 10
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "No Corresponde"
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -367,13 +574,50 @@ Test 3 - Nota formal: se selecciona la opcion "no corresponde" [operador mesa]
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 3 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 3
+Test 3 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 11
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
 
-Test 4 - Nota formal: Indicacion del proceso
+Test 3 - Nota formal: verificar que el tramite no exista [operador mesa] 12
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 3 - Nota formal: verificar que el tramite no exista [responsable area] 13
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 3 - Nota formal: verificar que el tramite no exista [secretaria] 14
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 3 - Nota formal: verificar que el tramite no exista [gestion] 15
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 4 - Nota formal: Indicacion del proceso 1
     [Documentation]    El proceso que se realiza en el TEST 4 es el siguiente:
     ...    ... crear tramite [ciudadano] -
     ...    ... enviar a secretaria [operador mesa]
@@ -385,15 +629,16 @@ Test 4 - Nota formal: Indicacion del proceso
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 4 - Nota formal: se crea un tramite de norta formal [ciudadano]
+Test 4 - Nota formal: se crea un tramite de norta formal [ciudadano] 2
     [Documentation]    Crear una nueva Nota formal
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    ${botonExenciónImpuestoDeSellos}
     Validar y completar campo    ${asuntoExenciónImpuestoDeSellos}  Asunto test1    asuntoExenciónImpuestoDeSellos
     Validar y completar campo    ${detalleExenciónImpuestoDeSellos}  Descripcion test1  detalleExenciónImpuestoDeSellos
-    
+
     #Verificar y presionar ítem en lista    ${select}    DNI/CUIT
     #Choose file    ${InputTypeFile}    ${FILE2}
     #Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
@@ -412,31 +657,61 @@ Test 4 - Nota formal: se crea un tramite de norta formal [ciudadano]
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
 
-Test 4 - Nota formal: Indicacion del numero de proceso creado
+Test 4 - Nota formal: Indicacion del numero de proceso creado 3
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 4 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 1
+Test 4 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 4
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
-Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 2
+Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 5
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
+Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 6
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 7
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 4 - Nota formal: verificar que el tramite no exista [gestion] 8
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
 #VER ESTE ---------------------------------------------------------------------------------------------------------------
-Test 4 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 1
+Test 4 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 9
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -455,11 +730,12 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [operad
 
 
 
-Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador mesa]
+Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador mesa] 10
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -475,25 +751,55 @@ Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador me
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 3
+Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 11
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
-Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 4
+Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 12
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
-Test 4 - Nota formal: verificar si los botones de acciones son correctos [secretaria] 2
+Test 4 - Nota formal: verificar el estado del tramite (en curso) [responsable area] 12
+    [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
+
+Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 13
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 4 - Nota formal: verificar que el tramite no exista [gestion] 15
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 4 - Nota formal: verificar si los botones de acciones son correctos [secretaria] 16
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -511,11 +817,12 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [secret
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
 #ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-Test 4 - Nota formal: se selecciona la opcion "no corresponde" [secretaria]
+Test 4 - Nota formal: se selecciona la opcion "no corresponde" [secretaria] 17
     [Documentation]    Entra como Secretaria para continuar con el proceso dandole a la opcion "No Corresponde" devolviendo el tramite hacia Mesa de Entrada.
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -530,25 +837,55 @@ Test 4 - Nota formal: se selecciona la opcion "no corresponde" [secretaria]
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 5
+Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 18
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
-Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 6
+Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 19
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Devuelto
 
-Test 4 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 3
+Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 20
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 21
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 4 - Nota formal: verificar que el tramite no exista [gestion] 22
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 4 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 23
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -565,11 +902,12 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [operad
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria". [operador mesa]
+Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria". [operador mesa] 24
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -583,25 +921,55 @@ Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria". [operador m
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 7
+Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 25
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
-Test 4 - Nota formal: verificar el estado del tramite (pendiente) [secretaria] 8
+Test 4 - Nota formal: verificar el estado del tramite (pendiente) [secretaria] 26
     [Documentation]    Desde la secretaria, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
-Test 4 - Nota formal: verificar si los botones de acciones son correctos [secretaria] 4
+Test 4 - Nota formal: verificar el estado del tramite (en curso) [responsable area] 12
+    [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
+
+Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 27
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 4 - Nota formal: verificar que el tramite no exista [gestion] 29
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 4 - Nota formal: verificar si los botones de acciones son correctos [secretaria] 30
     [Documentation]    Se ingresa como secretaria y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -618,11 +986,12 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [secret
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${paraResolver}  boton para resolver
 
-Test 4 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
+Test 4 - Nota formal: se selecciona la opcion "para resolver" [secretaria] 31
     [Documentation]    Entra como Secretaria para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -636,25 +1005,55 @@ Test 4 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 9
+Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 32
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
-Test 4 - Nota formal: verificar el estado del tramite (en curso) [gestion] 10
+Test 4 - Nota formal: verificar el estado del tramite (en curso) [gestion] 33
     [Documentation]    Desde el usuario gestion, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    En revisión
 
-Test 4 - Nota formal: verificar si los botones de acciones son correctos [gestion] 5
+Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 34
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 35
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 36
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 4 - Nota formal: verificar si los botones de acciones son correctos [gestion] 37
     [Documentation]    Se ingresa como gestion y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -672,11 +1071,12 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [gestio
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
 
-Test 4 - Nota formal: se selecciona la opcion "aprobado" [gestion]
+Test 4 - Nota formal: se selecciona la opcion "aprobado" [gestion] 38
     [Documentation]    Entra como Gestion aprobando el tramite para continuar con el proceso
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -690,25 +1090,55 @@ Test 4 - Nota formal: se selecciona la opcion "aprobado" [gestion]
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 11
+Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 39
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
-Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 12
+Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 40
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Aprobado
 
-Test 4 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 6
+Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 41
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 42
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 4 - Nota formal: verificar que el tramite no exista [gestion] 43
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 4 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 44
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -725,11 +1155,12 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [operad
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
 
-Test 4 - Nota formal: se selecciona la opcion "informar al contribuyente" [operador mesa]
+Test 4 - Nota formal: se selecciona la opcion "informar al contribuyente" [operador mesa] 45
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -739,13 +1170,51 @@ Test 4 - Nota formal: se selecciona la opcion "informar al contribuyente" [opera
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 4 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 13
+Test 4 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 46
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
 
-Test 5 - Nota formal: Indicacion del proceso
+Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 47
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 48
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 49
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 4 - Nota formal: verificar que el tramite no exista [gestion] 50
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+
+Test 5 - Nota formal: Indicacion del proceso 1
     [Documentation]    El proceso que se realiza en el TEST 5 es el siguiente:
     ...    ... crear tramite [ciudadano] -
     ...    ... enviar a secretaria [operador mesa]
@@ -755,10 +1224,11 @@ Test 5 - Nota formal: Indicacion del proceso
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 5 - Nota formal: se crea un tramite de nota formal [ciudadano]
+Test 5 - Nota formal: se crea un tramite de nota formal [ciudadano] 2
     [Documentation]    Crear una nueva Nota formal
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    ${botonExenciónImpuestoDeSellos}
     Validar y completar campo    ${asuntoExenciónImpuestoDeSellos}  Asunto test1    asuntoExenciónImpuestoDeSellos
@@ -778,30 +1248,60 @@ Test 5 - Nota formal: se crea un tramite de nota formal [ciudadano]
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
 
-Test 5 - Nota formal: Indicacion del numero de proceso creado
+Test 5 - Nota formal: Indicacion del numero de proceso creado 3
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 5 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 1
+Test 5 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 4
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
-Test 5 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 2
+Test 5 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 5
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
-Test 5 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 1
+Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 6
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 7
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 5 - Nota formal: verificar que el tramite no exista [gestion] 8
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 5 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 9
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -818,11 +1318,12 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [operad
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-Test 5 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador entrada]
+Test 5 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador entrada] 10
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -836,17 +1337,55 @@ Test 5 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador en
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 3
+Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 11
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
-Test 5 - Nota formal: verificar si los botones de acciones son correctos [secretaria] 2
+Test 5 - Nota formal: verificar el estado del tramite (pendiente) [secretaria] 12
+    [Documentation]    Desde la secretaria, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
+
+Test 4 - Nota formal: verificar el estado del tramite (en curso) [responsable area] 12
+    [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
+
+Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 13
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 5 - Nota formal: verificar que el tramite no exista [gestion] 15
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 5 - Nota formal: verificar si los botones de acciones son correctos [secretaria] 16
     [Documentation]    Se ingresa como secretaria y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -862,11 +1401,12 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [secret
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-Test 5 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
+Test 5 - Nota formal: se selecciona la opcion "para resolver" [secretaria] 17
     [Documentation]    Entra como Secretaria para continuar con el proceso, utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -880,25 +1420,55 @@ Test 5 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 4
+Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 18
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
-Test 5 - Nota formal: verificar el estado del tramite (en curso) [gestion] 5
+Test 5 - Nota formal: verificar el estado del tramite (en curso) [gestion] 19
     [Documentation]    Desde el usuario gestion, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    En revisión
 
-Test 5 - Nota formal: verificar si los botones de acciones son correctos [gestion] 3
+Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 20
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 21
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 22
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 5 - Nota formal: verificar si los botones de acciones son correctos [gestion] 23
     [Documentation]    Se ingresa como gestion y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -915,11 +1485,12 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [gestio
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-Test 5 - Nota formal: se selecciona la opcion "rechazar" [gestion]
+Test 5 - Nota formal: se selecciona la opcion "rechazar" [gestion] 24
     [Documentation]     Entra como Gestion Rechazando el tramite y continua con el proceso
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -933,25 +1504,55 @@ Test 5 - Nota formal: se selecciona la opcion "rechazar" [gestion]
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 6
+Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 25
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
-Test 5 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 7
+Test 5 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 26
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Rechazado
 
-Test 5 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 4
+Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 27
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 28
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 5 - Nota formal: verificar que el tramite no exista [gestion] 29
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 5 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 30
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -968,11 +1569,12 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [operad
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
 
-Test 5 - Nota formal: se selecciona la opcion "informar contribuyente" [operador mesa]
+Test 5 - Nota formal: se selecciona la opcion "informar contribuyente" [operador mesa] 31
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso, en este caso "Rechazado"
     Asignar Tag Numerado
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -982,11 +1584,48 @@ Test 5 - Nota formal: se selecciona la opcion "informar contribuyente" [operador
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
-Test 5 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 8
+Test 5 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 32
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Cerrado
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Validar Estado con numero de tramite    ${tablaOperador}    3    ${tramite}    Cerrado
+
+Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 33
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 34
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 35
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 5 - Nota formal: verificar que el tramite no exista [gestion] 36
+    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 #-----------------------------------------------------------------------------------------------
 
