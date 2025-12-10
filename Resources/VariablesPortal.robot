@@ -133,7 +133,6 @@ ${historialCiudadano}    //h3[normalize-space()='Historial y Comunicaciones']
 ${botonConsultaTributaria}    //h3[normalize-space()='Consulta Tributaria']
 ${asuntoConsultaTributaria}    //input[@id='cmhmi8ndf001xnowdryf6h1jo']
 ${detalleConsultaTributaria}    //textarea[@id='cmhmi8p0l001znowdbqy9xmv6']
-${contenidoConsultaTributaria}    //textarea[@id='cmissqxbr00v1nonapv3hvzk8']
 
 #--------------------------------CONSULTA VINCULANTE-------------------------------------
 #----------------------------------------------------------------------------------------
@@ -141,7 +140,7 @@ ${contenidoConsultaTributaria}    //textarea[@id='cmissqxbr00v1nonapv3hvzk8']
 ${botonConsultaVinculante}    //h3[normalize-space()='Consulta Vinculante']
 ${asuntoConsultaVinculante}    //input[@id='cmh99oteg0001n2v8y4enxt0t']
 ${detalleConsultaVinculante}    //textarea[@id='cmh99w1ak0003n2v87az51vqy']
-${contenidoConsultaVinculante}    //textarea[@id='cmisssq0000v3nona2q8jugk7']
+
 
 #----------------------EXENCION DE IMPUESTO INMOBILIARIO BASICO--------------------------
 #----------------------------------------------------------------------------------------
@@ -149,7 +148,6 @@ ${contenidoConsultaVinculante}    //textarea[@id='cmisssq0000v3nona2q8jugk7']
 ${botonExencionImpuestoInmobiliarioBasico}    //h3[normalize-space()='Exención de Impuesto Inmobiliario Básico']
 ${asuntoExencionImpuestoIB}    //input[@id='cmhy6sett000gnocln3chn0tn']
 ${detalleExencionImpuestoIB}    //textarea[@id='cmhy6t90w000inocljvj5tanb']
-${contenidoExencionImpuestoIB}    //textarea[@id='cmisstx6l00v5nona2bx947za']
 
 #-----------------------------------NOTA FORMAL------------------------------------------
 #----------------------------------------------------------------------------------------
@@ -168,18 +166,27 @@ ${botonExencionImpuestoSobreLosIngresosBrutos}    //h3[normalize-space()='Exenci
 ${asuntoExencionImpuestoSobreLosIngresosBrutos}    //input[@id='cmhy6z41g000snocl92vpu6kd']
 ${detalleExencionImpuestoSobreLosIngresosBrutos}    //textarea[@id='cmhy6z4ku000unocl3m3glkcl']
 ${contenidoImpuestoSobreLosIngresosBrutos}    //textarea[@id='cmist09qd00vbnonaxnvwh9yj']
+${idAsuntoExencionImpuestoSobreLosIngresosBrutos}    id:cmhy6z41g000snocl92vpu6kd
+${idDetalleExencionImpuestoSobreLosIngresosBrutos}    id:cmhy6z4ku000unocl3m3glkcl
+${idContenidoImpuestoSobreLosIngresosBrutos}    id:cmist09qd00vbnonaxnvwh9yj
 
 #-------------------Exención Impuesto Provincial Automotor---------------------------------------
 ${botonExencionImpuestoProvincialAutomotor}    //h3[normalize-space()='Exención Impuesto Provincial Automotor']
 ${asuntoExencionImpuestoProvincialAutomotor}    //input[@id='cmhy6wocq000mnoclzrsuf9db']
 ${detalleExencionImpuestoProvincialAutomotor}    //textarea[@id='cmhy6wqsv000onoclwrg7k7oo']
 ${contenidoExencionImpuestoProvincialAutomotor}    //textarea[@id='cmissydfl00v9nona59u5g8dg']
+${idAsuntoExencionImpuestoProvincialAutomotor}    id:cmhy6wocq000mnoclzrsuf9db
+${idDetalleExencionImpuestoProvincialAutomotor}    id:cmhy6wqsv000onoclwrg7k7oo
+${idContenidoExencionImpuestoProvincialAutomotor}    id:cmissydfl00v9nona59u5g8dg
 
 #--------------------------Exención Impuesto de Sellos--------------------------------------------
 ${botonExenciónImpuestoDeSellos}    //h3[normalize-space()='Exención Impuesto de Sellos']
 ${asuntoExenciónImpuestoDeSellos}    //input[@id='cmhy6g6hz000anoclh53yu9v1']
 ${detalleExenciónImpuestoDeSellos}    //textarea[@id='cmhy6k427000cnocl5n1cgb7e']
 ${contenidoExenciónImpuestoDeSellos}    //input[@id='cmisswslj00v7nona8nw5wo5f']
+${idAsuntoExenciónImpuestoDeSellos}    id:cmhy6g6hz000anoclh53yu9v1
+${idDetalleExenciónImpuestoDeSellos}    id:cmhy6k427000cnocl5n1cgb7e
+${idContenidoExenciónImpuestoDeSellos}    id:cmisswslj00v7nona8nw5wo5f
 
 ${tramiteBorrador}    //tbody/tr[1]
 ${botonContinuarBorrador}    //a[normalize-space()='Continuar Borrador']
