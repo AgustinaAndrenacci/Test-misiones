@@ -31,13 +31,13 @@ Suite Setup    Inicializar Contador
 #Ver que no funciona seleccionar la flecha
 
 ***Test Cases***
-Test 0 - Excencion Impuesto de Sellos: Indicacion del proceso 1
+Test 1 - Excencion Impuesto de Sellos: Indicacion del proceso 1
     [Documentation]    El proceso que se realiza en el TEST 1 es el siguiente:
     ...    ... crear tramite como borrador [ciudadano]
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 0 - Excencion Impuesto de Sellos: crear tramite como borrador [ciudadano] 2
+Test 1 - Excencion Impuesto de Sellos: crear tramite como borrador [ciudadano] 2
     [Documentation]    El ciudadano crea un tramite de Excencion Impuesto de Sellos
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
@@ -79,186 +79,6 @@ Test 0 - Excencion Impuesto de Sellos: crear tramite como borrador [ciudadano] 2
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
-Test 0 - Excencion Impuesto de Sellos: Indicacion del numero de proceso creado 3
-    #Si fallo lo anterior
-    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
-    [Documentation]    Numero del proceso creado: ${tramite}
-    Asignar Tag Numerado
-    Log To Console    Comentario del proceso
-
-Test 0 - Excencion Impuesto de Sellos: verificar el estado del tramite (borrador) [ciudadano] 4
-    [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
-    Asignar Tag Numerado
-    #Si fallo lo anterior
-    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
-    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
-    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Borrador
-
-Test 0 - Excencion Impuesto de Sellos: verificar el estado del tramite (Borrador) [operador mesa] 5
-    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
-    Asignar Tag Numerado
-    #Si fallo lo anterior
-    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
-
-Test 0 - Excencion Impuesto de Sellos: verificar que el tramite no exista [responsable area] 6
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
-    Asignar Tag Numerado
-    #Si fallo lo anterior
-    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
-
-Test 0 - Excencion Impuesto de Sellos: verificar que el tramite no exista [secretaria] 7
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
-    Asignar Tag Numerado
-    #Si fallo lo anterior
-    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
-
-Test 0 - Excencion Impuesto de Sellos: verificar que el tramite no exista [gestion] 8
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
-    Asignar Tag Numerado
-    #Si fallo lo anterior
-    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
-
-#verificacion del actualizar borrador
-Test 0 - Excencion Impuesto de Sellos: Verificacion de datos
-    [Documentation]    Desde el ciudadano, se verifica que los datos de los campos sean correctos
-    Asignar Tag Numerado
-    #Si fallo lo anterior
-    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
-    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
-    Validar y hacer clic en el boton    //a[normalize-space()='Continuar Borrador']    abrirPrimerTramite
-
-    #chequeo que los campos esten corretos
-    Verificar Contenido De Campos    ${idAsuntoExenciónImpuestoDeSellos}  Asunto  Asunto test0
-    Verificar Contenido De Campos    ${idDetalleExenciónImpuestoDeSellos}  Descripcion  Descripcion test0
-    Verificar Contenido De Campos    ${idContenidoExenciónImpuestoDeSellos}  Contenido  Contenido test0
-
-Test 0 - Excencion Impuesto de Sellos: modificacion de datos
-    [Documentation]    Desde el ciudadano, se modifican los datos del tramite
-    Asignar Tag Numerado
-    #Si fallo lo anterior
-    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
-    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
-    Validar y hacer clic en el boton    //a[normalize-space()='Continuar Borrador']    abrirPrimerTramite
-
-    #borro y actualizo los datos
-    Validar y completar campo    ${asuntoExenciónImpuestoDeSellos}  Asunto    asunto
-    Validar y completar campo    ${detalleExenciónImpuestoDeSellos}  Descripcion  detalle
-    Validar y completar campo    ${contenidoExenciónImpuestoDeSellos}  Contenido  contenido
-    Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Validar y hacer clic en el boton    ${botonActualizarBorrador}    boton actualizar borrador
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
-    #Condicion para los proximos test
-    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
-
-Test 0 - Excencion Impuesto de Sellos: verificacion de los datos del tramite
-    [Documentation]    Desde el ciudadano, se verifica si los datos son correctos del tramite
-    Asignar Tag Numerado
-    #Si fallo lo anterior
-    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
-    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
-    Validar y hacer clic en el boton    //a[normalize-space()='Continuar Borrador']    abrirPrimerTramite
-
-    #chequeo que los campos esten corretos
-    Verificar Contenido De Campos    ${idAsuntoExenciónImpuestoDeSellos}  Asunto  Asunto
-    Verificar Contenido De Campos    ${idDetalleExenciónImpuestoDeSellos}  Descripcion  Descripcion
-    Verificar Contenido De Campos    ${idContenidoExenciónImpuestoDeSellos}  Contenido  Contenido
-
-Test 0 - Excencion Impuesto de Sellos: pasar de borrador a guardado
-    [Documentation]    Desde el ciudadano, se guarda el tramite asi deja de ser borrador
-    Asignar Tag Numerado
-    #Si fallo lo anterior
-    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
-    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
-    Validar y hacer clic en el boton    //a[normalize-space()='Continuar Borrador']    abrirPrimerTramite
-
-    Validar y hacer clic en el boton    ${botonContinuarBorrador}    abrirPrimerTramite
-    Validar y hacer clic en el boton    ${botonEnviarTramite}    botonEnviarTramite
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-
-Test 1 - Excencion Impuesto de Sellos: Indicacion del proceso 1
-    [Documentation]    El proceso que se realiza en el TEST 1 es el siguiente:
-    ...    ... crear tramite como borrador [ciudadano]
-    ...    ... se guarda el tramite [ciudadano]
-    Asignar Tag Numerado
-    Log To Console    Comentario del proceso
-
-Test 1 - Excencion Impuesto de Sellos: crear tramite como borrador [ciudadano] 2
-    [Documentation]    El ciudadano crea un tramite de Excencion Impuesto de Sellos
-    Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
-    Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    ${botonExenciónImpuestoDeSellos}
-    Validar y completar campo    ${asuntoExenciónImpuestoDeSellos}  Asunto test1    asuntoExenciónImpuestoDeSellos
-    Validar y completar campo    ${detalleExenciónImpuestoDeSellos}  Descripcion test1  detalleExenciónImpuestoDeSellos
-    Validar y completar campo    ${contenidoExenciónImpuestoDeSellos}  Contenido test1  contenidoExenciónImpuestoDeSellos
-
-    #Verificar y presionar ítem en lista    ${select}    DNI/CUIT
-    #Choose file    ${InputTypeFile}    ${FILE2}
-    #Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-
-    Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-     Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-     Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-
-    Validar y hacer clic en el boton    ${botonGuardarBorrador}    botonGuardarBorrador
-    Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
-
-    ${tramite}=    Obtener Numero De Tramite
-    Set Suite Variable    ${tramite}
-
-    #Condicion para los proximos test
-    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
-
 Test 1 - Excencion Impuesto de Sellos: Indicacion del numero de proceso creado 3
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -277,8 +97,8 @@ Test 1 - Excencion Impuesto de Sellos: verificar el estado del tramite (borrador
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Borrador
 
-Test 1 - Excencion Impuesto de Sellos: verificar que el tramite no exista [operador mesa] 5
-    [Documentation]    Desde el USUARIO, se verifica que no se pueda visualizar el tramite
+Test 1 - Excencion Impuesto de Sellos: verificar el estado del tramite (Borrador) [operador mesa] 5
+    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -325,21 +145,72 @@ Test 1 - Excencion Impuesto de Sellos: verificar que el tramite no exista [gesti
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 1 - Excencion Impuesto de Sellos: pasar de borrador a guardado 9
-    [Documentation]    Desde el ciudadano, se entra al tramite y se guarda para que deje de estar en borrador
+#verificacion del actualizar borrador
+Test 1 - Excencion Impuesto de Sellos: Verificacion de datos
+    [Documentation]    Desde el ciudadano, se verifica que los datos de los campos sean correctos
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
-    Validar y hacer clic en el boton    ${tramiteBorrador}    abrirPrimerTramite
+    Validar y hacer clic en el boton    ${abrirTramiteGenerado}    tramite
+
+    #chequeo que los campos esten corretos
+    Verificar Contenido De Campos    ${idAsuntoExenciónImpuestoDeSellos}  Asunto  Asunto test0
+    Verificar Contenido De Campos    ${idDetalleExenciónImpuestoDeSellos}  Descripcion  Descripcion test0
+    Verificar Contenido De Campos    ${idContenidoExenciónImpuestoDeSellos}  Contenido  Contenido test0
+
+Test 1 - Excencion Impuesto de Sellos: modificacion de datos
+    [Documentation]    Desde el ciudadano, se modifican los datos del tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Validar y hacer clic en el boton    ${abrirTramiteGenerado}    tramite
+
+    #borro y actualizo los datos
+    Validar y completar campo    ${asuntoExenciónImpuestoDeSellos}  Asunto    asunto
+    Validar y completar campo    ${detalleExenciónImpuestoDeSellos}  Descripcion  detalle
+    Validar y completar campo    ${contenidoExenciónImpuestoDeSellos}  Contenido  contenido
+    Verificar y presionar ítem en lista index    ${select}    1
+    Choose file    ${InputTypeFile}    ${FILE2}
+    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+    Validar y hacer clic en el boton    ${botonActualizarBorrador}    boton actualizar borrador
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test 1 - Excencion Impuesto de Sellos: verificacion de los datos del tramite
+    [Documentation]    Desde el ciudadano, se verifica si los datos son correctos del tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Validar y hacer clic en el boton    ${abrirTramiteGenerado}    tramite
+
+    #chequeo que los campos esten corretos
+    Verificar Contenido De Campos    ${idAsuntoExenciónImpuestoDeSellos}  Asunto  Asunto
+    Verificar Contenido De Campos    ${idDetalleExenciónImpuestoDeSellos}  Descripcion  Descripcion
+    Verificar Contenido De Campos    ${idContenidoExenciónImpuestoDeSellos}  Contenido  Contenido
+
+Test 1 - Excencion Impuesto de Sellos: pasar de borrador a guardado
+    [Documentation]    Desde el ciudadano, se guarda el tramite asi deja de ser borrador
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Validar y hacer clic en el boton    ${abrirTramiteGenerado}    tramite
 
     Validar y hacer clic en el boton    ${botonContinuarBorrador}    abrirPrimerTramite
     Validar y hacer clic en el boton    ${botonEnviarTramite}    botonEnviarTramite
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
-    #Condicion para los proximos test
-    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 1 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendiente) [ciudadano] 10
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
