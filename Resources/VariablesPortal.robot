@@ -155,6 +155,9 @@ ${botonNotaFormal}    //h3[normalize-space()='Nota Formal']
 ${asuntoNotaFormal}    //input[@id='cmgzsgypz000xn27sdc6h01o9']
 ${detalleNotaFormal}    //input[@id='cmi6sfs9600v6no9fds4l7cwv']
 ${contenidoNotaFormal}    //textarea[@id='cmgzsgyq00010n27ssk5kwr8x']
+${idAsuntoNotaFormal}    id:cmgzsgypz000xn27sdc6h01o9
+${idDetalleNotaFormal}    id:cmi6sfs9600v6no9fds4l7cwv
+${idContenidoNotaFormal}    id:cmgzsgyq00010n27ssk5kwr8x
 
 
 #-------------------EXENCION IMPUESTO SOBRE LOS INGRESOS BRUTOS---------------------------------
