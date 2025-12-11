@@ -127,6 +127,8 @@ ${botonSiCancelar}    //button[normalize-space()='Sí, cancelar']
 
 ${historialCiudadano}    //h3[normalize-space()='Historial y Comunicaciones']
 
+${DNIdelSolicitante}    (//td[@class='p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium'])[1]
+${copiaDelInstrumentoQueOriginaElActo}    (//td[@class='p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium'])[2]
 #--------------------------------CONSULTA TRIBUTARIA-------------------------------------
 #----------------------------------------------------------------------------------------
 
