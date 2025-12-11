@@ -916,6 +916,25 @@ Verificar presencia de... con...
     ...    AND
     ...    Fail    FALLO: No se encontró la frase esperada "${frase_texto}", sino que apareció: "${texto_real}".
 
+Verificar NO presencia de... con...
+    [Arguments]    ${campo_localizador}    ${frase_texto}
+
+    #Verificar el texto esperado
+    ${status_texto}=    Run Keyword And Return Status    Wait Until Page Contains    ${frase_texto}    timeout=10s
+
+    #Obtener el texto real del elemento
+    ${texto_real}=    Run Keyword And Ignore Error    Get Text    ${campo_localizador}
+    #Para que solo muestre la frase
+    ${texto_real}=    Set Variable    ${texto_real}[1]
+
+    #mensajes
+    Run Keyword If    not ${status_texto}
+    ...    Log    ÉXITO: El mensaje "${frase_texto}" fue encontrado.
+    ...    ELSE
+    ...    Run Keywords
+    ...    KeywordsMio.Captura Screenshot In Log
+    ...    AND
+    ...    Fail    FALLO: Se encontró "${frase_texto}", cuando no deberia estar.
 
 #    NUEVAS KEYWORDS   CIUDADANO/PERSONAL
 

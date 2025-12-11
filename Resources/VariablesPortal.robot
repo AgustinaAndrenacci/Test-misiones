@@ -116,6 +116,16 @@ ${select}    //select
 ${InputTypeFile}    xpath=//input[@type='file']
 ${FILE}       C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/DniPrueba.png
 ${FILE2}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/ADJUNTO.pdf
+${FILEpdf}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/ADJUNTO.pdf
+${FILEdoc}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/A 2.docx
+${FILEexc}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/A 3.xlsx
+${FILEpng}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/unnamed.png
+${FILEjpeg}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/A 4.jpeg
+${pdf}      ADJUNTO.pdf
+${doc}      A 2.docx
+${exc}      A 3.xlsx
+${png}      unnamed.png
+${jpeg}      A 4.jpeg
 
 ${tituloConsultaTributaria}    //h1[normalize-space()='Consulta Tributaria']
 ${datosPresentados}    //h3[normalize-space()='Datos Presentados']
