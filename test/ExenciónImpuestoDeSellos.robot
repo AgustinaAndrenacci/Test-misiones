@@ -145,6 +145,73 @@ Test 0 - Excencion Impuesto de Sellos: verificar que el tramite no exista [gesti
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
+#verificacion del actualizar borrador
+Test 0 - Excencion Impuesto de Sellos: Verificacion de datos
+    [Documentation]    Desde el ciudadano, se verifica que los datos de los campos sean correctos
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Validar y hacer clic en el boton    //a[normalize-space()='Continuar Borrador']    abrirPrimerTramite
+
+    #chequeo que los campos esten corretos
+    Verificar Contenido De Campos    ${idAsuntoExenciónImpuestoDeSellos}  Asunto  Asunto test0
+    Verificar Contenido De Campos    ${idDetalleExenciónImpuestoDeSellos}  Descripcion  Descripcion test0
+    Verificar Contenido De Campos    ${idContenidoExenciónImpuestoDeSellos}  Contenido  Contenido test0
+
+Test 0 - Excencion Impuesto de Sellos: modificacion de datos
+    [Documentation]    Desde el ciudadano, se modifican los datos del tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Validar y hacer clic en el boton    //a[normalize-space()='Continuar Borrador']    abrirPrimerTramite
+
+    #borro y actualizo los datos
+    Validar y completar campo    ${asuntoExenciónImpuestoDeSellos}  Asunto    asunto
+    Validar y completar campo    ${detalleExenciónImpuestoDeSellos}  Descripcion  detalle
+    Validar y completar campo    ${contenidoExenciónImpuestoDeSellos}  Contenido  contenido
+    Verificar y presionar ítem en lista index    ${select}    1
+    Choose file    ${InputTypeFile}    ${FILE2}
+    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+    Validar y hacer clic en el boton    ${botonActualizarBorrador}    boton actualizar borrador
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test 0 - Excencion Impuesto de Sellos: verificacion de los datos del tramite
+    [Documentation]    Desde el ciudadano, se verifica si los datos son correctos del tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Validar y hacer clic en el boton    //a[normalize-space()='Continuar Borrador']    abrirPrimerTramite
+
+    #chequeo que los campos esten corretos
+    Verificar Contenido De Campos    ${idAsuntoExenciónImpuestoDeSellos}  Asunto  Asunto
+    Verificar Contenido De Campos    ${idDetalleExenciónImpuestoDeSellos}  Descripcion  Descripcion
+    Verificar Contenido De Campos    ${idContenidoExenciónImpuestoDeSellos}  Contenido  Contenido
+
+Test 0 - Excencion Impuesto de Sellos: pasar de borrador a guardado
+    [Documentation]    Desde el ciudadano, se guarda el tramite asi deja de ser borrador
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Validar y hacer clic en el boton    //a[normalize-space()='Continuar Borrador']    abrirPrimerTramite
+
+    Validar y hacer clic en el boton    ${botonContinuarBorrador}    abrirPrimerTramite
+    Validar y hacer clic en el boton    ${botonEnviarTramite}    botonEnviarTramite
+    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+
 Test 1 - Excencion Impuesto de Sellos: Indicacion del proceso 1
     [Documentation]    El proceso que se realiza en el TEST 1 es el siguiente:
     ...    ... crear tramite como borrador [ciudadano]
@@ -463,7 +530,7 @@ Test 2 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
 
-Test 2 - Nota formal: se agrega una nota [operador mesa]
+Test 2 - Excencion Impuesto de Sellos: se agrega una nota [operador mesa]
     [Documentation]    Entra como operador mesa y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -702,7 +769,7 @@ Test 3 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
 
-Test 3 - Nota formal: se agrega una nota [operador mesa]
+Test 3 - Excencion Impuesto de Sellos: se agrega una nota [operador mesa]
     [Documentation]    Entra como operador mesa y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -931,7 +998,7 @@ Test 4 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
 
-Test 4 - Nota formal: se agrega una nota [operador mesa]
+Test 4 - Excencion Impuesto de Sellos: se agrega una nota [operador mesa]
     [Documentation]    Entra como operador mesa y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -1050,7 +1117,7 @@ Test 4 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-Test 4 - Nota formal: se agrega una nota [secretaria]
+Test 4 - Excencion Impuesto de Sellos: se agrega una nota [secretaria]
     [Documentation]    Entra como secretaria y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -1170,7 +1237,7 @@ Test 4 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-Test 4 - Nota formal: se agrega una nota [operador mesa]
+Test 4 - Excencion Impuesto de Sellos: se agrega una nota [operador mesa]
     [Documentation]    Entra como operador mesa y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -1289,7 +1356,7 @@ Test 4 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${paraResolver}  boton para resolver
 
-Test 4 - Nota formal: se agrega una nota [secretaria]
+Test 4 - Excencion Impuesto de Sellos: se agrega una nota [secretaria]
     [Documentation]    Entra como secretaria y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -1408,7 +1475,7 @@ Test 4 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-Test 4 - Nota formal: se agrega una nota [gestion]
+Test 4 - Excencion Impuesto de Sellos: se agrega una nota [gestion]
     [Documentation]    Entra como gestion y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -1527,7 +1594,7 @@ Test 4 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
 
-Test 4 - Nota formal: se agrega una nota [operador mesa]
+Test 4 - Excencion Impuesto de Sellos: se agrega una nota [operador mesa]
     [Documentation]    Entra como operador mesa y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -1748,7 +1815,7 @@ Test 5 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-Test 5 - Nota formal: se agrega una nota [operador mesa]
+Test 5 - Excencion Impuesto de Sellos: se agrega una nota [operador mesa]
     [Documentation]    Entra como operador mesa y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -1866,7 +1933,7 @@ Test 5 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-Test 5 - Nota formal: se agrega una nota [secretaria]
+Test 5 - Excencion Impuesto de Sellos: se agrega una nota [secretaria]
     [Documentation]    Entra como secretaria y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -1985,7 +2052,7 @@ Test 5 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-Test 5 - Nota formal: se agrega una nota [gestion]
+Test 5 - Excencion Impuesto de Sellos: se agrega una nota [gestion]
     [Documentation]    Entra como gestion y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -2104,7 +2171,7 @@ Test 5 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
 
-Test 5 - Nota formal: se agrega una nota [operador mesa]
+Test 5 - Excencion Impuesto de Sellos: se agrega una nota [operador mesa]
     [Documentation]    Entra como operador mesa y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior

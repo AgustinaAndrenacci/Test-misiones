@@ -23,20 +23,28 @@ Test Teardown    Cerrar navegador
 Suite Setup    Inicializar Contador
 
 *** Test Cases ***
-Test 2 - Nota formal: crear tramite [ciudadano]
-    [Documentation]    El ciudadano crea una nueva Nota formal
+Excencion Impuesto Sobre los Ingresos Brutos: crear tramite como borrador [ciudadano]
+    [Documentation]    El ciudadano crea un tramite de Excencion Impuesto Sobre los Ingresos Brutos
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonNotaFormal}    botonNotaFormal
-    Validar y completar campo    ${asuntoNotaFormal}  Asunto test1    asuntoNotaFormal
-    Validar y completar campo    ${detalleNotaFormal}  Descripcion test1  detalleNotaFormal
-    Validar y completar campo    ${contenidoNotaFormal}  Contenido test1  contenidoNotaFormal
-    Verificar y presionar ítem en lista    ${select}    Poder/Representación
+    Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    ${botonExencionImpuestoSobreLosIngresosBrutos}
+    Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test0    asuntoExencionImpuestoSobreLosIngresosBrutos
+    Validar y completar campo    ${detalleExencionImpuestoSobreLosIngresosBrutos}  Descripcion test0  detalleExencionImpuestoSobreLosIngresosBrutos
+    Validar y completar campo    ${contenidoImpuestoSobreLosIngresosBrutos}  Contenido test0  contenidoExencionImpuestoSobreLosIngresosBrutos
+
+    Verificar y presionar ítem en lista index    ${select}    1
     Choose file    ${InputTypeFile}    ${FILE2}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
+    Verificar y presionar ítem en lista index    ${select}    1
+    Choose file    ${InputTypeFile}    ${FILE2}
+    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+     Verificar y presionar ítem en lista index    ${select}    1
+    Choose file    ${InputTypeFile}    ${FILE2}
+    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+
+    Validar y hacer clic en el boton    ${botonGuardarBorrador}    botonGuardarBorrador
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
 
     ${tramite}=    Obtener Numero De Tramite

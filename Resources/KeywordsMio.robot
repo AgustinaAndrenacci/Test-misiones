@@ -130,8 +130,19 @@ Abrir Tramite Por Numero
 
 #verificacion de datos en el campo --------------------------------------------------------------
 Verificar Contenido De Campos
-    [arguments]    ${campo}    ${dato}
-    Input Text Should Be    ${campo}    ${dato}
+    [Arguments]    ${campo}    ${nombreCampo}    ${dato_esperado}
+
+    ${dato_actual}=    Get Value    ${campo}
+
+    #Usar Strip String para eliminar espacios iniciales/finales
+    ${dato_actual_limpio}=    Strip String    ${dato_actual}
+    ${dato_esperado_limpio}=    Strip String    ${dato_esperado}
+
+    ${es_valido}=    Run Keyword And Return Status    Should Be Equal    ${dato_actual_limpio}    ${dato_esperado_limpio}
+    Run Keyword If
+    ...    not ${es_valido}
+    ...    Fail
+    ...    El campo "${nombreCampo}" deberia tener el dato "${dato_esperado}" pero el dato actual es "${dato_actual}".
 
 #Limpiar contador del tramite ---------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------
