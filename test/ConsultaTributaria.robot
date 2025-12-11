@@ -41,16 +41,10 @@ Test 1 - Consulta Tributaria Como Borrador [ciudadano] Paso 1
     Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test1    asuntoConsultaTributaria
-    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test1  detalleConsultaTributaria
-    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test1  contenidoConsultaTributaria
+    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
+    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
+    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
     Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Documentación Específica
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
     Choose File    ${InputTypeFile}    ${FILE}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonGuardarBorrador}    botonGuardarBorrador
@@ -99,7 +93,44 @@ Test 1 - Consulta Tributaria: verificar que no aparezca el tramite [gestion] Pas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 1 - Consulta Tributaria: pasar de borrador a guardado [ciudadano] Paso 2
+Test 1 - Consulta Tributaria Borrador Chequear Campos [ciudadano] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Verifica que el ciudadano pueda ver los campos anteriormente completados
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Validar y hacer clic en el boton    ${abrirTramiteGenerado}  abrirTramiteGenerado
+    Verificar Contenido De Campos    ${asuntoConsultaTributaria}  Asunto test 1
+    Verificar Contenido De Campos    ${detalleConsultaTributaria}  Descripcion test 1
+    Verificar Contenido De Campos    ${contenidoConsultaTributaria}  Contenido test 1
+    Verificar presencia de    ${DNIdelSolicitante}    El DNIdelSolicitante no se encontro visible
+
+Test 1 - Consulta Tributaria Borrador Actualizar Campos [ciudadano] Paso 3
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Comprueba que se puedan cambiar los campos en el borrador y actualiza el borrador
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Validar y hacer clic en el boton    ${abrirTramiteGenerado}  abrirTramiteGenerado
+    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 2    asuntoConsultaTributaria
+    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 2  detalleConsultaTributaria
+    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 2  contenidoConsultaTributaria
+    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
+    Choose File    ${InputTypeFile}    ${FILE}
+    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+    Validar y hacer clic en el boton    ${botonActualizarBorrador}  botonActualizarBorrador
+
+Test 1 - Consulta Tributaria Borrador Chequear Campos [ciudadano] Paso 4
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Verifica que el ciudadano pueda ver las actualizaciones del borrador
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Validar y hacer clic en el boton    ${abrirTramiteGenerado}  abrirTramiteGenerado
+    Verificar Contenido De Campos    ${asuntoConsultaTributaria}  Asunto test 2
+    Verificar Contenido De Campos    ${detalleConsultaTributaria}  Descripcion test 2
+    Verificar Contenido De Campos    ${contenidoConsultaTributaria}  Contenido test 2
+    Verificar presencia de    ${DNIdelSolicitante}    El DNIdelSolicitante no se encontro visible
+    Verificar presencia de    ${copiaDelInstrumentoQueOriginaElActo}    La Copia Del Instrumento Que Origina El Acto no se encontro visible
+
+Test 1 - Consulta Tributaria: pasar de borrador a guardado [ciudadano] Paso 5
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde el ciudadano, se entra al tramite y se guarda para que deje de estar en borrador
     Asignar Tag Numerado
@@ -109,13 +140,13 @@ Test 1 - Consulta Tributaria: pasar de borrador a guardado [ciudadano] Paso 2
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
 
-Test 1 - Consulta Tributaria: verificar el estado del tramite (pendiente) [ciudadano] Paso 2
+Test 1 - Consulta Tributaria: verificar el estado del tramite (pendiente) [ciudadano] Paso 5
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Borrador
 
-Test 1 - Consulta Tributaria: verificar que no aparezca el tramite(borrador) [operador mesa] Paso 2
+Test 1 - Consulta Tributaria: verificar que no aparezca el tramite(borrador) [operador mesa] Paso 5
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde el operador mesa, se verifica que el tramite(borrador) no se visualice
     Asignar Tag Numerado
@@ -124,7 +155,7 @@ Test 1 - Consulta Tributaria: verificar que no aparezca el tramite(borrador) [op
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 1 - Consulta Tributaria: verificar que no aparezca el tramite [secretaria] Paso 2
+Test 1 - Consulta Tributaria: verificar que no aparezca el tramite [secretaria] Paso 5
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la secretaria, se verifica que el tramite no se visualice
     Asignar Tag Numerado
@@ -134,7 +165,7 @@ Test 1 - Consulta Tributaria: verificar que no aparezca el tramite [secretaria] 
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 1 - Consulta Tributaria: verificar que no aparezca el tramite [gestion] Paso 2
+Test 1 - Consulta Tributaria: verificar que no aparezca el tramite [gestion] Paso 5
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado

@@ -51,12 +51,6 @@ Test 1 - ExencionImpuestoInmobiliarioBasico Como Borrador [ciudadano] Paso 1
     Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
     Choose File    ${InputTypeFile}    ${FILE}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonGuardarBorrador}    botonGuardarBorrador
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
     ${tramite}=    Obtener Numero De Tramite
@@ -103,7 +97,44 @@ Test 1 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 1 - ExencionImpuestoInmobiliarioBasico: pasar de borrador a guardado [ciudadano] Paso 2
+Test 1 - ExencionImpuestoInmobiliarioBasico Borrador Chequear Campos [ciudadano] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Verifica que el ciudadano pueda ver los campos anteriormente completados
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Validar y hacer clic en el boton    ${abrirTramiteGenerado}  abrirTramiteGenerado
+    Verificar Contenido De Campos    ${asuntoConsultaVinculante}  Asunto test 1
+    Verificar Contenido De Campos    ${detalleConsultaVinculante}  Descripcion test 1
+    Verificar Contenido De Campos    ${contenidoConsultaVinculante}  Contenido test 1
+    Verificar presencia de    ${DNIdelSolicitante}    El DNIdelSolicitante no se encontro visible
+
+Test 1 - ExencionImpuestoInmobiliarioBasico Borrador Actualizar Campos [ciudadano] Paso 3
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Comprueba que se puedan cambiar los campos en el borrador y actualicen correctamente
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Validar y hacer clic en el boton    ${abrirTramiteGenerado}  abrirTramiteGenerado
+    Validar y completar campo    ${asuntoConsultaVinculante}  Asunto test 2    asuntoConsultaVinculante
+    Validar y completar campo    ${detalleConsultaVinculante}  Descripcion test 2  detalleConsultaVinculante
+    Validar y completar campo    ${contenidoConsultaVinculante}  Contenido test 2  contenidoConsultaVinculante
+    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
+    Choose File    ${InputTypeFile}    ${FILE}
+    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+    Validar y hacer clic en el boton    ${botonActualizarBorrador}  botonActualizarBorrador
+
+Test 1 - ExencionImpuestoInmobiliarioBasico Borrador Chequear Campos [ciudadano] Paso 4
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Verifica que el ciudadano pueda ver las actualizaciones del borrador
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Validar y hacer clic en el boton    ${abrirTramiteGenerado}  abrirTramiteGenerado
+    Verificar Contenido De Campos    ${asuntoConsultaVinculante}  Asunto test 2
+    Verificar Contenido De Campos    ${detalleConsultaVinculante}  Descripcion test 2
+    Verificar Contenido De Campos    ${contenidoConsultaVinculante}  Contenido test 2
+    Verificar presencia de    ${DNIdelSolicitante}    El DNIdelSolicitante no se encontro visible
+    Verificar presencia de    ${copiaDelInstrumentoQueOriginaElActo}    La Copia del instrumento que acredite la titularidad del inmueble no se encontro visible
+
+Test 1 - ExencionImpuestoInmobiliarioBasico: pasar de borrador a guardado [ciudadano] Paso 5
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde el ciudadano, se entra al tramite y se guarda para que deje de estar en borrador
     Asignar Tag Numerado
@@ -113,13 +144,13 @@ Test 1 - ExencionImpuestoInmobiliarioBasico: pasar de borrador a guardado [ciuda
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
 
-Test 1 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (pendiente) [ciudadano] Paso 2
+Test 1 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (pendiente) [ciudadano] Paso 5
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Borrador
 
-Test 1 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramite(borrador) [operador mesa] Paso 2
+Test 1 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramite(borrador) [operador mesa] Paso 5
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde el operador mesa, se verifica que el tramite(borrador) no se visualice
     Asignar Tag Numerado
@@ -128,7 +159,7 @@ Test 1 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 1 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramite [secretaria] Paso 2
+Test 1 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramite [secretaria] Paso 5
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la secretaria, se verifica que el tramite no se visualice
     Asignar Tag Numerado
@@ -138,7 +169,7 @@ Test 1 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 1 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramite [gestion] Paso 2
+Test 1 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramite [gestion] Paso 5
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
