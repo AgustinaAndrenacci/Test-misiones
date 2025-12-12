@@ -154,6 +154,11 @@ Verificacion de si se creo el tramite
     [arguments]    ${var}
     If    ${var}=0   Fail    El tramite no se creó.
 
+Presionar x boton en la fila del tramite
+    [Arguments]    ${locatorTabla}    ${boton}    ${numTramite}
+    ${xpathFila}=    Set Variable    ${locatorTabla}//tbody/tr[td[1]="${numTramite}"]
+    ${xpathCompletoBoton}=    Set Variable    ${xpathFila}${boton}
+    Click Element    xpath=${xpathCompletoBoton}
 
 #Verificar Automatico------------------------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
