@@ -23,8 +23,8 @@ Test Teardown    Cerrar navegador
 Suite Setup    Inicializar Contador
 
 *** Variables ***
-${tramite1}    TRAM-0421/2025
-${tramite2}    TRAM-0422/2025
+${tramite1}    TRAM-0437/2025
+${tramite2}    TRAM-0438/2025
 ${tachoComprobanteINCIO}    //button[@aria-controls='radix-_r_k_']
 ${botonSiCancelarINCIO}    //button[normalize-space()='Sí, cancelar']
 ${botonVolverINCIO}    //button[normalize-space()='Volver']
@@ -42,11 +42,11 @@ Test X - Nota formal: cancelar tramite desde adentro del tramite [ciudadano]
     #Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite1}
     Validar y hacer clic en el boton    ${botonCancelartramite}    boton cancelar tramite
     Validar y hacer clic en el boton    ${botonSiCancelarINCIO}    boton si,cancelar
-    Wait Until Page Contains    La solicitud ha sido cancelada    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La solicitud ha sido cancelada
 
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
@@ -59,7 +59,7 @@ Test X - Nota formal: verificar si el boton del tacho esta bloqueado - boton can
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    //tbody/tr[td[1]="${tramite1}"]${botonTachoINICIO}
 
 Test X - Nota formal: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
@@ -69,7 +69,7 @@ Test X - Nota formal: verificar si el boton cancelar tramite no existe - boton c
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite1}
     Wait Until Page Does Not Contain Element    ${botonCancelartramite}
 
@@ -81,7 +81,7 @@ Test X - Nota formal: verificar el estado del tramite (cancelado) - boton cancel
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMistramitesRecientes}    3    ${tramite1}    Cancelado
 
 #En este caso, solo deberia estar en operador mesa
@@ -93,7 +93,7 @@ Test X - Nota formal: verificar el estado del tramite (cancelado) - boton cancel
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite1}    Cancelado
 
@@ -105,7 +105,7 @@ Test X - Nota formal: verificar que el tramite no exista - boton cancelar tramit
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar tramite Inexistente    ${tablaOperador}    ${tramite1}
 
@@ -117,7 +117,7 @@ Test X - Nota formal: verificar que el tramite no exista - boton cancelar tramit
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar tramite Inexistente    ${tablaOperador}    ${tramite1}
 
@@ -129,7 +129,7 @@ Test X - Nota formal: verificar que el tramite no exista - boton cancelar tramit
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar tramite Inexistente    ${tablaOperador}    ${tramite1}
 
@@ -142,11 +142,11 @@ Test X - Nota formal: verificar que el personal no pueda realizar acciones - bot
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir tramite Por Numero    ${tramite1}
 
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'No hay acciones disponibles')]    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=//p[contains(text(),'No hay acciones disponibles')]
 
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
@@ -164,7 +164,7 @@ Test X - Nota formal: verificar Historial - boton cancelar tramite [ciudadano]
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite1}
     Validar y hacer clic en el boton    ${historialCiudadano}    botonHistorial
     Verificar presencia de    //p[normalize-space()='"Trámite cancelado exitosamente"']    En el Historial no se encontro visible que el tramite1 se asigne a la "Mesa de Entrada Virtual"
@@ -178,7 +178,7 @@ Test X - Nota formal: verificar Historial - boton cancelar tramite [operador mes
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir tramite Por Numero    ${tramite1}
     Validar y hacer clic en el boton    ${historialAdmin}    botonHistorial
@@ -193,10 +193,10 @@ Test X - Nota formal: cancelar tramite desde el tacho [ciudadano]
     #Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMisTramitesRecientes}    ${botonTachoINICIO}    ${tramite2}
     Validar y hacer clic en el boton    ${botonSiCancelarINCIO}    boton si,cancelar
-    Wait Until Page Contains    La solicitud ha sido cancelada.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La solicitud ha sido cancelada.
 
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
@@ -209,7 +209,7 @@ Test X - Nota formal: verificar si el boton del tacho esta bloqueado - icono tac
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    //tbody/tr[td[1]="${tramite2}"]${botonTachoINICIO}
 
 Test X - Nota formal: verificar si el boton cancelar tramite no existe - icono tacho de cancelar tramite [ciudadano]
@@ -219,7 +219,7 @@ Test X - Nota formal: verificar si el boton cancelar tramite no existe - icono t
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite2}
     Wait Until Page Does Not Contain Element    ${botonCancelartramite}
 
@@ -231,7 +231,7 @@ Test X - Nota formal: verificar el estado del tramite (cancelado) - icono tacho 
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMistramitesRecientes}    3    ${tramite2}    Cancelado
 
 #En este caso, solo deberia estar en operador mesa
@@ -243,7 +243,7 @@ Test X - Nota formal: verificar el estado del tramite (cancelado) - icono tacho 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite2}    Cancelado
 
@@ -255,7 +255,7 @@ Test X - Nota formal: verificar que el tramite no exista - icono tacho de cancel
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar tramite Inexistente    ${tablaOperador}    ${tramite2}
 
@@ -267,7 +267,7 @@ Test X - Nota formal: verificar que el tramite no exista - icono tacho de cancel
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar tramite Inexistente    ${tablaOperador}    ${tramite2}
 
@@ -279,7 +279,7 @@ Test X - Nota formal: verificar que el tramite no exista - icono tacho de cancel
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar tramite Inexistente    ${tablaOperador}    ${tramite2}
 
@@ -292,11 +292,11 @@ Test X - Nota formal: verificar que el personal no pueda realizar acciones - ico
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir tramite Por Numero    ${tramite2}
 
-    Wait Until Element Is Visible    xpath=//p[contains(text(),'No hay acciones disponibles')]    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=//p[contains(text(),'No hay acciones disponibles')]
 
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
@@ -314,7 +314,7 @@ Test X - Nota formal: verificar Historial - icono tacho de cancelar tramite [ciu
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite2}
     Validar y hacer clic en el boton    ${historialCiudadano}    botonHistorial
     Verificar presencia de    //p[normalize-space()='"Trámite cancelado exitosamente"']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
@@ -328,7 +328,7 @@ Test X - Nota formal: verificar Historial - icono tacho de cancelar tramite [ope
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir tramite Por Numero    ${tramite2}
     Validar y hacer clic en el boton    ${historialAdmin}    botonHistorial

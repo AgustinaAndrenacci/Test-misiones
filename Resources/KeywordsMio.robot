@@ -127,6 +127,28 @@ Abrir Tramite Por Numero
     Click Element    ${xpath}
 
 #verificacion de datos en el campo --------------------------------------------------------------
+Verificar Y Esperar Visibilidad De Elemento por localizador
+#Se le pasa un xpath y ve si esta visible
+    [Arguments]    ${elemento}    ${timeout}=10s
+    ${status}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${elemento}    timeout=${timeout}
+
+    Run Keyword If    ${status}
+    ...    Log To Console    El elemento "${elemento}" es visible.
+    ...    ELSE
+    ...    Fail    El elemento "${elemento}" NO se visualiza después de ${timeout}.
+    ...    Captura Screenshot In Log
+
+Verificar Y Esperar Visibilidad De Elemento
+#Se le pasa una frase, palabra y ve si esta visible
+    [Arguments]    ${elemento}    ${timeout}=10s
+    ${status}=    Run Keyword And Return Status    Wait Until Page Contains    ${elemento}    timeout=${timeout}
+
+    Run Keyword If    ${status}
+    ...    Log To Console    El elemento "${elemento}" es visible.
+    ...    ELSE
+    ...    Fail    El elemento "${elemento}" NO se visualiza después de ${timeout}.
+    ...    Captura Screenshot In Log
+
 Verificar Contenido De Campos
     [Arguments]    ${campo}    ${nombreCampo}    ${dato_esperado}
 

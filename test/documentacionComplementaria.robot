@@ -26,7 +26,7 @@ Suite Setup    Inicializar Contador
 ${botonSubirDocCom}    //button[normalize-space()='Subir']
 ${subirArchivoDocCom}    //input[@id='file-upload']
 ${botonSubirDocumentoDocCom}    //button[normalize-space()='Subir Documento']
-${tramite}    TRAM-0412/2025
+${tramite}    TRAM-0439/2025
 ${campoDescripcionDocCom}    //textarea[@id='description']
 ${botonCancelarDocCom}    //button[normalize-space()='Cancelar']
 ${espacioDeArchivosDocCom}    //div[@class='flex flex-col flex-1']//main
@@ -46,7 +46,7 @@ Test X - Nota formal: agregar documentacion complementaria - intentar subir sin 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
@@ -61,7 +61,7 @@ Test X - Nota formal: agregar documentacion complementaria - intentar subir sin 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
@@ -78,7 +78,7 @@ Test X - Nota formal: agregar documentacion complementaria - intentar que no se 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
@@ -97,14 +97,14 @@ Test X - Nota formal: se agrega documentacion complementaria - [operador mesa]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
     Choose file    ${subirArchivoDocCom}    ${FILEdoc}
     Validar y completar campo    ${campoDescripcionDocCom}    archivo doc    descripcion
     Validar y hacer clic en el boton    ${botonSubirDocumentoDocCom}   boton subir documento
-    Wait Until Page Contains    El documento se ha agregado correctamente al trámite.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    El documento se ha agregado correctamente al trámite.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -116,7 +116,7 @@ Test X - Nota formal: no se elimina la documentacion complementaria - [operador 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonEliminarDocCom}   boton eliminar
@@ -131,12 +131,12 @@ Test X - Nota formal: se elimina la documentacion complementaria - [operador mes
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonEliminarDocCom}   boton eliminar
     Validar y hacer clic en el boton    ${botonEliminarDocumentoDocCom}   boton eliminar documento
-    Wait Until Page Contains    El documento se ha eliminado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    El documento se ha eliminado correctamente.
 
 Test X - Nota formal: verificacion de documentacion complementaria eliminada - archivo: doc [operador mesa]
     [Documentation]    Entra como operador mesa entrada y agrega documentacion complementaria
@@ -146,7 +146,7 @@ Test X - Nota formal: verificacion de documentacion complementaria eliminada - a
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${doc}
@@ -161,14 +161,14 @@ Test X - Nota formal: se agrega documentacion complementaria - archivo: doc [ope
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
     Choose file    ${subirArchivoDocCom}    ${FILEdoc}
     Validar y completar campo    ${campoDescripcionDocCom}    archivo doc    descripcion
     Validar y hacer clic en el boton    ${botonSubirDocumentoDocCom}   boton subir documento
-    Wait Until Page Contains    El documento se ha agregado correctamente al trámite.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    El documento se ha agregado correctamente al trámite.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -180,7 +180,7 @@ Test X - Nota formal: verificacion de documentacion complementaria - archivo: do
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${doc}
@@ -195,7 +195,7 @@ Test X - Nota formal: se agrega documentacion complementaria - archivo incorrect
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
@@ -213,7 +213,7 @@ Test X - Nota formal: verificacion de documentacion complementaria - archivo: ex
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${exc}
@@ -228,14 +228,14 @@ Test X - Nota formal: se agrega documentacion complementaria - archivo: png [ope
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
     Choose file    ${subirArchivoDocCom}    ${FILEpng}
     Validar y completar campo    ${campoDescripcionDocCom}    archivo png    descripcion
     Validar y hacer clic en el boton    ${botonSubirDocumentoDocCom}   boton subir documento
-    Wait Until Page Contains    El documento se ha agregado correctamente al trámite.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    El documento se ha agregado correctamente al trámite.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -247,7 +247,7 @@ Test X - Nota formal: verificacion de documentacion complementaria - archivo: pn
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${png}
@@ -262,14 +262,14 @@ Test X - Nota formal: se agrega documentacion complementaria - archivo: jpeg [op
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
     Choose file    ${subirArchivoDocCom}    ${FILEjpeg}
     Validar y completar campo    ${campoDescripcionDocCom}    archivo jpeg    descripcion
     Validar y hacer clic en el boton    ${botonSubirDocumentoDocCom}   boton subir documento
-    Wait Until Page Contains    El documento se ha agregado correctamente al trámite.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    El documento se ha agregado correctamente al trámite.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -281,7 +281,7 @@ Test X - Nota formal: verificacion de documentacion complementaria - archivo: jp
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${jpeg}
@@ -296,14 +296,14 @@ Test X - Nota formal: se agrega documentacion complementaria - archivo: pdf [ope
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
     Choose file    ${subirArchivoDocCom}    ${FILEpdf}
     Validar y completar campo    ${campoDescripcionDocCom}    archivo pdf    descripcion
     Validar y hacer clic en el boton    ${botonSubirDocumentoDocCom}   boton subir documento
-    Wait Until Page Contains    El documento se ha agregado correctamente al trámite.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    El documento se ha agregado correctamente al trámite.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -316,7 +316,7 @@ Test X - Nota formal: verificacion de documentacion complementaria - archivo: pd
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${pdf}
