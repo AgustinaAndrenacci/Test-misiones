@@ -53,13 +53,7 @@ Test 1 - Excencion Impuesto Provincial Automotor: crear tramite como borrador [c
     #Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
 
-    Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-     Verificar y presionar ítem en lista index    ${select}    1
+    Verificar y presionar ítem en lista index    ${select}    Copia del DNI del solicitante
     Choose file    ${InputTypeFile}    ${FILE2}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
@@ -153,6 +147,7 @@ Test 1 - Excencion Impuesto Provincial Automotor: Verificacion de datos
     Verificar Contenido De Campos    ${idAsuntoExencionImpuestoProvincialAutomotor}  Asunto  Asunto test0
     Verificar Contenido De Campos    ${idDetalleExencionImpuestoProvincialAutomotor}  Descripcion  Descripcion test0
     Verificar Contenido De Campos    ${idContenidoExencionImpuestoProvincialAutomotor}  Contenido  Contenido test0
+    Verificar presencia de... con...    ${ubicacionArchivoBorrador}    Copia del DNI del solicitante
 
 Test 1 - Excencion Impuesto Provincial Automotor: modificacion de datos
     [Documentation]    Desde el ciudadano, se modifican los datos del tramite
@@ -168,7 +163,7 @@ Test 1 - Excencion Impuesto Provincial Automotor: modificacion de datos
     Validar y completar campo    ${asuntoExencionImpuestoProvincialAutomotor}  Asunto    asunto
     Validar y completar campo    ${detalleExencionImpuestoProvincialAutomotor}  Descripcion  detalle
     Validar y completar campo    ${contenidoExencionImpuestoProvincialAutomotor}  Contenido  contenido
-    Verificar y presionar ítem en lista index    ${select}    1
+    Verificar y presionar ítem en lista index    ${select}    Constancia de CUIT del solicitante
     Choose file    ${InputTypeFile}    ${FILE2}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonActualizarBorrador}    boton actualizar borrador
@@ -190,6 +185,7 @@ Test 1 - Excencion Impuesto Provincial Automotor: verificacion de los datos del 
     Verificar Contenido De Campos    ${idAsuntoExencionImpuestoProvincialAutomotor}  Asunto  Asunto
     Verificar Contenido De Campos    ${idDetalleExencionImpuestoProvincialAutomotor}  Descripcion  Descripcion
     Verificar Contenido De Campos    ${idContenidoExencionImpuestoProvincialAutomotor}  Contenido  Contenido
+    Verificar presencia de... con...    ${ubicacionArchivoBorrador}    Constancia de CUIT del solicitante
 
 Test 1 - Excencion Impuesto Provincial Automotor: pasar de borrador a guardado
     [Documentation]    Desde el ciudadano, se guarda el tramite asi deja de ser borrador

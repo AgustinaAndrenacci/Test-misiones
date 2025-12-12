@@ -52,19 +52,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: crear tramite como borrad
     #Choose file    ${InputTypeFile}    ${FILE2}
     #Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
-    Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-     Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-     Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista index    ${select}    1
+    Verificar y presionar ítem en lista index    ${select}    Presentación de Declaración jurada
     Choose file    ${InputTypeFile}    ${FILE2}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
@@ -158,6 +146,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: Verificacion de datos
     Verificar Contenido De Campos    ${idAsuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto  Asunto test0
     Verificar Contenido De Campos    ${idDetalleExencionImpuestoSobreLosIngresosBrutos}  Descripcion  Descripcion test0
     Verificar Contenido De Campos    ${idContenidoImpuestoSobreLosIngresosBrutos}  Contenido  Contenido test0
+    Verificar presencia de... con...    ${ubicacionArchivoBorrador}    Presentación de Declaración jurada
 
 Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: modificacion de datos
     [Documentation]    Desde el ciudadano, se modifican los datos del tramite
@@ -173,7 +162,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: modificacion de datos
     Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto    asunto
     Validar y completar campo    ${detalleExencionImpuestoSobreLosIngresosBrutos}  Descripcion  detalle
     Validar y completar campo    ${contenidoExencionImpuestoSobreLosIngresosBrutos}  Contenido  contenido
-    Verificar y presionar ítem en lista index    ${select}    1
+    Verificar y presionar ítem en lista index    ${select}    Otros
     Choose file    ${InputTypeFile}    ${FILE2}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonActualizarBorrador}    boton actualizar borrador
@@ -195,6 +184,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificacion de los datos
     Verificar Contenido De Campos    ${idAsuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto  Asunto
     Verificar Contenido De Campos    ${idDetalleExencionImpuestoSobreLosIngresosBrutos}  Descripcion  Descripcion
     Verificar Contenido De Campos    ${idContenidoImpuestoSobreLosIngresosBrutos}  Contenido  Contenido
+    Verificar presencia de... con...    ${ubicacionArchivoBorrador}    Otros
 
 Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: pasar de borrador a guardado
     [Documentation]    Desde el ciudadano, se guarda el tramite asi deja de ser borrador

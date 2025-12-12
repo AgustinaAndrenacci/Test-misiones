@@ -52,19 +52,7 @@ Test 1 - Excencion Impuesto de Sellos: crear tramite como borrador [ciudadano] 2
     #Choose file    ${InputTypeFile}    ${FILE2}
     #Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
-    Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-     Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-     Verificar y presionar ítem en lista index    ${select}    1
+    Verificar y presionar ítem en lista index    ${select}    Copia de DNI del solicitante
     Choose file    ${InputTypeFile}    ${FILE2}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
@@ -160,6 +148,7 @@ Test 1 - Excencion Impuesto de Sellos: Verificacion de datos
     Verificar Contenido De Campos    ${idAsuntoExenciónImpuestoDeSellos}  Asunto  Asunto test0
     Verificar Contenido De Campos    ${idDetalleExenciónImpuestoDeSellos}  Descripcion  Descripcion test0
     Verificar Contenido De Campos    ${idContenidoExenciónImpuestoDeSellos}  Contenido  Contenido test0
+    Verificar presencia de... con...    ${ubicacionArchivoBorrador}    Copia de DNI del solicitante
 
 Test 1 - Excencion Impuesto de Sellos: modificacion de datos
     [Documentation]    Desde el ciudadano, se modifican los datos del tramite
@@ -175,7 +164,7 @@ Test 1 - Excencion Impuesto de Sellos: modificacion de datos
     Validar y completar campo    ${asuntoExenciónImpuestoDeSellos}  Asunto    asunto
     Validar y completar campo    ${detalleExenciónImpuestoDeSellos}  Descripcion  detalle
     Validar y completar campo    ${contenidoExenciónImpuestoDeSellos}  Contenido  contenido
-    Verificar y presionar ítem en lista index    ${select}    1
+    Verificar y presionar ítem en lista index    ${select}    Copia del instrumento que origina el acto
     Choose file    ${InputTypeFile}    ${FILE2}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonActualizarBorrador}    boton actualizar borrador
@@ -197,6 +186,7 @@ Test 1 - Excencion Impuesto de Sellos: verificacion de los datos del tramite
     Verificar Contenido De Campos    ${idAsuntoExenciónImpuestoDeSellos}  Asunto  Asunto
     Verificar Contenido De Campos    ${idDetalleExenciónImpuestoDeSellos}  Descripcion  Descripcion
     Verificar Contenido De Campos    ${idContenidoExenciónImpuestoDeSellos}  Contenido  Contenido
+    Verificar presencia de... con...    ${ubicacionArchivoBorrador}    Copia del instrumento que origina el acto
 
 Test 1 - Excencion Impuesto de Sellos: pasar de borrador a guardado
     [Documentation]    Desde el ciudadano, se guarda el tramite asi deja de ser borrador

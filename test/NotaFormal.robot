@@ -61,15 +61,7 @@ Test 1 - Nota formal: crear tramite como borrador [ciudadano]
     Verificar y presionar ítem en lista    ${select}    Poder/Representación
     Choose file    ${InputTypeFile}    ${FILE2}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Documentación Específica
-    Choose file    ${InputTypeFile}    ${FILE2}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose file    ${InputTypeFile}    ${FILE2}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Otros
-    Choose file    ${InputTypeFile}    ${FILE2}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+
     Validar y hacer clic en el boton    ${botonGuardarBorrador}    botonGuardarBorrador
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
 
@@ -160,6 +152,7 @@ Test 1 - Nota formal: Verificacion de datos
     Verificar Contenido De Campos    ${idAsuntoNotaFormal}  Asunto  Asunto test0
     Verificar Contenido De Campos    ${idDetalleNotaFormal}  Descripcion  Descripcion test0
     Verificar Contenido De Campos    ${idContenidoNotaFormal}  Contenido  Contenido test0
+    Verificar presencia de... con...    ${ubicacionArchivoBorrador}    Poder/Representación
 
 Test 1 - Nota formal: modificacion de datos
     [Documentation]    Desde el ciudadano, se modifican los datos del tramite
@@ -175,7 +168,7 @@ Test 1 - Nota formal: modificacion de datos
     Validar y completar campo    ${asuntoNotaFormal}  Asunto    asunto
     Validar y completar campo    ${detalleNotaFormal}  Descripcion  detalle
     Validar y completar campo    ${contenidoNotaFormal}  Contenido  contenido
-    Verificar y presionar ítem en lista index    ${select}    1
+    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
     Choose file    ${InputTypeFile}    ${FILE2}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonActualizarBorrador}    boton actualizar borrador
@@ -197,6 +190,7 @@ Test 1 - Nota formal: verificacion de los datos del tramite
     Verificar Contenido De Campos    ${idAsuntoNotaFormal}  Asunto  Asunto
     Verificar Contenido De Campos    ${idDetalleNotaFormal}  Descripcion  Descripcion
     Verificar Contenido De Campos    ${idContenidoNotaFormal}  Contenido  Contenido
+    Verificar presencia de... con...    ${ubicacionArchivoBorrador}    DNI del Solicitante
 
 Test 1 - Nota formal: pasar de borrador a guardado
     [Documentation]    Desde el ciudadano, se guarda el tramite asi deja de ser borrador
