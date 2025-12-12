@@ -43,7 +43,7 @@ Test 1 - Nota formal: crear tramite como borrador [ciudadano]
     [Documentation]    El ciudadano crea un tramite de Nota formal
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonNotaFormal}    botonNotaFormal
     Validar y completar campo    ${asuntoNotaFormal}  Asunto test0    asuntoNotaFormal
@@ -63,7 +63,7 @@ Test 1 - Nota formal: crear tramite como borrador [ciudadano]
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
     Validar y hacer clic en el boton    ${botonGuardarBorrador}    botonGuardarBorrador
-    Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
 
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
@@ -86,7 +86,7 @@ Test 1 - Nota formal: verificar el estado del tramite (borrador) [ciudadano] 4
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Borrador
 
 Test 1 - Nota formal: verificar que el tramite no exista [operador mesa] 5
@@ -97,7 +97,7 @@ Test 1 - Nota formal: verificar que el tramite no exista [operador mesa] 5
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -109,7 +109,7 @@ Test 1 - Nota formal: verificar que el tramite no exista [responsable area] 6
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -121,7 +121,7 @@ Test 1 - Nota formal: verificar que el tramite no exista [secretaria] 7
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -133,7 +133,7 @@ Test 1 - Nota formal: verificar que el tramite no exista [gestion] 8
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -145,7 +145,7 @@ Test 1 - Nota formal: Verificacion de datos
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${abrirTramiteGenerado}    tramite
 
     #chequeo que los campos esten corretos
@@ -161,7 +161,7 @@ Test 1 - Nota formal: modificacion de datos
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${abrirTramiteGenerado}    tramite
 
     #borro y actualizo los datos
@@ -172,7 +172,7 @@ Test 1 - Nota formal: modificacion de datos
     Choose file    ${InputTypeFile}    ${FILE2}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonActualizarBorrador}    boton actualizar borrador
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -183,7 +183,7 @@ Test 1 - Nota formal: verificacion de los datos del tramite
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${abrirTramiteGenerado}    tramite
 
     #chequeo que los campos esten corretos
@@ -199,10 +199,10 @@ Test 1 - Nota formal: pasar de borrador a guardado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${abrirTramiteGenerado}    tramite
     Validar y hacer clic en el boton    ${botonEnviarTramite}    botonEnviarTramite
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 1 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 10
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
@@ -211,7 +211,7 @@ Test 1 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 10
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 1 - Nota formal: verificar el estado del tramite (pendiente) [operador] 4
@@ -222,7 +222,7 @@ Test 1 - Nota formal: verificar el estado del tramite (pendiente) [operador] 4
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
@@ -234,7 +234,7 @@ Test 1 - Nota formal: verificar que el tramite no exista [responsable area] 12
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -246,7 +246,7 @@ Test 1 - Nota formal: verificar que el tramite no exista [secretaria] 13
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -258,7 +258,7 @@ Test 1 - Nota formal: verificar que el tramite no exista [gestion] 14
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -273,7 +273,7 @@ Test 2 - Nota formal: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Nota formal
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonNotaFormal}    botonNotaFormal
     Validar y completar campo    ${asuntoNotaFormal}  Asunto test2    asuntoNotaFormal
@@ -283,7 +283,7 @@ Test 2 - Nota formal: crear tramite [ciudadano]
     Choose file    ${InputTypeFile}    ${FILE2}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
 
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
@@ -306,7 +306,7 @@ Test 2 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 4
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 2 - Nota formal: verificar el estado del tramite (pendiente) [operador] 5
@@ -317,7 +317,7 @@ Test 2 - Nota formal: verificar el estado del tramite (pendiente) [operador] 5
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
@@ -329,7 +329,7 @@ Test 2 - Nota formal: verificar que el tramite no exista [responsable area] 6
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -341,7 +341,7 @@ Test 2 - Nota formal: verificar que el tramite no exista [secretaria] 7
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -353,7 +353,7 @@ Test 2 - Nota formal: verificar que el tramite no exista [gestion] 8
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -366,12 +366,12 @@ Test 2 - Nota formal: verificar si los botones de acciones son correctos [operad
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
@@ -391,14 +391,14 @@ Test 2 - Nota formal: se agrega una nota [operador mesa]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 2 - Nota formal: se selecciona la opcion "solicitar datos adicionales" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "Solicitar Datos Adicionales"
@@ -408,7 +408,7 @@ Test 2 - Nota formal: se selecciona la opcion "solicitar datos adicionales" [ope
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -416,7 +416,7 @@ Test 2 - Nota formal: se selecciona la opcion "solicitar datos adicionales" [ope
     Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
     Validar y completar campo    ${campoComentario}    Solicitar Datos Adicionales    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -427,7 +427,7 @@ Test 2 - Nota formal: verificar el estado del tramite (pendiente contributente) 
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente Contribuyente
 
 Test 2 - Nota formal: verificar que el tramite no exista [operador mesa] 12
@@ -438,7 +438,7 @@ Test 2 - Nota formal: verificar que el tramite no exista [operador mesa] 12
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -450,7 +450,7 @@ Test 2 - Nota formal: verificar que el tramite no exista [responsable area] 13
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -462,7 +462,7 @@ Test 2 - Nota formal: verificar que el tramite no exista [secretaria] 14
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -474,7 +474,7 @@ Test 2 - Nota formal: verificar que el tramite no exista [gestion] 15
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -486,7 +486,7 @@ Test 2 - Nota formal: el ciudadano avanza en el tramite [ciudadano] 6
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     #ATENCION! - Modificar debido a que aún no se sabe el método en que el usuario podrá cargar datos adicionales
     Fail    Fallo: el ciudadano no puede cargar datos adicionales
 
@@ -501,7 +501,7 @@ Test 3 - Nota formal: Se crea un tramite de Nota formal [ciudadano]
     [Documentation]    El ciudadano crea una nueva Nota formal
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonNotaFormal}    botonNotaFormal
     Validar y completar campo    ${asuntoNotaFormal}  Asunto test3    asuntoNotaFormal
@@ -522,7 +522,7 @@ Test 3 - Nota formal: Se crea un tramite de Nota formal [ciudadano]
     Choose file    ${InputTypeFile}    ${FILE2}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
 
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
@@ -545,7 +545,7 @@ Test 3 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 4
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 3 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 5
@@ -556,7 +556,7 @@ Test 3 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
@@ -568,7 +568,7 @@ Test 3 - Nota formal: verificar que el tramite no exista [responsable area] 6
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -580,7 +580,7 @@ Test 3 - Nota formal: verificar que el tramite no exista [secretaria] 7
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -592,7 +592,7 @@ Test 3 - Nota formal: verificar que el tramite no exista [gestion] 8
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -605,12 +605,12 @@ Test 3 - Nota formal: verificar si los botones de acciones son correctos [operad
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
@@ -630,14 +630,14 @@ Test 3 - Nota formal: se agrega una nota [operador mesa]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 3 - Nota formal: se selecciona la opcion "no corresponde" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "No Corresponde"
@@ -647,14 +647,14 @@ Test 3 - Nota formal: se selecciona la opcion "no corresponde" [operador mesa]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonNoCorresponde}    botonNoCorresponde
     Validar y completar campo    ${campoComentario}    No Corresponde    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -665,7 +665,7 @@ Test 3 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 11
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
 
 Test 3 - Nota formal: verificar que el tramite no exista [operador mesa] 12
@@ -676,7 +676,7 @@ Test 3 - Nota formal: verificar que el tramite no exista [operador mesa] 12
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -688,7 +688,7 @@ Test 3 - Nota formal: verificar que el tramite no exista [responsable area] 13
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -700,7 +700,7 @@ Test 3 - Nota formal: verificar que el tramite no exista [secretaria] 14
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -712,7 +712,7 @@ Test 3 - Nota formal: verificar que el tramite no exista [gestion] 15
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -733,7 +733,7 @@ Test 4 - Nota formal: se crea un tramite de norta formal [ciudadano]
     [Documentation]    Crear una nueva Nota formal
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonNotaFormal}    botonNotaFormal
     Validar y completar campo    ${asuntoNotaFormal}  Asunto test4    asuntoNotaFormal
@@ -751,7 +751,7 @@ Test 4 - Nota formal: se crea un tramite de norta formal [ciudadano]
     Choose file    ${InputTypeFile}    ${FILE2}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
 
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
@@ -774,7 +774,7 @@ Test 4 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 4
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 5
@@ -785,7 +785,7 @@ Test 4 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
@@ -797,7 +797,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 6
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -809,7 +809,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 7
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -821,7 +821,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [gestion] 8
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -833,12 +833,12 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [operad
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
@@ -858,14 +858,14 @@ Test 4 - Nota formal: se agrega una nota [operador mesa]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
@@ -875,14 +875,14 @@ Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador me
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
     Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -893,7 +893,7 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 11
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 4 - Nota formal: verificar el estado del tramite (asignado) [secretaria] 12
@@ -904,7 +904,7 @@ Test 4 - Nota formal: verificar el estado del tramite (asignado) [secretaria] 12
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
@@ -916,7 +916,7 @@ Test 4 - Nota formal: verificar el estado del tramite (asignado) [responsable ar
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
@@ -928,7 +928,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 13
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -940,7 +940,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [gestion] 15
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -953,12 +953,12 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [secret
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
@@ -978,14 +978,14 @@ Test 4 - Nota formal: se agrega una nota [secretaria]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 4 - Nota formal: se selecciona la opcion "no corresponde" [secretaria]
     [Documentation]    Entra como Secretaria para continuar con el proceso dandole a la opcion "No Corresponde" devolviendo el tramite hacia Mesa de Entrada.
@@ -995,14 +995,14 @@ Test 4 - Nota formal: se selecciona la opcion "no corresponde" [secretaria]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonNoCorresponde}    botonNoCorresponde
     Validar y completar campo    ${campoComentario}    No Corresponde    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1013,7 +1013,7 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 18
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 4 - Nota formal: verificar el estado del tramite (deuelto) [operador mesa] 19
@@ -1024,7 +1024,7 @@ Test 4 - Nota formal: verificar el estado del tramite (deuelto) [operador mesa] 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Devuelto
 
@@ -1036,7 +1036,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 20
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1048,7 +1048,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 21
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1060,7 +1060,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [gestion] 22
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1072,12 +1072,12 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [operad
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
@@ -1097,14 +1097,14 @@ Test 4 - Nota formal: se agrega una nota [operador mesa]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria". [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
@@ -1114,14 +1114,14 @@ Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria". [operador m
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
    # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
     Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1132,7 +1132,7 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 25
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 4 - Nota formal: verificar el estado del tramite (asignado) [secretaria] 26
@@ -1143,7 +1143,7 @@ Test 4 - Nota formal: verificar el estado del tramite (asignado) [secretaria] 26
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
@@ -1155,7 +1155,7 @@ Test 4 - Nota formal: verificar el estado del tramite (asignado) [responsable ar
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
@@ -1167,7 +1167,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 27
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1179,7 +1179,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [gestion] 29
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1192,12 +1192,12 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [secret
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar si el boton no existe Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
@@ -1217,14 +1217,14 @@ Test 4 - Nota formal: se agrega una nota [secretaria]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 4 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
     [Documentation]    Entra como Secretaria para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
@@ -1234,14 +1234,14 @@ Test 4 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
    # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${paraResolver}    paraResolver
     Validar y completar campo    ${campoComentario}    Para Resolver    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1252,7 +1252,7 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 32
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 4 - Nota formal: verificar el estado del tramite (en revision) [gestion] 33
@@ -1263,7 +1263,7 @@ Test 4 - Nota formal: verificar el estado del tramite (en revision) [gestion] 33
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    En revisión
 
@@ -1275,7 +1275,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 34
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1287,7 +1287,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 35
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1299,7 +1299,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 36
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1312,12 +1312,12 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [gestio
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonAprobar}  boton aprobar
@@ -1337,14 +1337,14 @@ Test 4 - Nota formal: se agrega una nota [gestion]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 4 - Nota formal: se selecciona la opcion "aprobado" [gestion]
     [Documentation]    Entra como Gestion aprobando el tramite para continuar con el proceso
@@ -1354,14 +1354,14 @@ Test 4 - Nota formal: se selecciona la opcion "aprobado" [gestion]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonAprobar}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1373,7 +1373,7 @@ Test 4 - Nota formal: verificar el estado del tramite (resuelto) [ciudadano] 39
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
 Test 4 - Nota formal: verificar el estado del tramite (aprobado) [operador mesa] 40
@@ -1384,7 +1384,7 @@ Test 4 - Nota formal: verificar el estado del tramite (aprobado) [operador mesa]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Aprobado
 
@@ -1396,7 +1396,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 41
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1408,7 +1408,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 42
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1420,7 +1420,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [gestion] 43
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1433,12 +1433,12 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [operad
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${informarContribuyente}  boton informar al contribuyente
@@ -1458,7 +1458,7 @@ Test 4 - Nota formal: se agrega una nota [operador mesa]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -1473,13 +1473,13 @@ Test 4 - Nota formal: se selecciona la opcion "informar al contribuyente" [opera
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1490,7 +1490,7 @@ Test 4 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 46
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
 
 Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 47
@@ -1501,7 +1501,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [operador mesa] 47
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1513,7 +1513,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 48
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1525,7 +1525,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 49
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1537,7 +1537,7 @@ Test 4 - Nota formal: verificar que el tramite no exista [gestion] 50
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1556,7 +1556,7 @@ Test 5 - Nota formal: se crea un tramite de nota formal [ciudadano]
     [Documentation]    Crear una nueva Nota formal
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonNotaFormal}    botonNotaFormal
     Validar y completar campo    ${asuntoNotaFormal}  Asunto test5    asuntoNotaFormal
@@ -1571,7 +1571,7 @@ Test 5 - Nota formal: se crea un tramite de nota formal [ciudadano]
     Choose file    ${InputTypeFile}    ${FILE2}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
 
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
@@ -1594,7 +1594,7 @@ Test 5 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 4
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 5 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 5
@@ -1605,7 +1605,7 @@ Test 5 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
@@ -1617,7 +1617,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 6
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1629,7 +1629,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 7
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1641,7 +1641,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [gestion] 8
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1654,12 +1654,12 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [operad
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
@@ -1679,14 +1679,14 @@ Test 5 - Nota formal: se agrega una nota [operador mesa]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 5 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
@@ -1696,14 +1696,14 @@ Test 5 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador me
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
     Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1714,7 +1714,7 @@ Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 11
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 5 - Nota formal: verificar el estado del tramite (asignado) [secretaria] 12
@@ -1725,7 +1725,7 @@ Test 5 - Nota formal: verificar el estado del tramite (asignado) [secretaria] 12
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
@@ -1737,7 +1737,7 @@ Test 4 - Nota formal: verificar el estado del tramite (asignado) [responsable ar
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
@@ -1749,7 +1749,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 13
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1761,7 +1761,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [gestion] 15
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1773,11 +1773,11 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [secret
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
@@ -1797,14 +1797,14 @@ Test 5 - Nota formal: se agrega una nota [secretaria]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 5 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
     [Documentation]    Entra como Secretaria para continuar con el proceso, utilizando la opcion "Para Resolver" enviandolo hacia Gestion
@@ -1814,14 +1814,14 @@ Test 5 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${paraResolver}    paraResolver
     Validar y completar campo    ${campoComentario}    Para Resolver    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1832,7 +1832,7 @@ Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 18
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 5 - Nota formal: verificar el estado del tramite (en revision) [gestion] 19
@@ -1843,7 +1843,7 @@ Test 5 - Nota formal: verificar el estado del tramite (en revision) [gestion] 19
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    En revisión
 
@@ -1855,7 +1855,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 20
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1867,7 +1867,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 21
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1879,7 +1879,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 22
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1892,12 +1892,12 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [gestio
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonAprobar}  boton aprobar
@@ -1917,14 +1917,14 @@ Test 5 - Nota formal: se agrega una nota [gestion]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 5 - Nota formal: se selecciona la opcion "rechazar" [gestion]
     [Documentation]     Entra como Gestion Rechazando el tramite y continua con el proceso
@@ -1934,14 +1934,14 @@ Test 5 - Nota formal: se selecciona la opcion "rechazar" [gestion]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonRechazar}    botonRechazar
     Validar y completar campo    ${campoComentario}    Rechazado    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1952,7 +1952,7 @@ Test 5 - Nota formal: verificar el estado del tramite (resuelto) [ciudadano] 25
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
 Test 5 - Nota formal: verificar el estado del tramite (rechazado) [operador mesa] 26
@@ -1963,7 +1963,7 @@ Test 5 - Nota formal: verificar el estado del tramite (rechazado) [operador mesa
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Rechazado
 
@@ -1975,7 +1975,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 27
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1987,7 +1987,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 28
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1999,7 +1999,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [gestion] 29
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -2012,12 +2012,12 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [operad
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${informarContribuyente}  boton informar al contribuyente
@@ -2037,7 +2037,7 @@ Test 5 - Nota formal: se agrega una nota [operador mesa]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -2052,13 +2052,13 @@ Test 5 - Nota formal: se selecciona la opcion "informar contribuyente" [operador
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -2069,7 +2069,7 @@ Test 5 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 32
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaOperador}    3    ${tramite}    Cerrado
 
 Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 33
@@ -2080,7 +2080,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [operador mesa] 33
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -2092,7 +2092,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 34
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -2104,7 +2104,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 35
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -2116,7 +2116,7 @@ Test 5 - Nota formal: verificar que el tramite no exista [gestion] 36
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 

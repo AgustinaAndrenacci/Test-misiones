@@ -41,7 +41,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: crear tramite como borrad
     [Documentation]    El ciudadano crea un tramite de Excencion Impuesto Sobre los Ingresos Brutos
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    ${botonExencionImpuestoSobreLosIngresosBrutos}
     Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test0    asuntoExencionImpuestoSobreLosIngresosBrutos
@@ -57,7 +57,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: crear tramite como borrad
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
     Validar y hacer clic en el boton    ${botonGuardarBorrador}    botonGuardarBorrador
-    Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
 
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
@@ -80,7 +80,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Borrador
 
 Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (Borrador) [operador mesa] 5
@@ -91,7 +91,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -103,7 +103,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -115,7 +115,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -127,7 +127,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -139,7 +139,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: Verificacion de datos
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${abrirTramiteGenerado}    tramite
 
     #chequeo que los campos esten corretos
@@ -155,7 +155,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: modificacion de datos
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${abrirTramiteGenerado}    tramite
 
     #borro y actualizo los datos
@@ -166,7 +166,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: modificacion de datos
     Choose file    ${InputTypeFile}    ${FILE2}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonActualizarBorrador}    boton actualizar borrador
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -177,7 +177,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificacion de los datos
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${abrirTramiteGenerado}    tramite
 
     #chequeo que los campos esten corretos
@@ -193,12 +193,12 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: pasar de borrador a guard
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${abrirTramiteGenerado}    tramite
 
     Validar y hacer clic en el boton    ${botonContinuarBorrador}    abrirPrimerTramite
     Validar y hacer clic en el boton    ${botonEnviarTramite}    botonEnviarTramite
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 
 Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [ciudadano] 10
@@ -208,7 +208,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador] 4
@@ -219,7 +219,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
@@ -231,7 +231,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -243,7 +243,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -255,7 +255,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -287,7 +287,7 @@ Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: crear tramite [ciudadano]
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
 
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
@@ -310,7 +310,7 @@ Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador] 5
@@ -321,7 +321,7 @@ Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
@@ -333,7 +333,7 @@ Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -345,7 +345,7 @@ Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -357,7 +357,7 @@ Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -373,7 +373,7 @@ Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones 
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
@@ -393,14 +393,14 @@ Test 2 - Nota formal: se agrega una nota [operador mesa]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "solicitar datos adicionales" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "Solicitar Datos Adicionales"
@@ -417,7 +417,7 @@ Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
     Validar y completar campo    ${campoComentario}    Solicitar Datos Adicionales    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -428,7 +428,7 @@ Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente Contribuyente
 
 Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [operador mesa] 12
@@ -439,7 +439,7 @@ Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -451,7 +451,7 @@ Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -463,7 +463,7 @@ Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -475,7 +475,7 @@ Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -518,7 +518,7 @@ Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: Se crea un tramite de Exc
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
 
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
@@ -541,7 +541,7 @@ Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador mesa] 5
@@ -552,7 +552,7 @@ Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
@@ -564,7 +564,7 @@ Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -576,7 +576,7 @@ Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -588,7 +588,7 @@ Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -604,7 +604,7 @@ Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones 
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
@@ -624,14 +624,14 @@ Test 3 - Nota formal: se agrega una nota [operador mesa]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "no corresponde" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "No Corresponde"
@@ -647,7 +647,7 @@ Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Validar y hacer clic en el boton    ${botonNoCorresponde}    botonNoCorresponde
     Validar y completar campo    ${campoComentario}    No Corresponde    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -658,7 +658,7 @@ Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
 
 Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [operador mesa] 12
@@ -669,7 +669,7 @@ Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -681,7 +681,7 @@ Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -693,7 +693,7 @@ Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -705,7 +705,7 @@ Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -740,7 +740,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se crea un tramite de nor
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
 
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
@@ -763,7 +763,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador mesa] 5
@@ -774,7 +774,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
@@ -786,7 +786,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -798,7 +798,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -810,7 +810,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -826,7 +826,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones 
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
@@ -846,14 +846,14 @@ Test 4 - Nota formal: se agrega una nota [operador mesa]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "enviar a secretaria" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
@@ -869,7 +869,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
     Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -880,7 +880,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (en curso) [ciudadano] 12
@@ -891,7 +891,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
@@ -903,7 +903,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
@@ -915,7 +915,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -927,7 +927,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -943,7 +943,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones 
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
@@ -963,14 +963,14 @@ Test 4 - Nota formal: se agrega una nota [secretaria]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "no corresponde" [secretaria]
     [Documentation]    Entra como Secretaria para continuar con el proceso dandole a la opcion "No Corresponde" devolviendo el tramite hacia Mesa de Entrada.
@@ -986,7 +986,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Validar y hacer clic en el boton    ${botonNoCorresponde}    botonNoCorresponde
     Validar y completar campo    ${campoComentario}    No Corresponde    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -997,7 +997,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador mesa] 19
@@ -1008,7 +1008,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Devuelto
 
@@ -1020,7 +1020,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1032,7 +1032,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1044,7 +1044,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1060,7 +1060,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones 
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
@@ -1080,14 +1080,14 @@ Test 4 - Nota formal: se agrega una nota [operador mesa]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "enviar a secretaria". [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
@@ -1103,7 +1103,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
     Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1114,7 +1114,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [secretaria] 26
@@ -1125,7 +1125,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
@@ -1137,7 +1137,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
@@ -1149,7 +1149,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1161,7 +1161,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1177,7 +1177,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones 
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar si el boton no existe Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
@@ -1197,14 +1197,14 @@ Test 4 - Nota formal: se agrega una nota [secretaria]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "para resolver" [secretaria]
     [Documentation]    Entra como Secretaria para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
@@ -1220,7 +1220,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Validar y hacer clic en el boton    ${paraResolver}    paraResolver
     Validar y completar campo    ${campoComentario}    Para Resolver    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1231,7 +1231,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (en curso) [gestion] 33
@@ -1242,7 +1242,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    En revisión
 
@@ -1254,7 +1254,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1266,7 +1266,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1278,7 +1278,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1294,7 +1294,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones 
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonAprobar}  boton aprobar
@@ -1314,14 +1314,14 @@ Test 4 - Nota formal: se agrega una nota [gestion]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "aprobado" [gestion]
     [Documentation]    Entra como Gestion aprobando el tramite para continuar con el proceso
@@ -1337,7 +1337,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Validar y hacer clic en el boton    ${botonAprobar}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1348,7 +1348,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
 Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador mesa] 40
@@ -1359,7 +1359,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Aprobado
 
@@ -1371,7 +1371,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1383,7 +1383,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1395,7 +1395,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1411,7 +1411,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones 
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${informarContribuyente}  boton informar al contribuyente
@@ -1431,7 +1431,7 @@ Test 4 - Nota formal: se agrega una nota [operador mesa]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -1451,7 +1451,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1462,7 +1462,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
 
 Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [operador mesa] 47
@@ -1473,7 +1473,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1485,7 +1485,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1497,7 +1497,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1509,7 +1509,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1554,7 +1554,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: se crea un tramite de Exc
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
 
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
@@ -1577,7 +1577,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador mesa] 5
@@ -1588,7 +1588,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
@@ -1600,7 +1600,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1612,7 +1612,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1624,7 +1624,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1640,7 +1640,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones 
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
@@ -1660,14 +1660,14 @@ Test 5 - Nota formal: se agrega una nota [operador mesa]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "enviar a secretaria" [operador entrada]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
@@ -1683,7 +1683,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
     Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1694,7 +1694,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [secretaria] 12
@@ -1705,7 +1705,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
@@ -1717,7 +1717,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
@@ -1729,7 +1729,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1741,7 +1741,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1756,7 +1756,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones 
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
@@ -1776,14 +1776,14 @@ Test 5 - Nota formal: se agrega una nota [secretaria]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "para resolver" [secretaria]
     [Documentation]    Entra como Secretaria para continuar con el proceso, utilizando la opcion "Para Resolver" enviandolo hacia Gestion
@@ -1799,7 +1799,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Validar y hacer clic en el boton    ${paraResolver}    paraResolver
     Validar y completar campo    ${campoComentario}    Para Resolver    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1810,7 +1810,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (en curso) [gestion] 19
@@ -1821,7 +1821,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    En revisión
 
@@ -1833,7 +1833,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1845,7 +1845,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1857,7 +1857,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1873,7 +1873,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones 
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonAprobar}  boton aprobar
@@ -1893,14 +1893,14 @@ Test 5 - Nota formal: se agrega una nota [gestion]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${agregarNota}    agregarNota
     Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "rechazar" [gestion]
     [Documentation]     Entra como Gestion Rechazando el tramite y continua con el proceso
@@ -1916,7 +1916,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Validar y hacer clic en el boton    ${botonRechazar}    botonRechazar
     Validar y completar campo    ${campoComentario}    Rechazado    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1927,7 +1927,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
 Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador mesa] 26
@@ -1938,7 +1938,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Rechazado
 
@@ -1950,7 +1950,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1962,7 +1962,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1974,7 +1974,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1990,7 +1990,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar si los botones 
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
 
-    Wait Until Element Is Visible    xpath=${mensajeSeleccioneUnaAccionParaContinuar}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${informarContribuyente}  boton informar al contribuyente
@@ -2010,7 +2010,7 @@ Test 5 - Nota formal: se agrega una nota [operador mesa]
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
@@ -2030,7 +2030,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -2041,7 +2041,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Wait Until Element Is Visible    ${circuloUsuario}    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaOperador}    3    ${tramite}    Cerrado
 
 Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [operador mesa] 33
@@ -2052,7 +2052,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -2064,7 +2064,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -2076,7 +2076,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -2088,6 +2088,6 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite 
     #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
