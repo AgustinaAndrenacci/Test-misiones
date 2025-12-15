@@ -144,6 +144,17 @@ Consulta Tributaria MesaEntrada verificar Boton Documentacion complementaria [op
     Validar y hacer clic en el boton    ${botonSubirDocumento}  botonSubirDocumento
     Wait Until Page Contains    El documento se ha agregado correctamente al trámite.    timeout=10s
 
+Consulta Tributaria MesaEntrada verificar Boton Eliminar Documentacion complementaria [operador mesa]
+    [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que se pueda eliminar la "Documentacion complementaria"
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonEliminarDocumentacion}    botonEliminarDocumentacion
+    Validar y hacer clic en el boton    ${EliminarDocumento}    EliminarDocumento
+    Wait Until Page Contains    El documento se ha eliminado correctamente.    timeout=10s
+
 Consulta Tributaria MesaEntrada verificar Historial [operador mesa]
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y verificar que en el "Historial" se vean los mensajes de notas/cambios correspondientes
     Asignar Tag Numerado
@@ -263,6 +274,17 @@ Consulta Tributaria Secretaria verificar Boton Documentacion complementaria [sec
     Validar y hacer clic en el boton    ${botonSubirDocumento}  botonSubirDocumento
     Wait Until Page Contains    El documento se ha agregado correctamente al trámite.    timeout=10s
 
+Consulta Tributaria MesaEntrada verificar Boton Eliminar Documentacion complementaria [secretaria]
+    [Documentation]    Desde la secretaria, abre la Consulta Tributaria y comprueba que se pueda eliminar la "Documentacion complementaria"
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonEliminarDocumentacion}    botonEliminarDocumentacion
+    Validar y hacer clic en el boton    ${EliminarDocumento}    EliminarDocumento
+    Wait Until Page Contains    El documento se ha eliminado correctamente.    timeout=10s
+
 Consulta Tributaria Secretaria verificar Historial [secretaria]
     [Documentation]    Desde la Secretaria Dirección, abre la Consulta Tributaria y verificar que en el "Historial" se vean los mensajes de notas/cambios correspondientes
     Asignar Tag Numerado
@@ -381,6 +403,17 @@ Consulta Tributaria Gestion verificar Boton Documentacion complementaria [gestio
     Validar y completar campo    ${campoDescripcion}  Nota Gestion  Descripcion
     Validar y hacer clic en el boton    ${botonSubirDocumento}  botonSubirDocumento
     Wait Until Page Contains    El documento se ha agregado correctamente al trámite.    timeout=10s
+
+Consulta Tributaria MesaEntrada verificar Boton Eliminar Documentacion complementaria [gestion]
+    [Documentation]    Desde la Gestion, abre la Consulta Tributaria y comprueba que se pueda eliminar la "Documentacion complementaria"
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonEliminarDocumentacion}    botonEliminarDocumentacion
+    Validar y hacer clic en el boton    ${EliminarDocumento}    EliminarDocumento
+    Wait Until Page Contains    El documento se ha eliminado correctamente.    timeout=10s
 
 Consulta Tributaria Secretaria verificar Historial [gestion]
     [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y verificar que en el "Historial" se vean los mensajes de notas/cambios correspondientes

@@ -129,12 +129,18 @@ ${historialCiudadano}    //h3[normalize-space()='Historial y Comunicaciones']
 
 ${DNIdelSolicitante}    (//td[@class='p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium'])[1]
 ${copiaDelInstrumentoQueOriginaElActo}    (//td[@class='p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium'])[2]
+
+${botonEliminarDocumentacion}    //button[@title='Eliminar']
+
+${EliminarDocumento}    //button[normalize-space()='Eliminar Documento']
+
 #--------------------------------CONSULTA TRIBUTARIA-------------------------------------
 #----------------------------------------------------------------------------------------
 
 ${botonConsultaTributaria}    //h3[normalize-space()='Consulta Tributaria']
 ${asuntoConsultaTributaria}    //input[@id='cmhmi8ndf001xnowdryf6h1jo']
 ${detalleConsultaTributaria}    //textarea[@id='cmhmi8p0l001znowdbqy9xmv6']
+${contenidoConsultaTributaria}    //textarea[@id='cmissqxbr00v1nonapv3hvzk8']
 
 #--------------------------------CONSULTA VINCULANTE-------------------------------------
 #----------------------------------------------------------------------------------------
@@ -142,7 +148,7 @@ ${detalleConsultaTributaria}    //textarea[@id='cmhmi8p0l001znowdbqy9xmv6']
 ${botonConsultaVinculante}    //h3[normalize-space()='Consulta Vinculante']
 ${asuntoConsultaVinculante}    //input[@id='cmh99oteg0001n2v8y4enxt0t']
 ${detalleConsultaVinculante}    //textarea[@id='cmh99w1ak0003n2v87az51vqy']
-
+${contenidoConsultaVinculante}    //textarea[@id='cmisssq0000v3nona2q8jugk7']
 
 #----------------------EXENCION DE IMPUESTO INMOBILIARIO BASICO--------------------------
 #----------------------------------------------------------------------------------------
@@ -150,6 +156,7 @@ ${detalleConsultaVinculante}    //textarea[@id='cmh99w1ak0003n2v87az51vqy']
 ${botonExencionImpuestoInmobiliarioBasico}    //h3[normalize-space()='Exención de Impuesto Inmobiliario Básico']
 ${asuntoExencionImpuestoIB}    //input[@id='cmhy6sett000gnocln3chn0tn']
 ${detalleExencionImpuestoIB}    //textarea[@id='cmhy6t90w000inocljvj5tanb']
+${contenidoExencionImpuestoIB}    //textarea[@id='cmisstx6l00v5nona2bx947za']
 
 #-----------------------------------NOTA FORMAL------------------------------------------
 #----------------------------------------------------------------------------------------

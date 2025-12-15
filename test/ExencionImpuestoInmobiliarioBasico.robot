@@ -103,9 +103,9 @@ Test 1 - ExencionImpuestoInmobiliarioBasico Borrador Chequear Campos [ciudadano]
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${abrirTramiteGenerado}  abrirTramiteGenerado
-    Verificar Contenido De Campos    ${asuntoConsultaVinculante}  Asunto test 1
-    Verificar Contenido De Campos    ${detalleConsultaVinculante}  Descripcion test 1
-    Verificar Contenido De Campos    ${contenidoConsultaVinculante}  Contenido test 1
+    Verificar Contenido De Campos    ${asuntoExencionImpuestoIB}  Asunto test 1
+    Verificar Contenido De Campos    ${detalleExencionImpuestoIB}  Descripcion test 1
+    Verificar Contenido De Campos    ${contenidoExencionImpuestoIB}  Contenido test 1
     Verificar presencia de    ${DNIdelSolicitante}    El DNIdelSolicitante no se encontro visible
 
 Test 1 - ExencionImpuestoInmobiliarioBasico Borrador Actualizar Campos [ciudadano] Paso 3
@@ -114,9 +114,9 @@ Test 1 - ExencionImpuestoInmobiliarioBasico Borrador Actualizar Campos [ciudadan
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${abrirTramiteGenerado}  abrirTramiteGenerado
-    Validar y completar campo    ${asuntoConsultaVinculante}  Asunto test 2    asuntoConsultaVinculante
-    Validar y completar campo    ${detalleConsultaVinculante}  Descripcion test 2  detalleConsultaVinculante
-    Validar y completar campo    ${contenidoConsultaVinculante}  Contenido test 2  contenidoConsultaVinculante
+    Validar y completar campo    ${asuntoExencionImpuestoIB}  Asunto test 2    asuntoExencionImpuestoIB
+    Validar y completar campo    ${detalleExencionImpuestoIB}  Descripcion test 2  detalleExencionImpuestoIB
+    Validar y completar campo    ${contenidoExencionImpuestoIB}  Contenido test 2  contenidoExencionImpuestoIB
     Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
     Choose File    ${InputTypeFile}    ${FILE}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
@@ -128,9 +128,9 @@ Test 1 - ExencionImpuestoInmobiliarioBasico Borrador Chequear Campos [ciudadano]
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${abrirTramiteGenerado}  abrirTramiteGenerado
-    Verificar Contenido De Campos    ${asuntoConsultaVinculante}  Asunto test 2
-    Verificar Contenido De Campos    ${detalleConsultaVinculante}  Descripcion test 2
-    Verificar Contenido De Campos    ${contenidoConsultaVinculante}  Contenido test 2
+    Verificar Contenido De Campos    ${asuntoExencionImpuestoIB}  Asunto test 2
+    Verificar Contenido De Campos    ${detalleExencionImpuestoIB}  Descripcion test 2
+    Verificar Contenido De Campos    ${contenidoExencionImpuestoIB}  Contenido test 2
     Verificar presencia de    ${DNIdelSolicitante}    El DNIdelSolicitante no se encontro visible
     Verificar presencia de    ${copiaDelInstrumentoQueOriginaElActo}    La Copia del instrumento que acredite la titularidad del inmueble no se encontro visible
 
