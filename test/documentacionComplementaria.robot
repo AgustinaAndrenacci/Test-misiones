@@ -1,0 +1,324 @@
+*** Settings ***
+Library    SeleniumLibrary
+Library    String
+Library    Collections
+Library    BuiltIn
+Library    DateTime
+Library    OperatingSystem
+Library    Dialogs
+
+#Library    C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/EmbedScreenshotLibrary.py
+#Library    C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/InternetOculto.py
+
+Library    D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/QA/Misiones/Resources/EmbedScreenshotLibrary.py
+Library    D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/QA/Misiones/Resources/InternetOculto.py
+
+Resource        ../Resources/KeywordsPortal.robot
+Resource        ../Resources/KeywordsMio.robot
+Resource        ../Resources/VariablesPortal.robot
+
+Test Setup    Abrir Navegador en modo incognito
+Test Teardown    Cerrar navegador
+
+Suite Setup    Inicializar Contador
+
+*** Variables ***
+${botonSubirDocCom}    //button[normalize-space()='Subir']
+${subirArchivoDocCom}    //input[@id='file-upload']
+${botonSubirDocumentoDocCom}    //button[normalize-space()='Subir Documento']
+${tramite}    TRAM-0439/2025
+${campoDescripcionDocCom}    //textarea[@id='description']
+${botonCancelarDocCom}    //button[normalize-space()='Cancelar']
+${espacioDeArchivosDocCom}    //div[@class='flex flex-col flex-1']//main
+${botonEliminarDocCom}    //button[@title='Eliminar']
+${botonEliminarDocumentoDocCom}    //button[normalize-space()='Eliminar Documento']
+
+
+
+*** Test Cases ***
+#------------------------------- SUBIR DOCUMENTACION CON CAMPOS INCOMPLETOS -----------------------------------
+
+Test X - Nota formal: agregar documentacion complementaria - intentar subir sin observacion [operador mesa]
+    [Documentation]    Entra como operador mesa entrada y se verifica que no se pueda crear la documentacion sin añadir una observacion
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+   # Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
+    Choose file    ${subirArchivoDocCom}    ${FILEdoc}
+    Element Should Be Disabled    ${botonSubirDocumentoDocCom}
+
+Test X - Nota formal: agregar documentacion complementaria - intentar subir sin archivo [operador mesa]
+    [Documentation]    Entra como operador mesa entrada y se verifica que no se pueda crear la documentacion sin añadir un archivo
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+   # Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
+    Validar y completar campo    ${campoDescripcionDocCom}    archivo doc    descripcion
+    Element Should Be Disabled    ${botonSubirDocumentoDocCom}
+
+#---------------------- NO SE SUBE LA DOCUMENTACION PORQUE SE PRESIONA EL BOTON CANCELAR -----------------------
+
+Test X - Nota formal: agregar documentacion complementaria - intentar que no se suba debido a que se presiona el boton cancelar [operador mesa]
+    [Documentation]    Entra como operador mesa entrada y se verifica que no se suba la documentacion complementaria debido a que se presiono le boton cancelar en vez de subir
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+   # Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
+    Choose file    ${subirArchivoDocCom}    ${FILEdoc}
+    Validar y completar campo    ${campoDescripcionDocCom}    archivo doc    descripcion
+    Validar y hacer clic en el boton    ${botonCancelarDocCom}   boton subir documento
+    Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${doc}
+
+#------------------------- SE SUBE Y ELIMINA (ADEMÁS DEL CANCELAR) UNA DOC. COMPLEMENTARIA ---------------------
+#Subir y borrar un archivo
+Test X - Nota formal: se agrega documentacion complementaria - [operador mesa]
+    [Documentation]    Entra como operador mesa entrada y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+   # Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
+    Choose file    ${subirArchivoDocCom}    ${FILEdoc}
+    Validar y completar campo    ${campoDescripcionDocCom}    archivo doc    descripcion
+    Validar y hacer clic en el boton    ${botonSubirDocumentoDocCom}   boton subir documento
+    Verificar Y Esperar Visibilidad De Elemento    El documento se ha agregado correctamente al trámite.
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test X - Nota formal: no se elimina la documentacion complementaria - [operador mesa]
+    [Documentation]    Entra como operador mesa entrada y cuando se quiere eliminar la documentacion complementaria agregada, se presiona el boton cancelar
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonEliminarDocCom}   boton eliminar
+    Validar y hacer clic en el boton    ${botonCancelarDocCom}   boton cancelar
+    Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${doc}
+
+Test X - Nota formal: se elimina la documentacion complementaria - [operador mesa]
+    [Documentation]    Entra como operador mesa entrada y elimina la documentacion complementaria agregada
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonEliminarDocCom}   boton eliminar
+    Validar y hacer clic en el boton    ${botonEliminarDocumentoDocCom}   boton eliminar documento
+    Verificar Y Esperar Visibilidad De Elemento    El documento se ha eliminado correctamente.
+
+Test X - Nota formal: verificacion de documentacion complementaria eliminada - archivo: doc [operador mesa]
+    [Documentation]    Entra como operador mesa entrada y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque no se se subio la documentacion complementaria en el test anterior
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${doc}
+
+#--------------------------  SE PRUEBA LA SUBIDA DE DIFERENTES TIPOS DE ARCHIVOS ---------------------------------
+#////////Doc
+Test X - Nota formal: se agrega documentacion complementaria - archivo: doc [operador mesa]
+    [Documentation]    Entra como operador mesa entrada y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+   # Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
+    Choose file    ${subirArchivoDocCom}    ${FILEdoc}
+    Validar y completar campo    ${campoDescripcionDocCom}    archivo doc    descripcion
+    Validar y hacer clic en el boton    ${botonSubirDocumentoDocCom}   boton subir documento
+    Verificar Y Esperar Visibilidad De Elemento    El documento se ha agregado correctamente al trámite.
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test X - Nota formal: verificacion de documentacion complementaria - archivo: doc [operador mesa]
+    [Documentation]    Entra como operador mesa entrada y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque no se se subio la documentacion complementaria en el test anterior
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${doc}
+
+#--------------------------------------------------------------------------------------------------------
+#////////Excel
+Test X - Nota formal: se agrega documentacion complementaria - archivo incorrecto: excel [operador mesa]
+    [Documentation]    Entra como operador mesa entrada y agrega documentacion complementaria de un archivo que no seria valido
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+   # Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
+    Choose file    ${subirArchivoDocCom}    ${FILEexc}
+    Validar y completar campo    ${campoDescripcionDocCom}    archivo excel    descripcion
+    Element Should Be Disabled    ${botonSubirDocumentoDocCom}
+    #Condicion para los proximos test
+    #[Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test X - Nota formal: verificacion de documentacion complementaria - archivo: excel [operador mesa]
+    [Documentation]    Entra como operador mesa entrada y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque no se se subio la documentacion complementaria en el test anterior
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${exc}
+
+#------------------------------------------------------------------------------------------------------
+#////////Png
+Test X - Nota formal: se agrega documentacion complementaria - archivo: png [operador mesa]
+    [Documentation]    Entra como operador mesa entrada y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+   # Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
+    Choose file    ${subirArchivoDocCom}    ${FILEpng}
+    Validar y completar campo    ${campoDescripcionDocCom}    archivo png    descripcion
+    Validar y hacer clic en el boton    ${botonSubirDocumentoDocCom}   boton subir documento
+    Verificar Y Esperar Visibilidad De Elemento    El documento se ha agregado correctamente al trámite.
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test X - Nota formal: verificacion de documentacion complementaria - archivo: png [operador mesa]
+    [Documentation]    Entra como operador mesa entrada y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque no se se subio la documentacion complementaria en el test anterior
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${png}
+
+#-----------------------------------------------------------------------------------------------
+#////////Jpeg
+Test X - Nota formal: se agrega documentacion complementaria - archivo: jpeg [operador mesa]
+    [Documentation]    Entra como operador mesa entrada y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+   # Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
+    Choose file    ${subirArchivoDocCom}    ${FILEjpeg}
+    Validar y completar campo    ${campoDescripcionDocCom}    archivo jpeg    descripcion
+    Validar y hacer clic en el boton    ${botonSubirDocumentoDocCom}   boton subir documento
+    Verificar Y Esperar Visibilidad De Elemento    El documento se ha agregado correctamente al trámite.
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test X - Nota formal: verificacion de documentacion complementaria - archivo: jpeg [operador mesa]
+    [Documentation]    Entra como operador mesa entrada y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque no se se subio la documentacion complementaria en el test anterior
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${jpeg}
+
+#--------------------------------------------------------------------------------------------------------
+#////////Pdf
+Test X - Nota formal: se agrega documentacion complementaria - archivo: pdf [operador mesa]
+    [Documentation]    Entra como operador mesa entrada y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+   # Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
+    Choose file    ${subirArchivoDocCom}    ${FILEpdf}
+    Validar y completar campo    ${campoDescripcionDocCom}    archivo pdf    descripcion
+    Validar y hacer clic en el boton    ${botonSubirDocumentoDocCom}   boton subir documento
+    Verificar Y Esperar Visibilidad De Elemento    El documento se ha agregado correctamente al trámite.
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+#cambiar porque no funciona
+Test X - Nota formal: verificacion de documentacion complementaria - archivo: pdf [operador mesa]
+    [Documentation]    Entra como operador mesa entrada y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque no se se subio la documentacion complementaria en el test anterior
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${pdf}
+
+

@@ -85,6 +85,7 @@ ${campoDescripcion}    //textarea[@id='description']
 ${botonSubirDocumento}    //button[normalize-space()='Subir Documento']
 ${historialAdmin}    //h3[normalize-space()='Historial y Notas']
 
+
 #------------------------------DATOS DEL CIUDADANO---------------------------------------
 #----------------------------------------------------------------------------------------
 
@@ -116,6 +117,16 @@ ${select}    //select
 ${InputTypeFile}    xpath=//input[@type='file']
 ${FILE}       C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/DniPrueba.png
 ${FILE2}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/ADJUNTO.pdf
+${FILEpdf}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/ADJUNTO.pdf
+${FILEdoc}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/A 2.docx
+${FILEexc}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/A 3.xlsx
+${FILEpng}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/unnamed.png
+${FILEjpeg}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/A 4.jpeg
+${pdf}      ADJUNTO.pdf
+${doc}      A 2.docx
+${exc}      A 3.xlsx
+${png}      unnamed.png
+${jpeg}      A 4.jpeg
 
 ${tituloConsultaTributaria}    //h1[normalize-space()='Consulta Tributaria']
 ${datosPresentados}    //h3[normalize-space()='Datos Presentados']
@@ -197,7 +208,11 @@ ${idAsuntoExenciónImpuestoDeSellos}    id:cmhy6g6hz000anoclh53yu9v1
 ${idDetalleExenciónImpuestoDeSellos}    id:cmhy6k427000cnocl5n1cgb7e
 ${idContenidoExenciónImpuestoDeSellos}    id:cmisswslj00v7nona8nw5wo5f
 
+#----------------------------------------Tramite borrador-----------------------------------------------------------
 ${tramiteBorrador}    //tbody/tr[1]
 ${botonContinuarBorrador}    //a[normalize-space()='Continuar Borrador']
 ${botonEnviarTramite}    //button[normalize-space()='Enviar Trámite']
 ${mensajeSeleccioneUnaAccionParaContinuar}    //p[contains(text(),'Seleccione una acción para continuar con el proces')]
+${ubicacionArchivoBorrador}    (//td[@class='p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium'])[1]
+
+
