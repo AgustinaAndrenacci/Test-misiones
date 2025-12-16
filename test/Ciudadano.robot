@@ -159,4 +159,3 @@ Consulta Tributaria verificar Estado Cancelado
     ${botonVerDetalleTramite}=    Set Variable    //tr[td[normalize-space()='${tramite}']]//a[contains(., 'Ver Detalle')]
     Validar y hacer clic en el boton    ${botonVerDetalleTramite}    botonVerDetalle
     Validar Estado Del Tramite    Cancelado
-
