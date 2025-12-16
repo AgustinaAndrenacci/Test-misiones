@@ -20,9 +20,6 @@ Asignar Tag Numerado
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Abrir Navegador
     Open Browser    ${page}    ${browser}
-    ...    options=add_argument("--disable-features=PasswordManagerEnabled,LeakDetection,SafeBrowsingEnhancedProtection,SafeBrowsingProtectionLevel")
-    ...    options=add_argument("--disable-blink-features=AutomationControlled")
-    ...    options=add_argument("--password-store=basic")
     Maximize Browser Window
     Sleep    2s
 
@@ -247,8 +244,6 @@ Verificar si el boton no existe Sin Fallar
 
     Run Keyword If    '${status}' == 'FAIL'    Log    El botón con locator ${nombreBoton} no esta visible y es correcto
     Run Keyword If    '${status}' == 'PASS'    Log    El botón con locator ${nombreBoton} está visible y no deberia    WARN
-
-
 
 Verificar Toast
     [Arguments]    ${tipo_esperado}    ${mensaje_esperado}    ${modo_validacion}=exacto    ${timeout}=3s

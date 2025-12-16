@@ -70,7 +70,7 @@ ${botonActualizarBorrador}    //button[normalize-space()='Actualizar Borrador']
 
 ${botonSolicitarDatosAdicionales}    //h4[normalize-space()='Solicitar Datos Adicionales']
 ${botonNoCorresponde}    //h4[normalize-space()='No Corresponde']
-${enviarSecretaria}    //h4[normalize-space()='Enviar a Secretaria']
+${enviarSecretaria}    //h4[normalize-space()='Enviar a Dirección']
 ${paraResolver}    //h4[normalize-space()='Para Resolver']
 ${botonAprobar}    //h4[normalize-space()='Aprobar']
 ${botonRechazar}    //h4[normalize-space()='Rechazar']
