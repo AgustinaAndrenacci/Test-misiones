@@ -23,23 +23,26 @@ Test Teardown    Cerrar navegador
 Suite Setup    Inicializar Contador
 
 *** Variables ***
-${tramite1}    TRAM-0437/2025
-${tramite2}    TRAM-0438/2025
+${tramite1}    TRAM-0442/2025
+${tramite2}    TRAM-0443/2025
 ${tachoComprobanteINCIO}    //button[@aria-controls='radix-_r_k_']
 ${botonSiCancelarINCIO}    //button[normalize-space()='Sí, cancelar']
 ${botonVolverINCIO}    //button[normalize-space()='Volver']
 ${botonCancelartramite}    //button[normalize-space()='Cancelar Trámite']
 ${botonTachoINICIO}    //button[last()]
 ${botonVerDetalleINICIO}    //a[normalize-space(text())='Ver Detalle']
+${tablaConTramite}    //tbody/tr[td[1]="${tramite1}"]
+${textoNoHayAccionesDisponibles}    //p[contains(text(),'No hay acciones disponibles')]
+${textoTramiteCanceladoExitosamente}    //p[normalize-space()='"Trámite cancelado exitosamente"']
 
 *** Test Cases ***
 #-------------------------------------------------- BOTON CANCELAR TRAMITE ------------------------------------------
 #///////Cancelar tramite
-Test X - Nota formal: cancelar tramite desde adentro del tramite [ciudadano]
+Test X / A - Nota formal: cancelar tramite desde adentro del tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se cancela el tramite presionando el boton "cancelar tramite"
     Asignar Tag Numerado
     #Si fallo lo anterior
-    #Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
@@ -52,7 +55,7 @@ Test X - Nota formal: cancelar tramite desde adentro del tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 #///////Ver si los botones se bloquearon
-Test X - Nota formal: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
+Test X / A - Nota formal: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -60,9 +63,9 @@ Test X - Nota formal: verificar si el boton del tacho esta bloqueado - boton can
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
-    Element Should Be Disabled    //tbody/tr[td[1]="${tramite1}"]${botonTachoINICIO}
+    Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
 
-Test X - Nota formal: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
+Test X / A - Nota formal: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -74,7 +77,7 @@ Test X - Nota formal: verificar si el boton cancelar tramite no existe - boton c
     Wait Until Page Does Not Contain Element    ${botonCancelartramite}
 
 #///////Ver el estado
-Test X - Nota formal: verificar el estado del tramite (cancelado) - boton cancelar tramite [ciudadano]
+Test X / A - Nota formal: verificar el estado del tramite (cancelado) - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -85,7 +88,7 @@ Test X - Nota formal: verificar el estado del tramite (cancelado) - boton cancel
     Validar Estado con numero de tramite    ${tablaMistramitesRecientes}    3    ${tramite1}    Cancelado
 
 #En este caso, solo deberia estar en operador mesa
-Test X - Nota formal: verificar el estado del tramite (cancelado) - boton cancelar tramite [operador]
+Test X / A - Nota formal: verificar el estado del tramite (cancelado) - boton cancelar tramite [operador]
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -97,7 +100,7 @@ Test X - Nota formal: verificar el estado del tramite (cancelado) - boton cancel
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite1}    Cancelado
 
-Test X - Nota formal: verificar que el tramite no exista - boton cancelar tramite [responsable area]
+Test X / A - Nota formal: verificar que el tramite no exista - boton cancelar tramite [responsable area]
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -109,7 +112,7 @@ Test X - Nota formal: verificar que el tramite no exista - boton cancelar tramit
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar tramite Inexistente    ${tablaOperador}    ${tramite1}
 
-Test X - Nota formal: verificar que el tramite no exista - boton cancelar tramite [secretaria]
+Test X / A - Nota formal: verificar que el tramite no exista - boton cancelar tramite [secretaria]
     [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -121,7 +124,7 @@ Test X - Nota formal: verificar que el tramite no exista - boton cancelar tramit
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar tramite Inexistente    ${tablaOperador}    ${tramite1}
 
-Test X - Nota formal: verificar que el tramite no exista - boton cancelar tramite [gestion]
+Test X / A - Nota formal: verificar que el tramite no exista - boton cancelar tramite [gestion]
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -134,7 +137,7 @@ Test X - Nota formal: verificar que el tramite no exista - boton cancelar tramit
     Validar tramite Inexistente    ${tablaOperador}    ${tramite1}
 
 #///////Ver que el personal no pueda realizar ninguna accion
-Test X - Nota formal: verificar que el personal no pueda realizar acciones - boton cancelar tramite [operador mesa]
+Test X / A - Nota formal: verificar que el personal no pueda realizar acciones - boton cancelar tramite [operador mesa]
     [Documentation]    Se ingresa como operador mesa y se verifica que no aparezcan los botones de acciones para realizar sobre el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -146,7 +149,7 @@ Test X - Nota formal: verificar que el personal no pueda realizar acciones - bot
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir tramite Por Numero    ${tramite1}
 
-    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=//p[contains(text(),'No hay acciones disponibles')]
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${textoNoHayAccionesDisponibles}
 
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
@@ -157,7 +160,7 @@ Test X - Nota formal: verificar que el personal no pueda realizar acciones - bot
     Verificar si el boton no existe Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar si el boton no existe Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
 
-Test X - Nota formal: verificar Historial - boton cancelar tramite [ciudadano]
+Test X / A - Nota formal: verificar Historial - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -167,10 +170,10 @@ Test X - Nota formal: verificar Historial - boton cancelar tramite [ciudadano]
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite1}
     Validar y hacer clic en el boton    ${historialCiudadano}    botonHistorial
-    Verificar presencia de    //p[normalize-space()='"Trámite cancelado exitosamente"']    En el Historial no se encontro visible que el tramite1 se asigne a la "Mesa de Entrada Virtual"
+    Verificar presencia de    ${textoTramiteCanceladoExitosamente}    En el Historial no se encontro visible que el tramite1 se asigne a la "Mesa de Entrada Virtual"
 
 #porque desde aca se ve
-Test X - Nota formal: verificar Historial - boton cancelar tramite [operador mesa]
+Test X / A - Nota formal: verificar Historial - boton cancelar tramite [operador mesa]
     [Documentation]    Desde el operador mesa, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -182,15 +185,42 @@ Test X - Nota formal: verificar Historial - boton cancelar tramite [operador mes
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir tramite Por Numero    ${tramite1}
     Validar y hacer clic en el boton    ${historialAdmin}    botonHistorial
-    Verificar presencia de    //p[normalize-space()='"Trámite cancelado exitosamente"']    En el Historial no se encontro visible que el tramite1 se asigne a la "Mesa de Entrada Virtual"
+    Verificar presencia de    ${textoTramiteCanceladoExitosamente}    En el Historial no se encontro visible que el tramite1 se asigne a la "Mesa de Entrada Virtual"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #-----------------------------------------------ICONO TACHO DE CANCELAR TRAMITE ------------------------------------------
 #///////Cancelar tramite
-Test X - Nota formal: cancelar tramite desde el tacho [ciudadano]
+Test X / B - Nota formal: cancelar tramite desde el tacho [ciudadano]
     [Documentation]    Desde el ciudadano, se cancela el tramite presionando el icono del tacho del tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
-    #Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
@@ -202,7 +232,7 @@ Test X - Nota formal: cancelar tramite desde el tacho [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 #///////Ver si los botones se bloquearon
-Test X - Nota formal: verificar si el boton del tacho esta bloqueado - icono tacho de cancelar tramite [ciudadano]
+Test X / B - Nota formal: verificar si el boton del tacho esta bloqueado - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -210,9 +240,9 @@ Test X - Nota formal: verificar si el boton del tacho esta bloqueado - icono tac
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
-    Element Should Be Disabled    //tbody/tr[td[1]="${tramite2}"]${botonTachoINICIO}
+    Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
 
-Test X - Nota formal: verificar si el boton cancelar tramite no existe - icono tacho de cancelar tramite [ciudadano]
+Test X / B - Nota formal: verificar si el boton cancelar tramite no existe - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -224,7 +254,7 @@ Test X - Nota formal: verificar si el boton cancelar tramite no existe - icono t
     Wait Until Page Does Not Contain Element    ${botonCancelartramite}
 
 #///////Ver el estado
-Test X - Nota formal: verificar el estado del tramite (cancelado) - icono tacho de cancelar tramite [ciudadano]
+Test X / B - Nota formal: verificar el estado del tramite (cancelado) - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -235,7 +265,7 @@ Test X - Nota formal: verificar el estado del tramite (cancelado) - icono tacho 
     Validar Estado con numero de tramite    ${tablaMistramitesRecientes}    3    ${tramite2}    Cancelado
 
 #En este caso, solo deberia estar en operador mesa
-Test X - Nota formal: verificar el estado del tramite (cancelado) - icono tacho de cancelar tramite [operador]
+Test X / B - Nota formal: verificar el estado del tramite (cancelado) - icono tacho de cancelar tramite [operador]
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -247,7 +277,7 @@ Test X - Nota formal: verificar el estado del tramite (cancelado) - icono tacho 
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite2}    Cancelado
 
-Test X - Nota formal: verificar que el tramite no exista - icono tacho de cancelar tramite [responsable area]
+Test X / B - Nota formal: verificar que el tramite no exista - icono tacho de cancelar tramite [responsable area]
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -259,7 +289,7 @@ Test X - Nota formal: verificar que el tramite no exista - icono tacho de cancel
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar tramite Inexistente    ${tablaOperador}    ${tramite2}
 
-Test X - Nota formal: verificar que el tramite no exista - icono tacho de cancelar tramite [secretaria]
+Test X / B - Nota formal: verificar que el tramite no exista - icono tacho de cancelar tramite [secretaria]
     [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -271,7 +301,7 @@ Test X - Nota formal: verificar que el tramite no exista - icono tacho de cancel
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar tramite Inexistente    ${tablaOperador}    ${tramite2}
 
-Test X - Nota formal: verificar que el tramite no exista - icono tacho de cancelar tramite [gestion]
+Test X / B - Nota formal: verificar que el tramite no exista - icono tacho de cancelar tramite [gestion]
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -284,7 +314,7 @@ Test X - Nota formal: verificar que el tramite no exista - icono tacho de cancel
     Validar tramite Inexistente    ${tablaOperador}    ${tramite2}
 
 #///////Ver que el personal no pueda realizar ninguna accion
-Test X - Nota formal: verificar que el personal no pueda realizar acciones - icono tacho de cancelar tramite [operador mesa]
+Test X / B - Nota formal: verificar que el personal no pueda realizar acciones - icono tacho de cancelar tramite [operador mesa]
     [Documentation]    Se ingresa como operador mesa y se verifica que no aparezcan los botones de acciones para realizar sobre el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -296,7 +326,7 @@ Test X - Nota formal: verificar que el personal no pueda realizar acciones - ico
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir tramite Por Numero    ${tramite2}
 
-    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=//p[contains(text(),'No hay acciones disponibles')]
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${textoNoHayAccionesDisponibles}
 
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
@@ -307,7 +337,7 @@ Test X - Nota formal: verificar que el personal no pueda realizar acciones - ico
     Verificar si el boton no existe Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar si el boton no existe Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
 
-Test X - Nota formal: verificar Historial - icono tacho de cancelar tramite [ciudadano]
+Test X / B - Nota formal: verificar Historial - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -317,10 +347,10 @@ Test X - Nota formal: verificar Historial - icono tacho de cancelar tramite [ciu
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite2}
     Validar y hacer clic en el boton    ${historialCiudadano}    botonHistorial
-    Verificar presencia de    //p[normalize-space()='"Trámite cancelado exitosamente"']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
+    Verificar presencia de    ${textoTramiteCanceladoExitosamente}    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
 
 #porque desde aca se ve
-Test X - Nota formal: verificar Historial - icono tacho de cancelar tramite [operador mesa]
+Test X / B - Nota formal: verificar Historial - icono tacho de cancelar tramite [operador mesa]
     [Documentation]    Desde el operador mesa, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
@@ -332,4 +362,4 @@ Test X - Nota formal: verificar Historial - icono tacho de cancelar tramite [ope
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir tramite Por Numero    ${tramite2}
     Validar y hacer clic en el boton    ${historialAdmin}    botonHistorial
-    Verificar presencia de    //p[normalize-space()='"Trámite cancelado exitosamente"']    En el Historial no se encontro visible que el tramite1 se asigne a la "Mesa de Entrada Virtual"
+    Verificar presencia de    ${textoTramiteCanceladoExitosamente}    En el Historial no se encontro visible que el tramite1 se asigne a la "Mesa de Entrada Virtual"
