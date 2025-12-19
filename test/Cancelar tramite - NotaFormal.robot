@@ -191,7 +191,6 @@ Test 1 / A - Nota formal: verificar que el personal no pueda realizar acciones -
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
-    Verificar si el boton no existe Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar si el boton no existe Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
@@ -359,7 +358,6 @@ Test 1 / B - Nota formal: verificar que el personal no pueda realizar acciones -
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
-    Verificar si el boton no existe Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar si el boton no existe Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion

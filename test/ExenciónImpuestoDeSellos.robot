@@ -386,27 +386,9 @@ Test 2 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
-
-Test 2 - Excencion Impuesto de Sellos: se agrega una nota [operador mesa]
-    [Documentation]    Entra como operador mesa y el mismo agrega una nota en el tramite
-    Asignar Tag Numerado
-    #Si fallo lo anterior
-    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 2 - Excencion Impuesto de Sellos: se selecciona la opcion "solicitar datos adicionales" [operador mesa] 10
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "Solicitar Datos Adicionales"
@@ -625,27 +607,9 @@ Test 3 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
-
-Test 3 - Excencion Impuesto de Sellos: se agrega una nota [operador mesa]
-    [Documentation]    Entra como operador mesa y el mismo agrega una nota en el tramite
-    Asignar Tag Numerado
-    #Si fallo lo anterior
-    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 3 - Excencion Impuesto de Sellos: se selecciona la opcion "no corresponde" [operador mesa] 10
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "No Corresponde"
@@ -854,27 +818,9 @@ Test 4 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
-
-Test 4 - Excencion Impuesto de Sellos: se agrega una nota [operador mesa]
-    [Documentation]    Entra como operador mesa y el mismo agrega una nota en el tramite
-    Asignar Tag Numerado
-    #Si fallo lo anterior
-    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 4 - Excencion Impuesto de Sellos: se selecciona la opcion "enviar a Direccion" [operador mesa] 10
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
@@ -968,7 +914,6 @@ Test 4 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
 
     Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${paraResolver}  boton para resolver
 
@@ -977,23 +922,6 @@ Test 4 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
-
-Test 4 - Excencion Impuesto de Sellos: se agrega una nota [Direccion]
-    [Documentation]    Entra como Direccion y el mismo agrega una nota en el tramite
-    Asignar Tag Numerado
-    #Si fallo lo anterior
-    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 4 - Excencion Impuesto de Sellos: se selecciona la opcion "no corresponde" [Direccion] 17
     [Documentation]    Entra como Direccion para continuar con el proceso dandole a la opcion "No Corresponde" devolviendo el tramite hacia Mesa de Entrada.
@@ -1088,7 +1016,6 @@ Test 4 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
 
     Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
     Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
@@ -1097,23 +1024,6 @@ Test 4 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
-
-Test 4 - Excencion Impuesto de Sellos: se agrega una nota [operador mesa]
-    [Documentation]    Entra como operador mesa y el mismo agrega una nota en el tramite
-    Asignar Tag Numerado
-    #Si fallo lo anterior
-    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 4 - Excencion Impuesto de Sellos: se selecciona la opcion "enviar a Direccion". [operador mesa] 24
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
@@ -1213,26 +1123,8 @@ Test 4 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${paraResolver}  boton para resolver
-
-Test 4 - Excencion Impuesto de Sellos: se agrega una nota [Direccion]
-    [Documentation]    Entra como Direccion y el mismo agrega una nota en el tramite
-    Asignar Tag Numerado
-    #Si fallo lo anterior
-    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 4 - Excencion Impuesto de Sellos: se selecciona la opcion "para resolver" [Direccion] 31
     [Documentation]    Entra como Direccion para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
@@ -1326,7 +1218,6 @@ Test 4 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
 
     Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar Boton Sin Fallar  ${botonRechazar}  boton rechazar
 
@@ -1335,23 +1226,6 @@ Test 4 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
-
-Test 4 - Excencion Impuesto de Sellos: se agrega una nota [gestion]
-    [Documentation]    Entra como gestion y el mismo agrega una nota en el tramite
-    Asignar Tag Numerado
-    #Si fallo lo anterior
-    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 4 - Excencion Impuesto de Sellos: se selecciona la opcion "aprobado" [gestion] 38
     [Documentation]    Entra como Gestion aprobando el tramite para continuar con el proceso
@@ -1445,7 +1319,6 @@ Test 4 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
 
     Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${informarContribuyente}  boton informar al contribuyente
 
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
@@ -1454,21 +1327,6 @@ Test 4 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
-
-Test 4 - Excencion Impuesto de Sellos: se agrega una nota [operador mesa]
-    [Documentation]    Entra como operador mesa y el mismo agrega una nota en el tramite
-    Asignar Tag Numerado
-    #Si fallo lo anterior
-    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
 
 Test 4 - Excencion Impuesto de Sellos: se selecciona la opcion "informar al contribuyente" [operador mesa] 45
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso
@@ -1666,7 +1524,6 @@ Test 5 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
 
     Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
@@ -1675,23 +1532,6 @@ Test 5 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
-
-Test 5 - Excencion Impuesto de Sellos: se agrega una nota [operador mesa]
-    [Documentation]    Entra como operador mesa y el mismo agrega una nota en el tramite
-    Asignar Tag Numerado
-    #Si fallo lo anterior
-    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 5 - Excencion Impuesto de Sellos: se selecciona la opcion "enviar a Direccion" [operador entrada] 10
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
@@ -1784,7 +1624,6 @@ Test 5 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
 
     Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${paraResolver}  boton para resolver
 
@@ -1793,23 +1632,6 @@ Test 5 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
-
-Test 5 - Excencion Impuesto de Sellos: se agrega una nota [Direccion]
-    [Documentation]    Entra como Direccion y el mismo agrega una nota en el tramite
-    Asignar Tag Numerado
-    #Si fallo lo anterior
-    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 5 - Excencion Impuesto de Sellos: se selecciona la opcion "para resolver" [Direccion] 17
     [Documentation]    Entra como Direccion para continuar con el proceso, utilizando la opcion "Para Resolver" enviandolo hacia Gestion
@@ -1903,7 +1725,6 @@ Test 5 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
 
     Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar Boton Sin Fallar  ${botonRechazar}  boton rechazar
 
@@ -1912,23 +1733,6 @@ Test 5 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
-
-Test 5 - Excencion Impuesto de Sellos: se agrega una nota [gestion]
-    [Documentation]    Entra como gestion y el mismo agrega una nota en el tramite
-    Asignar Tag Numerado
-    #Si fallo lo anterior
-    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Test 5 - Excencion Impuesto de Sellos: se selecciona la opcion "rechazar" [gestion] 24
     [Documentation]     Entra como Gestion Rechazando el tramite y continua con el proceso
@@ -2022,7 +1826,6 @@ Test 5 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
 
     Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${informarContribuyente}  boton informar al contribuyente
 
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
@@ -2031,22 +1834,6 @@ Test 5 - Excencion Impuesto de Sellos: verificar si los botones de acciones son 
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
-
-Test 5 - Excencion Impuesto de Sellos: se agrega una nota [operador mesa]
-    [Documentation]    Entra como operador mesa y el mismo agrega una nota en el tramite
-    Asignar Tag Numerado
-    #Si fallo lo anterior
-    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
-
 
 Test 5 - Excencion Impuesto de Sellos: se selecciona la opcion "informar contribuyente" [operador mesa] 31
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso, en este caso "Rechazado"
@@ -2060,8 +1847,6 @@ Test 5 - Excencion Impuesto de Sellos: se selecciona la opcion "informar contrib
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
     Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
