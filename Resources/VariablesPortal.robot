@@ -113,6 +113,9 @@ ${tablaMisTramitesRecientes}    /html/body/div[2]/div/div[2]/main/div/div[3]/div
 ${tablaOperador}    /html/body/div[2]/div[2]/main/div/div[2]/div[2]/div
 ${tablaCiudadano}    //div[@class='p-6 pt-0']
 
+${botonResponder}    //h4[normalize-space()='Responder']
+${botonEjecutarAccion}    //button[normalize-space()='Ejecutar Acción']
+
 ${select}    //select
 
 ${InputTypeFile}    xpath=//input[@type='file']
