@@ -263,24 +263,9 @@ Test 2 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
-
-Test 2 - ExencionImpuestoInmobiliarioBasico agregar nota [operador mesa] Paso 2
-    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
-    [Documentation]    Entra como operador mesa entrada para comprobar que se pueda agregar una nota
-    Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Test 2 - ExencionImpuestoInmobiliarioBasico Solicitar Datos Adicionales [operador mesa] Paso 2
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
@@ -395,24 +380,9 @@ Test 3 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
-
-Test 3 - ExencionImpuestoInmobiliarioBasico agregar nota [operador mesa] Paso 2
-    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
-    [Documentation]    Entra como operador mesa entrada para comprobar que se pueda agregar una nota
-    Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Test 3 - ExencionImpuestoInmobiliarioBasico Documentacion NoCorresponde [operador mesa] Paso 2
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
@@ -539,24 +509,9 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
-
-Test 4 - ExencionImpuestoInmobiliarioBasico agregar nota [operador mesa] Paso 2
-    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
-    [Documentation]    Entra como operador mesa entrada para comprobar que se pueda agregar una nota
-    Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada [operador mesa] Paso 2
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
@@ -629,23 +584,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${paraResolver}  boton para resover
-
-Test 4 - ExencionImpuestoInmobiliarioBasico agregar nota [secretaria] Paso 3
-    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
-    [Documentation]    Entra como secretaria para comprobar que se pueda agregar una nota
-    Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota Secretaria    campoComentarios
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada [secretaria] Paso 3
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
@@ -717,24 +657,9 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
-
-Test 4 - ExencionImpuestoInmobiliarioBasico Agregar Nota [operador mesa] Paso 4
-    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
-    [Documentation]    Entra como operador mesa entrada para comprobar que se pueda agregar una nota
-    Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota OperadorMesa, tramite devuelto    campoComentarioNota
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada [operador mesa] Paso 4
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
@@ -807,23 +732,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${paraResolver}  boton para resover
-
-Test 4 - ExencionImpuestoInmobiliarioBasico Agregar Nota [secretaria] Paso 5
-    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
-    [Documentation]    Entra como secretaria para comprobar que se pueda agregar una nota
-    Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota Secretaria    campoComentarios
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada [secretaria] Paso 5
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
@@ -890,7 +800,6 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
 
     Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar Boton Sin Fallar  ${botonRechazar}  boton rechazar
 
@@ -899,20 +808,6 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Verificar si el boton no existe Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
-
-Test 4 - ExencionImpuestoInmobiliarioBasico Agregar Nota [gestion] Paso 6
-    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
-    [Documentation]    Entra como gestion para comprobar que se pueda agregar una nota
-    Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota Gestion    campoComentarios
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada [gestion] Paso 6
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
@@ -979,7 +874,6 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
 
     Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${informarContribuyente}  boton informar al contribuyente
 
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
@@ -1109,24 +1003,9 @@ Test 5 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
-
-Test 5 - ExencionImpuestoInmobiliarioBasico Agregar Nota [operador mesa] Paso 2
-    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
-    [Documentation]    Entra como operador mesa entrada para comprobar que se pueda agregar una nota
-    Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion [operador mesa] Paso 2
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
@@ -1199,23 +1078,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${paraResolver}  boton para resover
-
-Test 5 - ExencionImpuestoInmobiliarioBasico Agregar Nota [secretaria] Paso 3
-    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
-    [Documentation]    Entra como secretaria para comprobar que se pueda agregar una nota
-    Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota Secretaria    campoComentarios
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion [secretaria] Paso 3
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
@@ -1282,7 +1146,6 @@ Test 5 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
 
     Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar Boton Sin Fallar  ${botonRechazar}  boton rechazar
 
@@ -1291,20 +1154,6 @@ Test 5 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Verificar si el boton no existe Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
-
-Test 5 - ExencionImpuestoInmobiliarioBasico Agregar Nota [gestion] Paso 4
-    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
-    [Documentation]     Entra como gestion para comprobar que se pueda agregar una nota
-    Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota Gestion    campoComentarios
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion [gestion] Paso 4
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
@@ -1371,7 +1220,6 @@ Test 5 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
 
     Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${informarContribuyente}  boton informar al contribuyente
 
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
@@ -1501,24 +1349,9 @@ Test 6 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
-
-Test 6 - ExencionImpuestoInmobiliarioBasico Agregar Nota [operador mesa] Paso 2
-    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
-    [Documentation]    Entra como operador mesa entrada para comprobar que se pueda agregar una nota
-    Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota OperadorMesa    campoComentarioNota
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Test 6 - ExencionImpuestoInmobiliarioBasico Correcta [operador mesa] Paso 2
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
@@ -1591,23 +1424,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${paraResolver}  boton para resover
-
-Test 6 - ExencionImpuestoInmobiliarioBasico Agregar Nota [secretaria] Paso 3
-    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
-    [Documentation]    Entra como secretaria para comprobar que se pueda agregar una nota
-    Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota Secretaria    campoComentarios
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Test 6 - ExencionImpuestoInmobiliarioBasico Correcta [secretaria] Paso 3
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
@@ -1674,7 +1492,6 @@ Test 6 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
 
     Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar Boton Sin Fallar  ${botonRechazar}  boton rechazar
 
@@ -1683,20 +1500,6 @@ Test 6 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Verificar si el boton no existe Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
-
-Test 6 - ExencionImpuestoInmobiliarioBasico Agregar Nota [gestion] Paso 4
-    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
-    [Documentation]    Entra como gestion para comprobar que se pueda agregar una nota
-    Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Wait Until Page Contains    Reportes y Estadísticas    timeout=10s
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${agregarNota}    agregarNota
-    Validar y completar campo    ${campoComentario}    Nota Gestion    campoComentarios
-    Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
-    Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
 
 Test 6 - ExencionImpuestoInmobiliarioBasico Correcta [gestion] Paso 4
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
@@ -1763,7 +1566,6 @@ Test 6 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
 
     Wait Until Element Is Visible    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]    timeout=10s
 
-    Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${informarContribuyente}  boton informar al contribuyente
 
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
