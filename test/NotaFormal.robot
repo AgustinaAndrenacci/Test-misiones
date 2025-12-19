@@ -113,8 +113,8 @@ Test 1 - Nota formal: verificar que el tramite no exista [responsable area] 6
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 1 - Nota formal: verificar que el tramite no exista [secretaria] 7
-    [Documentation]    Desde la secretaria, se verifica que no se pueda visualizar el tramite
+Test 1 - Nota formal: verificar que el tramite no exista [Direccion] 7
+    [Documentation]    Desde la Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -238,8 +238,8 @@ Test 1 - Nota formal: verificar que el tramite no exista [responsable area] 12
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 1 - Nota formal: verificar que el tramite no exista [secretaria] 13
-    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
+Test 1 - Nota formal: verificar que el tramite no exista [Direccion] 13
+    [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -333,8 +333,8 @@ Test 2 - Nota formal: verificar que el tramite no exista [responsable area] 6
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 2 - Nota formal: verificar que el tramite no exista [secretaria] 7
-    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
+Test 2 - Nota formal: verificar que el tramite no exista [Direccion] 7
+    [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -381,7 +381,7 @@ Test 2 - Nota formal: verificar si los botones de acciones son correctos [operad
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
-    Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
+    Verificar Boton Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
 
 Test 2 - Nota formal: se agrega una nota [operador mesa]
     [Documentation]    Entra como operador mesa entrada y el mismo agrega una nota en el tramite
@@ -454,8 +454,8 @@ Test 2 - Nota formal: verificar que el tramite no exista [responsable area] 13
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 2 - Nota formal: verificar que el tramite no exista [secretaria] 14
-    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
+Test 2 - Nota formal: verificar que el tramite no exista [Direccion] 14
+    [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -572,8 +572,8 @@ Test 3 - Nota formal: verificar que el tramite no exista [responsable area] 6
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 3 - Nota formal: verificar que el tramite no exista [secretaria] 7
-    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
+Test 3 - Nota formal: verificar que el tramite no exista [Direccion] 7
+    [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -620,7 +620,7 @@ Test 3 - Nota formal: verificar si los botones de acciones son correctos [operad
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
-    Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
+    Verificar Boton Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
 
 Test 3 - Nota formal: se agrega una nota [operador mesa]
     [Documentation]    Entra como operador mesa entrada y el mismo agrega una nota en el tramite
@@ -692,8 +692,8 @@ Test 3 - Nota formal: verificar que el tramite no exista [responsable area] 13
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 3 - Nota formal: verificar que el tramite no exista [secretaria] 14
-    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
+Test 3 - Nota formal: verificar que el tramite no exista [Direccion] 14
+    [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -720,10 +720,10 @@ Test 3 - Nota formal: verificar que el tramite no exista [gestion] 15
 Test 4 - Nota formal: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 4 es el siguiente:
     ...    ... crear tramite [ciudadano] -
-    ...    ... enviar a secretaria [operador mesa]
-    ...    ... no corresponde [secretaria]
-    ...    ... enviar a secretaria [operador mesa]
-    ...    ... para resolver [secretaria]
+    ...    ... enviar a Direccion [operador mesa]
+    ...    ... no corresponde [Direccion]
+    ...    ... enviar a Direccion [operador mesa]
+    ...    ... para resolver [Direccion]
     ...    ... aprobar [gestion]
     ...    ... informar al contribuyente [operador mesa]
     Asignar Tag Numerado
@@ -801,8 +801,8 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 6
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 7
-    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
+Test 4 - Nota formal: verificar que el tramite no exista [Direccion] 7
+    [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -848,7 +848,7 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [operad
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
-    Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
+    Verificar Boton Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
 
 Test 4 - Nota formal: se agrega una nota [operador mesa]
     [Documentation]    Entra como operador mesa entrada y el mismo agrega una nota en el tramite
@@ -867,8 +867,8 @@ Test 4 - Nota formal: se agrega una nota [operador mesa]
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
-Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador mesa]
-    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
+Test 4 - Nota formal: se selecciona la opcion "enviar a Direccion" [operador mesa]
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -879,8 +879,8 @@ Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador me
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
-    Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
@@ -896,8 +896,8 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 11
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
-Test 4 - Nota formal: verificar el estado del tramite (asignado) [secretaria] 12
-    [Documentation]    Desde secretaria, se verifica el estado del tramite para saber en que parte del ciclo esta
+Test 4 - Nota formal: verificar el estado del tramite (asignado) [Direccion] 12
+    [Documentation]    Desde Direccion, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -945,8 +945,8 @@ Test 4 - Nota formal: verificar que el tramite no exista [gestion] 15
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 
-Test 4 - Nota formal: verificar si los botones de acciones son correctos [secretaria] 2
-    [Documentation]    Se ingresa como secretaria y se verifica que aparezcan los botones de acciones correctos
+Test 4 - Nota formal: verificar si los botones de acciones son correctos [Direccion] 2
+    [Documentation]    Se ingresa como Direccion y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -965,13 +965,13 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [secret
     Verificar Boton Sin Fallar  ${paraResolver}  boton para resolver
 
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
-    Verificar si el boton no existe Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
+    Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-Test 4 - Nota formal: se agrega una nota [secretaria]
-    [Documentation]    Entra como secretaria y el mismo agrega una nota en el tramite
+Test 4 - Nota formal: se agrega una nota [Direccion]
+    [Documentation]    Entra como Direccion y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -987,8 +987,8 @@ Test 4 - Nota formal: se agrega una nota [secretaria]
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
-Test 4 - Nota formal: se selecciona la opcion "no corresponde" [secretaria]
-    [Documentation]    Entra como Secretaria para continuar con el proceso dandole a la opcion "No Corresponde" devolviendo el tramite hacia Mesa de Entrada.
+Test 4 - Nota formal: se selecciona la opcion "no corresponde" [Direccion]
+    [Documentation]    Entra como Direccion para continuar con el proceso dandole a la opcion "No Corresponde" devolviendo el tramite hacia Mesa de Entrada.
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1040,8 +1040,8 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 20
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 21
-    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
+Test 4 - Nota formal: verificar que el tramite no exista [Direccion] 21
+    [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1080,7 +1080,7 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [operad
     Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
-    Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
+    Verificar Boton Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
     Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
 
@@ -1106,8 +1106,8 @@ Test 4 - Nota formal: se agrega una nota [operador mesa]
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
-Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria". [operador mesa]
-    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
+Test 4 - Nota formal: se selecciona la opcion "enviar a Direccion". [operador mesa]
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1118,8 +1118,8 @@ Test 4 - Nota formal: se selecciona la opcion "enviar a secretaria". [operador m
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
    # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
-    Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
@@ -1135,8 +1135,8 @@ Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 25
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
-Test 4 - Nota formal: verificar el estado del tramite (asignado) [secretaria] 26
-    [Documentation]    Desde la secretaria, se verifica el estado del tramite para saber en que parte del ciclo esta
+Test 4 - Nota formal: verificar el estado del tramite (asignado) [Direccion] 26
+    [Documentation]    Desde la Direccion, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1184,8 +1184,8 @@ Test 4 - Nota formal: verificar que el tramite no exista [gestion] 29
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 
-Test 4 - Nota formal: verificar si los botones de acciones son correctos [secretaria] 4
-    [Documentation]    Se ingresa como secretaria y se verifica que aparezcan los botones de acciones correctos
+Test 4 - Nota formal: verificar si los botones de acciones son correctos [Direccion] 4
+    [Documentation]    Se ingresa como Direccion y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1200,7 +1200,7 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [secret
     Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
 
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
-    Verificar si el boton no existe Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
+    Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
@@ -1209,8 +1209,8 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [secret
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${paraResolver}  boton para resolver
 
-Test 4 - Nota formal: se agrega una nota [secretaria]
-    [Documentation]    Entra como secretaria y el mismo agrega una nota en el tramite
+Test 4 - Nota formal: se agrega una nota [Direccion]
+    [Documentation]    Entra como Direccion y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1226,8 +1226,8 @@ Test 4 - Nota formal: se agrega una nota [secretaria]
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
-Test 4 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
-    [Documentation]    Entra como Secretaria para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
+Test 4 - Nota formal: se selecciona la opcion "para resolver" [Direccion]
+    [Documentation]    Entra como Direccion para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1291,8 +1291,8 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 35
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 36
-    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
+Test 4 - Nota formal: verificar que el tramite no exista [Direccion] 36
+    [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1325,7 +1325,7 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [gestio
 
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar si el boton no existe Sin Fallar  ${botonNoCorresponde}  boton no corresponde
-    Verificar si el boton no existe Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
+    Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
@@ -1400,8 +1400,8 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 41
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 42
-    [Documentation]    Desde el secretaria, se verifica que no se pueda visualizar el tramite
+Test 4 - Nota formal: verificar que el tramite no exista [Direccion] 42
+    [Documentation]    Desde el Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1445,7 +1445,7 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [operad
 
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar si el boton no existe Sin Fallar  ${botonNoCorresponde}  boton no corresponde
-    Verificar si el boton no existe Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
+    Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
@@ -1517,8 +1517,8 @@ Test 4 - Nota formal: verificar que el tramite no exista [responsable area] 48
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 4 - Nota formal: verificar que el tramite no exista [secretaria] 49
-    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
+Test 4 - Nota formal: verificar que el tramite no exista [Direccion] 49
+    [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1545,8 +1545,8 @@ Test 4 - Nota formal: verificar que el tramite no exista [gestion] 50
 Test 5 - Nota formal: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 5 es el siguiente:
     ...    ... crear tramite [ciudadano] -
-    ...    ... enviar a secretaria [operador mesa]
-    ...    ... para resolver [secretaria]
+    ...    ... enviar a Direccion [operador mesa]
+    ...    ... para resolver [Direccion]
     ...    ... rechazar [gestion]
     ...    ... informar al contribuyente [operador mesa]
     Asignar Tag Numerado
@@ -1621,8 +1621,8 @@ Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 6
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 7
-    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
+Test 5 - Nota formal: verificar que el tramite no exista [Direccion] 7
+    [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1664,7 +1664,7 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [operad
     Verificar Boton Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
-    Verificar Boton Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
+    Verificar Boton Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
 
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
@@ -1688,8 +1688,8 @@ Test 5 - Nota formal: se agrega una nota [operador mesa]
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
-Test 5 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador mesa]
-    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
+Test 5 - Nota formal: se selecciona la opcion "enviar a Direccion" [operador mesa]
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1700,8 +1700,8 @@ Test 5 - Nota formal: se selecciona la opcion "enviar a secretaria" [operador me
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
-    Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
@@ -1717,8 +1717,8 @@ Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 11
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
-Test 5 - Nota formal: verificar el estado del tramite (asignado) [secretaria] 12
-    [Documentation]    Desde la secretaria, se verifica el estado del tramite para saber en que parte del ciclo esta
+Test 5 - Nota formal: verificar el estado del tramite (asignado) [Direccion] 12
+    [Documentation]    Desde la Direccion, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1765,8 +1765,8 @@ Test 5 - Nota formal: verificar que el tramite no exista [gestion] 15
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 5 - Nota formal: verificar si los botones de acciones son correctos [secretaria] 2
-    [Documentation]    Se ingresa como secretaria y se verifica que aparezcan los botones de acciones correctos
+Test 5 - Nota formal: verificar si los botones de acciones son correctos [Direccion] 2
+    [Documentation]    Se ingresa como Direccion y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1784,13 +1784,13 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [secret
     Verificar Boton Sin Fallar  ${paraResolver}  boton para resolver
 
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
-    Verificar si el boton no existe Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
+    Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-Test 5 - Nota formal: se agrega una nota [secretaria]
-    [Documentation]    Entra como secretaria y el mismo agrega una nota en el tramite
+Test 5 - Nota formal: se agrega una nota [Direccion]
+    [Documentation]    Entra como Direccion y el mismo agrega una nota en el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1806,8 +1806,8 @@ Test 5 - Nota formal: se agrega una nota [secretaria]
     Validar y hacer clic en el boton    ${botonConfirmar}   botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
-Test 5 - Nota formal: se selecciona la opcion "para resolver" [secretaria]
-    [Documentation]    Entra como Secretaria para continuar con el proceso, utilizando la opcion "Para Resolver" enviandolo hacia Gestion
+Test 5 - Nota formal: se selecciona la opcion "para resolver" [Direccion]
+    [Documentation]    Entra como Direccion para continuar con el proceso, utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1871,8 +1871,8 @@ Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 21
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 22
-    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
+Test 5 - Nota formal: verificar que el tramite no exista [Direccion] 22
+    [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1905,7 +1905,7 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [gestio
 
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar si el boton no existe Sin Fallar  ${botonNoCorresponde}  boton no corresponde
-    Verificar si el boton no existe Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
+    Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
@@ -1979,8 +1979,8 @@ Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 27
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 28
-    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
+Test 5 - Nota formal: verificar que el tramite no exista [Direccion] 28
+    [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -2024,7 +2024,7 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [operad
 
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar si el boton no existe Sin Fallar  ${botonNoCorresponde}  boton no corresponde
-    Verificar si el boton no existe Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
+    Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
     Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
     Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
     Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
@@ -2096,8 +2096,8 @@ Test 5 - Nota formal: verificar que el tramite no exista [responsable area] 34
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 5 - Nota formal: verificar que el tramite no exista [secretaria] 35
-    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
+Test 5 - Nota formal: verificar que el tramite no exista [Direccion] 35
+    [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante

@@ -35,9 +35,9 @@ Suite Setup    Inicializar Contador
 #Testeos realizados:
 #Test 1: crear tramite [ciudadano]
 #Test 2: solicitar datos adicionales [operador mesa]
-#Test 3: enviar a secretaria [operador mesa]
-#Test 4: para resolver [secretaria]
-#Test 5: no corresponde [secretaria]
+#Test 3: enviar a Direccion [operador mesa]
+#Test 4: para resolver [Direccion]
+#Test 5: no corresponde [Direccion]
 #Test 6: no corresponde [operador mesa]
 #Test 7: aprobar [gestion]
 #Test 8: rechazar [gestion]
@@ -148,8 +148,8 @@ Test 1 / A - Exencion impuesto de sellos: verificar que el tramite no exista - b
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 1 / A - Exencion impuesto de sellos: verificar que el tramite no exista - boton cancelar tramite [secretaria]
-    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
+Test 1 / A - Exencion impuesto de sellos: verificar que el tramite no exista - boton cancelar tramite [Direccion]
+    [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -194,7 +194,7 @@ Test 1 / A - Exencion impuesto de sellos: verificar que el personal no pueda rea
     Verificar si el boton no existe Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar si el boton no existe Sin Fallar  ${botonNoCorresponde}  boton no corresponde
-    Verificar si el boton no existe Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
+    Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
 
 Test 1 / A - Exencion impuesto de sellos: verificar Historial - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se verifica que en el historial figure que se cancelo el tramite
@@ -316,8 +316,8 @@ Test 1 / B - Exencion impuesto de sellos: verificar que el tramite no exista - i
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 1 / B - Exencion impuesto de sellos: verificar que el tramite no exista - icono tacho de cancelar tramite [secretaria]
-    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
+Test 1 / B - Exencion impuesto de sellos: verificar que el tramite no exista - icono tacho de cancelar tramite [Direccion]
+    [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -362,7 +362,7 @@ Test 1 / B - Exencion impuesto de sellos: verificar que el personal no pueda rea
     Verificar si el boton no existe Sin Fallar  ${agregarNota}  boton agregar nota
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar si el boton no existe Sin Fallar  ${botonNoCorresponde}  boton no corresponde
-    Verificar si el boton no existe Sin Fallar  ${enviarSecretaria}  boton enviar a secretaria
+    Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
 
 Test 1 / B - Exencion impuesto de sellos: verificar Historial - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se verifica que en el historial figure que se cancelo el tramite
@@ -400,7 +400,7 @@ Test 2 / A - Exencion impuesto de sellos: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 2 es el siguiente:
     ...    ... crear tramite [ciudadano] -
     ...    ... solicitar datos adicionales [operador mesa]
-    ...    ... eliminar tramite [ciudadano - secretaria]
+    ...    ... eliminar tramite [ciudadano - Direccion]
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
@@ -517,8 +517,8 @@ Test 2 / A - Exencion impuesto de sellos: verificar que el tramite no exista - b
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 2 / A - Exencion impuesto de sellos: verificar que el tramite no exista - boton cancelar tramite [secretaria]
-    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
+Test 2 / A - Exencion impuesto de sellos: verificar que el tramite no exista - boton cancelar tramite [Direccion]
+    [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -559,7 +559,7 @@ Test 2 / B - Exencion impuesto de sellos: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 2 es el siguiente:
     ...    ... crear tramite [ciudadano] -
     ...    ... solicitar datos adicionales [operador mesa]
-    ...    ... eliminar tramite [ciudadano - secretaria]
+    ...    ... eliminar tramite [ciudadano - Direccion]
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
@@ -675,8 +675,8 @@ Test 2 / B - Exencion impuesto de sellos: verificar que el tramite no exista - i
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar tramite Inexistente    ${tablaOperador}    ${tramite}
 
-Test 2 / B - Exencion impuesto de sellos: verificar que el tramite no exista - icono tacho de cancelar tramite [secretaria]
-    [Documentation]    Desde secretaria, se verifica que no se pueda visualizar el tramite
+Test 2 / B - Exencion impuesto de sellos: verificar que el tramite no exista - icono tacho de cancelar tramite [Direccion]
+    [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -713,13 +713,13 @@ Test 2 / B - Exencion impuesto de sellos: verificar Historial - icono tacho de c
 
 
 #------------------------------------------------------------------------------------------------------------------------------
-#---------------------------------------------- ENVIAR A SECRETARIA ----------------------------------------------------------------------------------------------------
+#---------------------------------------------- ENVIAR A Direccion ----------------------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------------------------------------------------
 
 Test 3 /A - Exencion impuesto de sellos: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 2 es el siguiente:
     ...    ... crear tramite [ciudadano] -
-    ...    ... enviar a secretaria [operador mesa]
+    ...    ... enviar a Direccion [operador mesa]
     ...    ... eliminar el tramite [ciudadano - gestion]
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -742,8 +742,8 @@ Test 3 /A - Exencion impuesto de sellos: Indicacion del numero de proceso creado
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 3 / A - Exencion impuesto de sellos: se selecciona la opcion "enviar a secretaria" [operador mesa]
-    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
+Test 3 / A - Exencion impuesto de sellos: se selecciona la opcion "enviar a Direccion" [operador mesa]
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -754,8 +754,8 @@ Test 3 / A - Exencion impuesto de sellos: se selecciona la opcion "enviar a secr
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
-    Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
@@ -806,7 +806,7 @@ Test 3 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 3 /B - Exencion impuesto de sellos: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 2 es el siguiente:
     ...    ... crear tramite [ciudadano] -
-    ...    ... enviar a secretaria [operador mesa]
+    ...    ... enviar a Direccion [operador mesa]
     ...    ... eliminar el tramite [ciudadano - gestion]
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -829,8 +829,8 @@ Test 3 /B - Exencion impuesto de sellos: Indicacion del numero de proceso creado
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 3 / B - Exencion impuesto de sellos: se selecciona la opcion "enviar a secretaria" [operador mesa]
-    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
+Test 3 / B - Exencion impuesto de sellos: se selecciona la opcion "enviar a Direccion" [operador mesa]
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -841,8 +841,8 @@ Test 3 / B - Exencion impuesto de sellos: se selecciona la opcion "enviar a secr
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
-    Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
@@ -895,8 +895,8 @@ Test 3 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 4 /A - Exencion impuesto de sellos: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 2 es el siguiente:
     ...    ... crear tramite [ciudadano] -
-    ...    ... enviar a secretaria [operador mesa]
-    ...    ... para resolver [secretaria]
+    ...    ... enviar a Direccion [operador mesa]
+    ...    ... para resolver [Direccion]
     ...    ... eliminar el tramite [ciudadano - gestion]
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -919,8 +919,8 @@ Test 4 /A - Exencion impuesto de sellos: Indicacion del numero de proceso creado
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 4 / A - Exencion impuesto de sellos: se selecciona la opcion "enviar a secretaria" [operador mesa]
-    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
+Test 4 / A - Exencion impuesto de sellos: se selecciona la opcion "enviar a Direccion" [operador mesa]
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -931,15 +931,15 @@ Test 4 / A - Exencion impuesto de sellos: se selecciona la opcion "enviar a secr
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
-    Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
-Test 4 / A- Exencion impuesto de sellos: se selecciona la opcion "para resolver" [secretaria]
-    [Documentation]    Entra como Secretaria para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
+Test 4 / A- Exencion impuesto de sellos: se selecciona la opcion "para resolver" [Direccion]
+    [Documentation]    Entra como Direccion para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1002,8 +1002,8 @@ Test 4 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 4 /B - Exencion impuesto de sellos: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 2 es el siguiente:
     ...    ... crear tramite [ciudadano] -
-    ...    ... enviar a secretaria [operador mesa]
-    ...    ... para resolver [secretaria]
+    ...    ... enviar a Direccion [operador mesa]
+    ...    ... para resolver [Direccion]
     ...    ... eliminar el tramite [ciudadano - gestion]
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -1026,8 +1026,8 @@ Test 4 /B - Exencion impuesto de sellos: Indicacion del numero de proceso creado
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 4 / B - Exencion impuesto de sellos: se selecciona la opcion "enviar a secretaria" [operador mesa]
-    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
+Test 4 / B - Exencion impuesto de sellos: se selecciona la opcion "enviar a Direccion" [operador mesa]
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1038,15 +1038,15 @@ Test 4 / B - Exencion impuesto de sellos: se selecciona la opcion "enviar a secr
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
-    Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
-Test 4 / B- Exencion impuesto de sellos: se selecciona la opcion "para resolver" [secretaria]
-    [Documentation]    Entra como Secretaria para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
+Test 4 / B- Exencion impuesto de sellos: se selecciona la opcion "para resolver" [Direccion]
+    [Documentation]    Entra como Direccion para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1088,14 +1088,14 @@ Test 4 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite
     Wait Until Page Does Not Contain Element    ${botonCancelartramite}
 
 #------------------------------------------------------------------------------------------------------------------------------
-#---------------------------------------------- SECRETARIA / NO CORRESPONDE  ----------------------------------------------------------------------------------------------------
+#---------------------------------------------- Direccion / NO CORRESPONDE  ----------------------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------------------------------------------------
 
 Test 5 /A - Exencion impuesto de sellos: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 2 es el siguiente:
     ...    ... crear tramite [ciudadano] -
-    ...    ... enviar a secretaria [operador mesa]
-    ...    ... no corresponde [secretaria]
+    ...    ... enviar a Direccion [operador mesa]
+    ...    ... no corresponde [Direccion]
     ...    ... eliminar el tramite [ciudadano - gestion]
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -1118,8 +1118,8 @@ Test 5 /A - Exencion impuesto de sellos: Indicacion del numero de proceso creado
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 5 / A - Exencion impuesto de sellos: se selecciona la opcion "enviar a secretaria" [operador mesa]
-    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
+Test 5 / A - Exencion impuesto de sellos: se selecciona la opcion "enviar a Direccion" [operador mesa]
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1130,15 +1130,15 @@ Test 5 / A - Exencion impuesto de sellos: se selecciona la opcion "enviar a secr
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
-    Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
-Test 5 / A- Exencion impuesto de sellos: se selecciona la opcion "no corresponde" [secretaria]
-    [Documentation]    Entra como Secretaria para continuar con el proceso dandole a la opcion "No Corresponde" devolviendo el tramite hacia Mesa de Entrada.
+Test 5 / A- Exencion impuesto de sellos: se selecciona la opcion "no corresponde" [Direccion]
+    [Documentation]    Entra como Direccion para continuar con el proceso dandole a la opcion "No Corresponde" devolviendo el tramite hacia Mesa de Entrada.
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1201,8 +1201,8 @@ Test 5 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 5 /B - Exencion impuesto de sellos: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 2 es el siguiente:
     ...    ... crear tramite [ciudadano] -
-    ...    ... enviar a secretaria [operador mesa]
-    ...    ... no corresponde [secretaria]
+    ...    ... enviar a Direccion [operador mesa]
+    ...    ... no corresponde [Direccion]
     ...    ... eliminar el tramite [ciudadano - gestion]
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -1225,8 +1225,8 @@ Test 5 /B - Exencion impuesto de sellos: Indicacion del numero de proceso creado
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 5 / B - Exencion impuesto de sellos: se selecciona la opcion "enviar a secretaria" [operador mesa]
-    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
+Test 5 / B - Exencion impuesto de sellos: se selecciona la opcion "enviar a Direccion" [operador mesa]
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1237,15 +1237,15 @@ Test 5 / B - Exencion impuesto de sellos: se selecciona la opcion "enviar a secr
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
-    Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
-Test 5 / B- Exencion impuesto de sellos: se selecciona la opcion "no corresponde" [secretaria]
-    [Documentation]    Entra como Secretaria para continuar con el proceso dandole a la opcion "No Corresponde" devolviendo el tramite hacia Mesa de Entrada.
+Test 5 / B- Exencion impuesto de sellos: se selecciona la opcion "no corresponde" [Direccion]
+    [Documentation]    Entra como Direccion para continuar con el proceso dandole a la opcion "No Corresponde" devolviendo el tramite hacia Mesa de Entrada.
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1452,8 +1452,8 @@ Test 6 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 7 /A - Exencion impuesto de sellos: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 2 es el siguiente:
     ...    ... crear tramite [ciudadano] -
-    ...    ... enviar a secretaria [operador mesa]
-    ...    ... para resolver [secretaria]
+    ...    ... enviar a Direccion [operador mesa]
+    ...    ... para resolver [Direccion]
     ...    ... aprobar [gestion]
     ...    ... eliminar el tramite [ciudadano - operador mesa]
     Asignar Tag Numerado
@@ -1477,8 +1477,8 @@ Test 7 /A - Exencion impuesto de sellos: Indicacion del numero de proceso creado
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 7 /A - Exencion impuesto de sellos: se selecciona la opcion "enviar a secretaria". [operador mesa]
-    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
+Test 7 /A - Exencion impuesto de sellos: se selecciona la opcion "enviar a Direccion". [operador mesa]
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1489,15 +1489,15 @@ Test 7 /A - Exencion impuesto de sellos: se selecciona la opcion "enviar a secre
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
    # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
-    Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
-Test 7 /A - Exencion impuesto de sellos: se selecciona la opcion "para resolver" [secretaria]
-    [Documentation]    Entra como Secretaria para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
+Test 7 /A - Exencion impuesto de sellos: se selecciona la opcion "para resolver" [Direccion]
+    [Documentation]    Entra como Direccion para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1579,8 +1579,8 @@ Test 7 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 7 /B - Exencion impuesto de sellos: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 2 es el siguiente:
     ...    ... crear tramite [ciudadano] -
-    ...    ... enviar a secretaria [operador mesa]
-    ...    ... para resolver [secretaria]
+    ...    ... enviar a Direccion [operador mesa]
+    ...    ... para resolver [Direccion]
     ...    ... aprobar [gestion]
     ...    ... eliminar el tramite [ciudadano - operador mesa]
     Asignar Tag Numerado
@@ -1604,8 +1604,8 @@ Test 7 /B - Exencion impuesto de sellos: Indicacion del numero de proceso creado
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 7 /B - Exencion impuesto de sellos: se selecciona la opcion "enviar a secretaria". [operador mesa]
-    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
+Test 7 /B - Exencion impuesto de sellos: se selecciona la opcion "enviar a Direccion". [operador mesa]
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1616,15 +1616,15 @@ Test 7 /B - Exencion impuesto de sellos: se selecciona la opcion "enviar a secre
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
    # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
-    Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
-Test 7 /B - Exencion impuesto de sellos: se selecciona la opcion "para resolver" [secretaria]
-    [Documentation]    Entra como Secretaria para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
+Test 7 /B - Exencion impuesto de sellos: se selecciona la opcion "para resolver" [Direccion]
+    [Documentation]    Entra como Direccion para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1691,8 +1691,8 @@ Test 7 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 8 /A - Exencion impuesto de sellos: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 2 es el siguiente:
     ...    ... crear tramite [ciudadano] -
-    ...    ... enviar a secretaria [operador mesa]
-    ...    ... para resolver [secretaria]
+    ...    ... enviar a Direccion [operador mesa]
+    ...    ... para resolver [Direccion]
     ...    ... rechazar [gestion]
     ...    ... eliminar el tramite [ciudadano - operador mesa]
     Asignar Tag Numerado
@@ -1716,8 +1716,8 @@ Test 8 /A - Exencion impuesto de sellos: Indicacion del numero de proceso creado
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 8 /A - Exencion impuesto de sellos: se selecciona la opcion "enviar a secretaria". [operador mesa]
-    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
+Test 8 /A - Exencion impuesto de sellos: se selecciona la opcion "enviar a Direccion". [operador mesa]
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1728,15 +1728,15 @@ Test 8 /A - Exencion impuesto de sellos: se selecciona la opcion "enviar a secre
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
    # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
-    Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
-Test 8 /A - Exencion impuesto de sellos: se selecciona la opcion "para resolver" [secretaria]
-    [Documentation]    Entra como Secretaria para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
+Test 8 /A - Exencion impuesto de sellos: se selecciona la opcion "para resolver" [Direccion]
+    [Documentation]    Entra como Direccion para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1819,8 +1819,8 @@ Test 8 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 8 /B - Exencion impuesto de sellos: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 2 es el siguiente:
     ...    ... crear tramite [ciudadano] -
-    ...    ... enviar a secretaria [operador mesa]
-    ...    ... para resolver [secretaria]
+    ...    ... enviar a Direccion [operador mesa]
+    ...    ... para resolver [Direccion]
     ...    ... rechazar [gestion]
     ...    ... eliminar el tramite [ciudadano - operador mesa]
     Asignar Tag Numerado
@@ -1844,8 +1844,8 @@ Test 8 /B - Exencion impuesto de sellos: Indicacion del numero de proceso creado
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 8 /B - Exencion impuesto de sellos: se selecciona la opcion "enviar a secretaria". [operador mesa]
-    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
+Test 8 /B - Exencion impuesto de sellos: se selecciona la opcion "enviar a Direccion". [operador mesa]
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1856,15 +1856,15 @@ Test 8 /B - Exencion impuesto de sellos: se selecciona la opcion "enviar a secre
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
    # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
-    Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
-Test 8 /B - Exencion impuesto de sellos: se selecciona la opcion "para resolver" [secretaria]
-    [Documentation]    Entra como Secretaria para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
+Test 8 /B - Exencion impuesto de sellos: se selecciona la opcion "para resolver" [Direccion]
+    [Documentation]    Entra como Direccion para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1932,8 +1932,8 @@ Test 8 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 9 /A - Exencion impuesto de sellos: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 2 es el siguiente:
     ...    ... crear tramite [ciudadano] -
-    ...    ... enviar a secretaria [operador mesa]
-    ...    ... para resolver [secretaria]
+    ...    ... enviar a Direccion [operador mesa]
+    ...    ... para resolver [Direccion]
     ...    ... rechazar [gestion]
     ...    ... informar al contribuyente [operador mesa]
     ...    ... eliminar el tramite [ciudadano]
@@ -1958,8 +1958,8 @@ Test 9 /A - Exencion impuesto de sellos: Indicacion del numero de proceso creado
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 9 /A - Exencion impuesto de sellos: se selecciona la opcion "enviar a secretaria". [operador mesa]
-    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
+Test 9 /A - Exencion impuesto de sellos: se selecciona la opcion "enviar a Direccion". [operador mesa]
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -1970,15 +1970,15 @@ Test 9 /A - Exencion impuesto de sellos: se selecciona la opcion "enviar a secre
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
    # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
-    Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
-Test 9 /A - Exencion impuesto de sellos: se selecciona la opcion "para resolver" [secretaria]
-    [Documentation]    Entra como Secretaria para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
+Test 9 /A - Exencion impuesto de sellos: se selecciona la opcion "para resolver" [Direccion]
+    [Documentation]    Entra como Direccion para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -2079,8 +2079,8 @@ Test 9 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 9 /B - Exencion impuesto de sellos: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 2 es el siguiente:
     ...    ... crear tramite [ciudadano] -
-    ...    ... enviar a secretaria [operador mesa]
-    ...    ... para resolver [secretaria]
+    ...    ... enviar a Direccion [operador mesa]
+    ...    ... para resolver [Direccion]
     ...    ... rechazar [gestion]
     ...    ... informar al contribuyente [operador mesa]
     ...    ... eliminar el tramite [ciudadano]
@@ -2105,8 +2105,8 @@ Test 9 /B - Exencion impuesto de sellos: Indicacion del numero de proceso creado
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
-Test 9 /B - Exencion impuesto de sellos: se selecciona la opcion "enviar a secretaria". [operador mesa]
-    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
+Test 9 /B - Exencion impuesto de sellos: se selecciona la opcion "enviar a Direccion". [operador mesa]
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -2117,15 +2117,15 @@ Test 9 /B - Exencion impuesto de sellos: se selecciona la opcion "enviar a secre
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
    # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
-    Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
-Test 9 /B - Exencion impuesto de sellos: se selecciona la opcion "para resolver" [secretaria]
-    [Documentation]    Entra como Secretaria para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
+Test 9 /B - Exencion impuesto de sellos: se selecciona la opcion "para resolver" [Direccion]
+    [Documentation]    Entra como Direccion para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
