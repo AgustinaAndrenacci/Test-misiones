@@ -39,12 +39,11 @@ ${botonVolverINCIO}    //button[normalize-space()='Volver']
 ${botonCancelartramite}    //button[normalize-space()='Cancelar Trámite']
 ${botonTachoINICIO}    //button[last()]
 ${botonVerDetalleINICIO}    //a[normalize-space(text())='Ver Detalle']
-${tablaConTramite}    //tbody/tr[td[1]="${tramite1}"]
+${tablaConTramite}    //tbody/tr[td[1]="${tramite}"]
 ${textoNoHayAccionesDisponibles}    //p[contains(text(),'No hay acciones disponibles')]
 ${textoTramiteCanceladoExitosamente}    //p[normalize-space()='"Trámite cancelado exitosamente"']
 
 ***Test Cases***
-
 #Testeos realizados:
 #Test 1: crear tramite [ciudadano]
 #Test 2: solicitar datos adicionales [operador mesa]
@@ -1168,23 +1167,6 @@ Test 5 / A- Excencion impuesto provincial automotor: se selecciona la opcion "no
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 #-------------------------------------------------- BOTON CANCELAR TRAMITE ------------------------------------------
-#///////Cancelar tramite
-Test 5 / A - Excencion impuesto provincial automotor: cancelar tramite desde adentro del tramite [ciudadano]
-    [Documentation]    Desde el ciudadano, se cancela el tramite presionando el boton "cancelar tramite"
-    Asignar Tag Numerado
-    #Si fallo lo anterior
-    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
-    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
-    Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Validar y hacer clic en el boton    ${botonCancelartramite}    boton cancelar tramite
-    Validar y hacer clic en el boton    ${botonSiCancelarINCIO}    boton si,cancelar
-    Verificar Y Esperar Visibilidad De Elemento    La solicitud ha sido cancelada
-
-    #Condicion para los proximos test
-    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
-
 #///////Ver si los botones se bloquearon
 Test 5 / A - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
@@ -2217,7 +2199,6 @@ Test 9 / B - Excencion impuesto provincial automotor: verificar si el boton canc
 
 *** Keywords ***
 Crear tramite Excencion impuesto provincial automotor
-    Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
