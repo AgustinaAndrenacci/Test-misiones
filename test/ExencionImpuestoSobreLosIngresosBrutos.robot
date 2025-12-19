@@ -43,7 +43,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: crear tramite como borrad
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    ${botonExencionImpuestoSobreLosIngresosBrutos}
+    Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    botonExencionImpuestoSobreLosIngresosBrutos
     Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test0    asuntoExencionImpuestoSobreLosIngresosBrutos
     Validar y completar campo    ${detalleExencionImpuestoSobreLosIngresosBrutos}  Descripcion test0  detalleExencionImpuestoSobreLosIngresosBrutos
     Validar y completar campo    ${contenidoImpuestoSobreLosIngresosBrutos}  Contenido test0  contenidoExencionImpuestoSobreLosIngresosBrutos
@@ -271,7 +271,7 @@ Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: crear tramite [ciudadano]
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    ${botonExencionImpuestoSobreLosIngresosBrutos}
+    Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    botonExencionImpuestoSobreLosIngresosBrutos
     Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test2    asuntoExencionImpuestoSobreLosIngresosBrutos
     Validar y completar campo    ${detalleExencionImpuestoSobreLosIngresosBrutos}  Descripcion test2  detalleExencionImpuestoSobreLosIngresosBrutos
     Validar y completar campo    ${contenidoImpuestoSobreLosIngresosBrutos}  Contenido test2  contenidoExencionImpuestoSobreLosIngresosBrutos
@@ -501,7 +501,7 @@ Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: Se crea un tramite de Exc
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    ${botonExencionImpuestoSobreLosIngresosBrutos}
+    Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    botonExencionImpuestoSobreLosIngresosBrutos
     Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test3    asuntoExencionImpuestoSobreLosIngresosBrutos
     Validar y completar campo    ${detalleExencionImpuestoSobreLosIngresosBrutos}  Descripcion test3  detalleExencionImpuestoSobreLosIngresosBrutos
     Validar y completar campo    ${contenidoImpuestoSobreLosIngresosBrutos}  Contenido test3  contenidoExencionImpuestoSobreLosIngresosBrutos
@@ -726,7 +726,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se crea un tramite de nor
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    ${botonExencionImpuestoSobreLosIngresosBrutos}
+    Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    botonExencionImpuestoSobreLosIngresosBrutos
     Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test4    asuntoExencionImpuestoSobreLosIngresosBrutos
     Validar y completar campo    ${detalleExencionImpuestoSobreLosIngresosBrutos}  Descripcion test4  detalleExencionImpuestoSobreLosIngresosBrutos
     Validar y completar campo    ${contenidoImpuestoSobreLosIngresosBrutos}  Contenido test4  contenidoExencionImpuestoSobreLosIngresosBrutos
@@ -1528,7 +1528,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: se crea un tramite de Exc
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    ${botonExencionImpuestoSobreLosIngresosBrutos}
+    Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    botonExencionImpuestoSobreLosIngresosBrutos
     Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test5    asuntoExencionImpuestoSobreLosIngresosBrutos
     Validar y completar campo    ${detalleExencionImpuestoSobreLosIngresosBrutos}  Descripcion test5  detalleExencionImpuestoSobreLosIngresosBrutos
     Validar y completar campo    ${contenidoImpuestoSobreLosIngresosBrutos}  Contenido test5  contenidoExencionImpuestoSobreLosIngresosBrutos

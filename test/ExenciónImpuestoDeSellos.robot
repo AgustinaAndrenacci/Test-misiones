@@ -43,7 +43,7 @@ Test 1 - Excencion Impuesto de Sellos: crear tramite como borrador [ciudadano] 2
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    ${botonExenciónImpuestoDeSellos}
+    Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    botonExenciónImpuestoDeSellos
     Validar y completar campo    ${asuntoExenciónImpuestoDeSellos}  Asunto test0    asuntoExenciónImpuestoDeSellos
     Validar y completar campo    ${detalleExenciónImpuestoDeSellos}  Descripcion test0  detalleExenciónImpuestoDeSellos
     Validar y completar campo    ${contenidoExenciónImpuestoDeSellos}  Contenido test0  contenidoExenciónImpuestoDeSellos
@@ -273,7 +273,7 @@ Test 2 - Excencion Impuesto de Sellos: crear tramite [ciudadano] 2
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    ${botonExenciónImpuestoDeSellos}
+    Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    botonExenciónImpuestoDeSellos
     Validar y completar campo    ${asuntoExenciónImpuestoDeSellos}  Asunto test2    asuntoExenciónImpuestoDeSellos
     Validar y completar campo    ${detalleExenciónImpuestoDeSellos}  Descripcion test2  detalleExenciónImpuestoDeSellos
     Validar y completar campo    ${contenidoExenciónImpuestoDeSellos}  Contenido test2  contenidoExenciónImpuestoDeSellos
@@ -510,7 +510,7 @@ Test 3 - Excencion Impuesto de Sellos: Se crea un tramite de Excencion Impuesto 
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    ${botonExenciónImpuestoDeSellos}
+    Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    botonExenciónImpuestoDeSellos
     Validar y completar campo    ${asuntoExenciónImpuestoDeSellos}  Asunto test3    asuntoExenciónImpuestoDeSellos
     Validar y completar campo    ${detalleExenciónImpuestoDeSellos}  Descripcion test3  detalleExenciónImpuestoDeSellos
     Validar y completar campo    ${contenidoExenciónImpuestoDeSellos}  Contenido test3  contenidoExenciónImpuestoDeSellos
@@ -742,7 +742,7 @@ Test 4 - Excencion Impuesto de Sellos: se crea un tramite de norta formal [ciuda
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    ${botonExenciónImpuestoDeSellos}
+    Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    botonExenciónImpuestoDeSellos
     Validar y completar campo    ${asuntoExenciónImpuestoDeSellos}  Asunto test4    asuntoExenciónImpuestoDeSellos
     Validar y completar campo    ${detalleExenciónImpuestoDeSellos}  Descripcion test4  detalleExenciónImpuestoDeSellos
     Validar y completar campo    ${contenidoExenciónImpuestoDeSellos}  Contenido test4  contenidoExenciónImpuestoDeSellos
@@ -1563,7 +1563,7 @@ Test 5 - Excencion Impuesto de Sellos: se crea un tramite de Excencion Impuesto 
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    ${botonExenciónImpuestoDeSellos}
+    Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    botonExenciónImpuestoDeSellos
     Validar y completar campo    ${asuntoExenciónImpuestoDeSellos}  Asunto test5    asuntoExenciónImpuestoDeSellos
     Validar y completar campo    ${detalleExenciónImpuestoDeSellos}  Descripcion test5  detalleExenciónImpuestoDeSellos
     Validar y completar campo    ${contenidoExenciónImpuestoDeSellos}  Contenido test5  contenidoExenciónImpuestoDeSellos
