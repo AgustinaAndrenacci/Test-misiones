@@ -223,7 +223,7 @@ Test 4 - Excencion Impuesto Provincial Automotor: se selecciona la opcion "envia
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarASecretaria
     Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -265,7 +265,7 @@ Test 4 - Excencion Impuesto Provincial Automotor: se selecciona la opcion "envia
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarASecretaria
     Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -399,7 +399,7 @@ Test 5 - Excencion Impuesto Provincial Automotor: se selecciona la opcion "envia
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarASecretaria
     Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.

@@ -30,6 +30,19 @@ Suite Setup    Inicializar Contador
 #Agregar acciones que no van
 #Ver que no funciona seleccionar la flecha
 
+*** Variables ***
+${tramite1}    TRAM-0442/2025
+${tramite2}    TRAM-0443/2025
+${tachoComprobanteINCIO}    //button[@aria-controls='radix-_r_k_']
+${botonSiCancelarINCIO}    //button[normalize-space()='Sí, cancelar']
+${botonVolverINCIO}    //button[normalize-space()='Volver']
+${botonCancelartramite}    //button[normalize-space()='Cancelar Trámite']
+${botonTachoINICIO}    //button[last()]
+${botonVerDetalleINICIO}    //a[normalize-space(text())='Ver Detalle']
+${tablaConTramite}    //tbody/tr[td[1]="${tramite1}"]
+${textoNoHayAccionesDisponibles}    //p[contains(text(),'No hay acciones disponibles')]
+${textoTramiteCanceladoExitosamente}    //p[normalize-space()='"Trámite cancelado exitosamente"']
+
 ***Test Cases***
 
 #Testeos realizados:

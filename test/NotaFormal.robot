@@ -29,6 +29,17 @@ Suite Setup    Inicializar Contador
 
 #Agregar acciones que no van
 #Ver que no funciona seleccionar la flecha
+*** Variables ***
+${tramite}    TRAM-0469/2025
+${tachoComprobanteINCIO}    //button[@aria-controls='radix-_r_k_']
+${botonSiCancelarINCIO}    //button[normalize-space()='Sí, cancelar']
+${botonVolverINCIO}    //button[normalize-space()='Volver']
+${botonCancelartramite}    //button[normalize-space()='Cancelar Trámite']
+${botonTachoINICIO}    //button[last()]
+${botonVerDetalleINICIO}    //a[normalize-space(text())='Ver Detalle']
+${tablaConTramite}    //tbody/tr[td[1]="${tramite1}"]
+${textoNoHayAccionesDisponibles}    //p[contains(text(),'No hay acciones disponibles')]
+${textoTramiteCanceladoExitosamente}    //p[normalize-space()='"Trámite cancelado exitosamente"']
 
 ***Test Cases***
 Test 1 - Nota formal: Indicacion del proceso
@@ -461,16 +472,68 @@ Test 2 - Nota formal: verificar que el tramite no exista [gestion] 15
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 
-Test 2 - Nota formal: el ciudadano avanza en el tramite [ciudadano] 6
-    [Documentation]    Se verifica si el usuario puede avanzar en el tramite debido a que le solicitaron datos adicionales
+Test 2 - Nota formal: se responde [ciudadano]
+    [Documentation]    Desde el ciudadano, se responde con los archivos necesarios para el operador
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    #Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
+    Validar y hacer clic en el boton    //h4[normalize-space()='Responder']    botonResponder
+    Validar y completar campo    //textarea[@id='action-notes']    Te envio los archivos faltantes    campoComentarioAdicional
+    Choose file    //button[normalize-space()='Seleccionar archivos']    ${FILE2}
+    Validar y hacer clic en el boton    //button[normalize-space()='Ejecutar Acción']    botonEjecutarAccion
+    Verificar Y Esperar Visibilidad De Elemento    Su trámite ha sido actualizado. Recargamos la información para reflejar el nuevo estado.
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test 2 - Nota formal: verificar el estado del tramite (pendiente) [ciudadano] 4
+    [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
-    #ATENCION! - Modificar debido a que aún no se sabe el método en que el usuario podrá cargar datos adicionales
-    Fail    Fallo: el ciudadano no puede cargar datos adicionales
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
+
+Test 2 - Nota formal: verificar el estado del tramite (pendiente) [operador mesa] 5
+    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
+
+Test 2 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 1
+    [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
+
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
+
+    Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
+    Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
+    Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
+
+    Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
+    Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
+    Verificar Boton Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
 
 Test 3 - Nota formal: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 3 es el siguiente:
@@ -577,7 +640,6 @@ Test 3 - Nota formal: verificar que el tramite no exista [gestion] 8
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
-
 
 Test 3 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 1
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
