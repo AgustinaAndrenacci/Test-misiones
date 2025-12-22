@@ -60,7 +60,7 @@ Suite Setup    Inicializar Contador
 Test 1 /A - Excencion impuesto provincial automotor: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Excencion impuesto provincial automotor
     Asignar Tag Numerado
-    Crear tramite Excencion impuesto provincial automotor
+    Crear tramite para X tipo    ${botonExencionImpuestoProvincialAutomotor}    ${asuntoExencionImpuestoProvincialAutomotor}    ${detalleExencionImpuestoProvincialAutomotor}    ${contenidoExencionImpuestoProvincialAutomotor}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -226,7 +226,7 @@ Test 1 / A - Excencion impuesto provincial automotor: verificar Historial - boto
 Test 1 /B - Excencion impuesto provincial automotor: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Excencion impuesto provincial automotor
     Asignar Tag Numerado
-    Crear tramite Excencion impuesto provincial automotor
+    Crear tramite para X tipo    ${botonExencionImpuestoProvincialAutomotor}    ${asuntoExencionImpuestoProvincialAutomotor}    ${detalleExencionImpuestoProvincialAutomotor}    ${contenidoExencionImpuestoProvincialAutomotor}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -386,7 +386,7 @@ Test 1 / B - Excencion impuesto provincial automotor: verificar Historial - icon
 Test 2 / A - Excencion impuesto provincial automotor: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Excencion impuesto provincial automotor
     Asignar Tag Numerado
-    Crear tramite Excencion impuesto provincial automotor
+    Crear tramite para X tipo    ${botonExencionImpuestoProvincialAutomotor}    ${asuntoExencionImpuestoProvincialAutomotor}    ${detalleExencionImpuestoProvincialAutomotor}    ${contenidoExencionImpuestoProvincialAutomotor}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -534,7 +534,7 @@ Test 2 / A - Excencion impuesto provincial automotor: verificar Historial - boto
 Test 2 / B - Excencion impuesto provincial automotor: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Excencion impuesto provincial automotor
     Asignar Tag Numerado
-    Crear tramite Excencion impuesto provincial automotor
+    Crear tramite para X tipo    ${botonExencionImpuestoProvincialAutomotor}    ${asuntoExencionImpuestoProvincialAutomotor}    ${detalleExencionImpuestoProvincialAutomotor}    ${contenidoExencionImpuestoProvincialAutomotor}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -683,7 +683,7 @@ Test 2 / B - Excencion impuesto provincial automotor: verificar Historial - icon
 Test 3 /A - Excencion impuesto provincial automotor: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Excencion impuesto provincial automotor
     Asignar Tag Numerado
-    Crear tramite Excencion impuesto provincial automotor
+    Crear tramite para X tipo    ${botonExencionImpuestoProvincialAutomotor}    ${asuntoExencionImpuestoProvincialAutomotor}    ${detalleExencionImpuestoProvincialAutomotor}    ${contenidoExencionImpuestoProvincialAutomotor}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -904,7 +904,7 @@ Test 5 / B - Excencion impuesto provincial automotor: verificar si el boton canc
 Test 6 /A - Excencion impuesto provincial automotor: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Excencion impuesto provincial automotor
     Asignar Tag Numerado
-    Crear tramite Excencion impuesto provincial automotor
+    Crear tramite para X tipo    ${botonExencionImpuestoProvincialAutomotor}    ${asuntoExencionImpuestoProvincialAutomotor}    ${detalleExencionImpuestoProvincialAutomotor}    ${contenidoExencionImpuestoProvincialAutomotor}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -1143,7 +1143,7 @@ Test 8 / B - Excencion impuesto provincial automotor: verificar si el boton canc
 Test 9 /A - Excencion impuesto provincial automotor: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Excencion impuesto provincial automotor
     Asignar Tag Numerado
-    Crear tramite Excencion impuesto provincial automotor
+    Crear tramite para X tipo    ${botonExencionImpuestoProvincialAutomotor}    ${asuntoExencionImpuestoProvincialAutomotor}    ${detalleExencionImpuestoProvincialAutomotor}    ${contenidoExencionImpuestoProvincialAutomotor}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -1267,7 +1267,7 @@ Test 9 / B - Excencion impuesto provincial automotor: verificar si el boton canc
 Test 10 /A - Excencion impuesto provincial automotor: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Excencion impuesto provincial automotor
     Asignar Tag Numerado
-    Crear tramite Excencion impuesto provincial automotor
+    Crear tramite para X tipo    ${botonExencionImpuestoProvincialAutomotor}    ${asuntoExencionImpuestoProvincialAutomotor}    ${detalleExencionImpuestoProvincialAutomotor}    ${contenidoExencionImpuestoProvincialAutomotor}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -1371,7 +1371,7 @@ Test 10 / B - Excencion impuesto provincial automotor: verificar si el boton can
 Test 11 /A - Excencion impuesto provincial automotor: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Excencion impuesto provincial automotor
     Asignar Tag Numerado
-    Crear tramite Excencion impuesto provincial automotor
+    Crear tramite para X tipo    ${botonExencionImpuestoProvincialAutomotor}    ${asuntoExencionImpuestoProvincialAutomotor}    ${detalleExencionImpuestoProvincialAutomotor}    ${contenidoExencionImpuestoProvincialAutomotor}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -1476,14 +1476,13 @@ Test 11 / B - Excencion impuesto provincial automotor: verificar si el boton can
 #************************************************************************************************************************************
 #************************************************************************************************************************************
 
-
 #------------------------------------------------------------------------------------------------------------------------------
 #----------------------------------------------CREACION DE TRAMITE----------------------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------------------------------------------------
 Test 1 /A - Exencion impuesto de sellos: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Exencion impuesto de sellos
     Asignar Tag Numerado
-    Crear tramite Exencion impuesto de sellos
+    Crear tramite para X tipo    ${botonExenciónImpuestoDeSellos}    ${asuntoExenciónImpuestoDeSellos}    ${detalleExenciónImpuestoDeSellos}    ${contenidoExenciónImpuestoDeSellos}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -1649,7 +1648,7 @@ Test 1 / A - Exencion impuesto de sellos: verificar Historial - boton cancelar t
 Test 1 /B - Exencion impuesto de sellos: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Exencion impuesto de sellos
     Asignar Tag Numerado
-    Crear tramite Exencion impuesto de sellos
+    Crear tramite para X tipo    ${botonExenciónImpuestoDeSellos}    ${asuntoExenciónImpuestoDeSellos}    ${detalleExenciónImpuestoDeSellos}    ${contenidoExenciónImpuestoDeSellos}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -1809,7 +1808,7 @@ Test 1 / B - Exencion impuesto de sellos: verificar Historial - icono tacho de c
 Test 2 / A - Exencion impuesto de sellos: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Exencion impuesto de sellos
     Asignar Tag Numerado
-    Crear tramite Exencion impuesto de sellos
+    Crear tramite para X tipo    ${botonExenciónImpuestoDeSellos}    ${asuntoExenciónImpuestoDeSellos}    ${detalleExenciónImpuestoDeSellos}    ${contenidoExenciónImpuestoDeSellos}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -1957,7 +1956,7 @@ Test 2 / A - Exencion impuesto de sellos: verificar Historial - boton cancelar t
 Test 2 / B - Exencion impuesto de sellos: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Exencion impuesto de sellos
     Asignar Tag Numerado
-    Crear tramite Exencion impuesto de sellos
+    Crear tramite para X tipo    ${botonExenciónImpuestoDeSellos}    ${asuntoExenciónImpuestoDeSellos}    ${detalleExenciónImpuestoDeSellos}    ${contenidoExenciónImpuestoDeSellos}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -2106,7 +2105,7 @@ Test 2 / B - Exencion impuesto de sellos: verificar Historial - icono tacho de c
 Test 3 /A - Exencion impuesto de sellos: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Exencion impuesto de sellos
     Asignar Tag Numerado
-    Crear tramite Exencion impuesto de sellos
+    Crear tramite para X tipo    ${botonExenciónImpuestoDeSellos}    ${asuntoExenciónImpuestoDeSellos}    ${detalleExenciónImpuestoDeSellos}    ${contenidoExenciónImpuestoDeSellos}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -2327,7 +2326,7 @@ Test 5 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 6 /A - Exencion impuesto de sellos: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Exencion impuesto de sellos
     Asignar Tag Numerado
-    Crear tramite Exencion impuesto de sellos
+    Crear tramite para X tipo    ${botonExenciónImpuestoDeSellos}    ${asuntoExenciónImpuestoDeSellos}    ${detalleExenciónImpuestoDeSellos}    ${contenidoExenciónImpuestoDeSellos}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -2566,7 +2565,7 @@ Test 8 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 9 /A - Exencion impuesto de sellos: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Exencion impuesto de sellos
     Asignar Tag Numerado
-    Crear tramite Exencion impuesto de sellos
+    Crear tramite para X tipo    ${botonExenciónImpuestoDeSellos}    ${asuntoExenciónImpuestoDeSellos}    ${detalleExenciónImpuestoDeSellos}    ${contenidoExenciónImpuestoDeSellos}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -2690,7 +2689,7 @@ Test 9 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 10 /A - Exencion impuesto de sellos: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Exencion impuesto de sellos
     Asignar Tag Numerado
-    Crear tramite Exencion impuesto de sellos
+    Crear tramite para X tipo    ${botonExenciónImpuestoDeSellos}    ${asuntoExenciónImpuestoDeSellos}    ${detalleExenciónImpuestoDeSellos}    ${contenidoExenciónImpuestoDeSellos}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -2794,7 +2793,7 @@ Test 10 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramit
 Test 11 /A - Exencion impuesto de sellos: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Exencion impuesto de sellos
     Asignar Tag Numerado
-    Crear tramite Exencion impuesto de sellos
+    Crear tramite para X tipo    ${botonExenciónImpuestoDeSellos}    ${asuntoExenciónImpuestoDeSellos}    ${detalleExenciónImpuestoDeSellos}    ${contenidoExenciónImpuestoDeSellos}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -2905,7 +2904,7 @@ Test 11 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramit
 Test 1 /A - Nota formal: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Nota formal
     Asignar Tag Numerado
-    Crear tramite nota formal
+    Crear tramite para X tipo    ${botonNotaFormal}    ${asuntoNotaFormal}    ${detalleNotaFormal}    ${contenidoNotaFormal}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -3071,7 +3070,7 @@ Test 1 / A - Nota formal: verificar Historial - boton cancelar tramite [operador
 Test 1 /B - Nota formal: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Nota formal
     Asignar Tag Numerado
-    Crear tramite nota formal
+    Crear tramite para X tipo    ${botonNotaFormal}    ${asuntoNotaFormal}    ${detalleNotaFormal}    ${contenidoNotaFormal}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -3231,7 +3230,7 @@ Test 1 / B - Nota formal: verificar Historial - icono tacho de cancelar tramite 
 Test 2 / A - Nota formal: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Nota formal
     Asignar Tag Numerado
-    Crear tramite nota formal
+    Crear tramite para X tipo    ${botonNotaFormal}    ${asuntoNotaFormal}    ${detalleNotaFormal}    ${contenidoNotaFormal}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -3379,7 +3378,7 @@ Test 2 / A - Nota formal: verificar Historial - boton cancelar tramite [ciudadan
 Test 2 / B - Nota formal: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Nota formal
     Asignar Tag Numerado
-    Crear tramite nota formal
+    Crear tramite para X tipo    ${botonNotaFormal}    ${asuntoNotaFormal}    ${detalleNotaFormal}    ${contenidoNotaFormal}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -3528,7 +3527,7 @@ Test 2 / B - Nota formal: verificar Historial - icono tacho de cancelar tramite 
 Test 3 /A - Nota formal: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Nota formal
     Asignar Tag Numerado
-    Crear tramite nota formal
+    Crear tramite para X tipo    ${botonNotaFormal}    ${asuntoNotaFormal}    ${detalleNotaFormal}    ${contenidoNotaFormal}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -3749,7 +3748,7 @@ Test 5 / B - Nota formal: verificar si el boton cancelar tramite no existe - bot
 Test 6 /A - Nota formal: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Nota formal
     Asignar Tag Numerado
-    Crear tramite nota formal
+    Crear tramite para X tipo    ${botonNotaFormal}    ${asuntoNotaFormal}    ${detalleNotaFormal}    ${contenidoNotaFormal}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -3988,7 +3987,7 @@ Test 8 / B - Nota formal: verificar si el boton cancelar tramite no existe - bot
 Test 9 /A - Nota formal: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Nota formal
     Asignar Tag Numerado
-    Crear tramite nota formal
+    Crear tramite para X tipo    ${botonNotaFormal}    ${asuntoNotaFormal}    ${detalleNotaFormal}    ${contenidoNotaFormal}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -4112,7 +4111,7 @@ Test 9 / B - Nota formal: verificar si el boton cancelar tramite no existe - bot
 Test 10 /A - Nota formal: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Nota formal
     Asignar Tag Numerado
-    Crear tramite nota formal
+    Crear tramite para X tipo    ${botonNotaFormal}    ${asuntoNotaFormal}    ${detalleNotaFormal}    ${contenidoNotaFormal}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -4216,7 +4215,7 @@ Test 10 / B - Nota formal: verificar si el boton cancelar tramite no existe - bo
 Test 11 /A - Nota formal: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Nota formal
     Asignar Tag Numerado
-    Crear tramite nota formal
+    Crear tramite para X tipo    ${botonNotaFormal}    ${asuntoNotaFormal}    ${detalleNotaFormal}    ${contenidoNotaFormal}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -4328,7 +4327,7 @@ Test 11 / B - Nota formal: verificar si el boton cancelar tramite no existe - bo
 Test 1 /A - Exencion impuesto sobre los ingresos brutos: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Exencion impuesto sobre los ingresos brutos
     Asignar Tag Numerado
-    Crear tramite Exencion impuesto sobre los ingresos brutos
+    Crear tramite para X tipo    ${botonExencionImpuestoSobreLosIngresosBrutos}    ${asuntoExencionImpuestoSobreLosIngresosBrutos}    ${detalleExencionImpuestoSobreLosIngresosBrutos}    ${contenidoImpuestoSobreLosIngresosBrutos}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -4494,7 +4493,7 @@ Test 1 / A - Exencion impuesto sobre los ingresos brutos: verificar Historial - 
 Test 1 /B - Exencion impuesto sobre los ingresos brutos: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Exencion impuesto sobre los ingresos brutos
     Asignar Tag Numerado
-    Crear tramite Exencion impuesto sobre los ingresos brutos
+    Crear tramite para X tipo    ${botonExencionImpuestoSobreLosIngresosBrutos}    ${asuntoExencionImpuestoSobreLosIngresosBrutos}    ${detalleExencionImpuestoSobreLosIngresosBrutos}    ${contenidoImpuestoSobreLosIngresosBrutos}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -4654,7 +4653,7 @@ Test 1 / B - Exencion impuesto sobre los ingresos brutos: verificar Historial - 
 Test 2 / A - Exencion impuesto sobre los ingresos brutos: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Exencion impuesto sobre los ingresos brutos
     Asignar Tag Numerado
-    Crear tramite Exencion impuesto sobre los ingresos brutos
+    Crear tramite para X tipo    ${botonExencionImpuestoSobreLosIngresosBrutos}    ${asuntoExencionImpuestoSobreLosIngresosBrutos}    ${detalleExencionImpuestoSobreLosIngresosBrutos}    ${contenidoImpuestoSobreLosIngresosBrutos}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -4802,7 +4801,7 @@ Test 2 / A - Exencion impuesto sobre los ingresos brutos: verificar Historial - 
 Test 2 / B - Exencion impuesto sobre los ingresos brutos: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Exencion impuesto sobre los ingresos brutos
     Asignar Tag Numerado
-    Crear tramite Exencion impuesto sobre los ingresos brutos
+    Crear tramite para X tipo    ${botonExencionImpuestoSobreLosIngresosBrutos}    ${asuntoExencionImpuestoSobreLosIngresosBrutos}    ${detalleExencionImpuestoSobreLosIngresosBrutos}    ${contenidoImpuestoSobreLosIngresosBrutos}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -4951,7 +4950,7 @@ Test 2 / B - Exencion impuesto sobre los ingresos brutos: verificar Historial - 
 Test 3 /A - Exencion impuesto sobre los ingresos brutos: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Exencion impuesto sobre los ingresos brutos
     Asignar Tag Numerado
-    Crear tramite Exencion impuesto sobre los ingresos brutos
+    Crear tramite para X tipo    ${botonExencionImpuestoSobreLosIngresosBrutos}    ${asuntoExencionImpuestoSobreLosIngresosBrutos}    ${detalleExencionImpuestoSobreLosIngresosBrutos}    ${contenidoImpuestoSobreLosIngresosBrutos}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -5172,7 +5171,7 @@ Test 5 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 6 /A - Exencion impuesto sobre los ingresos brutos: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Exencion impuesto sobre los ingresos brutos
     Asignar Tag Numerado
-    Crear tramite Exencion impuesto sobre los ingresos brutos
+    Crear tramite para X tipo    ${botonExencionImpuestoSobreLosIngresosBrutos}    ${asuntoExencionImpuestoSobreLosIngresosBrutos}    ${detalleExencionImpuestoSobreLosIngresosBrutos}    ${contenidoImpuestoSobreLosIngresosBrutos}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -5411,7 +5410,7 @@ Test 8 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 9 /A - Exencion impuesto sobre los ingresos brutos: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Exencion impuesto sobre los ingresos brutos
     Asignar Tag Numerado
-    Crear tramite Exencion impuesto sobre los ingresos brutos
+    Crear tramite para X tipo    ${botonExencionImpuestoSobreLosIngresosBrutos}    ${asuntoExencionImpuestoSobreLosIngresosBrutos}    ${detalleExencionImpuestoSobreLosIngresosBrutos}    ${contenidoImpuestoSobreLosIngresosBrutos}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -5535,7 +5534,7 @@ Test 9 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 10 /A - Exencion impuesto sobre los ingresos brutos: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Exencion impuesto sobre los ingresos brutos
     Asignar Tag Numerado
-    Crear tramite Exencion impuesto sobre los ingresos brutos
+    Crear tramite para X tipo    ${botonExencionImpuestoSobreLosIngresosBrutos}    ${asuntoExencionImpuestoSobreLosIngresosBrutos}    ${detalleExencionImpuestoSobreLosIngresosBrutos}    ${contenidoImpuestoSobreLosIngresosBrutos}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -5639,7 +5638,7 @@ Test 10 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton
 Test 11 /A - Exencion impuesto sobre los ingresos brutos: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Exencion impuesto sobre los ingresos brutos
     Asignar Tag Numerado
-    Crear tramite Exencion impuesto sobre los ingresos brutos
+    Crear tramite para X tipo    ${botonExencionImpuestoSobreLosIngresosBrutos}    ${asuntoExencionImpuestoSobreLosIngresosBrutos}    ${detalleExencionImpuestoSobreLosIngresosBrutos}    ${contenidoImpuestoSobreLosIngresosBrutos}
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     #Condicion para los proximos test
@@ -5737,61 +5736,16 @@ Test 11 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
     Wait Until Page Does Not Contain Element    ${botonCancelarTramite}
 
-
 *** Keywords ***
-Crear tramite Excencion impuesto provincial automotor
+Crear tramite para X tipo
+    [Arguments]    ${tipoTramite}    ${campoAsunto}    ${campoDetalle}    ${campoContenido}
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonExencionImpuestoProvincialAutomotor}    botonExencionImpuestoProvincialAutomotor
-    Validar y completar campo    ${asuntoExencionImpuestoProvincialAutomotor}  Asunto test2    asuntoExencionImpuestoProvincialAutomotor
-    Validar y completar campo    ${detalleExencionImpuestoProvincialAutomotor}  Descripcion test2  detalleExencionImpuestoProvincialAutomotor
-    Validar y completar campo    ${contenidoExencionImpuestoProvincialAutomotor}  Contenido test2  contenidoExencionImpuestoProvincialAutomotor
-    Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILEAgus}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
-
-Crear tramite Exencion impuesto de sellos
-    Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
-    Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    botonExenciónImpuestoDeSellos
-    Validar y completar campo    ${asuntoExenciónImpuestoDeSellos}  Asunto test2    asuntoExenciónImpuestoDeSellos
-    Validar y completar campo    ${detalleExenciónImpuestoDeSellos}  Descripcion test2  detalleExenciónImpuestoDeSellos
-    Validar y completar campo    ${contenidoExenciónImpuestoDeSellos}  Contenido test2  contenidoExenciónImpuestoDeSellos
-    Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILEAgus}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
-
-Crear tramite nota formal
-    Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
-    Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonNotaFormal}    botonNotaFormal
-    Validar y completar campo    ${asuntoNotaFormal}  Asunto test2    asuntoNotaFormal
-    Validar y completar campo    ${detalleNotaFormal}  Descripcion test2  detalleNotaFormal
-    Validar y completar campo    ${contenidoNotaFormal}  Contenido test2  contenidoNotaFormal
-    Verificar y presionar ítem en lista    ${select}    Poder/Representación
-    Choose file    ${InputTypeFile}    ${FILEAgus}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
-
-Crear tramite Exencion impuesto sobre los ingresos brutos
-    Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
-    Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    botonExencionImpuestoSobreLosIngresosBrutos
-    Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test2    asuntoExencionImpuestoSobreLosIngresosBrutos
-    Validar y completar campo    ${detalleExencionImpuestoSobreLosIngresosBrutos}  Descripcion test2  detalleExencionImpuestoSobreLosIngresosBrutos
-    Validar y completar campo    ${contenidoImpuestoSobreLosIngresosBrutos}  Contenido test2  contenidoExencionImpuestoSobreLosIngresosBrutos
+    Validar y hacer clic en el boton    ${tipoTramite}    ${tipoTramite}
+    Validar y completar campo    ${campoAsunto}  Asunto test2    asunto
+    Validar y completar campo    ${campoDetalle}  Descripcion test2  detalle
+    Validar y completar campo    ${campoContenido}  Contenido test2  contenido
     Verificar y presionar ítem en lista index    ${select}    1
     Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
