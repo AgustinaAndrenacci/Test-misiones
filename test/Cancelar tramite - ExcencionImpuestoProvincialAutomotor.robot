@@ -24,25 +24,11 @@ Suite Setup    Inicializar Contador
 
 #IMPORTANTE **************************************************************************************************
 #Leandro: ${FILE}
-#Agustina: ${FILE2}
+#Agustina: ${FILEAgus}
 #************************************************************************************************************
 
 #Agregar acciones que no van
 #Ver que no funciona seleccionar la flecha
-
-*** Variables ***
-${tramite1}    TRAM-0442/2025
-${tramite2}    TRAM-0443/2025
-${tachoComprobanteINCIO}    //button[@aria-controls='radix-_r_k_']
-${botonSiCancelarINCIO}    //button[normalize-space()='Sí, cancelar']
-${botonVolverINCIO}    //button[normalize-space()='Volver']
-${botonCancelartramite}    //button[normalize-space()='Cancelar Trámite']
-${botonTachoINICIO}    //button[last()]
-${botonVerDetalleINICIO}    //a[normalize-space(text())='Ver Detalle']
-${tablaConTramite}    //tbody/tr[td[1]="${tramite}"]
-${textoNoHayAccionesDisponibles}    //p[contains(text(),'No hay acciones disponibles')]
-${textoTramiteCanceladoExitosamente}    //p[normalize-space()='"Trámite cancelado exitosamente"']
-
 ***Test Cases***
 #Testeos realizados:
 #Test 1: crear tramite [ciudadano]
@@ -95,8 +81,8 @@ Test 1 / A - Excencion impuesto provincial automotor: cancelar tramite desde ade
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Validar y hacer clic en el boton    ${botonCancelartramite}    boton cancelar tramite
-    Validar y hacer clic en el boton    ${botonSiCancelarINCIO}    boton si,cancelar
+    Validar y hacer clic en el boton    ${botonCancelarTramite}    boton cancelar tramite
+    Validar y hacer clic en el boton    ${botonSiCancelar}    boton si,cancelar
     Verificar Y Esperar Visibilidad De Elemento    La solicitud ha sido cancelada
 
     #Condicion para los proximos test
@@ -122,7 +108,7 @@ Test 1 / A - Excencion impuesto provincial automotor: verificar si el boton canc
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Wait Until Page Does Not Contain Element    ${botonCancelartramite}
+    Wait Until Page Does Not Contain Element    ${botonCancelarTramite}
 
 #///////Ver el estado
 Test 1 / A - Excencion impuesto provincial automotor: verificar el estado del tramite (cancelado) - boton cancelar tramite [ciudadano]
@@ -263,7 +249,7 @@ Test 1 / B - Excencion impuesto provincial automotor: cancelar tramite desde el 
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMisTramitesRecientes}    ${botonTachoINICIO}    ${tramite}
-    Validar y hacer clic en el boton    ${botonSiCancelarINCIO}    boton si,cancelar
+    Validar y hacer clic en el boton    ${botonSiCancelar}    boton si,cancelar
     Verificar Y Esperar Visibilidad De Elemento    La solicitud ha sido cancelada.
 
     #Condicion para los proximos test
@@ -289,7 +275,7 @@ Test 1 / B - Excencion impuesto provincial automotor: verificar si el boton canc
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Wait Until Page Does Not Contain Element    ${botonCancelartramite}
+    Wait Until Page Does Not Contain Element    ${botonCancelarTramite}
 
 #///////Ver el estado
 Test 1 / B - Excencion impuesto provincial automotor: verificar el estado del tramite (cancelado) - icono tacho de cancelar tramite [ciudadano]
@@ -463,8 +449,8 @@ Test 2 / A - Excencion impuesto provincial automotor: cancelar tramite desde ade
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Validar y hacer clic en el boton    ${botonCancelartramite}    boton cancelar tramite
-    Validar y hacer clic en el boton    ${botonSiCancelarINCIO}    boton si,cancelar
+    Validar y hacer clic en el boton    ${botonCancelarTramite}    boton cancelar tramite
+    Validar y hacer clic en el boton    ${botonSiCancelar}    boton si,cancelar
     Verificar Y Esperar Visibilidad De Elemento    La solicitud ha sido cancelada
 
     #Condicion para los proximos test
@@ -490,7 +476,7 @@ Test 2 / A - Excencion impuesto provincial automotor: verificar si el boton canc
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Wait Until Page Does Not Contain Element    ${botonCancelartramite}
+    Wait Until Page Does Not Contain Element    ${botonCancelarTramite}
 
 #///////Ver el estado
 Test 2 / A - Excencion impuesto provincial automotor: verificar el estado del tramite (cancelado) - boton cancelar tramite [ciudadano]
@@ -622,7 +608,7 @@ Test 2 / B - Excencion impuesto provincial automotor: cancelar tramite desde el 
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMisTramitesRecientes}    ${botonTachoINICIO}    ${tramite}
-    Validar y hacer clic en el boton    ${botonSiCancelarINCIO}    boton si,cancelar
+    Validar y hacer clic en el boton    ${botonSiCancelar}    boton si,cancelar
     Verificar Y Esperar Visibilidad De Elemento    La solicitud ha sido cancelada.
 
     #Condicion para los proximos test
@@ -648,7 +634,7 @@ Test 2 / B - Excencion impuesto provincial automotor: verificar si el boton canc
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Wait Until Page Does Not Contain Element    ${botonCancelartramite}
+    Wait Until Page Does Not Contain Element    ${botonCancelarTramite}
 
 #///////Ver el estado
 Test 2 / B - Excencion impuesto provincial automotor: verificar el estado del tramite (cancelado) - icono tacho de cancelar tramite [ciudadano]
@@ -782,8 +768,8 @@ Test 3 / A - Excencion impuesto provincial automotor: cancelar tramite desde ade
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Validar y hacer clic en el boton    ${botonCancelartramite}    boton cancelar tramite
-    Validar y hacer clic en el boton    ${botonSiCancelarINCIO}    boton si,cancelar
+    Validar y hacer clic en el boton    ${botonCancelarTramite}    boton cancelar tramite
+    Validar y hacer clic en el boton    ${botonSiCancelar}    boton si,cancelar
     Verificar Y Esperar Visibilidad De Elemento    La solicitud ha sido cancelada
 
     #Condicion para los proximos test
@@ -809,7 +795,7 @@ Test 3 / A - Excencion impuesto provincial automotor: verificar si el boton canc
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Wait Until Page Does Not Contain Element    ${botonCancelartramite}
+    Wait Until Page Does Not Contain Element    ${botonCancelarTramite}
 
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -869,8 +855,8 @@ Test 3 / B - Excencion impuesto provincial automotor: cancelar tramite desde ade
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Validar y hacer clic en el boton    ${botonCancelartramite}    boton cancelar tramite
-    Validar y hacer clic en el boton    ${botonSiCancelarINCIO}    boton si,cancelar
+    Validar y hacer clic en el boton    ${botonCancelarTramite}    boton cancelar tramite
+    Validar y hacer clic en el boton    ${botonSiCancelar}    boton si,cancelar
     Verificar Y Esperar Visibilidad De Elemento    La solicitud ha sido cancelada
 
     #Condicion para los proximos test
@@ -896,7 +882,7 @@ Test 3 / B - Excencion impuesto provincial automotor: verificar si el boton canc
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Wait Until Page Does Not Contain Element    ${botonCancelartramite}
+    Wait Until Page Does Not Contain Element    ${botonCancelarTramite}
 
 #------------------------------------------------------------------------------------------------------------------------------
 #---------------------------------------------- PARA RESOLVER ----------------------------------------------------------------------------------------------------
@@ -978,8 +964,8 @@ Test 4 / A - Excencion impuesto provincial automotor: cancelar tramite desde ade
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Validar y hacer clic en el boton    ${botonCancelartramite}    boton cancelar tramite
-    Validar y hacer clic en el boton    ${botonSiCancelarINCIO}    boton si,cancelar
+    Validar y hacer clic en el boton    ${botonCancelarTramite}    boton cancelar tramite
+    Validar y hacer clic en el boton    ${botonSiCancelar}    boton si,cancelar
     Verificar Y Esperar Visibilidad De Elemento    La solicitud ha sido cancelada
 
     #Condicion para los proximos test
@@ -1005,7 +991,7 @@ Test 4 / A - Excencion impuesto provincial automotor: verificar si el boton canc
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Wait Until Page Does Not Contain Element    ${botonCancelartramite}
+    Wait Until Page Does Not Contain Element    ${botonCancelarTramite}
 
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1095,7 +1081,7 @@ Test 4 / B - Excencion impuesto provincial automotor: verificar si el boton canc
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Wait Until Page Does Not Contain Element    ${botonCancelartramite}
+    Wait Until Page Does Not Contain Element    ${botonCancelarTramite}
 
 #------------------------------------------------------------------------------------------------------------------------------
 #---------------------------------------------- Direccion / NO CORRESPONDE  ----------------------------------------------------------------------------------------------------
@@ -1187,7 +1173,7 @@ Test 5 / A - Excencion impuesto provincial automotor: verificar si el boton canc
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Wait Until Page Does Not Contain Element    ${botonCancelartramite}
+    Wait Until Page Does Not Contain Element    ${botonCancelarTramite}
 
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1277,7 +1263,7 @@ Test 5 / B - Excencion impuesto provincial automotor: verificar si el boton canc
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Wait Until Page Does Not Contain Element    ${botonCancelartramite}
+    Wait Until Page Does Not Contain Element    ${botonCancelarTramite}
 
 #------------------------------------------------------------------------------------------------------------------------------
 #---------------------------------------------- NO CORRESPONDE  ----------------------------------------------------------------------------------------------------
@@ -1339,8 +1325,8 @@ Test 6 / A - Excencion impuesto provincial automotor: cancelar tramite desde ade
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Validar y hacer clic en el boton    ${botonCancelartramite}    boton cancelar tramite
-    Validar y hacer clic en el boton    ${botonSiCancelarINCIO}    boton si,cancelar
+    Validar y hacer clic en el boton    ${botonCancelarTramite}    boton cancelar tramite
+    Validar y hacer clic en el boton    ${botonSiCancelar}    boton si,cancelar
     Verificar Y Esperar Visibilidad De Elemento    La solicitud ha sido cancelada
 
     #Condicion para los proximos test
@@ -1366,7 +1352,7 @@ Test 6 / A - Excencion impuesto provincial automotor: verificar si el boton canc
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Wait Until Page Does Not Contain Element    ${botonCancelartramite}
+    Wait Until Page Does Not Contain Element    ${botonCancelarTramite}
 
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1436,7 +1422,7 @@ Test 6 / B - Excencion impuesto provincial automotor: verificar si el boton canc
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Wait Until Page Does Not Contain Element    ${botonCancelartramite}
+    Wait Until Page Does Not Contain Element    ${botonCancelarTramite}
 
 #------------------------------------------------------------------------------------------------------------------------------
 #---------------------------------------------- GESTION / APROBAR  ----------------------------------------------------------------------------------------------------
@@ -1538,8 +1524,8 @@ Test 7 / A - Excencion impuesto provincial automotor: cancelar tramite desde ade
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Validar y hacer clic en el boton    ${botonCancelartramite}    boton cancelar tramite
-    Validar y hacer clic en el boton    ${botonSiCancelarINCIO}    boton si,cancelar
+    Validar y hacer clic en el boton    ${botonCancelarTramite}    boton cancelar tramite
+    Validar y hacer clic en el boton    ${botonSiCancelar}    boton si,cancelar
     Verificar Y Esperar Visibilidad De Elemento    La solicitud ha sido cancelada
 
     #Condicion para los proximos test
@@ -1565,7 +1551,7 @@ Test 7 / A - Excencion impuesto provincial automotor: verificar si el boton canc
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Wait Until Page Does Not Contain Element    ${botonCancelartramite}
+    Wait Until Page Does Not Contain Element    ${botonCancelarTramite}
 
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1675,7 +1661,7 @@ Test 7 / B - Excencion impuesto provincial automotor: verificar si el boton canc
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Wait Until Page Does Not Contain Element    ${botonCancelartramite}
+    Wait Until Page Does Not Contain Element    ${botonCancelarTramite}
 
 #------------------------------------------------------------------------------------------------------------------------------
 #---------------------------------------------- GESTION / RECHAZAR  ----------------------------------------------------------------------------------------------------
@@ -1778,8 +1764,8 @@ Test 8 / A - Excencion impuesto provincial automotor: cancelar tramite desde ade
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Validar y hacer clic en el boton    ${botonCancelartramite}    boton cancelar tramite
-    Validar y hacer clic en el boton    ${botonSiCancelarINCIO}    boton si,cancelar
+    Validar y hacer clic en el boton    ${botonCancelarTramite}    boton cancelar tramite
+    Validar y hacer clic en el boton    ${botonSiCancelar}    boton si,cancelar
     Verificar Y Esperar Visibilidad De Elemento    La solicitud ha sido cancelada
 
     #Condicion para los proximos test
@@ -1805,7 +1791,7 @@ Test 8 / A - Excencion impuesto provincial automotor: verificar si el boton canc
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Wait Until Page Does Not Contain Element    ${botonCancelartramite}
+    Wait Until Page Does Not Contain Element    ${botonCancelarTramite}
 
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1916,7 +1902,7 @@ Test 8 / B - Excencion impuesto provincial automotor: verificar si el boton canc
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Wait Until Page Does Not Contain Element    ${botonCancelartramite}
+    Wait Until Page Does Not Contain Element    ${botonCancelarTramite}
 
 #------------------------------------------------------------------------------------------------------------------------------
 #---------------------------------------------- OPERADOR MESA / INFORMAR AL CONTRIBUYENTE  ----------------------------------------------------------------------------------------------------
@@ -2038,8 +2024,8 @@ Test 9 / A - Excencion impuesto provincial automotor: cancelar tramite desde ade
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Validar y hacer clic en el boton    ${botonCancelartramite}    boton cancelar tramite
-    Validar y hacer clic en el boton    ${botonSiCancelarINCIO}    boton si,cancelar
+    Validar y hacer clic en el boton    ${botonCancelarTramite}    boton cancelar tramite
+    Validar y hacer clic en el boton    ${botonSiCancelar}    boton si,cancelar
     Verificar Y Esperar Visibilidad De Elemento    La solicitud ha sido cancelada
 
     #Condicion para los proximos test
@@ -2065,7 +2051,7 @@ Test 9 / A - Excencion impuesto provincial automotor: verificar si el boton canc
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Wait Until Page Does Not Contain Element    ${botonCancelartramite}
+    Wait Until Page Does Not Contain Element    ${botonCancelarTramite}
 
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -2194,7 +2180,7 @@ Test 9 / B - Excencion impuesto provincial automotor: verificar si el boton canc
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Wait Until Page Does Not Contain Element    ${botonCancelartramite}
+    Wait Until Page Does Not Contain Element    ${botonCancelarTramite}
 
 
 *** Keywords ***
@@ -2207,7 +2193,7 @@ Crear tramite Excencion impuesto provincial automotor
     Validar y completar campo    ${detalleExencionImpuestoProvincialAutomotor}  Descripcion test2  detalleExencionImpuestoProvincialAutomotor
     Validar y completar campo    ${contenidoExencionImpuestoProvincialAutomotor}  Contenido test2  contenidoExencionImpuestoProvincialAutomotor
     Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
+    Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado

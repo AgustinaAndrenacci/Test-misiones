@@ -24,22 +24,11 @@ Suite Setup    Inicializar Contador
 
 #IMPORTANTE **************************************************************************************************
 #Leandro: ${FILE}
-#Agustina: ${FILE2}
+#Agustina: ${FILEAgus}
 #************************************************************************************************************
 
 #Agregar acciones que no van
 #Ver que no funciona seleccionar la flecha
-*** Variables ***
-${tramite}    TRAM-0469/2025
-${tachoComprobanteINCIO}    //button[@aria-controls='radix-_r_k_']
-${botonSiCancelarINCIO}    //button[normalize-space()='Sí, cancelar']
-${botonVolverINCIO}    //button[normalize-space()='Volver']
-${botonCancelartramite}    //button[normalize-space()='Cancelar Trámite']
-${botonTachoINICIO}    //button[last()]
-${botonVerDetalleINICIO}    //a[normalize-space(text())='Ver Detalle']
-${tablaConTramite}    //tbody/tr[td[1]="${tramite1}"]
-${textoNoHayAccionesDisponibles}    //p[contains(text(),'No hay acciones disponibles')]
-${textoTramiteCanceladoExitosamente}    //p[normalize-space()='"Trámite cancelado exitosamente"']
 
 ***Test Cases***
 Test 1 - Nota formal: Indicacion del proceso
@@ -62,15 +51,15 @@ Test 1 - Nota formal: crear tramite como borrador [ciudadano]
     Validar y completar campo    ${contenidoNotaFormal}  Contenido test0  contenidoNotaFormal
 
     #Verificar y presionar ítem en lista    ${select}    DNI/CUIT
-    #Choose file    ${InputTypeFile}    ${FILE2}
+    #Choose file    ${InputTypeFile}    ${FILEAgus}
     #Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
    # Verificar y presionar ítem en lista index    ${select}    1
     #Verificar y presionar ítem en lista index    ${select}    0
-    #Choose file    ${InputTypeFile}    ${FILE2}
+    #Choose file    ${InputTypeFile}    ${FILEAgus}
     #Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
     Verificar y presionar ítem en lista    ${select}    Poder/Representación
-    Choose file    ${InputTypeFile}    ${FILE2}
+    Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
     Validar y hacer clic en el boton    ${botonGuardarBorrador}    botonGuardarBorrador
@@ -180,7 +169,7 @@ Test 1 - Nota formal: modificacion de datos
     Validar y completar campo    ${detalleNotaFormal}  Descripcion  detalle
     Validar y completar campo    ${contenidoNotaFormal}  Contenido  contenido
     Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose file    ${InputTypeFile}    ${FILE2}
+    Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonActualizarBorrador}    boton actualizar borrador
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
@@ -291,7 +280,7 @@ Test 2 - Nota formal: crear tramite [ciudadano]
     Validar y completar campo    ${detalleNotaFormal}  Descripcion test2  detalleNotaFormal
     Validar y completar campo    ${contenidoNotaFormal}  Contenido test2  contenidoNotaFormal
     Verificar y presionar ítem en lista    ${select}    Poder/Representación
-    Choose file    ${InputTypeFile}    ${FILE2}
+    Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
@@ -481,10 +470,12 @@ Test 2 - Nota formal: se responde [ciudadano]
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Validar y hacer clic en el boton    //h4[normalize-space()='Responder']    botonResponder
-    Validar y completar campo    //textarea[@id='action-notes']    Te envio los archivos faltantes    campoComentarioAdicional
-    Choose file    //button[normalize-space()='Seleccionar archivos']    ${FILE2}
-    Validar y hacer clic en el boton    //button[normalize-space()='Ejecutar Acción']    botonEjecutarAccion
+    Validar y hacer clic en el boton    ${botonResponder}    botonResponder
+    Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
+    Validar y hacer clic en el boton    ${botonResponder}    botonResponder
+    Validar y completar campo    ${campoComentario}    Te envio los archivos faltantes    campoComentarioAdicional
+    Choose file    ${botonSeleccionarArchivos}    ${FILEAgus}
+    Validar y hacer clic en el boton    ${botonEjecutarAccion}    botonEjecutarAccion
     Verificar Y Esperar Visibilidad De Elemento    Su trámite ha sido actualizado. Recargamos la información para reflejar el nuevo estado.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
@@ -554,17 +545,17 @@ Test 3 - Nota formal: Se crea un tramite de Nota formal [ciudadano]
     Validar y completar campo    ${contenidoNotaFormal}  Contenido test3  contenidoNotaFormal
 
     #Verificar y presionar ítem en lista    ${select}    DNI/CUIT
-    #Choose file    ${InputTypeFile}    ${FILE2}
+    #Choose file    ${InputTypeFile}    ${FILEAgus}
     #Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
     Verificar y presionar ítem en lista    ${select}    Poder/Representación
-    Choose file    ${InputTypeFile}    ${FILE2}
+    Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Verificar y presionar ítem en lista    ${select}    Documentación Específica
-    Choose file    ${InputTypeFile}    ${FILE2}
+    Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose file    ${InputTypeFile}    ${FILE2}
+    Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
@@ -767,14 +758,14 @@ Test 4 - Nota formal: se crea un tramite de norta formal [ciudadano]
     Validar y completar campo    ${contenidoNotaFormal}  Contenido test4  contenidoNotaFormal
 
     #Verificar y presionar ítem en lista    ${select}    DNI/CUIT
-    #Choose file    ${InputTypeFile}    ${FILE2}
+    #Choose file    ${InputTypeFile}    ${FILEAgus}
     #Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
     Verificar y presionar ítem en lista    ${select}    Poder/Representación
-    Choose file    ${InputTypeFile}    ${FILE2}
+    Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Verificar y presionar ítem en lista    ${select}    Documentación Específica
-    Choose file    ${InputTypeFile}    ${FILE2}
+    Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
@@ -1484,11 +1475,11 @@ Test 5 - Nota formal: se crea un tramite de nota formal [ciudadano]
     Validar y completar campo    ${contenidoNotaFormal}  Contenido test5  contenidoNotaFormal
 
     #Verificar y presionar ítem en lista    ${select}    DNI/CUIT
-    #Choose file    ${InputTypeFile}    ${FILE2}
+    #Choose file    ${InputTypeFile}    ${FILEAgus}
     #Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
     Verificar y presionar ítem en lista    ${select}    Poder/Representación
-    Choose file    ${InputTypeFile}    ${FILE2}
+    Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado

@@ -24,22 +24,13 @@ Suite Setup    Inicializar Contador
 
 #IMPORTANTE **************************************************************************************************
 #Leandro: ${FILE}
-#Agustina: ${FILE2}
+#Agustina: ${FILEAgus}
 #************************************************************************************************************
 
 #Agregar acciones que no van
 #Ver que no funciona seleccionar la flecha
 *** Variables ***
-${tramite}    TRAM-0469/2025
-${tachoComprobanteINCIO}    //button[@aria-controls='radix-_r_k_']
-${botonSiCancelarINCIO}    //button[normalize-space()='Sí, cancelar']
-${botonVolverINCIO}    //button[normalize-space()='Volver']
-${botonCancelartramite}    //button[normalize-space()='Cancelar Trámite']
-${botonTachoINICIO}    //button[last()]
-${botonVerDetalleINICIO}    //a[normalize-space(text())='Ver Detalle']
-${tablaConTramite}    //tbody/tr[td[1]="${tramite1}"]
-${textoNoHayAccionesDisponibles}    //p[contains(text(),'No hay acciones disponibles')]
-${textoTramiteCanceladoExitosamente}    //p[normalize-space()='"Trámite cancelado exitosamente"']
+
 
 ***Test Cases***
 Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: Indicacion del proceso
@@ -60,11 +51,11 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: crear tramite como borrad
     Validar y completar campo    ${contenidoImpuestoSobreLosIngresosBrutos}  Contenido test0  contenidoExencionImpuestoSobreLosIngresosBrutos
 
     #Verificar y presionar ítem en lista    ${select}    DNI/CUIT
-    #Choose file    ${InputTypeFile}    ${FILE2}
+    #Choose file    ${InputTypeFile}    ${FILEAgus}
     #Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
     Verificar y presionar ítem en lista index    ${select}    Presentación de Declaración jurada
-    Choose file    ${InputTypeFile}    ${FILE2}
+    Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
     Validar y hacer clic en el boton    ${botonGuardarBorrador}    botonGuardarBorrador
@@ -174,7 +165,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: modificacion de datos
     Validar y completar campo    ${detalleExencionImpuestoSobreLosIngresosBrutos}  Descripcion  detalle
     Validar y completar campo    ${contenidoExencionImpuestoSobreLosIngresosBrutos}  Contenido  contenido
     Verificar y presionar ítem en lista index    ${select}    Otros
-    Choose file    ${InputTypeFile}    ${FILE2}
+    Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonActualizarBorrador}    boton actualizar borrador
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
@@ -288,13 +279,13 @@ Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: crear tramite [ciudadano]
     Validar y completar campo    ${contenidoImpuestoSobreLosIngresosBrutos}  Contenido test2  contenidoExencionImpuestoSobreLosIngresosBrutos
 
     Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
+    Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
+    Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
      Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
+    Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
@@ -481,10 +472,12 @@ Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: se responde [ciudadano]
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
-    Validar y hacer clic en el boton    //h4[normalize-space()='Responder']    botonResponder
-    Validar y completar campo    //textarea[@id='action-notes']    Te envio los archivos faltantes    campoComentarioAdicional
-    Choose file    //button[normalize-space()='Seleccionar archivos']    ${FILE2}
-    Validar y hacer clic en el boton    //button[normalize-space()='Ejecutar Acción']    botonEjecutarAccion
+    Validar y hacer clic en el boton    ${botonResponder}    botonResponder
+    Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
+    Validar y hacer clic en el boton    ${botonResponder}    botonResponder
+    Validar y completar campo    ${campoComentario}    Te envio los archivos faltantes    campoComentarioAdicional
+    Choose file    ${botonSeleccionarArchivos}    ${FILEAgus}
+    Validar y hacer clic en el boton    ${botonEjecutarAccion}    botonEjecutarAccion
     Verificar Y Esperar Visibilidad De Elemento    Su trámite ha sido actualizado. Recargamos la información para reflejar el nuevo estado.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
@@ -553,14 +546,14 @@ Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: Se crea un tramite de Exc
     Validar y completar campo    ${contenidoImpuestoSobreLosIngresosBrutos}  Contenido test3  contenidoExencionImpuestoSobreLosIngresosBrutos
 
     #Verificar y presionar ítem en lista    ${select}    DNI/CUIT
-    #Choose file    ${InputTypeFile}    ${FILE2}
+    #Choose file    ${InputTypeFile}    ${FILEAgus}
     #Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
     Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
+    Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
+    Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
@@ -760,11 +753,11 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se crea un tramite de nor
     Validar y completar campo    ${contenidoImpuestoSobreLosIngresosBrutos}  Contenido test4  contenidoExencionImpuestoSobreLosIngresosBrutos
 
     #Verificar y presionar ítem en lista    ${select}    DNI/CUIT
-    #Choose file    ${InputTypeFile}    ${FILE2}
+    #Choose file    ${InputTypeFile}    ${FILEAgus}
     #Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
     Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
+    Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
@@ -1456,23 +1449,23 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: se crea un tramite de Exc
     Validar y completar campo    ${contenidoImpuestoSobreLosIngresosBrutos}  Contenido test5  contenidoExencionImpuestoSobreLosIngresosBrutos
 
     #Verificar y presionar ítem en lista    ${select}    DNI/CUIT
-    #Choose file    ${InputTypeFile}    ${FILE2}
+    #Choose file    ${InputTypeFile}    ${FILEAgus}
     #Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
     Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
+    Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
+    Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
      Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
+    Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
      Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
+    Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILE2}
+    Choose file    ${InputTypeFile}    ${FILEAgus}
     Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud

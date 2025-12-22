@@ -103,6 +103,7 @@ ${botonAniadir}    //button[normalize-space()='Añadir']
 ${botonGuardarBorrador}    //button[normalize-space()='Guardar Borrador']
 ${botonEnviarSolicitud}    //button[normalize-space()='Enviar Solicitud']
 
+${tablaConTramite}    //tbody/tr[td[1]="${tramite}"]
 ${abrirTramiteGenerado}    //td[normalize-space()='${tramite}']/..//a[contains(text(),'Continuar Borrador')]
 ${botonEnviarTramite}    //button[normalize-space()='Enviar Trámite']
 
@@ -114,13 +115,15 @@ ${tablaOperador}    /html/body/div[2]/div[2]/main/div/div[2]/div[2]/div
 ${tablaCiudadano}    //div[@class='p-6 pt-0']
 
 ${botonResponder}    //h4[normalize-space()='Responder']
+${botonCancelar}    //button[normalize-space()='Cancelar']
 ${botonEjecutarAccion}    //button[normalize-space()='Ejecutar Acción']
 
 ${select}    //select
+${botonSeleccionarArchivos}    //button[normalize-space()='Seleccionar archivos']
 
 ${InputTypeFile}    xpath=//input[@type='file']
 ${FILE}       C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/DniPrueba.png
-${FILE2Agus}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/ADJUNTO.pdf
+${FILEAgus}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/ADJUNTO.pdf
 ${FILE3}       C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/ubicacion.png
 ${docLean}    ubicacion.png
 ${FILEpdfAgus}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/ADJUNTO.pdf
@@ -148,8 +151,15 @@ ${DNIdelSolicitante}    (//td[@class='p-4 align-middle [&:has([role=checkbox])]:
 ${copiaDelInstrumentoQueOriginaElActo}    (//td[@class='p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium'])[2]
 
 ${botonEliminarDocumentacion}    //button[@title='Eliminar']
-
 ${EliminarDocumento}    //button[normalize-space()='Eliminar Documento']
+
+${botonVerDetalleINICIO}    //a[normalize-space(text())='Ver Detalle']
+
+${tachoComprobanteINCIO}    //button[@aria-controls='radix-_r_k_']
+${botonTachoINICIO}    //button[last()]
+
+${textoNoHayAccionesDisponibles}    //p[contains(text(),'No hay acciones disponibles')]
+${textoTramiteCanceladoExitosamente}    //p[normalize-space()='"Trámite cancelado exitosamente"']
 
 #--------------------------------CONSULTA TRIBUTARIA-------------------------------------
 #----------------------------------------------------------------------------------------
