@@ -214,11 +214,10 @@ ${idAsuntoExenciónImpuestoDeSellos}    id:cmhy6g6hz000anoclh53yu9v1
 ${idDetalleExenciónImpuestoDeSellos}    id:cmhy6k427000cnocl5n1cgb7e
 ${idContenidoExenciónImpuestoDeSellos}    id:cmisswslj00v7nona8nw5wo5f
 
+
 #----------------------------------------Tramite borrador-----------------------------------------------------------
 ${tramiteBorrador}    //tbody/tr[1]
 ${botonContinuarBorrador}    //a[normalize-space()='Continuar Borrador']
 ${botonEnviarTramite}    //button[normalize-space()='Enviar Trámite']
 ${mensajeSeleccioneUnaAccionParaContinuar}    //p[contains(text(),'Seleccione una acción para continuar con el proces')]
 ${ubicacionArchivoBorrador}    (//td[@class='p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium'])[1]
-
-
