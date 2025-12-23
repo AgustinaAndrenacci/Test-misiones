@@ -24,7 +24,6 @@ Suite Setup    Inicializar Contador
 
 *** Test Cases ***
 #------------------------------- SUBIR DOCUMENTACION CON CAMPOS INCOMPLETOS -----------------------------------
-
 Test X - Nota formal: agregar documentacion complementaria - intentar subir sin observacion [operador mesa]
     [Documentation]    Entra como operador mesa entrada y se verifica que no se pueda crear la documentacion sin añadir una observacion
     Asignar Tag Numerado

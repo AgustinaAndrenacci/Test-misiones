@@ -276,7 +276,6 @@ Test 2 - Nota formal: verificar que el tramite no exista [gestion] 8
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-
 Test 2 - Nota formal: verificar si los botones de acciones son correctos [operador mesa] 1
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
