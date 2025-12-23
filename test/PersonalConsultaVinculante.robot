@@ -253,23 +253,23 @@ Consulta Vinculante MesaEntrada verificar Historial [operador mesa]
     Verificar presencia de    //p[normalize-space()='"Trámite enviado por el usuario."']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
     Verificar presencia de    //p[normalize-space()='"Se agregó el documento complementario: "Nota MesaEntrada""']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
 
-Consulta Vinculante Enviar a Secretaria [operador mesa]
-    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a secretaria
+Consulta Vinculante Enviar a Direccion [operador mesa]
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Wait Until Page Contains    La acción se ha ejecutado correctamente.    timeout=10s
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
-#-------------SECRETARIA----------------------
+#-------------Direccion----------------------
 
-Consulta Vinculante Secretaria verificar SubTitulo [secretaria]
-    [Documentation]    Desde la Secretaria Dirección abre la Consulta Vinculante anteriormente creada y comprueba que el "subtitulo" sea visible y correcto
+Consulta Vinculante Direccion verificar SubTitulo [Direccion]
+    [Documentation]    Desde la Direccion abre la Consulta Vinculante anteriormente creada y comprueba que el "subtitulo" sea visible y correcto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -278,8 +278,8 @@ Consulta Vinculante Secretaria verificar SubTitulo [secretaria]
     Abrir Tramite Por Numero    ${tramite}
     Verificar presencia de    ${subtituloConsultaVinculante}    El titulo no se encontro visible
 
-Consulta Vinculante Secretaria Verificar NumeroTramite [secretaria]
-    [Documentation]    Desde la Secretaria Dirección, abre la Consulta Vinculante y comprueba que el "Numero de Tramite" sea visible y correcto
+Consulta Vinculante Direccion Verificar NumeroTramite [Direccion]
+    [Documentation]    Desde la Direccion, abre la Consulta Vinculante y comprueba que el "Numero de Tramite" sea visible y correcto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -288,8 +288,8 @@ Consulta Vinculante Secretaria Verificar NumeroTramite [secretaria]
     Abrir Tramite Por Numero    ${tramite}
     Verificar presencia parcial    ${tramite}    El Numero Tramite no se encontro visible
 
-Consulta Vinculante Secretaria Verificar Fecha de Creacion [secretaria]
-    [Documentation]    Desde la Secretaria Dirección, abre la Consulta Vinculante y comprueba que el "Fecha de Creacion" sea visible y correcto
+Consulta Vinculante Direccion Verificar Fecha de Creacion [Direccion]
+    [Documentation]    Desde la Direccion, abre la Consulta Vinculante y comprueba que el "Fecha de Creacion" sea visible y correcto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -299,8 +299,8 @@ Consulta Vinculante Secretaria Verificar Fecha de Creacion [secretaria]
     ${FECHA_COMPLETA}=    Get Text    ${fechaCreacion}
     Comparar Fecha Creacion    ${FECHA_COMPLETA}
 
-Consulta Vinculante Secretaria Verificar Numero de Seguimiento [secretaria]
-    [Documentation]    Desde la Secretaria Dirección, abre la Consulta Vinculante y comprueba que el "Fecha de Seguimiento" sea visible y correcto
+Consulta Vinculante Direccion Verificar Numero de Seguimiento [Direccion]
+    [Documentation]    Desde la Direccion, abre la Consulta Vinculante y comprueba que el "Fecha de Seguimiento" sea visible y correcto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -309,8 +309,8 @@ Consulta Vinculante Secretaria Verificar Numero de Seguimiento [secretaria]
     Abrir Tramite Por Numero    ${tramite}
     Verificar Numero de Seguimiento    ${tramite}
 
-Consulta Vinculante Secretaria Verificar DatosPresentados Asunto [secretaria]
-    [Documentation]    Desde la Secretaria Dirección, abre la Consulta Vinculante y comprueba que en los Datos Presentados sea visible y correcto el "Asunto"
+Consulta Vinculante Direccion Verificar DatosPresentados Asunto [Direccion]
+    [Documentation]    Desde la Direccion, abre la Consulta Vinculante y comprueba que en los Datos Presentados sea visible y correcto el "Asunto"
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -319,8 +319,8 @@ Consulta Vinculante Secretaria Verificar DatosPresentados Asunto [secretaria]
     Abrir Tramite Por Numero    ${tramite}
     Validar Asunto    Asunto test1
 
-Consulta Vinculante Secretaria Verificar DatosPresentados Detalle [secretaria]
-    [Documentation]    Desde la Secretaria Dirección, abre la Consulta Vinculante y comprueba que en los Datos Presentados sea visible y correcto el "Detalle"
+Consulta Vinculante Direccion Verificar DatosPresentados Detalle [Direccion]
+    [Documentation]    Desde la Direccion, abre la Consulta Vinculante y comprueba que en los Datos Presentados sea visible y correcto el "Detalle"
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -329,8 +329,8 @@ Consulta Vinculante Secretaria Verificar DatosPresentados Detalle [secretaria]
     Abrir Tramite Por Numero    ${tramite}
     Validar Detalle    Descripcion test1
 
-Consulta Vinculante Secretaria verificar Estado [secretaria]
-    [Documentation]    Desde la Secretaria Dirección, abre la Consulta Vinculante y comprueba que el "Estado del Tramite" sea visible y correcto
+Consulta Vinculante Direccion verificar Estado [Direccion]
+    [Documentation]    Desde la Direccion, abre la Consulta Vinculante y comprueba que el "Estado del Tramite" sea visible y correcto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -339,8 +339,8 @@ Consulta Vinculante Secretaria verificar Estado [secretaria]
     Abrir Tramite Por Numero    ${tramite}
     Validar Estado Del Tramite    Asignado
 
-Consulta Vinculante Secretaria verificar Datos Ciudadano [secretaria]
-    [Documentation]    Desde la Secretaria Dirección, abre la Consulta Vinculante y comprueba que los datos del ciudadano sean visibles y correctos
+Consulta Vinculante Direccion verificar Datos Ciudadano [Direccion]
+    [Documentation]    Desde la Direccion, abre la Consulta Vinculante y comprueba que los datos del ciudadano sean visibles y correctos
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -349,21 +349,21 @@ Consulta Vinculante Secretaria verificar Datos Ciudadano [secretaria]
     Abrir Tramite Por Numero    ${tramite}
     Validar Datos Identidad    ${nombreCiudadano}    ${emailCiudadano}    ${cuitCiudadano}
 
-Consulta Vinculante Secretaria verificar Asignacion [secretaria]
-    [Documentation]    Desde la Secretaria Dirección, abre la Consulta Vinculante y comprueba que los datos de "Asignacion" sean visibles y correctos
+Consulta Vinculante Direccion verificar Asignacion [Direccion]
+    [Documentation]    Desde la Direccion, abre la Consulta Vinculante y comprueba que los datos de "Asignacion" sean visibles y correctos
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Validar Area Asignada    Secretaria Dirección
+    Validar Area Asignada    Direccion
 
 #-----------------------DOCUMENTACION COMPLEMENTARIA---------------------
 #-----------------------DOCUMENTACION COMPLEMENTARIA---------------------
 
-Consulta Vinculante: agregar documentacion complementaria - intentar subir sin observacion [secretaria]
-    [Documentation]    Entra como secretaria y se verifica que no se pueda crear la documentacion sin añadir una observacion
+Consulta Vinculante: agregar documentacion complementaria - intentar subir sin observacion [Direccion]
+    [Documentation]    Entra como Direccion y se verifica que no se pueda crear la documentacion sin añadir una observacion
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -375,8 +375,8 @@ Consulta Vinculante: agregar documentacion complementaria - intentar subir sin o
     Choose File    ${InputTypeFile}    ${FILE3}
     Element Should Be Disabled    ${botonSubirDocumento}
 
-Consulta Vinculante: agregar documentacion complementaria - intentar subir sin archivo [secretaria]
-    [Documentation]    Entra como secretaria y se verifica que no se pueda crear la documentacion sin añadir un archivo
+Consulta Vinculante: agregar documentacion complementaria - intentar subir sin archivo [Direccion]
+    [Documentation]    Entra como Direccion y se verifica que no se pueda crear la documentacion sin añadir un archivo
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -388,8 +388,8 @@ Consulta Vinculante: agregar documentacion complementaria - intentar subir sin a
     Validar y completar campo    ${campoDescripcion}    archivo doc    descripcion
     Element Should Be Disabled    ${botonSubirDocumento}
 
-Consulta Vinculante: agregar documentacion complementaria - intentar que no se suba debido a que se presiona el boton cancelar [secretaria]
-    [Documentation]    Entra como secretaria y se verifica que no se suba la documentacion complementaria debido a que se presiono le boton cancelar en vez de subir
+Consulta Vinculante: agregar documentacion complementaria - intentar que no se suba debido a que se presiona el boton cancelar [Direccion]
+    [Documentation]    Entra como Direccion y se verifica que no se suba la documentacion complementaria debido a que se presiono le boton cancelar en vez de subir
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -403,8 +403,8 @@ Consulta Vinculante: agregar documentacion complementaria - intentar que no se s
     Validar y hacer clic en el boton    ${campoDescripcion}   boton subir documento
     Verificar NO presencia de... con...    ${botonSubirDocumento}    ${docLean}
 
-Consulta Vinculante verificar Boton Documentacion complementaria [secretaria]
-    [Documentation]    Desde la secretaria, abre la Consulta Vinculante y comprueba que se pueda agregar una "Documentacion complementaria" y subirla correctamente
+Consulta Vinculante verificar Boton Documentacion complementaria [Direccion]
+    [Documentation]    Desde la Direccion, abre la Consulta Vinculante y comprueba que se pueda agregar una "Documentacion complementaria" y subirla correctamente
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -419,8 +419,8 @@ Consulta Vinculante verificar Boton Documentacion complementaria [secretaria]
     Wait Until Page Contains    El documento se ha agregado correctamente al trámite.    timeout=10s
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
-Consulta Vinculante: no se elimina la documentacion complementaria [secretaria]
-    [Documentation]    Entra como secretaria y cuando se quiere eliminar la documentacion complementaria agregada, se presiona el boton cancelar
+Consulta Vinculante: no se elimina la documentacion complementaria [Direccion]
+    [Documentation]    Entra como Direccion y cuando se quiere eliminar la documentacion complementaria agregada, se presiona el boton cancelar
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -432,8 +432,8 @@ Consulta Vinculante: no se elimina la documentacion complementaria [secretaria]
     Validar y hacer clic en el boton    ${botonCancelar}   boton cancelar
     Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${docLean}
 
-Consulta Vinculante verificar Boton Eliminar Documentacion complementaria [secretaria]
-    [Documentation]    Desde la secretaria, abre la Consulta Vinculante y comprueba que se pueda eliminar la "Documentacion complementaria"
+Consulta Vinculante verificar Boton Eliminar Documentacion complementaria [Direccion]
+    [Documentation]    Desde la Direccion, abre la Consulta Vinculante y comprueba que se pueda eliminar la "Documentacion complementaria"
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -445,8 +445,8 @@ Consulta Vinculante verificar Boton Eliminar Documentacion complementaria [secre
     Validar y hacer clic en el boton    ${EliminarDocumento}    EliminarDocumento
     Wait Until Page Contains    El documento se ha eliminado correctamente.    timeout=10s
 
-Consulta Vinculante: verificacion de documentacion complementaria eliminada - archivo: doc [secretaria]
-    [Documentation]    Entra como secretaria y agrega documentacion complementaria
+Consulta Vinculante: verificacion de documentacion complementaria eliminada - archivo: doc [Direccion]
+    [Documentation]    Entra como Direccion y agrega documentacion complementaria
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque no se se subio la documentacion complementaria en el test anterior
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -456,8 +456,8 @@ Consulta Vinculante: verificacion de documentacion complementaria eliminada - ar
     Abrir Tramite Por Numero    ${tramite}
     Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${docLean}
 
-Consulta Vinculante Secretaria verificar Historial [secretaria]
-    [Documentation]    Desde la Secretaria Dirección, abre la Consulta Vinculante y verificar que en el "Historial" se vean los mensajes de notas/cambios correspondientes
+Consulta Vinculante Direccion verificar Historial [Direccion]
+    [Documentation]    Desde la Direccion, abre la Consulta Vinculante y verificar que en el "Historial" se vean los mensajes de notas/cambios correspondientes
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -465,11 +465,11 @@ Consulta Vinculante Secretaria verificar Historial [secretaria]
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${historialAdmin}    botonHistorial
-    Verificar presencia de    //p[normalize-space()='"Acción ejecutada: Enviar a Secretaria"']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
-    Verificar presencia de    //p[normalize-space()='"Se agregó el documento complementario: "Nota Secretaria""']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
+    Verificar presencia de    //p[normalize-space()='"Acción ejecutada: Enviar a Direccion"']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
+    Verificar presencia de    //p[normalize-space()='"Se agregó el documento complementario: "Nota Direccion""']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
 
-Consulta Vinculante Enviar a Gestion [secretaria]
-    [Documentation]    Entra como Secretaria para continuar con el proceso, utilizando la opcion "Para Resolver" enviandolo hacia Gestion
+Consulta Vinculante Enviar a Gestion [Direccion]
+    [Documentation]    Entra como Direccion para continuar con el proceso, utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
@@ -671,7 +671,7 @@ Consulta Vinculante: verificacion de documentacion complementaria eliminada - ar
     Abrir Tramite Por Numero    ${tramite}
     Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${docLean}
 
-Consulta Vinculante Secretaria verificar Historial [gestion]
+Consulta Vinculante Direccion verificar Historial [gestion]
     [Documentation]    Desde la Gestión Dirección, abre la Consulta Vinculante y verificar que en el "Historial" se vean los mensajes de notas/cambios correspondientes
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
