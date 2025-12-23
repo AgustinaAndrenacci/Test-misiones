@@ -76,7 +76,6 @@ ${botonAprobar}    //h4[normalize-space()='Aprobar']
 ${botonRechazar}    //h4[normalize-space()='Rechazar']
 ${informarContribuyente}    //h4[normalize-space()='Informar al Contribuyente']
 ${botonAgregarNota}    //button[normalize-space()='Agregar Nota']
-${botonResponder}    //h4[normalize-space()='Responder']
 
 ${subtituloConsultaTributaria}    //p[@class='text-muted-foreground']
 ${subtituloConsultaVinculante}    //p[@class='text-muted-foreground']
@@ -104,7 +103,6 @@ ${botonAniadir}    //button[normalize-space()='Añadir']
 ${botonGuardarBorrador}    //button[normalize-space()='Guardar Borrador']
 ${botonEnviarSolicitud}    //button[normalize-space()='Enviar Solicitud']
 
-${tablaConTramite}    //tbody/tr[td[1]="${tramite}"]
 ${abrirTramiteGenerado}    //td[normalize-space()='${tramite}']/..//a[contains(text(),'Continuar Borrador')]
 ${botonEnviarTramite}    //button[normalize-space()='Enviar Trámite']
 
@@ -115,29 +113,26 @@ ${tablaMisTramitesRecientes}    /html/body/div[2]/div/div[2]/main/div/div[3]/div
 ${tablaOperador}    /html/body/div[2]/div[2]/main/div/div[2]/div[2]/div
 ${tablaCiudadano}    //div[@class='p-6 pt-0']
 
-
-${botonCancelar}    //button[normalize-space()='Cancelar']
+${botonResponder}    //h4[normalize-space()='Responder']
 ${botonEjecutarAccion}    //button[normalize-space()='Ejecutar Acción']
 
 ${select}    //select
-${botonSeleccionarArchivos}    //button[normalize-space()='Seleccionar archivos']
 
-${inputFileUpload}    //input[@id='file-upload']
 ${InputTypeFile}    xpath=//input[@type='file']
 ${FILE}       C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/DniPrueba.png
-${FILEAgus}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/ADJUNTO.pdf
+${FILE2}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/ADJUNTO.pdf
 ${FILE3}       C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/ubicacion.png
 ${docLean}    ubicacion.png
-${FILEpdfAgus}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/ADJUNTO.pdf
-${FILEdocAgus}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/A 2.docx
-${FILEexcAgus}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/A 3.xlsx
-${FILEpngAgus}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/unnamed.png
-${FILEjpegAgus}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/A 4.jpeg
-${pdfAgus}      ADJUNTO.pdf
-${docAgus}      A 2.docx
-${excAgus}      A 3.xlsx
-${pngAgus}      unnamed.png
-${jpegAgus}      A 4.jpeg
+${FILEpdf}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/ADJUNTO.pdf
+${FILEdoc}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/A 2.docx
+${FILEexc}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/A 3.xlsx
+${FILEpng}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/unnamed.png
+${FILEjpeg}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/A 4.jpeg
+${pdf}      ADJUNTO.pdf
+${doc}      A 2.docx
+${exc}      A 3.xlsx
+${png}      unnamed.png
+${jpeg}      A 4.jpeg
 
 ${tituloConsultaTributaria}    //h1[normalize-space()='Consulta Tributaria']
 ${datosPresentados}    //h3[normalize-space()='Datos Presentados']
@@ -153,15 +148,8 @@ ${DNIdelSolicitante}    (//td[@class='p-4 align-middle [&:has([role=checkbox])]:
 ${copiaDelInstrumentoQueOriginaElActo}    (//td[@class='p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium'])[2]
 
 ${botonEliminarDocumentacion}    //button[@title='Eliminar']
+
 ${EliminarDocumento}    //button[normalize-space()='Eliminar Documento']
-
-${botonVerDetalleINICIO}    //a[normalize-space(text())='Ver Detalle']
-${espacioDeArchivosDocCom}    //div[@class='flex flex-col flex-1']//main
-${tachoComprobanteINCIO}    //button[@aria-controls='radix-_r_k_']
-${botonTachoINICIO}    //button[last()]
-
-${textoNoHayAccionesDisponibles}    //p[contains(text(),'No hay acciones disponibles')]
-${textoTramiteCanceladoExitosamente}    //p[normalize-space()='"Trámite cancelado exitosamente"']
 
 #--------------------------------CONSULTA TRIBUTARIA-------------------------------------
 #----------------------------------------------------------------------------------------
