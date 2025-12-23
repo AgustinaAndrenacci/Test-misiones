@@ -961,11 +961,11 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [Direcc
 
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${paraResolver}  boton para resolver
+    Verificar Boton Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar Boton Sin Fallar  ${botonRechazar}  boton rechazar
 
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
-    Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
-    Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
 Test 4 - Nota formal: se selecciona la opcion "no corresponde" [Direccion]
@@ -1164,12 +1164,12 @@ Test 4 - Nota formal: verificar si los botones de acciones son correctos [Direcc
 
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
-    Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
-    Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${paraResolver}  boton para resolver
+    Verificar Boton Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar Boton Sin Fallar  ${botonRechazar}  boton rechazar
 
 Test 4 - Nota formal: se selecciona la opcion "para resolver" [Direccion]
     [Documentation]    Entra como Direccion para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
@@ -1674,11 +1674,11 @@ Test 5 - Nota formal: verificar si los botones de acciones son correctos [Direcc
 
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${paraResolver}  boton para resolver
+    Verificar Boton Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar Boton Sin Fallar  ${botonRechazar}  boton rechazar
 
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
-    Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
-    Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
 Test 5 - Nota formal: se selecciona la opcion "para resolver" [Direccion]
@@ -2180,11 +2180,11 @@ Test 6 - Nota formal: verificar si los botones de acciones son correctos [Direcc
 
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${paraResolver}  boton para resolver
+    Verificar Boton Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar Boton Sin Fallar  ${botonRechazar}  boton rechazar
 
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
-    Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
-    Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
 Test 6 - Nota formal: se selecciona la opcion "aprobar" [Direccion]
@@ -2582,11 +2582,11 @@ Test 7 - Nota formal: verificar si los botones de acciones son correctos [Direcc
 
     Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
     Verificar Boton Sin Fallar  ${paraResolver}  boton para resolver
+    Verificar Boton Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar Boton Sin Fallar  ${botonRechazar}  boton rechazar
 
     Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
-    Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
-    Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
     Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
 Test 7 - Nota formal: se selecciona la opcion "rechazar" [Direccion]

@@ -76,6 +76,7 @@ ${botonAprobar}    //h4[normalize-space()='Aprobar']
 ${botonRechazar}    //h4[normalize-space()='Rechazar']
 ${informarContribuyente}    //h4[normalize-space()='Informar al Contribuyente']
 ${botonAgregarNota}    //button[normalize-space()='Agregar Nota']
+${botonResponder}    //h4[normalize-space()='Responder']
 
 ${subtituloConsultaTributaria}    //p[@class='text-muted-foreground']
 ${subtituloConsultaVinculante}    //p[@class='text-muted-foreground']
@@ -114,7 +115,7 @@ ${tablaMisTramitesRecientes}    /html/body/div[2]/div/div[2]/main/div/div[3]/div
 ${tablaOperador}    /html/body/div[2]/div[2]/main/div/div[2]/div[2]/div
 ${tablaCiudadano}    //div[@class='p-6 pt-0']
 
-${botonResponder}    //h4[normalize-space()='Responder']
+
 ${botonCancelar}    //button[normalize-space()='Cancelar']
 ${botonEjecutarAccion}    //button[normalize-space()='Ejecutar Acción']
 
