@@ -51,7 +51,7 @@ Verificar los botones de acciones [operador mesa] - instancia 2
 #------------------------------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------------------------------
 
-#FALTA! - corregir porque va a introducirse un cambio con respecto al comentario
+#FALTA!
 Se selecciona X accion
     [Arguments]    ${btn}    ${nombreBoton}
     Validar y hacer clic en el boton    ${btn}    ${nombreBoton}
