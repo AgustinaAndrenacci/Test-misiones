@@ -87,12 +87,7 @@ Test X - Nota formal: se agrega documentacion complementaria - [operador mesa]
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonSubir}    boton subir
-    Choose file    ${inputFileUpload}    ${FILEdocAgus}
-    Validar y completar campo    ${campoDescripcion}    archivo doc    descripcion
-    Validar y hacer clic en el boton    ${botonSubirDocumento}   boton subir documento
-    Verificar Y Esperar Visibilidad De Elemento    El documento se ha agregado correctamente al trámite.
-    #Condicion para los proximos test
+    Agregar documentacion complementaria    ${FILEdocAgus}  doc
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test X - Nota formal: no se elimina la documentacion complementaria - [operador mesa]
@@ -151,12 +146,7 @@ Test X - Nota formal: se agrega documentacion complementaria - archivo: doc [ope
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonSubir}    boton subir
-    Choose file    ${inputFileUpload}    ${FILEdocAgus}
-    Validar y completar campo    ${campoDescripcion}    archivo doc    descripcion
-    Validar y hacer clic en el boton    ${botonSubirDocumento}   boton subir documento
-    Verificar Y Esperar Visibilidad De Elemento    El documento se ha agregado correctamente al trámite.
-    #Condicion para los proximos test
+    Agregar documentacion complementaria    ${FILEdocAgus}  doc
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test X - Nota formal: verificacion de documentacion complementaria - archivo: doc [operador mesa]
@@ -185,10 +175,7 @@ Test X - Nota formal: se agrega documentacion complementaria - archivo incorrect
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonSubir}    boton subir
-    Choose file    ${inputFileUpload}    ${FILEexcAgus}
-    Validar y completar campo    ${campoDescripcion}    archivo excel    descripcion
-    Element Should Be Disabled    ${botonSubirDocumento}
+    Agregar documentacion complementaria    ${FILEexcAgus}  excel
     #Condicion para los proximos test
     #[Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -218,11 +205,7 @@ Test X - Nota formal: se agrega documentacion complementaria - archivo: png [ope
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonSubir}    boton subir
-    Choose file    ${inputFileUpload}    ${FILEpngAgus}
-    Validar y completar campo    ${campoDescripcion}    archivo png    descripcion
-    Validar y hacer clic en el boton    ${botonSubirDocumento}   boton subir documento
-    Verificar Y Esperar Visibilidad De Elemento    El documento se ha agregado correctamente al trámite.
+    Agregar documentacion complementaria    ${FILEpngAgus}  png
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -252,11 +235,7 @@ Test X - Nota formal: se agrega documentacion complementaria - archivo: jpeg [op
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonSubir}    boton subir
-    Choose file    ${inputFileUpload}    ${FILEjpegAgus}
-    Validar y completar campo    ${campoDescripcion}    archivo jpeg    descripcion
-    Validar y hacer clic en el boton    ${botonSubirDocumento}   boton subir documento
-    Verificar Y Esperar Visibilidad De Elemento    El documento se ha agregado correctamente al trámite.
+    Agregar documentacion complementaria    ${FILEjpegAgus}  jpeg
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -286,11 +265,7 @@ Test X - Nota formal: se agrega documentacion complementaria - archivo: pdf [ope
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonSubir}    boton subir
-    Choose file    ${inputFileUpload}    ${FILEpdfAgus}
-    Validar y completar campo    ${campoDescripcion}    archivo pdf    descripcion
-    Validar y hacer clic en el boton    ${botonSubirDocumento}   boton subir documento
-    Verificar Y Esperar Visibilidad De Elemento    El documento se ha agregado correctamente al trámite.
+    Agregar documentacion complementaria    ${FILEpdfAgus}  pdf
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -309,18 +284,3 @@ Test X - Nota formal: verificacion de documentacion complementaria - archivo: pd
     Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${pdfAgus}
 
 
-*** Keywords ***
-Crear tramite para X tipo
-    [Arguments]    ${tipoTramite}    ${campoAsunto}    ${campoDetalle}    ${campoContenido}
-    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
-    Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${tipoTramite}    ${tipoTramite}
-    Validar y completar campo    ${campoAsunto}  Asunto test2    asunto
-    Validar y completar campo    ${campoDetalle}  Descripcion test2  detalle
-    Validar y completar campo    ${campoContenido}  Contenido test2  contenido
-    Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${FILEAgus}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
