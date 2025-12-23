@@ -121,6 +121,7 @@ ${botonEjecutarAccion}    //button[normalize-space()='Ejecutar Acción']
 ${select}    //select
 ${botonSeleccionarArchivos}    //button[normalize-space()='Seleccionar archivos']
 
+${inputFileUpload}    //input[@id='file-upload']
 ${InputTypeFile}    xpath=//input[@type='file']
 ${FILE}       C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/DniPrueba.png
 ${FILEAgus}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/ADJUNTO.pdf
@@ -154,7 +155,7 @@ ${botonEliminarDocumentacion}    //button[@title='Eliminar']
 ${EliminarDocumento}    //button[normalize-space()='Eliminar Documento']
 
 ${botonVerDetalleINICIO}    //a[normalize-space(text())='Ver Detalle']
-
+${espacioDeArchivosDocCom}    //div[@class='flex flex-col flex-1']//main
 ${tachoComprobanteINCIO}    //button[@aria-controls='radix-_r_k_']
 ${botonTachoINICIO}    //button[last()]
 

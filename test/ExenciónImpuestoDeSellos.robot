@@ -1963,3 +1963,808 @@ Test 5 - Excencion Impuesto de Sellos: verificar que el tramite no exista [gesti
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+
+Test 6 - Excencion Impuesto de Sellos: Indicacion del proceso
+    [Documentation]    El proceso que se realiza en el Test 6 es el siguiente:
+    ...    ... crear tramite [ciudadano] -
+    ...    ... enviar a Direccion [operador mesa]
+    ...    ... aprobar [Direccion]
+    ...    ... informar al contribuyente [operador mesa]
+    Asignar Tag Numerado
+    Log To Console    Comentario del proceso
+
+Test 6 - Excencion Impuesto de Sellos: se crea un tramite de Excencion Impuesto de Sellos [ciudadano]
+    [Documentation]    Crear una nueva Excencion Impuesto de Sellos
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
+    Validar y hacer clic en el boton    ${botonNotaFormal}    botonNotaFormal
+    Validar y completar campo    ${asuntoNotaFormal}  Asunto test5    asuntoNotaFormal
+    Validar y completar campo    ${detalleNotaFormal}  Descripcion test5  detalleNotaFormal
+    Validar y completar campo    ${contenidoNotaFormal}  Contenido test5  contenidoNotaFormal
+
+    #Verificar y presionar ítem en lista    ${select}    DNI/CUIT
+    #Choose file    ${InputTypeFile}    ${FILEAgus}
+    #Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+
+    Verificar y presionar ítem en lista    ${select}    Poder/Representación
+    Choose file    ${InputTypeFile}    ${FILEAgus}
+    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
+    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    ${tramite}=    Obtener Numero De Tramite
+    Set Suite Variable    ${tramite}
+
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test 6 - Excencion Impuesto de Sellos: Indicacion del numero de proceso creado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    [Documentation]    Numero del proceso creado: ${tramite}
+    Asignar Tag Numerado
+    Log To Console    Comentario del proceso
+
+Test 6 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendiente) [ciudadano] 4
+    [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
+
+Test 6 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendiente) [operador mesa] 5
+    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
+
+Test 6 - Excencion Impuesto de Sellos: verificar que el tramite no exista [responsable area] 6
+    [Documentation]    Desde resp area, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 6 - Excencion Impuesto de Sellos: verificar que el tramite no exista [Direccion] 7
+    [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 6 - Excencion Impuesto de Sellos: verificar que el tramite no exista [gestion] 8
+    [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 6 - Excencion Impuesto de Sellos: verificar si los botones de acciones son correctos [operador mesa] 1
+    [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
+
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
+
+    Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
+    Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
+    Verificar Boton Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
+
+    Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
+    Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
+    Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
+
+Test 6 - Excencion Impuesto de Sellos: se selecciona la opcion "enviar a Direccion" [operador mesa]
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test 6 - Excencion Impuesto de Sellos: verificar el estado del tramite (en curso) [ciudadano] 11
+    [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
+
+Test 6 - Excencion Impuesto de Sellos: verificar el estado del tramite (asignado) [Direccion] 12
+    [Documentation]    Desde la Direccion, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
+
+Test 6 - Excencion Impuesto de Sellos: verificar el estado del tramite (asignado) [responsable area] 12
+    [Documentation]    Desde resp area, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
+
+Test 6 - Excencion Impuesto de Sellos: verificar que el tramite no exista [operador mesa] 13
+    [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 6 - Excencion Impuesto de Sellos: verificar que el tramite no exista [gestion] 15
+    [Documentation]    Desde el gestion, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 6 - Excencion Impuesto de Sellos: verificar si los botones de acciones son correctos [Direccion] 2
+    [Documentation]    Se ingresa como Direccion y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
+
+    Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
+    Verificar Boton Sin Fallar  ${paraResolver}  boton para resolver
+
+    Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
+    Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
+    Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
+    Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
+
+Test 6 - Excencion Impuesto de Sellos: se selecciona la opcion "aprobar" [Direccion]
+    [Documentation]    Entra como Direccion para continuar con el proceso, utilizando la opcion "aprobar" enviandolo hacia Gestion
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonAprobar}    aprobar
+    Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test 6 - Excencion Impuesto de Sellos: verificar el estado del tramite (resuelto) [ciudadano] 25
+    [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
+
+Test 6 - Excencion Impuesto de Sellos: verificar el estado del tramite (aprobado) [operador mesa] 26
+    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Aprobado
+
+Test 6 - Excencion Impuesto de Sellos: verificar que el tramite no exista [responsable area] 27
+    [Documentation]    Desde resp area, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 6 - Excencion Impuesto de Sellos: verificar que el tramite no exista [Direccion] 28
+    [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 6 - Excencion Impuesto de Sellos: verificar que el tramite no exista [gestion] 29
+    [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 6 - Excencion Impuesto de Sellos: verificar si los botones de acciones son correctos [operador mesa] 4
+    [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
+
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
+
+    Verificar Boton Sin Fallar  ${informarContribuyente}  boton informar al contribuyente
+
+    Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
+    Verificar si el boton no existe Sin Fallar  ${botonNoCorresponde}  boton no corresponde
+    Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
+    Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
+    Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
+
+Test 6 - Excencion Impuesto de Sellos: se selecciona la opcion "informar contribuyente" [operador mesa]
+    [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso, en este caso "Rechazado"
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test 6 - Excencion Impuesto de Sellos: verificar el estado del tramite (cerrado) [ciudadano] 32
+    [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaOperador}    3    ${tramite}    Cerrado
+
+Test 6 - Excencion Impuesto de Sellos: verificar que el tramite no exista [operador mesa] 33
+    [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 6 - Excencion Impuesto de Sellos: verificar que el tramite no exista [responsable area] 34
+    [Documentation]    Desde resp area, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 6 - Excencion Impuesto de Sellos: verificar que el tramite no exista [Direccion] 35
+    [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 6 - Excencion Impuesto de Sellos: verificar que el tramite no exista [gestion] 36
+    [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 7 - Excencion Impuesto de Sellos: Indicacion del proceso
+    [Documentation]    El proceso que se realiza en el Test 7 es el siguiente:
+    ...    ... crear tramite [ciudadano] -
+    ...    ... enviar a Direccion [operador mesa]
+    ...    ... rechazar [Direccion]
+    ...    ... informar al contribuyente [operador mesa]
+    Asignar Tag Numerado
+    Log To Console    Comentario del proceso
+
+Test 7 - Excencion Impuesto de Sellos: se crea un tramite de Excencion Impuesto de Sellos [ciudadano]
+    [Documentation]    Crear una nueva Excencion Impuesto de Sellos
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
+    Validar y hacer clic en el boton    ${botonNotaFormal}    botonNotaFormal
+    Validar y completar campo    ${asuntoNotaFormal}  Asunto test5    asuntoNotaFormal
+    Validar y completar campo    ${detalleNotaFormal}  Descripcion test5  detalleNotaFormal
+    Validar y completar campo    ${contenidoNotaFormal}  Contenido test5  contenidoNotaFormal
+
+    #Verificar y presionar ítem en lista    ${select}    DNI/CUIT
+    #Choose file    ${InputTypeFile}    ${FILEAgus}
+    #Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+
+    Verificar y presionar ítem en lista    ${select}    Poder/Representación
+    Choose file    ${InputTypeFile}    ${FILEAgus}
+    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
+    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    ${tramite}=    Obtener Numero De Tramite
+    Set Suite Variable    ${tramite}
+
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test 7 - Excencion Impuesto de Sellos: Indicacion del numero de proceso creado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    [Documentation]    Numero del proceso creado: ${tramite}
+    Asignar Tag Numerado
+    Log To Console    Comentario del proceso
+
+Test 7 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendiente) [ciudadano] 4
+    [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
+
+Test 7 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendiente) [operador mesa] 5
+    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
+
+Test 7 - Excencion Impuesto de Sellos: verificar que el tramite no exista [responsable area] 6
+    [Documentation]    Desde resp area, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 7 - Excencion Impuesto de Sellos: verificar que el tramite no exista [Direccion] 7
+    [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 7 - Excencion Impuesto de Sellos: verificar que el tramite no exista [gestion] 8
+    [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 7 - Excencion Impuesto de Sellos: verificar si los botones de acciones son correctos [operador mesa] 1
+    [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
+
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
+
+    Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
+    Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
+    Verificar Boton Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
+
+    Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
+    Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
+    Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
+
+Test 7 - Excencion Impuesto de Sellos: se selecciona la opcion "enviar a Direccion" [operador mesa]
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test 7 - Excencion Impuesto de Sellos: verificar el estado del tramite (en curso) [ciudadano] 11
+    [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
+
+Test 7 - Excencion Impuesto de Sellos: verificar el estado del tramite (asignado) [Direccion] 12
+    [Documentation]    Desde la Direccion, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
+
+Test 7 - Excencion Impuesto de Sellos: verificar el estado del tramite (asignado) [responsable area] 12
+    [Documentation]    Desde resp area, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
+
+Test 7 - Excencion Impuesto de Sellos: verificar que el tramite no exista [operador mesa] 13
+    [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 7 - Excencion Impuesto de Sellos: verificar que el tramite no exista [gestion] 15
+    [Documentation]    Desde el gestion, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 7 - Excencion Impuesto de Sellos: verificar si los botones de acciones son correctos [Direccion] 2
+    [Documentation]    Se ingresa como Direccion y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
+
+    Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
+    Verificar Boton Sin Fallar  ${paraResolver}  boton para resolver
+
+    Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
+    Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
+    Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
+    Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
+
+Test 7 - Excencion Impuesto de Sellos: se selecciona la opcion "rechazar" [Direccion]
+    [Documentation]    Entra como Direccion para continuar con el proceso, utilizando la opcion "rechazar" enviandolo hacia Gestion
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonRechazar}    rechazar
+    Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test 7 - Excencion Impuesto de Sellos: verificar el estado del tramite (resuelto) [ciudadano] 25
+    [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
+
+Test 7 - Excencion Impuesto de Sellos: verificar el estado del tramite (rechazado) [operador mesa] 26
+    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Rechazado
+
+Test 7 - Excencion Impuesto de Sellos: verificar que el tramite no exista [responsable area] 27
+    [Documentation]    Desde resp area, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 7 - Excencion Impuesto de Sellos: verificar que el tramite no exista [Direccion] 28
+    [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 7 - Excencion Impuesto de Sellos: verificar que el tramite no exista [gestion] 29
+    [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 7 - Excencion Impuesto de Sellos: verificar si los botones de acciones son correctos [operador mesa] 4
+    [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
+
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=${mensajeSeleccioneUnaAccionParaContinuar}
+
+    Verificar Boton Sin Fallar  ${informarContribuyente}  boton informar al contribuyente
+
+    Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
+    Verificar si el boton no existe Sin Fallar  ${botonNoCorresponde}  boton no corresponde
+    Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
+    Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
+    Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
+
+Test 7 - Excencion Impuesto de Sellos: se selecciona la opcion "informar contribuyente" [operador mesa]
+    [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso, en este caso "Rechazado"
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test 7 - Excencion Impuesto de Sellos: verificar el estado del tramite (cerrado) [ciudadano] 32
+    [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaOperador}    3    ${tramite}    Cerrado
+
+Test 7 - Excencion Impuesto de Sellos: verificar que el tramite no exista [operador mesa] 33
+    [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 7 - Excencion Impuesto de Sellos: verificar que el tramite no exista [responsable area] 34
+    [Documentation]    Desde resp area, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 7 - Excencion Impuesto de Sellos: verificar que el tramite no exista [Direccion] 35
+    [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 7 - Excencion Impuesto de Sellos: verificar que el tramite no exista [gestion] 36
+    [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
