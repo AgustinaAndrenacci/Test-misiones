@@ -43,7 +43,7 @@ Test 2 - Excencion Impuesto Provincial Automotor: crear tramite [ciudadano]
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonExencionImpuestoProvincialAutomotor}    ${botonExencionImpuestoProvincialAutomotor}
+    Validar y hacer clic en el boton    ${botonExencionImpuestoProvincialAutomotor}    botonExencionImpuestoProvincialAutomotor
     Validar y completar campo    ${asuntoExencionImpuestoProvincialAutomotor}  Asunto test2    asuntoExencionImpuestoProvincialAutomotor
     Validar y completar campo    ${detalleExencionImpuestoProvincialAutomotor}  Descripcion test2  detalleExencionImpuestoProvincialAutomotor
     Validar y completar campo    ${contenidoExencionImpuestoProvincialAutomotor}  Contenido test2  contenidoExencionImpuestoProvincialAutomotor
@@ -108,7 +108,7 @@ Test 3 - Excencion Impuesto Provincial Automotor: Se crea un tramite de Excencio
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonExencionImpuestoProvincialAutomotor}    ${botonExencionImpuestoProvincialAutomotor}
+    Validar y hacer clic en el boton    ${botonExencionImpuestoProvincialAutomotor}    botonExencionImpuestoProvincialAutomotor
     Validar y completar campo    ${asuntoExencionImpuestoProvincialAutomotor}  Asunto test3    asuntoExencionImpuestoProvincialAutomotor
     Validar y completar campo    ${detalleExencionImpuestoProvincialAutomotor}  Descripcion test3  detalleExencionImpuestoProvincialAutomotor
     Validar y completar campo    ${contenidoExencionImpuestoProvincialAutomotor}  Contenido test3  contenidoExencionImpuestoProvincialAutomotor
@@ -179,7 +179,7 @@ Test 4 - Excencion Impuesto Provincial Automotor: se crea un tramite de norta fo
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonExencionImpuestoProvincialAutomotor}    ${botonExencionImpuestoProvincialAutomotor}
+    Validar y hacer clic en el boton    ${botonExencionImpuestoProvincialAutomotor}    botonExencionImpuestoProvincialAutomotor
     Validar y completar campo    ${asuntoExencionImpuestoProvincialAutomotor}  Asunto test4    asuntoExencionImpuestoProvincialAutomotor
     Validar y completar campo    ${detalleExencionImpuestoProvincialAutomotor}  Descripcion test4  detalleExencionImpuestoProvincialAutomotor
     Validar y completar campo    ${contenidoExencionImpuestoProvincialAutomotor}  Contenido test4  contenidoExencionImpuestoProvincialAutomotor
@@ -223,7 +223,7 @@ Test 4 - Excencion Impuesto Provincial Automotor: se selecciona la opcion "envia
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarASecretaria
     Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -265,7 +265,7 @@ Test 4 - Excencion Impuesto Provincial Automotor: se selecciona la opcion "envia
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarASecretaria
     Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -350,7 +350,7 @@ Test 5 - Excencion Impuesto Provincial Automotor: se crea un tramite de Excencio
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonExencionImpuestoProvincialAutomotor}    ${botonExencionImpuestoProvincialAutomotor}
+    Validar y hacer clic en el boton    ${botonExencionImpuestoProvincialAutomotor}    botonExencionImpuestoProvincialAutomotor
     Validar y completar campo    ${asuntoExencionImpuestoProvincialAutomotor}  Asunto test5    asuntoExencionImpuestoProvincialAutomotor
     Validar y completar campo    ${detalleExencionImpuestoProvincialAutomotor}  Descripcion test5  detalleExencionImpuestoProvincialAutomotor
     Validar y completar campo    ${contenidoExencionImpuestoProvincialAutomotor}  Contenido test5  contenidoExencionImpuestoProvincialAutomotor
@@ -399,7 +399,7 @@ Test 5 - Excencion Impuesto Provincial Automotor: se selecciona la opcion "envia
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarSecretaria}    enviarASecretaria
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarASecretaria
     Validar y completar campo    ${campoComentario}    Enviar a Secretaria    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.

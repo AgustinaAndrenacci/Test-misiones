@@ -1,58 +1,132 @@
-***Settings***
+*** Settings ***
 Library    SeleniumLibrary
 Library    String
 Library    Collections
 Library    BuiltIn
+Library    DateTime
+Library    OperatingSystem
+Library    Dialogs
 
 *** Keywords ***
+Verificar los botones de acciones [operador mesa] - instancia 1
+    Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
+    Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
+    Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
 
-Admin Crear Usuario
-    Validar y hacer clic en el boton  ${botonCrearUsuario}  No se encontro el boton
-    Validar y hacer clic en el boton  ${botonAgregarUsuario}  No se encontro el boton
-    Validar y completar campo  id:nombreInput    lmtin  El campo no se encontro visible
-    Completar campo  id:emailInput    lmtin@gmail.com
-    Completar campo  id:passwordInput    1234
-    Verificar y presionar ítem en lista  tipoUsuario    Administrador
-    Verificar y presionar ítem en lista  permisos[]    Hospitales
-    Validar y hacer clic en el boton  ${botonAgregarUsuario}  No se encontro el boton
+    Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
+    Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
+    Verificar Boton Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
+
+Verificar los botones de acciones [direccion] - instancia 1
+    Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
+    Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
+    Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
+
+    Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
+    Verificar Boton Sin Fallar  ${paraResolver}  boton para resolver
+    Verificar Boton Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar Boton Sin Fallar  ${botonRechazar}  boton rechazar
+
+Verificar los botones de acciones [gestion] - instancia 1
+    Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
+    Verificar si el boton no existe Sin Fallar  ${botonNoCorresponde}  boton no corresponde
+    Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
+    Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
+    Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
+
+    Verificar Boton Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar Boton Sin Fallar  ${botonRechazar}  boton rechazar
+
+Verificar los botones de acciones [operador mesa] - instancia 2
+    Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
+    Verificar si el boton no existe Sin Fallar  ${botonNoCorresponde}  boton no corresponde
+    Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
+    Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
+    Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
+
+    Verificar Boton Sin Fallar  ${informarContribuyente}  boton informar al contribuyente
+
+#------------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------------
+
+#FALTA! - corregir porque va a introducirse un cambio con respecto al comentario
+Se selecciona X accion
+    [Arguments]    ${btn}    ${nombreBoton}
+    Validar y hacer clic en el boton    ${btn}    ${nombreBoton}
+    Validar y completar campo    ${campoComentario}    ${nombreBoton}    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+
+Se selecciona X accion con estado final
+    [Arguments]    ${btn}    ${nombreBoton}
+    Validar y hacer clic en el boton    ${btn}    ${nombreBoton}
+    Element Should Be Visible    ${campoComentario}
+    Element Should Be Disabled    ${campoComentario}
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+
+#------------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------------
+
+Inicio sesion y verificacion de texto inicial - ciudadano
+    [arguments]    ${user}    ${pasw}    ${elemento}
+    Iniciar sesion  ${user}  ${pasw}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${elemento}
+
+Inicio sesion y verificacion de texto inicial - operador
+    [arguments]    ${user}    ${pasw}    ${elemento}
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${user}  ${pasw}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    ${elemento}
+
+Crear tramite para X tipo
+    [Arguments]    ${tipoTramite}    ${campoAsunto}    ${campoDetalle}    ${campoContenido}    ${file}
+    Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
+    Validar y hacer clic en el boton    ${tipoTramite}    ${tipoTramite}
+    Validar y completar campo    ${campoAsunto}  Asunto test2    asunto
+    Validar y completar campo    ${campoDetalle}  Descripcion test2  detalle
+    Validar y completar campo    ${campoContenido}  Contenido test2  contenido
+    Verificar y presionar ítem en lista index    ${select}    1
+    Choose file    ${InputTypeFile}    ${file}
+    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
+    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+Agregar documentacion complementaria
+    [Arguments]    ${archivo}    ${tipo}
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Choose file    ${inputFileUpload}    ${archivo}
+    Validar y completar campo    ${campoDescripcion}    archivo ${tipo}    descripcion
+    Validar y hacer clic en el boton    ${botonSubirDocumento}   boton subir documento
+    Verificar Y Esperar Visibilidad De Elemento    El documento se ha agregado correctamente al trámite.
 
 
-Admin Crear Proveedor
-    Validar y hacer clic en el boton  ${botonProveedor}  No se encontro el boton
-    Validar y hacer clic en el boton  ${botonCrearProveedores}  No se encontro el boton
-    Validar y completar campo  id:cuitInput  20123412349  No se encontro el campo
-    Validar y completar campo  id:razonSocialInput  Leandro Martin  No se encontro el campo
-    Validar y completar campo  id:cbuInput    12341234  No se encontro el campo
-    Validar y completar campo  id:idExternoInput  12345  No se encontro el campo
-    Verificar y presionar ítem en lista  id:tipoPrestadorSelect  OTRO
-    Validar y completar campo  id:codigoHospitalInput  123  No se encontro el campo
-    Validar y hacer clic en el boton  ${botonAgregarProveedores}  No se encontro el boton
-
-Buscar y Eliminar Usuario
-    Validar y completar campo  id:filterEmailInput    lmtin@gmail.com  Filter Email
-    Verificar y presionar ítem en lista  id:filterTypeSelect    Administrador
-    Validar y hacer clic en el boton  ${botonBuscarUsuario}  Buscar Usuario
-    Validar y hacer clic en el boton  xpath://*[@id="todosUsuariosBody"]/tr/td[6]/div/button[2]  No se encontro el boton
-    Validar y hacer clic en el boton  xpath://button[text()='Sí, eliminar']  Sí, eliminar
-    Validar y hacer clic en el boton  xpath://button[text()='OK']  OK
-    Validar y hacer clic en el boton  ${botonLimpiarUsuario}  Limpiar Usuario
 
 
-Buscar y Eleminar Proveedor
-    [Arguments]    ${id}    ${item}
-    Validar y completar campo  ${id}  ${item}  ${id}
-    Validar y hacer clic en el boton  ${botonBuscarProveedores}  buscarProveedores
-    Validar y hacer clic en el boton  xpath://*[@id="todosProveedoresBody"]/tr/td[6]/div/button[2]  Eliminar
-    Validar y hacer clic en el boton  xpath://button[text()='Sí, eliminar']  Sí, eliminar
-    Validar y hacer clic en el boton  xpath://button[text()='OK']  OK
-    Validar y hacer clic en el boton  ${botonLimpiarProveedores}  limpiarProveedores
-    Cerrar Navegador
 
 
-Iniciar E Ingresar a AdministracionHistorial
-    Iniciar sesion  ${user}  ${pass}
-    Validar y hacer clic en la seccion  ${seccionAdministracion}  Seccion no encontrada
-    Validar y hacer clic en el boton  ${botonHistorial}  botonHistorial
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#******************************************************************************************************************
+#******************************************* KEYWORDS DEL PORTAL ****************************************************
+#******************************************************************************************************************
 
 Validar Consistencia Desde DOM
     [Arguments]    ${totalComprobantes}    ${comprobantesARevisar}    ${comprobantesRevisados}    ${comprobantesRechazados}    ${comprobantesObservados}    ${comprobantesReingresados}
@@ -137,11 +211,6 @@ Validar Estados Permitidos
     END
     Run Keyword If    ${errores}    Fail    \nLos siguientes resultados no se encuentran entre los estados permitidos en la validacion. \nEstados invalidos encontrados:${errores} \nEstados permitidos: ${permitidos}
 
-
-Buscar Y Eliminar Comprobante
-    Validar y completar campo    //input[@type='search']    ABIN S.A.    inputBuscar
-    Validar y hacer clic en el boton  //tbody/tr[1]/td[7]/img[5]  Eliminar
-    Handle Alert    action=ACCEPT
 
 Validar Toast O Alerta
     [Arguments]    ${tipo_esperado}    ${mensaje_esperado}    ${modo_validacion}=contiene    ${timeout}=3s    ${normalizar_mensaje}=False

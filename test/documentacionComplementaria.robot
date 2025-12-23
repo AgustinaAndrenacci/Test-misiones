@@ -22,22 +22,8 @@ Test Teardown    Cerrar navegador
 
 Suite Setup    Inicializar Contador
 
-*** Variables ***
-${botonSubirDocCom}    //button[normalize-space()='Subir']
-${subirArchivoDocCom}    //input[@id='file-upload']
-${botonSubirDocumentoDocCom}    //button[normalize-space()='Subir Documento']
-${tramite}    TRAM-0439/2025
-${campoDescripcionDocCom}    //textarea[@id='description']
-${botonCancelarDocCom}    //button[normalize-space()='Cancelar']
-${espacioDeArchivosDocCom}    //div[@class='flex flex-col flex-1']//main
-${botonEliminarDocCom}    //button[@title='Eliminar']
-${botonEliminarDocumentoDocCom}    //button[normalize-space()='Eliminar Documento']
-
-
-
 *** Test Cases ***
 #------------------------------- SUBIR DOCUMENTACION CON CAMPOS INCOMPLETOS -----------------------------------
-
 Test X - Nota formal: agregar documentacion complementaria - intentar subir sin observacion [operador mesa]
     [Documentation]    Entra como operador mesa entrada y se verifica que no se pueda crear la documentacion sin añadir una observacion
     Asignar Tag Numerado
@@ -49,9 +35,9 @@ Test X - Nota formal: agregar documentacion complementaria - intentar subir sin 
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
-    Choose file    ${subirArchivoDocCom}    ${FILEdoc}
-    Element Should Be Disabled    ${botonSubirDocumentoDocCom}
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Choose file    ${inputFileUpload}    ${FILEdocAgus}
+    Element Should Be Disabled    ${botonSubirDocumento}
 
 Test X - Nota formal: agregar documentacion complementaria - intentar subir sin archivo [operador mesa]
     [Documentation]    Entra como operador mesa entrada y se verifica que no se pueda crear la documentacion sin añadir un archivo
@@ -64,9 +50,9 @@ Test X - Nota formal: agregar documentacion complementaria - intentar subir sin 
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
-    Validar y completar campo    ${campoDescripcionDocCom}    archivo doc    descripcion
-    Element Should Be Disabled    ${botonSubirDocumentoDocCom}
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Validar y completar campo    ${campoDescripcion}    archivo doc    descripcion
+    Element Should Be Disabled    ${botonSubirDocumento}
 
 #---------------------- NO SE SUBE LA DOCUMENTACION PORQUE SE PRESIONA EL BOTON CANCELAR -----------------------
 
@@ -81,11 +67,11 @@ Test X - Nota formal: agregar documentacion complementaria - intentar que no se 
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
-    Choose file    ${subirArchivoDocCom}    ${FILEdoc}
-    Validar y completar campo    ${campoDescripcionDocCom}    archivo doc    descripcion
-    Validar y hacer clic en el boton    ${botonCancelarDocCom}   boton subir documento
-    Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${doc}
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Choose file    ${inputFileUpload}    ${FILEdocAgus}
+    Validar y completar campo    ${campoDescripcion}    archivo doc    descripcion
+    Validar y hacer clic en el boton    ${botonCancelar}   boton subir documento
+    Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${docAgus}
 
 #------------------------- SE SUBE Y ELIMINA (ADEMÁS DEL CANCELAR) UNA DOC. COMPLEMENTARIA ---------------------
 #Subir y borrar un archivo
@@ -100,12 +86,7 @@ Test X - Nota formal: se agrega documentacion complementaria - [operador mesa]
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
-    Choose file    ${subirArchivoDocCom}    ${FILEdoc}
-    Validar y completar campo    ${campoDescripcionDocCom}    archivo doc    descripcion
-    Validar y hacer clic en el boton    ${botonSubirDocumentoDocCom}   boton subir documento
-    Verificar Y Esperar Visibilidad De Elemento    El documento se ha agregado correctamente al trámite.
-    #Condicion para los proximos test
+    Agregar documentacion complementaria    ${FILEdocAgus}  doc
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test X - Nota formal: no se elimina la documentacion complementaria - [operador mesa]
@@ -119,9 +100,9 @@ Test X - Nota formal: no se elimina la documentacion complementaria - [operador 
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonEliminarDocCom}   boton eliminar
-    Validar y hacer clic en el boton    ${botonCancelarDocCom}   boton cancelar
-    Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${doc}
+    Validar y hacer clic en el boton    ${botonEliminarDocumentacion}   boton eliminar
+    Validar y hacer clic en el boton    ${botonCancelar}   boton cancelar
+    Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${docAgus}
 
 Test X - Nota formal: se elimina la documentacion complementaria - [operador mesa]
     [Documentation]    Entra como operador mesa entrada y elimina la documentacion complementaria agregada
@@ -134,8 +115,8 @@ Test X - Nota formal: se elimina la documentacion complementaria - [operador mes
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonEliminarDocCom}   boton eliminar
-    Validar y hacer clic en el boton    ${botonEliminarDocumentoDocCom}   boton eliminar documento
+    Validar y hacer clic en el boton    ${botonEliminarDocumentacion}   boton eliminar
+    Validar y hacer clic en el boton    ${EliminarDocumento}   boton eliminar documento
     Verificar Y Esperar Visibilidad De Elemento    El documento se ha eliminado correctamente.
 
 Test X - Nota formal: verificacion de documentacion complementaria eliminada - archivo: doc [operador mesa]
@@ -149,7 +130,7 @@ Test X - Nota formal: verificacion de documentacion complementaria eliminada - a
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${doc}
+    Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${docAgus}
 
 #--------------------------  SE PRUEBA LA SUBIDA DE DIFERENTES TIPOS DE ARCHIVOS ---------------------------------
 #////////Doc
@@ -164,12 +145,7 @@ Test X - Nota formal: se agrega documentacion complementaria - archivo: doc [ope
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
-    Choose file    ${subirArchivoDocCom}    ${FILEdoc}
-    Validar y completar campo    ${campoDescripcionDocCom}    archivo doc    descripcion
-    Validar y hacer clic en el boton    ${botonSubirDocumentoDocCom}   boton subir documento
-    Verificar Y Esperar Visibilidad De Elemento    El documento se ha agregado correctamente al trámite.
-    #Condicion para los proximos test
+    Agregar documentacion complementaria    ${FILEdocAgus}  doc
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test X - Nota formal: verificacion de documentacion complementaria - archivo: doc [operador mesa]
@@ -183,7 +159,7 @@ Test X - Nota formal: verificacion de documentacion complementaria - archivo: do
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${doc}
+    Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${docAgus}
 
 #--------------------------------------------------------------------------------------------------------
 #////////Excel
@@ -198,10 +174,7 @@ Test X - Nota formal: se agrega documentacion complementaria - archivo incorrect
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
-    Choose file    ${subirArchivoDocCom}    ${FILEexc}
-    Validar y completar campo    ${campoDescripcionDocCom}    archivo excel    descripcion
-    Element Should Be Disabled    ${botonSubirDocumentoDocCom}
+    Agregar documentacion complementaria    ${FILEexcAgus}  excel
     #Condicion para los proximos test
     #[Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -216,7 +189,7 @@ Test X - Nota formal: verificacion de documentacion complementaria - archivo: ex
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${exc}
+    Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${excAgus}
 
 #------------------------------------------------------------------------------------------------------
 #////////Png
@@ -231,11 +204,7 @@ Test X - Nota formal: se agrega documentacion complementaria - archivo: png [ope
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
-    Choose file    ${subirArchivoDocCom}    ${FILEpng}
-    Validar y completar campo    ${campoDescripcionDocCom}    archivo png    descripcion
-    Validar y hacer clic en el boton    ${botonSubirDocumentoDocCom}   boton subir documento
-    Verificar Y Esperar Visibilidad De Elemento    El documento se ha agregado correctamente al trámite.
+    Agregar documentacion complementaria    ${FILEpngAgus}  png
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -250,7 +219,7 @@ Test X - Nota formal: verificacion de documentacion complementaria - archivo: pn
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${png}
+    Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${pngAgus}
 
 #-----------------------------------------------------------------------------------------------
 #////////Jpeg
@@ -265,11 +234,7 @@ Test X - Nota formal: se agrega documentacion complementaria - archivo: jpeg [op
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
-    Choose file    ${subirArchivoDocCom}    ${FILEjpeg}
-    Validar y completar campo    ${campoDescripcionDocCom}    archivo jpeg    descripcion
-    Validar y hacer clic en el boton    ${botonSubirDocumentoDocCom}   boton subir documento
-    Verificar Y Esperar Visibilidad De Elemento    El documento se ha agregado correctamente al trámite.
+    Agregar documentacion complementaria    ${FILEjpegAgus}  jpeg
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -284,7 +249,7 @@ Test X - Nota formal: verificacion de documentacion complementaria - archivo: jp
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${jpeg}
+    Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${jpegAgus}
 
 #--------------------------------------------------------------------------------------------------------
 #////////Pdf
@@ -299,11 +264,7 @@ Test X - Nota formal: se agrega documentacion complementaria - archivo: pdf [ope
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonSubirDocCom}    boton subir
-    Choose file    ${subirArchivoDocCom}    ${FILEpdf}
-    Validar y completar campo    ${campoDescripcionDocCom}    archivo pdf    descripcion
-    Validar y hacer clic en el boton    ${botonSubirDocumentoDocCom}   boton subir documento
-    Verificar Y Esperar Visibilidad De Elemento    El documento se ha agregado correctamente al trámite.
+    Agregar documentacion complementaria    ${FILEpdfAgus}  pdf
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -319,6 +280,6 @@ Test X - Nota formal: verificacion de documentacion complementaria - archivo: pd
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${pdf}
+    Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${pdfAgus}
 
 
