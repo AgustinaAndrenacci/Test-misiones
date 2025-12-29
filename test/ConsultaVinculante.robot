@@ -306,6 +306,7 @@ Test 2 - Consulta Vinculante: el ciudadano avanza en el tramite [ciudadano] Paso
     Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
     Validar y hacer clic en el boton    ${botonResponder}    botonResponder
     Validar y completar campo    ${campoComentario}    Respuesta del Ciudadano    campoComentario
+    Choose file    ${botonSeleccionarArchivos}    ${FILE}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Validar y hacer clic en el boton    ${botonEjecutarAccion}    botonEjecutarAccion
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
