@@ -460,7 +460,6 @@ Test 2 - Nota formal: verificar que el tramite no exista [gestion] 15
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
-
 Test 2 - Nota formal: se responde [ciudadano]
     [Documentation]    Desde el ciudadano, se responde con los archivos necesarios para el operador
     Asignar Tag Numerado
