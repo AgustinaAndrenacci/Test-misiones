@@ -28,6 +28,18 @@ ${UPLOAD_TEMPLOS}    xpath=//h4[contains(text(), 'Inmuebles destinados a templos
 
 ***Test Cases***
 
+#-------INDICACION DE TESTS-------
+
+#Test 1: Crear Tramite Como Borrador
+#Test 2: Solicitar Datos Adicionales
+#Test 3: No Corresponde [Operador Mesa]
+#Test 4: Devuelto a Mesa de Entrada
+#Test 5: Rechazado desde Gestion
+#Test 6: Aprobado desde Gestion
+#Test 7: Rechazado desde Direccion
+#Test 8: Aprobado desde Direccion
+
+
 Test 1 - ExencionImpuestoInmobiliarioBasico: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 1 es el siguiente:
     ...    ... crear tramite como borrador [ciudadano]
@@ -300,6 +312,8 @@ Test 2 - ExencionImpuestoInmobiliarioBasico: el ciudadano avanza en el tramite [
     Validar y hacer clic en el boton    ${botonResponder}    botonResponder
     Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
     Validar y hacer clic en el boton    ${botonResponder}    botonResponder
+    Validar y completar campo    ${campoComentario}    Respuesta del Ciudadano    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Validar y hacer clic en el boton    ${botonEjecutarAccion}    botonEjecutarAccion
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
 

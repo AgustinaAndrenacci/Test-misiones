@@ -23,6 +23,17 @@ Test Teardown    Cerrar navegador
 #Suite Setup    Inicializar Contador
 
 ***Test Cases***
+#-------INDICACION DE TESTS-------
+
+#Test 1: Crear Tramite Como Borrador
+#Test 2: Solicitar Datos Adicionales
+#Test 3: No Corresponde [Operador Mesa]
+#Test 4: Devuelto a Mesa de Entrada
+#Test 5: Rechazado desde Gestion
+#Test 6: Aprobado desde Gestion
+#Test 7: Rechazado desde Direccion
+#Test 8: Aprobado desde Direccion
+
 
 Test 1 - Consulta Tributaria: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 1 es el siguiente:
