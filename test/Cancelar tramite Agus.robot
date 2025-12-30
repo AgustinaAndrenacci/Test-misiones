@@ -75,6 +75,209 @@ Test 1 /A - Excencion impuesto provincial automotor: Indicacion del numero de pr
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
 
+#------------------------------------ SUBIR DOCUMENTACION COMPLEMENTARIA ---------------------------------------------------------
+
+#-------------------------------   SUBIR DOCUMENTACION CON CAMPOS INCOMPLETOS   -----------------------------------
+Test 1/A - Excencion impuesto provincial automotor: agregar documentacion complementaria - intentar subir documentacion sin completar los campos [operador mesa]
+    [Documentation]    Entra como operador y se verifica que no se pueda crear la documentacion al intentar subir solo archivo o comentaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Choose file    ${inputFileUpload}    ${FILEdocAgus}
+    Element Should Be Disabled    ${botonSubirDocumento}
+    Validar y hacer clic en el boton    ${botonCancelar}   boton cancelar
+
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Validar y completar campo    ${campoDescripcion}    archivo doc    descripcion
+    Element Should Be Disabled    ${botonSubirDocumento}
+    Validar y hacer clic en el boton    ${botonCancelar}   boton cancelar
+
+#----------------------   NO SE SUBE LA DOCUMENTACION PORQUE SE PRESIONA EL BOTON CANCELAR   -----------------------
+Test 1/A - Excencion impuesto provincial automotor: agregar documentacion complementaria - intentar que no se suba debido a que se presiona el boton cancelar [operador mesa]
+    [Documentation]    Entra como operador y se verifica que no se suba la documentacion complementaria debido a que se presiono le boton cancelar en vez de subir
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Choose file    ${inputFileUpload}    ${FILEdocAgus}
+    Validar y completar campo    ${campoDescripcion}    archivo doc    descripcion
+    Validar y hacer clic en el boton    ${botonCancelar}   boton subir documento
+    Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${docAgus}
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Element Attribute Value Should Be    ${campoDescripcion}    value    ${EMPTY}
+    Verificar NO presencia de... con...    //div[@class='p-3 border rounded-lg bg-muted/50']    ${docAgus}
+
+#------------------------- SE SUBE Y ELIMINA (ADEMÁS DEL CANCELAR) UNA DOC. COMPLEMENTARIA ---------------------
+#--------------------------  SE PRUEBA LA SUBIDA DE DIFERENTES TIPOS DE ARCHIVOS ---------------------------------
+#////////Doc
+#Subir y borrar un archivo
+Test 1/A - Excencion impuesto provincial automotor: se agrega documentacion complementaria - [operador mesa]
+    [Documentation]    Entra como operador y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Agregar documentacion complementaria    ${FILEdocAgus}  doc
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test 1/A - Excencion impuesto provincial automotor: se elimina la documentacion complementaria - [operador mesa]
+    [Documentation]    Entra como operador y cuando se quiere eliminar la documentacion complementaria agregada, se presiona el boton cancelar, luego se elimina
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonEliminarDocumentacion}   boton eliminar
+    Validar y hacer clic en el boton    ${botonCancelar}   boton cancelar
+    Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${docAgus}
+
+    Validar y hacer clic en el boton    ${botonEliminarDocumentacion}   boton eliminar
+    Validar y hacer clic en el boton    ${EliminarDocumento}   boton eliminar documento
+    Verificar Y Esperar Visibilidad De Elemento    El documento se ha eliminado correctamente.
+
+#--------------------------------------------------------------------------------------------------------
+#////////Excel
+Test 1/A - Excencion impuesto provincial automotor: se agrega documentacion complementaria - archivo incorrecto: excel [operador mesa]
+    [Documentation]    Entra como operador y agrega documentacion complementaria de un archivo que no seria valido
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Agregar documentacion complementaria    ${FILEexcAgus}  excel
+    #Condicion para los proximos test
+    #[Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test 1/A - Excencion impuesto provincial automotor: verificacion de documentacion complementaria - archivo: excel [operador mesa]
+    [Documentation]    Entra como operador y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque no se se subio la documentacion complementaria en el test anterior
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${excAgus}
+
+#------------------------------------------------------------------------------------------------------
+#////////Png
+Test 1/A - Excencion impuesto provincial automotor: se agrega documentacion complementaria - archivo: png [operador mesa]
+    [Documentation]    Entra como operador y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Agregar documentacion complementaria    ${FILEpngAgus}  png
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test 1/A - Excencion impuesto provincial automotor: verificacion de documentacion complementaria - archivo: png [operador mesa]
+    [Documentation]    Entra como operador y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque no se se subio la documentacion complementaria en el test anterior
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${pngAgus}
+
+#-----------------------------------------------------------------------------------------------
+#////////Jpeg
+Test 1/A - Excencion impuesto provincial automotor: se agrega documentacion complementaria - archivo: jpeg [operador mesa]
+    [Documentation]    Entra como operador y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Agregar documentacion complementaria    ${FILEjpegAgus}  jpeg
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test 1/A - Excencion impuesto provincial automotor: verificacion de documentacion complementaria - archivo: jpeg [operador mesa]
+    [Documentation]    Entra como operador y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque no se se subio la documentacion complementaria en el test anterior
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${jpegAgus}
+
+#--------------------------------------------------------------------------------------------------------
+#////////Pdf
+Test 1/A - Excencion impuesto provincial automotor: se agrega documentacion complementaria - archivo: pdf [operador mesa]
+    [Documentation]    Entra como operador y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Agregar documentacion complementaria    ${FILEpdfAgus}  pdf
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+#cambiar porque no funciona
+Test 1/A - Excencion impuesto provincial automotor: verificacion de documentacion complementaria - archivo: pdf [operador mesa]
+    [Documentation]    Entra como operador y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque no se se subio la documentacion complementaria en el test anterior
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${pdfAgus}
+
 #-------------------------------------------------- BOTON CANCELAR TRAMITE ------------------------------------------
 Test 1 / A - Excencion impuesto provincial automotor: cancelar tramite desde adentro del tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se cancela el tramite presionando el boton "cancelar tramite"
@@ -721,6 +924,88 @@ Test 3 / A - Excencion impuesto provincial automotor: se selecciona la opcion "e
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
+#------------------------------------ SUBIR DOCUMENTACION COMPLEMENTARIA ---------------------------------------------------------
+
+#-------------------------------   SUBIR DOCUMENTACION CON CAMPOS INCOMPLETOS   -----------------------------------
+Test 3/A - Excencion impuesto provincial automotor: agregar documentacion complementaria - intentar subir documentacion sin completar los campos [direccion]
+    [Documentation]    Entra como operador y se verifica que no se pueda crear la documentacion al intentar subir solo archivo o comentaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Choose file    ${inputFileUpload}    ${FILEdocAgus}
+    Element Should Be Disabled    ${botonSubirDocumento}
+    Validar y hacer clic en el boton    ${botonCancelar}   boton cancelar
+
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Validar y completar campo    ${campoDescripcion}    archivo doc    descripcion
+    Element Should Be Disabled    ${botonSubirDocumento}
+    Validar y hacer clic en el boton    ${botonCancelar}   boton cancelar
+
+#----------------------   NO SE SUBE LA DOCUMENTACION PORQUE SE PRESIONA EL BOTON CANCELAR   -----------------------
+Test 3/A - Excencion impuesto provincial automotor: agregar documentacion complementaria - intentar que no se suba debido a que se presiona el boton cancelar [direccion]
+    [Documentation]    Entra como operador y se verifica que no se suba la documentacion complementaria debido a que se presiono le boton cancelar en vez de subir
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Choose file    ${inputFileUpload}    ${FILEdocAgus}
+    Validar y completar campo    ${campoDescripcion}    archivo doc    descripcion
+    Validar y hacer clic en el boton    ${botonCancelar}   boton subir documento
+    Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${docAgus}
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Element Attribute Value Should Be    ${campoDescripcion}    value    ${EMPTY}
+    Verificar NO presencia de... con...    //div[@class='p-3 border rounded-lg bg-muted/50']    ${docAgus}
+
+#------------------------- SE SUBE Y ELIMINA (ADEMÁS DEL CANCELAR) UNA DOC. COMPLEMENTARIA ---------------------
+#--------------------------  SE PRUEBA LA SUBIDA DE DIFERENTES TIPOS DE ARCHIVOS ---------------------------------
+#////////Doc
+#Subir y borrar un archivo
+Test 3/A - Excencion impuesto provincial automotor: se agrega documentacion complementaria - [direccion]
+    [Documentation]    Entra como operador y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Agregar documentacion complementaria    ${FILEdocAgus}  doc
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test 3/A - Excencion impuesto provincial automotor: se elimina la documentacion complementaria - [direccion]
+    [Documentation]    Entra como operador y cuando se quiere eliminar la documentacion complementaria agregada, se presiona el boton cancelar, luego se elimina
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonEliminarDocumentacion}   boton eliminar
+    Validar y hacer clic en el boton    ${botonCancelar}   boton cancelar
+    Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${docAgus}
+
+    Validar y hacer clic en el boton    ${botonEliminarDocumentacion}   boton eliminar
+    Validar y hacer clic en el boton    ${EliminarDocumento}   boton eliminar documento
+    Verificar Y Esperar Visibilidad De Elemento    El documento se ha eliminado correctamente.
+
 #-------------------------------------------------- BOTON CANCELAR TRAMITE ------------------------------------------
 #///////Ver si los botones se bloquearon
 Test 3 / A - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
@@ -788,6 +1073,84 @@ Test 4 / A- Excencion impuesto provincial automotor: se selecciona la opcion "no
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+#------------------------------------ SUBIR DOCUMENTACION COMPLEMENTARIA ---------------------------------------------------------
+
+#-------------------------------   SUBIR DOCUMENTACION CON CAMPOS INCOMPLETOS   -----------------------------------
+Test 4/A - Excencion impuesto provincial automotor: agregar documentacion complementaria - intentar subir documentacion sin completar los campos [operador mesa]
+    [Documentation]    Entra como operador y se verifica que no se pueda crear la documentacion al intentar subir solo archivo o comentaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Choose file    ${inputFileUpload}    ${FILEdocAgus}
+    Element Should Be Disabled    ${botonSubirDocumento}
+    Validar y hacer clic en el boton    ${botonCancelar}   boton cancelar
+
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Validar y completar campo    ${campoDescripcion}    archivo doc    descripcion
+    Element Should Be Disabled    ${botonSubirDocumento}
+    Validar y hacer clic en el boton    ${botonCancelar}   boton cancelar
+
+#----------------------   NO SE SUBE LA DOCUMENTACION PORQUE SE PRESIONA EL BOTON CANCELAR   -----------------------
+Test 4/A - Excencion impuesto provincial automotor: agregar documentacion complementaria - intentar que no se suba debido a que se presiona el boton cancelar [operador mesa]
+    [Documentation]    Entra como operador y se verifica que no se suba la documentacion complementaria debido a que se presiono le boton cancelar en vez de subir
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Choose file    ${inputFileUpload}    ${FILEdocAgus}
+    Validar y completar campo    ${campoDescripcion}    archivo doc    descripcion
+    Validar y hacer clic en el boton    ${botonCancelar}   boton subir documento
+    Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${docAgus}
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Element Attribute Value Should Be    ${campoDescripcion}    value    ${EMPTY}
+    Verificar NO presencia de... con...    //div[@class='p-3 border rounded-lg bg-muted/50']    ${docAgus}
+
+#------------------------- SE SUBE Y ELIMINA (ADEMÁS DEL CANCELAR) UNA DOC. COMPLEMENTARIA ---------------------
+#--------------------------  SE PRUEBA LA SUBIDA DE DIFERENTES TIPOS DE ARCHIVOS ---------------------------------
+
+#--------------------------------------------------------------------------------------------------------
+#////////Excel
+Test 4/A - Excencion impuesto provincial automotor: se agrega documentacion complementaria - archivo incorrecto: excel [operador mesa]
+    [Documentation]    Entra como operador y agrega documentacion complementaria de un archivo que no seria valido
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Agregar documentacion complementaria    ${FILEexcAgus}  excel
+    #Condicion para los proximos test
+    #[Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test 4/A - Excencion impuesto provincial automotor: verificacion de documentacion complementaria - archivo: excel [operador mesa]
+    [Documentation]    Entra como operador y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque no se se subio la documentacion complementaria en el test anterior
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${excAgus}
 
 #-------------------------------------------------- BOTON CANCELAR TRAMITE ------------------------------------------
 #///////Ver si los botones se bloquearon
@@ -962,6 +1325,84 @@ Test 6 / A- Excencion impuesto provincial automotor: se selecciona la opcion "pa
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
+#------------------------------------ SUBIR DOCUMENTACION COMPLEMENTARIA ---------------------------------------------------------
+
+#-------------------------------   SUBIR DOCUMENTACION CON CAMPOS INCOMPLETOS   -----------------------------------
+Test 6/A - Excencion impuesto provincial automotor: agregar documentacion complementaria - intentar subir documentacion sin completar los campos [gestion]
+    [Documentation]    Entra como operador y se verifica que no se pueda crear la documentacion al intentar subir solo archivo o comentaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Choose file    ${inputFileUpload}    ${FILEdocAgus}
+    Element Should Be Disabled    ${botonSubirDocumento}
+    Validar y hacer clic en el boton    ${botonCancelar}   boton cancelar
+
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Validar y completar campo    ${campoDescripcion}    archivo doc    descripcion
+    Element Should Be Disabled    ${botonSubirDocumento}
+    Validar y hacer clic en el boton    ${botonCancelar}   boton cancelar
+
+#----------------------   NO SE SUBE LA DOCUMENTACION PORQUE SE PRESIONA EL BOTON CANCELAR   -----------------------
+Test 6/A - Excencion impuesto provincial automotor: agregar documentacion complementaria - intentar que no se suba debido a que se presiona el boton cancelar [gestion]
+    [Documentation]    Entra como operador y se verifica que no se suba la documentacion complementaria debido a que se presiono le boton cancelar en vez de subir
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Choose file    ${inputFileUpload}    ${FILEdocAgus}
+    Validar y completar campo    ${campoDescripcion}    archivo doc    descripcion
+    Validar y hacer clic en el boton    ${botonCancelar}   boton subir documento
+    Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${docAgus}
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Element Attribute Value Should Be    ${campoDescripcion}    value    ${EMPTY}
+    Verificar NO presencia de... con...    //div[@class='p-3 border rounded-lg bg-muted/50']    ${docAgus}
+
+#------------------------- SE SUBE Y ELIMINA (ADEMÁS DEL CANCELAR) UNA DOC. COMPLEMENTARIA ---------------------
+#--------------------------  SE PRUEBA LA SUBIDA DE DIFERENTES TIPOS DE ARCHIVOS ---------------------------------
+
+#------------------------------------------------------------------------------------------------------
+#////////Png
+Test 6/A - Excencion impuesto provincial automotor: se agrega documentacion complementaria - archivo: png [gestion]
+    [Documentation]    Entra como operador y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Agregar documentacion complementaria    ${FILEpngAgus}  png
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test 6/A - Excencion impuesto provincial automotor: verificacion de documentacion complementaria - archivo: png [gestion]
+    [Documentation]    Entra como operador y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque no se se subio la documentacion complementaria en el test anterior
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${pngAgus}
+
 #-------------------------------------------------- BOTON CANCELAR TRAMITE ------------------------------------------
 #///////Ver si los botones se bloquearon
 Test 6 / A - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
@@ -1029,6 +1470,83 @@ Test 7 /A- Excencion impuesto provincial automotor: se selecciona la opcion "apr
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+#------------------------------------ SUBIR DOCUMENTACION COMPLEMENTARIA ---------------------------------------------------------
+
+#-------------------------------   SUBIR DOCUMENTACION CON CAMPOS INCOMPLETOS   -----------------------------------
+Test 7/A - Excencion impuesto provincial automotor: agregar documentacion complementaria - intentar subir documentacion sin completar los campos [operador mesa]
+    [Documentation]    Entra como operador y se verifica que no se pueda crear la documentacion al intentar subir solo archivo o comentaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Choose file    ${inputFileUpload}    ${FILEdocAgus}
+    Element Should Be Disabled    ${botonSubirDocumento}
+    Validar y hacer clic en el boton    ${botonCancelar}   boton cancelar
+
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Validar y completar campo    ${campoDescripcion}    archivo doc    descripcion
+    Element Should Be Disabled    ${botonSubirDocumento}
+    Validar y hacer clic en el boton    ${botonCancelar}   boton cancelar
+
+#----------------------   NO SE SUBE LA DOCUMENTACION PORQUE SE PRESIONA EL BOTON CANCELAR   -----------------------
+Test 7/A - Excencion impuesto provincial automotor: agregar documentacion complementaria - intentar que no se suba debido a que se presiona el boton cancelar [operador mesa]
+    [Documentation]    Entra como operador y se verifica que no se suba la documentacion complementaria debido a que se presiono le boton cancelar en vez de subir
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Choose file    ${inputFileUpload}    ${FILEdocAgus}
+    Validar y completar campo    ${campoDescripcion}    archivo doc    descripcion
+    Validar y hacer clic en el boton    ${botonCancelar}   boton subir documento
+    Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${docAgus}
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Element Attribute Value Should Be    ${campoDescripcion}    value    ${EMPTY}
+    Verificar NO presencia de... con...    //div[@class='p-3 border rounded-lg bg-muted/50']    ${docAgus}
+
+#------------------------- SE SUBE Y ELIMINA (ADEMÁS DEL CANCELAR) UNA DOC. COMPLEMENTARIA ---------------------
+#--------------------------  SE PRUEBA LA SUBIDA DE DIFERENTES TIPOS DE ARCHIVOS ---------------------------------
+#-----------------------------------------------------------------------------------------------
+#////////Jpeg
+Test 7/A - Excencion impuesto provincial automotor: se agrega documentacion complementaria - archivo: jpeg [operador mesa]
+    [Documentation]    Entra como operador y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Agregar documentacion complementaria    ${FILEjpegAgus}  jpeg
+    #Condicion para los proximos test
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
+
+Test 7/A - Excencion impuesto provincial automotor: verificacion de documentacion complementaria - archivo: jpeg [operador mesa]
+    [Documentation]    Entra como operador y agrega documentacion complementaria
+    Asignar Tag Numerado
+    #Si fallo lo anterior
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque no se se subio la documentacion complementaria en el test anterior
+    #Sino corre
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${jpegAgus}
 
 #-------------------------------------------------- BOTON CANCELAR TRAMITE ------------------------------------------
 #///////Ver si los botones se bloquearon
