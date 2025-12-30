@@ -22,6 +22,14 @@ Test Teardown    Cerrar navegador
 
 #Suite Setup    Inicializar Contador
 
+*** Variables ***
+
+${NroExpediente}    //input[@placeholder='Ej: 001234/2025']
+${botonAprobarInformarAlContribuyente}    //h4[normalize-space()='Aprobar e Informar al Contribuyente']
+${botonRechazarInformarAlContribuyente}    //h4[normalize-space()='Rechazar e Informar al Contribuyente']
+${botonAsignarse}    //h4[normalize-space()='Asignarse']
+
+
 ***Test Cases***
 #-------INDICACION DE TESTS-------
 
@@ -604,6 +612,13 @@ Test 4 - Consulta Tributaria Devuelto a Mesa de Entrada [operador mesa] Paso 2
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+    Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
+    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -752,6 +767,13 @@ Test 4 - Consulta Tributaria Devuelto a Mesa de Entrada [operador mesa] Paso 4
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+    Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
+    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+
     Validar y completar campo    ${campoComentario}    Enviar a Direccion, todo ok    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -1092,6 +1114,13 @@ Test 5 - Consulta Tributaria Rechazado desde Gestion [operador mesa] Paso 2
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+    Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
+    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -1442,6 +1471,13 @@ Test 6 - Consulta Tributaria Correcta [operador mesa] Paso 2
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+    Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
+    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -1780,6 +1816,13 @@ Test 7 - Consulta Tributaria Rechazado desde Direccion [operador mesa] Paso 2
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+    Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
+    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -2050,6 +2093,13 @@ Test 8 - Consulta Tributaria Aprobado desde Direccion [operador mesa] Paso 2
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+    Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
+    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -2129,7 +2179,7 @@ Test 8 - Consulta Tributaria Aprobado desde Direccion [Direccion] Paso 4
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
 
-Test 6 - Consulta Tributaria Correcta Chequear Estado Desde Usuario [ciudadano] Paso 4
+Test 8 - Consulta Tributaria Correcta Chequear Estado Desde Usuario [ciudadano] Paso 4
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
@@ -2209,3 +2259,947 @@ Test 8 - Consulta Tributaria Correcta Chequear Estado Desde Usuario [ciudadano] 
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
+
+
+#------------------------------------------------------------------------------------CHEQUEAR------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------CHEQUEAR------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------CHEQUEAR------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------CHEQUEAR------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------CHEQUEAR------------------------------------------------------------------------------------
+
+
+Test 9 - Consulta Tributaria: Indicacion del proceso
+    [Documentation]    El proceso que se realiza en el TEST 9 es el siguiente:
+    ...    ... crear tramite [ciudadano]
+    ...    ... chequear estado del tramite [ciudadano]
+    ...    ... enviar a Direccion [operador mesa]
+    ...    ... chequear estado del tramite [ciudadano]
+    ...    ... Rechazar e Informar Al Contribuyente [Direccion]
+    ...    ... chequear estado del tramite [ciudadano]
+    Log To Console    Comentario del proceso
+
+Test 9 - Consulta Tributaria Rechazar e Informar Al Contribuyente desde Direccion [ciudadano] Paso 1
+    [Documentation]    Crear una nueva consulta tributaria
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
+    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
+    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test1    asuntoConsultaTributaria
+    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test1  detalleConsultaTributaria
+    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test1  contenidoConsultaTributaria
+    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+    Choose File    ${InputTypeFile}    ${FILE}
+    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
+    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+    ${tramite}=    Obtener Numero De Tramite
+    Set Suite Variable    ${tramite}
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
+
+Test 9 - Indicacion del numero de proceso creado
+    [Documentation]    Numero del proceso creado: ${tramite}
+    Log To Console    Comentario del proceso
+
+Test 9 - Consulta Tributaria Rechazado Chequear Estado Desde Usuario [ciudadano] Paso 1
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
+
+Test 9 - Consulta Tributaria: verificar que no aparezca el tramite [Direccion] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 9 - Consulta Tributaria: verificar que no aparezca el tramite [gestion] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 9 - Consulta Tributaria: verificar el estado del tramite (pendiente) [operador mesa] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
+
+Test 9 - Consulta Tributaria: verificar si los botones de acciones son correctos [operador mesa] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]
+
+    Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
+    Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
+    Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
+
+    Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
+    Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
+    Verificar Boton Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
+
+Test 9 - Consulta Tributaria Rechazar e Informar Al Contribuyente desde Direccion [operador mesa] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+    Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
+    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+
+    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
+
+Test 9 - Consulta Tributaria Rechazado Chequear Estado Desde Usuario [ciudadano] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
+
+Test 9 - Consulta Tributaria: verificar que no aparezca el tramite [operador mesa] Paso 3
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde el operador mesa, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 9 - Consulta Tributaria: verificar que no aparezca el tramite [gestion] Paso 3
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 9 - Consulta Tributaria: verificar el estado del tramite (Asignado) [Direccion] Paso 3
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
+
+Test 9 - Consulta Tributaria: verificar si los botones de acciones son correctos [Direccion] Paso 3
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Se ingresa como Direccion y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]
+
+    Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
+    Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
+    Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
+
+    Verificar boton Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar boton Sin Fallar  ${botonRechazar}  boton rechazar
+    Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
+
+    Verificar Boton Sin Fallar  ${botonRechazarInformarAlContribuyente}  botonRechazarInformarAlContribuyente
+    Verificar Boton Sin Fallar  ${botonAprobarInformarAlContribuyente}  botonAprobarInformarAlContribuyente
+    Verificar Boton Sin Fallar  ${botonAsignarse}  botonAsignarse
+    Verificar Boton Sin Fallar  ${paraResolver}  boton para resolver
+
+Test 9 - Consulta Tributaria Rechazar e Informar Al Contribuyente desde Direccion [Direccion] Paso 4
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]     Entra como Direccion Rechazando el tramite y continua con el proceso
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonRechazarInformarAlContribuyente}    RechazarInformarAlContribuyente
+    Validar y completar campo    ${campoComentario}    Rechazado    campoComentario
+    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
+
+Test 9 - Consulta Tributaria Rechazado Chequear Estado Desde Usuario [ciudadano] Paso 5
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
+
+Test 9 - Consulta Tributaria: verificar que no aparezca el tramite [operador mesa] Paso 5
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde el operador mesa, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 9 - Consulta Tributaria: verificar que no aparezca el tramite [Direccion] Paso 5
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 9 - Consulta Tributaria: verificar que no aparezca el tramite [gestion] Paso 5
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 10 - Consulta Tributaria: Indicacion del proceso
+    [Documentation]    El proceso que se realiza en el TEST 10 es el siguiente:
+    ...    ... crear tramite [ciudadano]
+    ...    ... chequear estado del tramite [ciudadano]
+    ...    ... enviar a Direccion [operador mesa]
+    ...    ... chequear estado del tramite [ciudadano]
+    ...    ... Aprobar Informar Al Contribuyente [Direccion]
+    ...    ... chequear estado del tramite [ciudadano]
+    Log To Console    Comentario del proceso
+
+Test 10 - Consulta Tributaria Aprobar Informar Al Contribuyente desde Direccion [ciudadano] Paso 1
+    [Documentation]    Crear una nueva consulta tributaria
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
+    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
+    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test1    asuntoConsultaTributaria
+    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test1  detalleConsultaTributaria
+    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test1  contenidoConsultaTributaria
+    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+    Choose File    ${InputTypeFile}    ${FILE}
+    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+    Choose File    ${InputTypeFile}    ${FILE}
+    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
+    Choose File    ${InputTypeFile}    ${FILE}
+    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
+    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+    ${tramite}=    Obtener Numero De Tramite
+    Set Suite Variable    ${tramite}
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
+
+Test 10 - Indicacion del numero de proceso creado
+    [Documentation]    Numero del proceso creado: ${tramite}
+    Log To Console    Comentario del proceso
+
+Test 10 - Consulta Tributaria Correcta Chequear Estado Desde Usuario [ciudadano] Paso 1
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
+
+Test 10 - Consulta Tributaria: verificar que no aparezca el tramite [Direccion] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 10 - Consulta Tributaria: verificar que no aparezca el tramite [gestion] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 10 - Consulta Tributaria: verificar el estado del tramite (pendiente) [operador mesa] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
+
+Test 10 - Consulta Tributaria: verificar si los botones de acciones son correctos [operador mesa] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]
+
+    Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
+    Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
+    Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
+
+    Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
+    Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
+    Verificar Boton Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
+
+Test 10 - Consulta Tributaria Aprobar Informar Al Contribuyente desde Direccion [operador mesa] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+    Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
+    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+
+    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
+
+Test 10 - Consulta Tributaria Correcta Chequear Estado Desde Usuario [ciudadano] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
+
+Test 10 - Consulta Tributaria: verificar que no aparezca el tramite [operador mesa] Paso 3
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde el operador mesa, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 10 - Consulta Tributaria: verificar que no aparezca el tramite [gestion] Paso 3
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 10 - Consulta Tributaria: verificar el estado del tramite (Asignado) [Direccion] Paso 3
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
+
+Test 10 - Consulta Tributaria: verificar si los botones de acciones son correctos [Direccion] Paso 3
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Se ingresa como Direccion y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]
+
+    Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
+    Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
+    Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
+
+    Verificar boton Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar boton Sin Fallar  ${botonRechazar}  boton rechazar
+    Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
+
+    Verificar Boton Sin Fallar  ${botonRechazarInformarAlContribuyente}  botonRechazarInformarAlContribuyente
+    Verificar Boton Sin Fallar  ${botonAprobarInformarAlContribuyente}  botonAprobarInformarAlContribuyente
+    Verificar Boton Sin Fallar  ${botonAsignarse}  botonAsignarse
+    Verificar Boton Sin Fallar  ${paraResolver}  boton para resolver
+
+Test 10 - Consulta Tributaria Aprobar Informar Al Contribuyente desde Direccion [Direccion] Paso 4
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Entra como Direccion y utiliza la opcion "Aprobar" para continuar con el proceso
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
+    Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
+    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
+
+Test 10 - Consulta Tributaria Correcta Chequear Estado Desde Usuario [ciudadano] Paso 5
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
+
+Test 10 - Consulta Tributaria: verificar que no aparezca el tramite [operador mesa] Paso 5
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde el operador mesa, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 10 - Consulta Tributaria: verificar que no aparezca el tramite [Direccion] Paso 5
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 10 - Consulta Tributaria: verificar que no aparezca el tramite [gestion] Paso 5
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 11 - Consulta Tributaria: Indicacion del proceso
+    [Documentation]    El proceso que se realiza en el TEST 11 es el siguiente:
+    ...    ... crear tramite [ciudadano]
+    ...    ... chequear estado del tramite [ciudadano]
+    ...    ... enviar a Direccion [operador mesa]
+    ...    ... chequear estado del tramite [ciudadano]
+    ...    ... Rechazar e Informar Al Contribuyente [Direccion]
+    ...    ... chequear estado del tramite [ciudadano]
+    Log To Console    Comentario del proceso
+
+Test 11 - Consulta Tributaria Rechazar e Informar Al Contribuyente desde Gestion [ciudadano] Paso 1
+    [Documentation]    Crear una nueva consulta tributaria
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
+    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
+    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test1    asuntoConsultaTributaria
+    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test1  detalleConsultaTributaria
+    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test1  contenidoConsultaTributaria
+    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+    Choose File    ${InputTypeFile}    ${FILE}
+    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
+    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+    ${tramite}=    Obtener Numero De Tramite
+    Set Suite Variable    ${tramite}
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
+
+Test 11 - Indicacion del numero de proceso creado
+    [Documentation]    Numero del proceso creado: ${tramite}
+    Log To Console    Comentario del proceso
+
+Test 11 - Consulta Tributaria Rechazado Chequear Estado Desde Usuario [ciudadano] Paso 1
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
+
+Test 11 - Consulta Tributaria: verificar que no aparezca el tramite [Direccion] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 11 - Consulta Tributaria: verificar que no aparezca el tramite [gestion] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 11 - Consulta Tributaria: verificar el estado del tramite (pendiente) [operador mesa] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
+
+Test 11 - Consulta Tributaria: verificar si los botones de acciones son correctos [operador mesa] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]
+
+    Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
+    Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
+    Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
+
+    Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
+    Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
+    Verificar Boton Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
+
+Test 11 - Consulta Tributaria Rechazar e Informar Al Contribuyente desde Gestion [operador mesa] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${enviarDireccion}
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+    Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
+    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+
+    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
+
+Test 11 - Consulta Tributaria Rechazado Chequear Estado Desde Usuario [ciudadano] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
+
+Test 11 - Consulta Tributaria: verificar que no aparezca el tramite [operador mesa] Paso 3
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde el operador mesa, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 11 - Consulta Tributaria: verificar que no aparezca el tramite [gestion] Paso 3
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 11 - Consulta Tributaria: verificar el estado del tramite (Asignado) [Direccion] Paso 3
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
+
+Test 11 - Consulta Tributaria: verificar si los botones de acciones son correctos [Direccion] Paso 3
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Se ingresa como Direccion y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]
+
+    Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
+    Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
+    Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
+
+    Verificar boton Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar boton Sin Fallar  ${botonRechazar}  boton rechazar
+    Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
+
+    Verificar Boton Sin Fallar  ${botonRechazarInformarAlContribuyente}  botonRechazarInformarAlContribuyente
+    Verificar Boton Sin Fallar  ${botonAprobarInformarAlContribuyente}  botonAprobarInformarAlContribuyente
+    Verificar Boton Sin Fallar  ${botonAsignarse}  botonAsignarse
+    Verificar Boton Sin Fallar  ${paraResolver}  boton para resolver
+
+Test 11 - Consulta Tributaria Rechazar e Informar Al Contribuyente desde Gestion [Direccion] Paso 4
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]     Entra como Direccion Rechazando el tramite y continua con el proceso
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonAsignarse}    botonAsignarse
+    Validar y completar campo    ${campoComentario}    Rechazado    campoComentario
+    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
+
+Test 11 - Consulta Tributaria Rechazado Chequear Estado Desde Usuario [ciudadano] Paso 5
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
+
+Test 11 - Consulta Tributaria: verificar que no aparezca el tramite [operador mesa] Paso 5
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde el operador mesa, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 11 - Consulta Tributaria: verificar que no aparezca el tramite [Direccion] Paso 5
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 11 - Consulta Tributaria: verificar que no aparezca el tramite [gestion] Paso 5
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 12 - Consulta Tributaria: Indicacion del proceso
+    [Documentation]    El proceso que se realiza en el TEST 12 es el siguiente:
+    ...    ... crear tramite [ciudadano]
+    ...    ... chequear estado del tramite [ciudadano]
+    ...    ... enviar a Direccion [operador mesa]
+    ...    ... chequear estado del tramite [ciudadano]
+    ...    ... Aprobar Informar Al Contribuyente [Direccion]
+    ...    ... chequear estado del tramite [ciudadano]
+    Log To Console    Comentario del proceso
+
+Test 12 - Consulta Tributaria Aprobar Informar Al Contribuyente desde Direccion [ciudadano] Paso 1
+    [Documentation]    Crear una nueva consulta tributaria
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
+    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
+    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test1    asuntoConsultaTributaria
+    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test1  detalleConsultaTributaria
+    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test1  contenidoConsultaTributaria
+    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+    Choose File    ${InputTypeFile}    ${FILE}
+    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+    Choose File    ${InputTypeFile}    ${FILE}
+    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
+    Choose File    ${InputTypeFile}    ${FILE}
+    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
+    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+    ${tramite}=    Obtener Numero De Tramite
+    Set Suite Variable    ${tramite}
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
+
+Test 12 - Indicacion del numero de proceso creado
+    [Documentation]    Numero del proceso creado: ${tramite}
+    Log To Console    Comentario del proceso
+
+Test 12 - Consulta Tributaria Correcta Chequear Estado Desde Usuario [ciudadano] Paso 1
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
+
+Test 12 - Consulta Tributaria: verificar que no aparezca el tramite [Direccion] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 12 - Consulta Tributaria: verificar que no aparezca el tramite [gestion] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 12 - Consulta Tributaria: verificar el estado del tramite (pendiente) [operador mesa] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
+
+Test 12 - Consulta Tributaria: verificar si los botones de acciones son correctos [operador mesa] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]
+
+    Verificar si el boton no existe Sin Fallar  ${paraResolver}  boton para resolver
+    Verificar si el boton no existe Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar si el boton no existe Sin Fallar  ${botonRechazar}  boton rechazar
+    Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
+
+    Verificar Boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
+    Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
+    Verificar Boton Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
+
+Test 12 - Consulta Tributaria Aprobar Informar Al Contribuyente desde Direccion [operador mesa] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+#--------------------------------------------------------------------------------------------------------------------------------------------------------NUEVO
+    Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
+    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+
+    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
+
+Test 12 - Consulta Tributaria Correcta Chequear Estado Desde Usuario [ciudadano] Paso 2
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
+
+Test 12 - Consulta Tributaria: verificar que no aparezca el tramite [operador mesa] Paso 3
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde el operador mesa, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 12 - Consulta Tributaria: verificar que no aparezca el tramite [gestion] Paso 3
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 12 - Consulta Tributaria: verificar el estado del tramite (Asignado) [Direccion] Paso 3
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
+
+Test 12 - Consulta Tributaria: verificar si los botones de acciones son correctos [Direccion] Paso 3
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Se ingresa como Direccion y se verifica que aparezcan los botones de acciones correctos
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+
+    Verificar Y Esperar Visibilidad De Elemento por localizador    xpath=//p[contains(text(),'Seleccione una acción para continuar con el proces')]
+
+    Verificar si el boton no existe Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
+    Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
+    Verificar si el boton no existe Sin Fallar  ${informarContribuyente}  boton informar contribuyente
+
+    Verificar boton Sin Fallar  ${botonAprobar}  boton aprobar
+    Verificar boton Sin Fallar  ${botonRechazar}  boton rechazar
+    Verificar Boton Sin Fallar  ${botonNoCorresponde}  boton no corresponde
+
+    Verificar Boton Sin Fallar  ${botonRechazarInformarAlContribuyente}  botonRechazarInformarAlContribuyente
+    Verificar Boton Sin Fallar  ${botonAprobarInformarAlContribuyente}  botonAprobarInformarAlContribuyente
+    Verificar Boton Sin Fallar  ${botonAsignarse}  botonAsignarse
+    Verificar Boton Sin Fallar  ${paraResolver}  boton para resolver
+
+Test 12 - Consulta Tributaria Aprobar Informar Al Contribuyente desde Direccion [Direccion] Paso 4
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Entra como Direccion y utiliza la opcion "Aprobar" para continuar con el proceso
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Abrir Tramite Por Numero    ${tramite}
+    Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
+    Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
+    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
+
+Test 12 - Consulta Tributaria Correcta Chequear Estado Desde Usuario [ciudadano] Paso 5
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
+    Asignar Tag Numerado
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
+
+Test 12 - Consulta Tributaria: verificar que no aparezca el tramite [operador mesa] Paso 5
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde el operador mesa, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 12 - Consulta Tributaria: verificar que no aparezca el tramite [Direccion] Paso 5
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 12 - Consulta Tributaria: verificar que no aparezca el tramite [gestion] Paso 5
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
+    [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
+    Asignar Tag Numerado
+    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}

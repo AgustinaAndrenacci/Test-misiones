@@ -26,6 +26,9 @@ ${UPLOAD_INPUT2}    xpath=//input[@type='file'][2]
 ${UPLOAD_INPUT3}    xpath=//input[@type='file'][3]
 ${UPLOAD_TEMPLOS}    xpath=//h4[contains(text(), 'Inmuebles destinados a templos religiosos')]/following::input[@type='file']
 
+${NroExpediente}    //input[@placeholder='Ej: 001234/2025']
+
+
 ***Test Cases***
 
 #-------INDICACION DE TESTS-------
