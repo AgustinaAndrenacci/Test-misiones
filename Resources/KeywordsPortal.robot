@@ -63,8 +63,8 @@ Se selecciona X accion
     Validar y completar campo    ${campoComentario}    ${nombreBoton}    campoComentario
     Choose file    ${botonSeleccionarArchivos}    ${FILEpdfAgus}
     Sleep  7s
-    #Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    #Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
+    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 Se selecciona X accion con estado final
     [Arguments]    ${btn}    ${nombreBoton}

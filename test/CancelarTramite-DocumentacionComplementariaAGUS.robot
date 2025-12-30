@@ -27,14 +27,13 @@ Suite Setup    Inicializar Contador
 #Agustina: ${FILEAgus}
 #************************************************************************************************************
 
-#Agregar acciones que no van
-#Ver que no funciona seleccionar la flecha
-***Test Cases***
-#-Se realiza el siguiente flujo para los tramites:
+#-------- INDICACION DE LOS TESTS ----------
+#Tramites testeados:a los tramites:
     #Excencion impuesto provinical automotor
     #Exencion impuesto de sellos
     #Nota formal
     #Exencion impuesto sobre los ingresos brutos
+#Testeos realizados:
 #Test 1: crear tramite [ciudadano] - SI se puede cancelar el tramite
 #Test 2: solicitar datos adicionales [operador mesa]  - SI se puede cancelar el tramite
 #Test 3: enviar a Direccion [operador mesa]  - NO se puede cancelar el tramite
@@ -46,6 +45,9 @@ Suite Setup    Inicializar Contador
 #Test 9: rechazar [gestion]  - NO se puede cancelar el tramite
 #Test 10: aprobar [Direccion]  - NO se puede cancelar el tramite
 #Test 11: rechazar [Direccion]  - NO se puede cancelar el tramite
+#Nota: tambien se probo la documentacion complementaria en ellos
+
+***Test Cases***
 
 #************************************************************************************************************************************
 #************************************************************************************************************************************

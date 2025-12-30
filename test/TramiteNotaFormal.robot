@@ -27,6 +27,17 @@ Suite Setup    Inicializar Contador
 #Agustina: ${FILEAgus}
 #************************************************************************************************************
 
+#-------INDICACION DE TESTS-------
+
+#Test 1: Crear tramite como borrador
+#Test 2: Solicitar datos adicionales
+#Test 3: No corresponde [Operador Mesa]
+#Test 4: Enviado a Direccion - Devuelto a Mesa de Entrada - Enviado a direccion - Aprobado [Gestion]
+#Test 5: Rechazado [Gestion]
+#Test 6: Aprobado [Direccion]
+#Test 7: Rechazado [Direccion]
+
+
 ***Test Cases***
 Test 1 - Nota formal: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 1 es el siguiente:
