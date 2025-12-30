@@ -22,7 +22,56 @@ ${espacioDeArchivosDocCom}    //div[@class='flex flex-col flex-1']//main
 
 ***Test Cases***
 
-Crear Consulta Tributaria [ciudadano]
+#-------INDICACION DE TESTS-------
+
+#Test 1: Consulta Tributaria [operador mesa]
+#       Paso1:Verificar SubTitulo [operador mesa]
+#       Paso2:Verificar NumeroTramite [operador mesa]
+#       Paso3:Verificar Fecha de Creacion [operador mesa]
+#       Paso4:Verificar Numero de Seguimiento [operador mesa]
+#       Paso5:Verificar DatosPresentados Asunto [operador mesa]
+#       Paso6:Verificar DatosPresentados Detalle [operador mesa]
+#       Paso7:Verificar Estado [operador mesa]
+#       Paso8:Verificar Datos Ciudadano [operador mesa]
+#       Paso9:Verificar Asignacion [operador mesa]
+#       Paso10:Documentacion Complementaria [operador mesa]
+#       Paso11:Verificar Historial [operador mesa]
+#       Paso 12:Enviar a Direccion [operador mesa]
+
+#Test 2: Consulta Tributaria [Direccion]
+#       Paso1:Verificar SubTitulo [Direccion]
+#       Paso2:Verificar NumeroTramite [Direccion]
+#       Paso3:Verificar Fecha de Creacion [Direccion]
+#       Paso4:Verificar Numero de Seguimiento [Direccion]
+#       Paso5:Verificar DatosPresentados Asunto [Direccion]
+#       Paso6:Verificar DatosPresentados Detalle [Direccion]
+#       Paso7:Verificar Estado [Direccion]
+#       Paso8:Verificar Datos Ciudadano [Direccion]
+#       Paso9:Verificar Asignacion [Direccion]
+#       Paso10:Documentacion Complementaria [Direccion]
+#       Paso11:Verificar Historial [Direccion]
+#       Paso 12:Enviar a Gestion [Direccion]
+
+#Test 3: Consulta Tributaria [Gestion]
+#       Paso1:Verificar SubTitulo [Gestion]
+#       Paso2:Verificar NumeroTramite [Gestion]
+#       Paso3:Verificar Fecha de Creacion [Gestion]
+#       Paso4:Verificar Numero de Seguimiento [Gestion]
+#       Paso5:Verificar DatosPresentados Asunto [Gestion]
+#       Paso6:Verificar DatosPresentados Detalle [Gestion]
+#       Paso7:Verificar Estado [Gestion]
+#       Paso8:Verificar Datos Ciudadano [Gestion]
+#       Paso9:Verificar Asignacion [Gestion]
+#       Paso10:Documentacion Complementaria [Gestion]
+#       Paso11:Verificar Historial [Gestion]
+#       Paso 12:Aprobado Enviar a MesaEntrada [Gestion]
+
+#Test 4: Consulta Tributaria [Operador Mesa]
+#       Paso1:Verificar Estado Aprobado [operador mesa]
+#       Paso2:Verificar Historial [operador mesa]
+#       Paso3:Informar Al Contribuyente [operador mesa]
+
+Test 1 - Crear Consulta Tributaria [ciudadano]
     [Documentation]    Crear una nueva consulta tributaria
     Asignar Tag Numerado
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
@@ -51,7 +100,7 @@ Indicacion del numero de proceso creado
 
 #-------------MESA DE ENTRADA VIRTUAL----------------------
 
-Consulta Tributaria MesaEntrada verificar SubTitulo [operador mesa]
+Test 1 - Consulta Tributaria MesaEntrada verificar SubTitulo [operador mesa] Paso 1
     [Documentation]    Desde la Mesa de Entrada abre la Consulta Tributaria anteriormente creada y comprueba que el "subtitulo" sea visible y correcto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -61,7 +110,7 @@ Consulta Tributaria MesaEntrada verificar SubTitulo [operador mesa]
     Abrir Tramite Por Numero    ${tramite}
     Verificar presencia de    ${subtituloConsultaTributaria}    El titulo no se encontro visible
 
-Consulta Tributaria MesaEntrada Verificar NumeroTramite [operador mesa]
+Test 1 - Consulta Tributaria MesaEntrada Verificar NumeroTramite [operador mesa] Paso 2
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que el "Numero de Tramite" sea visible y correcto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -71,7 +120,7 @@ Consulta Tributaria MesaEntrada Verificar NumeroTramite [operador mesa]
     Abrir Tramite Por Numero    ${tramite}
     Verificar presencia parcial    ${tramite}    El Numero Tramite no se encontro visible
 
-Consulta Tributaria MesaEntrada Verificar Fecha de Creacion [operador mesa]
+Test 1 - Consulta Tributaria MesaEntrada Verificar Fecha de Creacion [operador mesa] Paso 3
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que el "Fecha de Creacion" sea visible y correcto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -82,7 +131,7 @@ Consulta Tributaria MesaEntrada Verificar Fecha de Creacion [operador mesa]
     ${FECHA_COMPLETA}=    Get Text    ${fechaCreacion}
     Comparar Fecha Creacion    ${FECHA_COMPLETA}
 
-Consulta Tributaria MesaEntrada Verificar Numero de Seguimiento [operador mesa]
+Test 1 - Consulta Tributaria MesaEntrada Verificar Numero de Seguimiento [operador mesa] Paso 4
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que el "Fecha de Seguimiento" sea visible y correcto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -92,7 +141,7 @@ Consulta Tributaria MesaEntrada Verificar Numero de Seguimiento [operador mesa]
     Abrir Tramite Por Numero    ${tramite}
     Verificar Numero de Seguimiento    ${tramite}
 
-Consulta Tributaria MesaEntrada Verificar DatosPresentados Asunto [operador mesa]
+Test 1 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Asunto [operador mesa] Paso 5
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Asunto"
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -102,7 +151,7 @@ Consulta Tributaria MesaEntrada Verificar DatosPresentados Asunto [operador mesa
     Abrir Tramite Por Numero    ${tramite}
     Validar Asunto    Asunto test1
 
-Consulta Tributaria MesaEntrada Verificar DatosPresentados Detalle [operador mesa]
+Test 1 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Detalle [operador mesa] Paso 6
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Detalle"
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -112,7 +161,7 @@ Consulta Tributaria MesaEntrada Verificar DatosPresentados Detalle [operador mes
     Abrir Tramite Por Numero    ${tramite}
     Validar Detalle    Descripcion test1
 
-Consulta Tributaria MesaEntrada verificar Estado [operador mesa]
+Test 1 - Consulta Tributaria MesaEntrada Verificar Estado [operador mesa] Paso 7
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que el "Estado del Tramite" sea visible y correcto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -122,7 +171,7 @@ Consulta Tributaria MesaEntrada verificar Estado [operador mesa]
     Abrir Tramite Por Numero    ${tramite}
     Validar Estado Del Tramite    Pendiente
 
-Consulta Tributaria MesaEntrada verificar Datos Ciudadano [operador mesa]
+Test 1 - Consulta Tributaria MesaEntrada Verificar Datos Ciudadano [operador mesa] Paso 8
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que los datos del ciudadano sean visibles y correctos
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -132,7 +181,7 @@ Consulta Tributaria MesaEntrada verificar Datos Ciudadano [operador mesa]
     Abrir Tramite Por Numero    ${tramite}
     Validar Datos Identidad    ${nombreCiudadano}    ${emailCiudadano}    ${cuitCiudadano}
 
-Consulta Tributaria MesaEntrada verificar Asignacion [operador mesa]
+Test 1 - Consulta Tributaria MesaEntrada Verificar Asignacion [operador mesa] Paso 9
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que los datos de "Asignacion" sean visibles y correctos
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -145,7 +194,7 @@ Consulta Tributaria MesaEntrada verificar Asignacion [operador mesa]
 #-----------------------DOCUMENTACION COMPLEMENTARIA---------------------
 #-----------------------DOCUMENTACION COMPLEMENTARIA---------------------
 
-Consulta Tributaria: agregar documentacion complementaria - intentar subir sin observacion [operador mesa]
+Test 1 - Consulta Tributaria: agregar documentacion complementaria - intentar subir sin observacion [operador mesa] Paso 10
     [Documentation]    Entra como operador mesa entrada y se verifica que no se pueda crear la documentacion sin añadir una observacion
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -158,7 +207,7 @@ Consulta Tributaria: agregar documentacion complementaria - intentar subir sin o
     Choose File    ${InputTypeFile}    ${FILE3}
     Element Should Be Disabled    ${botonSubirDocumento}
 
-Consulta Tributaria: agregar documentacion complementaria - intentar subir sin archivo [operador mesa]
+Test 1 - Consulta Tributaria: agregar documentacion complementaria - intentar subir sin archivo [operador mesa]
     [Documentation]    Entra como operador mesa entrada y se verifica que no se pueda crear la documentacion sin añadir un archivo
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -171,7 +220,7 @@ Consulta Tributaria: agregar documentacion complementaria - intentar subir sin a
     Validar y completar campo    ${campoDescripcion}    archivo doc    descripcion
     Element Should Be Disabled    ${botonSubirDocumento}
 
-Consulta Tributaria: agregar documentacion complementaria - intentar que no se suba debido a que se presiona el boton cancelar [operador mesa]
+Test 1 - Consulta Tributaria: agregar documentacion complementaria - intentar que no se suba debido a que se presiona el boton cancelar [operador mesa]
     [Documentation]    Entra como operador mesa entrada y se verifica que no se suba la documentacion complementaria debido a que se presiono le boton cancelar en vez de subir
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -186,7 +235,7 @@ Consulta Tributaria: agregar documentacion complementaria - intentar que no se s
     Validar y hacer clic en el boton    ${campoDescripcion}   boton subir documento
     Verificar NO presencia de... con...    ${botonSubirDocumento}    ${docLean}
 
-Consulta Tributaria verificar Boton Documentacion complementaria [operador mesa]
+Test 1 - Consulta Tributaria verificar Boton Documentacion complementaria [operador mesa]
     [Documentation]    Desde el operador mesa entrada, abre la Consulta Tributaria y comprueba que se pueda agregar una "Documentacion complementaria" y subirla correctamente
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -202,7 +251,7 @@ Consulta Tributaria verificar Boton Documentacion complementaria [operador mesa]
     Wait Until Page Contains    El documento se ha agregado correctamente al trámite.    timeout=10s
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
-Consulta Tributaria: no se elimina la documentacion complementaria - [operador mesa]
+Test 1 - Consulta Tributaria: no se elimina la documentacion complementaria - [operador mesa]
     [Documentation]    Entra como operador mesa entrada y cuando se quiere eliminar la documentacion complementaria agregada, se presiona el boton cancelar
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -215,7 +264,7 @@ Consulta Tributaria: no se elimina la documentacion complementaria - [operador m
     Validar y hacer clic en el boton    ${botonCancelar}   boton cancelar
     Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${docLean}
 
-Consulta Tributaria verificar Boton Eliminar Documentacion complementaria [operador mesa]
+Test 1 - Consulta Tributaria verificar Boton Eliminar Documentacion complementaria [operador mesa]
     [Documentation]    Desde el operador mesa entrada, abre la Consulta Tributaria y comprueba que se pueda eliminar la "Documentacion complementaria"
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -228,7 +277,7 @@ Consulta Tributaria verificar Boton Eliminar Documentacion complementaria [opera
     Validar y hacer clic en el boton    ${EliminarDocumento}    EliminarDocumento
     Wait Until Page Contains    El documento se ha eliminado correctamente.    timeout=10s
 
-Consulta Tributaria: verificacion de documentacion complementaria eliminada - archivo: doc [operador mesa]
+Test 1 - Consulta Tributaria: verificacion de documentacion complementaria eliminada - archivo: doc [operador mesa]
     [Documentation]    Entra como operador mesa entrada y agrega documentacion complementaria
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque no se se subio la documentacion complementaria en el test anterior
@@ -239,7 +288,7 @@ Consulta Tributaria: verificacion de documentacion complementaria eliminada - ar
     Abrir Tramite Por Numero    ${tramite}
     Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${docLean}
 
-Consulta Tributaria MesaEntrada verificar Historial [operador mesa]
+Test 1 - Consulta Tributaria MesaEntrada Verificar Historial [operador mesa] Paso 11
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y verificar que en el "Historial" se vean los mensajes de notas/cambios correspondientes
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -251,7 +300,7 @@ Consulta Tributaria MesaEntrada verificar Historial [operador mesa]
     Verificar presencia de    //p[normalize-space()='"Trámite enviado por el usuario."']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
     Verificar presencia de    //p[normalize-space()='"Se agregó el documento complementario: "Nota MesaEntrada""']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
 
-Consulta Tributaria Enviar a Direccion [operador mesa]
+Test 1 - Consulta Tributaria Enviar a Direccion [operador mesa] Paso 12
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -266,7 +315,7 @@ Consulta Tributaria Enviar a Direccion [operador mesa]
 
 #-------------Direccion----------------------
 
-Consulta Tributaria Direccion verificar SubTitulo [Direccion]
+Test 2 - Consulta Tributaria Direccion verificar SubTitulo [Direccion] Paso 1
     [Documentation]    Desde la Direccion abre la Consulta Tributaria anteriormente creada y comprueba que el "subtitulo" sea visible y correcto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -276,7 +325,7 @@ Consulta Tributaria Direccion verificar SubTitulo [Direccion]
     Abrir Tramite Por Numero    ${tramite}
     Verificar presencia de    ${subtituloConsultaTributaria}    El titulo no se encontro visible
 
-Consulta Tributaria Direccion Verificar NumeroTramite [Direccion]
+Test 2 - Consulta Tributaria Direccion Verificar NumeroTramite [Direccion] Paso 2
     [Documentation]    Desde la Direccion, abre la Consulta Tributaria y comprueba que el "Numero de Tramite" sea visible y correcto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -286,7 +335,7 @@ Consulta Tributaria Direccion Verificar NumeroTramite [Direccion]
     Abrir Tramite Por Numero    ${tramite}
     Verificar presencia parcial    ${tramite}    El Numero Tramite no se encontro visible
 
-Consulta Tributaria Direccion Verificar Fecha de Creacion [Direccion]
+Test 2 - Consulta Tributaria Direccion Verificar Fecha de Creacion [Direccion] Paso 3
     [Documentation]    Desde la Direccion, abre la Consulta Tributaria y comprueba que el "Fecha de Creacion" sea visible y correcto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -297,7 +346,7 @@ Consulta Tributaria Direccion Verificar Fecha de Creacion [Direccion]
     ${FECHA_COMPLETA}=    Get Text    ${fechaCreacion}
     Comparar Fecha Creacion    ${FECHA_COMPLETA}
 
-Consulta Tributaria Direccion Verificar Numero de Seguimiento [Direccion]
+Test 2 - Consulta Tributaria Direccion Verificar Numero de Seguimiento [Direccion] Paso 4
     [Documentation]    Desde la Direccion, abre la Consulta Tributaria y comprueba que el "Fecha de Seguimiento" sea visible y correcto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -307,7 +356,7 @@ Consulta Tributaria Direccion Verificar Numero de Seguimiento [Direccion]
     Abrir Tramite Por Numero    ${tramite}
     Verificar Numero de Seguimiento    ${tramite}
 
-Consulta Tributaria Direccion Verificar DatosPresentados Asunto [Direccion]
+Test 2 - Consulta Tributaria Direccion Verificar DatosPresentados Asunto [Direccion] Paso 5
     [Documentation]    Desde la Direccion, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Asunto"
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -317,7 +366,7 @@ Consulta Tributaria Direccion Verificar DatosPresentados Asunto [Direccion]
     Abrir Tramite Por Numero    ${tramite}
     Validar Asunto    Asunto test1
 
-Consulta Tributaria Direccion Verificar DatosPresentados Detalle [Direccion]
+Test 2 - Consulta Tributaria Direccion Verificar DatosPresentados Detalle [Direccion] Paso 6
     [Documentation]    Desde la Direccion, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Detalle"
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -327,7 +376,7 @@ Consulta Tributaria Direccion Verificar DatosPresentados Detalle [Direccion]
     Abrir Tramite Por Numero    ${tramite}
     Validar Detalle    Descripcion test1
 
-Consulta Tributaria Direccion verificar Estado [Direccion]
+Test 2 - Consulta Tributaria Direccion verificar Estado [Direccion] Paso 7
     [Documentation]    Desde la Direccion, abre la Consulta Tributaria y comprueba que el "Estado del Tramite" sea visible y correcto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -337,7 +386,7 @@ Consulta Tributaria Direccion verificar Estado [Direccion]
     Abrir Tramite Por Numero    ${tramite}
     Validar Estado Del Tramite    Asignado
 
-Consulta Tributaria Direccion verificar Datos Ciudadano [Direccion]
+Test 2 - Consulta Tributaria Direccion verificar Datos Ciudadano [Direccion] Paso 8
     [Documentation]    Desde la Direccion, abre la Consulta Tributaria y comprueba que los datos del ciudadano sean visibles y correctos
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -347,7 +396,7 @@ Consulta Tributaria Direccion verificar Datos Ciudadano [Direccion]
     Abrir Tramite Por Numero    ${tramite}
     Validar Datos Identidad    ${nombreCiudadano}    ${emailCiudadano}    ${cuitCiudadano}
 
-Consulta Tributaria Direccion verificar Asignacion [Direccion]
+Test 2 - Consulta Tributaria Direccion verificar Asignacion [Direccion] Paso 9
     [Documentation]    Desde la Direccion, abre la Consulta Tributaria y comprueba que los datos de "Asignacion" sean visibles y correctos
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -360,7 +409,7 @@ Consulta Tributaria Direccion verificar Asignacion [Direccion]
 #-----------------------DOCUMENTACION COMPLEMENTARIA---------------------
 #-----------------------DOCUMENTACION COMPLEMENTARIA---------------------
 
-Consulta Tributaria: agregar documentacion complementaria - intentar subir sin observacion [Direccion]
+Test 2 - Consulta Tributaria: agregar documentacion complementaria - intentar subir sin observacion [Direccion] Paso 10
     [Documentation]    Entra como Direccion y se verifica que no se pueda crear la documentacion sin añadir una observacion
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -373,7 +422,7 @@ Consulta Tributaria: agregar documentacion complementaria - intentar subir sin o
     Choose File    ${InputTypeFile}    ${FILE3}
     Element Should Be Disabled    ${botonSubirDocumento}
 
-Consulta Tributaria: agregar documentacion complementaria - intentar subir sin archivo [Direccion]
+Test 2 - Consulta Tributaria: agregar documentacion complementaria - intentar subir sin archivo [Direccion]
     [Documentation]    Entra como Direccion y se verifica que no se pueda crear la documentacion sin añadir un archivo
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -386,7 +435,7 @@ Consulta Tributaria: agregar documentacion complementaria - intentar subir sin a
     Validar y completar campo    ${campoDescripcion}    archivo doc    descripcion
     Element Should Be Disabled    ${botonSubirDocumento}
 
-Consulta Tributaria: agregar documentacion complementaria - intentar que no se suba debido a que se presiona el boton cancelar [Direccion]
+Test 2 - Consulta Tributaria: agregar documentacion complementaria - intentar que no se suba debido a que se presiona el boton cancelar [Direccion]
     [Documentation]    Entra como Direccion y se verifica que no se suba la documentacion complementaria debido a que se presiono le boton cancelar en vez de subir
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -401,7 +450,7 @@ Consulta Tributaria: agregar documentacion complementaria - intentar que no se s
     Validar y hacer clic en el boton    ${campoDescripcion}   boton subir documento
     Verificar NO presencia de... con...    ${botonSubirDocumento}    ${docLean}
 
-Consulta Tributaria verificar Boton Documentacion complementaria [Direccion]
+Test 2 - Consulta Tributaria verificar Boton Documentacion complementaria [Direccion]
     [Documentation]    Desde la Direccion, abre la Consulta Tributaria y comprueba que se pueda agregar una "Documentacion complementaria" y subirla correctamente
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -417,7 +466,7 @@ Consulta Tributaria verificar Boton Documentacion complementaria [Direccion]
     Wait Until Page Contains    El documento se ha agregado correctamente al trámite.    timeout=10s
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
-Consulta Tributaria: no se elimina la documentacion complementaria [Direccion]
+Test 2 - Consulta Tributaria: no se elimina la documentacion complementaria [Direccion]
     [Documentation]    Entra como Direccion y cuando se quiere eliminar la documentacion complementaria agregada, se presiona el boton cancelar
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -430,7 +479,7 @@ Consulta Tributaria: no se elimina la documentacion complementaria [Direccion]
     Validar y hacer clic en el boton    ${botonCancelar}   boton cancelar
     Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${docLean}
 
-Consulta Tributaria verificar Boton Eliminar Documentacion complementaria [Direccion]
+Test 2 - Consulta Tributaria verificar Boton Eliminar Documentacion complementaria [Direccion]
     [Documentation]    Desde la Direccion, abre la Consulta Tributaria y comprueba que se pueda eliminar la "Documentacion complementaria"
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -443,7 +492,7 @@ Consulta Tributaria verificar Boton Eliminar Documentacion complementaria [Direc
     Validar y hacer clic en el boton    ${EliminarDocumento}    EliminarDocumento
     Wait Until Page Contains    El documento se ha eliminado correctamente.    timeout=10s
 
-Consulta Tributaria: verificacion de documentacion complementaria eliminada - archivo: doc [Direccion]
+Test 2 - Consulta Tributaria: verificacion de documentacion complementaria eliminada - archivo: doc [Direccion]
     [Documentation]    Entra como Direccion y agrega documentacion complementaria
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque no se se subio la documentacion complementaria en el test anterior
@@ -454,7 +503,7 @@ Consulta Tributaria: verificacion de documentacion complementaria eliminada - ar
     Abrir Tramite Por Numero    ${tramite}
     Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${docLean}
 
-Consulta Tributaria Direccion verificar Historial [Direccion]
+Test 2 - Consulta Tributaria Direccion verificar Historial [Direccion] Paso 11
     [Documentation]    Desde la Direccion, abre la Consulta Tributaria y verificar que en el "Historial" se vean los mensajes de notas/cambios correspondientes
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -466,7 +515,7 @@ Consulta Tributaria Direccion verificar Historial [Direccion]
     Verificar presencia de    //p[normalize-space()='"Acción ejecutada: Enviar a Direccion"']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
     Verificar presencia de    //p[normalize-space()='"Se agregó el documento complementario: "Nota Direccion""']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
 
-Consulta Tributaria Enviar a Gestion [Direccion]
+Test 2 - Consulta Tributaria Enviar a Gestion [Direccion] Paso 12
     [Documentation]    Entra como Direccion para continuar con el proceso, utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -481,7 +530,7 @@ Consulta Tributaria Enviar a Gestion [Direccion]
 
 #-------------GESTION----------------------
 
-Consulta Tributaria Gestion verificar SubTitulo [gestion]
+Test 3 - Consulta Tributaria Gestion verificar SubTitulo [gestion] Paso 1
     [Documentation]    Desde la Gestión Dirección abre la Consulta Tributaria anteriormente creada y comprueba que el "subtitulo" sea visible y correcto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -491,7 +540,7 @@ Consulta Tributaria Gestion verificar SubTitulo [gestion]
     Abrir Tramite Por Numero    ${tramite}
     Verificar presencia de    ${subtituloConsultaTributaria}    El titulo no se encontro visible
 
-Consulta Tributaria Gestion Verificar NumeroTramite [gestion]
+Test 3 - Consulta Tributaria Gestion Verificar NumeroTramite [gestion] Paso 2
     [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que el "Numero de Tramite" sea visible y correcto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -501,7 +550,7 @@ Consulta Tributaria Gestion Verificar NumeroTramite [gestion]
     Abrir Tramite Por Numero    ${tramite}
     Verificar presencia parcial    ${tramite}    El Numero Tramite no se encontro visible
 
-Consulta Tributaria Gestion Verificar Fecha de Creacion [gestion]
+Test 3 - Consulta Tributaria Gestion Verificar Fecha de Creacion [gestion] Paso 3
     [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que el "Fecha de Creacion" sea visible y correcto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -512,7 +561,7 @@ Consulta Tributaria Gestion Verificar Fecha de Creacion [gestion]
     ${FECHA_COMPLETA}=    Get Text    ${fechaCreacion}
     Comparar Fecha Creacion    ${FECHA_COMPLETA}
 
-Consulta Tributaria Gestion Verificar Numero de Seguimiento [gestion]
+Test 3 - Consulta Tributaria Gestion Verificar Numero de Seguimiento [gestion] Paso 4
     [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que el "Fecha de Seguimiento" sea visible y correcto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -522,7 +571,7 @@ Consulta Tributaria Gestion Verificar Numero de Seguimiento [gestion]
     Abrir Tramite Por Numero    ${tramite}
     Verificar Numero de Seguimiento    ${tramite}
 
-Consulta Tributaria Gestion Verificar DatosPresentados Asunto [gestion]
+Test 3 - Consulta Tributaria Gestion Verificar DatosPresentados Asunto [gestion] Paso 5
     [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Asunto"
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -532,7 +581,7 @@ Consulta Tributaria Gestion Verificar DatosPresentados Asunto [gestion]
     Abrir Tramite Por Numero    ${tramite}
     Validar Asunto    Asunto test1
 
-Consulta Tributaria Gestion Verificar DatosPresentados Detalle [gestion]
+Test 3 - Consulta Tributaria Gestion Verificar DatosPresentados Detalle [gestion] Paso 6
     [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Detalle"
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -542,7 +591,7 @@ Consulta Tributaria Gestion Verificar DatosPresentados Detalle [gestion]
     Abrir Tramite Por Numero    ${tramite}
     Validar Detalle    Descripcion test1
 
-Consulta Tributaria Gestion verificar Estado [gestion]
+Test 3 - Consulta Tributaria Gestion verificar Estado [gestion] Paso 7
     [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que el "Estado del Tramite" sea visible y correcto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -552,7 +601,7 @@ Consulta Tributaria Gestion verificar Estado [gestion]
     Abrir Tramite Por Numero    ${tramite}
     Validar Estado Del Tramite    En revisión
 
-Consulta Tributaria Gestion verificar Datos Ciudadano [gestion]
+Test 3 - Consulta Tributaria Gestion verificar Datos Ciudadano [gestion] Paso 8
     [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que los datos del ciudadano sean visibles y correctos
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -562,7 +611,7 @@ Consulta Tributaria Gestion verificar Datos Ciudadano [gestion]
     Abrir Tramite Por Numero    ${tramite}
     Validar Datos Identidad    ${nombreCiudadano}    ${emailCiudadano}    ${cuitCiudadano}
 
-Consulta Tributaria Gestion verificar Asignacion [gestion]
+Test 3 - Consulta Tributaria Gestion verificar Asignacion [gestion] Paso 9
     [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y comprueba que los datos de "Asignacion" sean visibles y correctos
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -575,7 +624,7 @@ Consulta Tributaria Gestion verificar Asignacion [gestion]
 #-----------------------DOCUMENTACION COMPLEMENTARIA---------------------
 #-----------------------DOCUMENTACION COMPLEMENTARIA---------------------
 
-Consulta Tributaria: agregar documentacion complementaria - intentar subir sin observacion [gestion]
+Test 3 - Consulta Tributaria: agregar documentacion complementaria - intentar subir sin observacion [gestion] Paso 10
     [Documentation]    Entra como gestion y se verifica que no se pueda crear la documentacion sin añadir una observacion
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -588,7 +637,7 @@ Consulta Tributaria: agregar documentacion complementaria - intentar subir sin o
     Choose File    ${InputTypeFile}    ${FILE3}
     Element Should Be Disabled    ${botonSubirDocumento}
 
-Consulta Tributaria: agregar documentacion complementaria - intentar subir sin archivo [gestion]
+Test 3 - Consulta Tributaria: agregar documentacion complementaria - intentar subir sin archivo [gestion]
     [Documentation]    Entra como gestion y se verifica que no se pueda crear la documentacion sin añadir un archivo
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -601,7 +650,7 @@ Consulta Tributaria: agregar documentacion complementaria - intentar subir sin a
     Validar y completar campo    ${campoDescripcion}    archivo doc    descripcion
     Element Should Be Disabled    ${botonSubirDocumento}
 
-Consulta Tributaria: agregar documentacion complementaria - intentar que no se suba debido a que se presiona el boton cancelar [gestion]
+Test 3 - Consulta Tributaria: agregar documentacion complementaria - intentar que no se suba debido a que se presiona el boton cancelar [gestion]
     [Documentation]    Entra como gestion y se verifica que no se suba la documentacion complementaria debido a que se presiono le boton cancelar en vez de subir
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -616,7 +665,7 @@ Consulta Tributaria: agregar documentacion complementaria - intentar que no se s
     Validar y hacer clic en el boton    ${campoDescripcion}   boton subir documento
     Verificar NO presencia de... con...    ${botonSubirDocumento}    ${docLean}
 
-Consulta Tributaria verificar Boton Documentacion complementaria [gestion]
+Test 3 - Consulta Tributaria verificar Boton Documentacion complementaria [gestion]
     [Documentation]    Desde la gestion, abre la Consulta Tributaria y comprueba que se pueda agregar una "Documentacion complementaria" y subirla correctamente
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -632,7 +681,7 @@ Consulta Tributaria verificar Boton Documentacion complementaria [gestion]
     Wait Until Page Contains    El documento se ha agregado correctamente al trámite.    timeout=10s
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
-Consulta Tributaria: no se elimina la documentacion complementaria [gestion]
+Test 3 - Consulta Tributaria: no se elimina la documentacion complementaria [gestion]
     [Documentation]    Entra como gestion y cuando se quiere eliminar la documentacion complementaria agregada, se presiona el boton cancelar
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -645,7 +694,7 @@ Consulta Tributaria: no se elimina la documentacion complementaria [gestion]
     Validar y hacer clic en el boton    ${botonCancelar}   boton cancelar
     Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${docLean}
 
-Consulta Tributaria verificar Boton Eliminar Documentacion complementaria [gestion]
+Test 3 - Consulta Tributaria verificar Boton Eliminar Documentacion complementaria [gestion]
     [Documentation]    Desde la gestion, abre la Consulta Tributaria y comprueba que se pueda eliminar la "Documentacion complementaria"
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -658,7 +707,7 @@ Consulta Tributaria verificar Boton Eliminar Documentacion complementaria [gesti
     Validar y hacer clic en el boton    ${EliminarDocumento}    EliminarDocumento
     Wait Until Page Contains    El documento se ha eliminado correctamente.    timeout=10s
 
-Consulta Tributaria: verificacion de documentacion complementaria eliminada - archivo: doc [gestion]
+Test 3 - Consulta Tributaria: verificacion de documentacion complementaria eliminada - archivo: doc [gestion]
     [Documentation]    Entra como gestion y agrega documentacion complementaria
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque no se se subio la documentacion complementaria en el test anterior
@@ -669,7 +718,7 @@ Consulta Tributaria: verificacion de documentacion complementaria eliminada - ar
     Abrir Tramite Por Numero    ${tramite}
     Verificar NO presencia de... con...    ${espacioDeArchivosDocCom}    ${docLean}
 
-Consulta Tributaria Direccion verificar Historial [gestion]
+Test 3 - Consulta Tributaria Direccion verificar Historial [gestion] Paso 11
     [Documentation]    Desde la Gestión Dirección, abre la Consulta Tributaria y verificar que en el "Historial" se vean los mensajes de notas/cambios correspondientes
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -681,7 +730,7 @@ Consulta Tributaria Direccion verificar Historial [gestion]
     Verificar presencia de    //p[normalize-space()='"Acción ejecutada: Para Resolver"']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
     Verificar presencia de    //p[normalize-space()='"Se agregó el documento complementario: "Nota Gestion""']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
 
-Consulta Tributaria Aprobado Enviar a MesaEntrada [gestion]
+Test 3 - Consulta Tributaria Aprobado Enviar a MesaEntrada [gestion] Paso 12
     [Documentation]    Entra como Gestion y utiliza la opcion "Aprobar" para continuar con el proceso
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -696,7 +745,7 @@ Consulta Tributaria Aprobado Enviar a MesaEntrada [gestion]
 
 #-------------APROBADO Y MESA DE ENTRADA VIRTUAL----------------------
 
-Consulta Tributaria MesaEntrada verificar Estado Aprobado [operador mesa]
+Test 4 - Consulta Tributaria MesaEntrada Verificar Estado Aprobado [operador mesa] Paso 1
     [Documentation]    Nuevamente entra a la Mesa de Entrada, abre la Consulta Tributaria y comprueba que el "Estado del Tramite" sea visible y correcto. En este caso buscando el estado Aprobado
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -706,7 +755,7 @@ Consulta Tributaria MesaEntrada verificar Estado Aprobado [operador mesa]
     Abrir Tramite Por Numero    ${tramite}
     Validar Estado Del Tramite    Aprobado
 
-Consulta Tributaria MesaEntrada verificar Historial Aprobado [operador mesa]
+Test 4 - Consulta Tributaria MesaEntrada Verificar Historial Aprobado [operador mesa] Paso 2
     [Documentation]    Nuevamente entra a la Mesa de Entrada, abre la Consulta Tributaria y verificar que en el "Historial" se vean los mensajes de notas/cambios correspondientes
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -717,7 +766,7 @@ Consulta Tributaria MesaEntrada verificar Historial Aprobado [operador mesa]
     Validar y hacer clic en el boton    ${historialAdmin}    botonHistorial
     Verificar presencia de    //p[normalize-space()='"Acción ejecutada: Aprobar"']    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
 
-Consulta Tributaria Informar al Contribuyente [operador mesa]
+Test 4 - Consulta Tributaria Informar al Contribuyente [operador mesa] Paso 3
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso, en este caso "Aprobado"
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante

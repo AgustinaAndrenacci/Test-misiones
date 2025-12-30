@@ -21,6 +21,20 @@ Suite Setup    Inicializar Contador
 
 ***Test Cases***
 
+#-------INDICACION DE TESTS-------
+
+#Test 1: Consulta Tributaria Cancela Tramite desde Dentro
+#Test 2: Consulta Tributaria Cancela Tramite desde botonTacho
+#Test 3: Consulta Tributaria Chequea Que No se pueda Cancelar Tramite en el Resto del Flujo
+
+#Test 4: Consulta Vinculante Cancela Tramite desde Dentro
+#Test 5: Consulta Vinculante Cancela Tramite desde botonTacho
+#Test 6: Consulta Vinculante Chequea Que No se pueda Cancelar Tramite en el Resto del Flujo
+
+#Test 7: Exencion Impuesto Inmobiliario Basico Cancela Tramite desde Dentro
+#Test 8: Exencion Impuesto Inmobiliario Basico Cancela Tramite desde botonTacho
+#Test 9: Exencion Impuesto Inmobiliario Basico Chequea Que No se pueda Cancelar Tramite en el Resto del Flujo
+
 #-----------------------------------------------------CONSULTA TRIBUTARIA--------------------------------------------------------------------------------
 #-----------------------------------------------------CONSULTA TRIBUTARIA--------------------------------------------------------------------------------
 #-----------------------------------------------------CONSULTA TRIBUTARIA--------------------------------------------------------------------------------

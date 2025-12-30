@@ -21,6 +21,18 @@ Test Teardown  Cerrar navegador
 
 ***Test Cases***
 
+#-------INDICACION DE TESTS-------
+
+#Test 1: Crear Tramite Como Borrador
+#Test 2: Solicitar Datos Adicionales
+#Test 3: No Corresponde [Operador Mesa]
+#Test 4: Devuelto a Mesa de Entrada
+#Test 5: Rechazado desde Gestion
+#Test 6: Aprobado desde Gestion
+#Test 7: Rechazado desde Direccion
+#Test 8: Aprobado desde Direccion
+
+
 Test 1 - Consulta Vinculante: Indicacion del proceso
     [Documentation]    El proceso que se realiza en el TEST 1 es el siguiente:
     ...    ... crear tramite como borrador [ciudadano]
@@ -294,6 +306,7 @@ Test 2 - Consulta Vinculante: el ciudadano avanza en el tramite [ciudadano] Paso
     Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
     Validar y hacer clic en el boton    ${botonResponder}    botonResponder
     Validar y completar campo    ${campoComentario}    Respuesta del Ciudadano    campoComentario
+    Choose file    ${botonSeleccionarArchivos}    ${FILE}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Validar y hacer clic en el boton    ${botonEjecutarAccion}    botonEjecutarAccion
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
