@@ -51,17 +51,19 @@ Verificar los botones de acciones [operador mesa] - instancia 2
 #------------------------------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------------------------------
 #FALTA!
+#EJ:
+#Se selecciona X accion    ${botonSolicitarDatosAdicionales}    Solicitar Datos Adicionales    ${FILEpdfAgus}    ${pdfAgus}
 Se selecciona X accion
-    [Arguments]    ${btn}    ${nombreBoton}
+    [Arguments]    ${btn}    ${nombreBoton}    ${rutaArchivo}    ${nombreArchivo}
     Validar y hacer clic en el boton    ${btn}    ${nombreBoton}
     Validar y completar campo    ${campoComentario}    ${nombreBoton}    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILEpdfAgus}
+    Choose file    ${botonSeleccionarArchivos}    ${rutaArchivo}
     Validar y hacer clic en el boton    ${botonCancelar}   boton cancelar
     Validar y hacer clic en el boton    ${btn}    ${nombreBoton}
     Element Attribute Value Should Be    ${campoComentario}    value    ${EMPTY}
-    Verificar NO presencia de... con...    //div[@class='space-y-3']//div[@class='space-y-2']    ${pdfAgus}
+    Verificar NO presencia de... con...    //div[@class='space-y-3']//div[@class='space-y-2']    ${nombreArchivo}
     Validar y completar campo    ${campoComentario}    ${nombreBoton}    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILEpdfAgus}
+    Choose file    ${botonSeleccionarArchivos}    ${rutaArchivo}
     Sleep  7s
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
