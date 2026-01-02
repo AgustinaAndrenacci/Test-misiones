@@ -70,9 +70,7 @@ Test 1 /A - Excencion impuesto provincial automotor: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 1 /A - Excencion impuesto provincial automotor: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -83,9 +81,7 @@ Test 1 /A - Excencion impuesto provincial automotor: Indicacion del numero de pr
 Test 1/A - Excencion impuesto provincial automotor: agregar documentacion complementaria - intentar subir documentacion sin completar los campos [operador mesa]
     [Documentation]    Entra como operador y se verifica que no se pueda crear la documentacion al intentar subir solo archivo o comentaria
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -105,9 +101,7 @@ Test 1/A - Excencion impuesto provincial automotor: agregar documentacion comple
 Test 1/A - Excencion impuesto provincial automotor: agregar documentacion complementaria - intentar que no se suba debido a que se presiona el boton cancelar [operador mesa]
     [Documentation]    Entra como operador y se verifica que no se suba la documentacion complementaria debido a que se presiono le boton cancelar en vez de subir
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -129,9 +123,7 @@ Test 1/A - Excencion impuesto provincial automotor: agregar documentacion comple
 Test 1/A - Excencion impuesto provincial automotor: se agrega documentacion complementaria - [operador mesa]
     [Documentation]    Entra como operador y agrega documentacion complementaria
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -143,9 +135,7 @@ Test 1/A - Excencion impuesto provincial automotor: se agrega documentacion comp
 Test 1/A - Excencion impuesto provincial automotor: se elimina la documentacion complementaria - [operador mesa]
     [Documentation]    Entra como operador y cuando se quiere eliminar la documentacion complementaria agregada, se presiona el boton cancelar, luego se elimina
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -164,9 +154,7 @@ Test 1/A - Excencion impuesto provincial automotor: se elimina la documentacion 
 Test 1/A - Excencion impuesto provincial automotor: se agrega documentacion complementaria - archivo incorrecto: excel [operador mesa]
     [Documentation]    Entra como operador y agrega documentacion complementaria de un archivo que no seria valido
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -194,9 +182,7 @@ Test 1/A - Excencion impuesto provincial automotor: verificacion de documentacio
 Test 1/A - Excencion impuesto provincial automotor: se agrega documentacion complementaria - archivo: png [operador mesa]
     [Documentation]    Entra como operador y agrega documentacion complementaria
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -224,9 +210,7 @@ Test 1/A - Excencion impuesto provincial automotor: verificacion de documentacio
 Test 1/A - Excencion impuesto provincial automotor: se agrega documentacion complementaria - archivo: jpeg [operador mesa]
     [Documentation]    Entra como operador y agrega documentacion complementaria
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -254,9 +238,7 @@ Test 1/A - Excencion impuesto provincial automotor: verificacion de documentacio
 Test 1/A - Excencion impuesto provincial automotor: se agrega documentacion complementaria - archivo: pdf [operador mesa]
     [Documentation]    Entra como operador y agrega documentacion complementaria
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -284,9 +266,7 @@ Test 1/A - Excencion impuesto provincial automotor: verificacion de documentacio
 Test 1 / A - Excencion impuesto provincial automotor: cancelar tramite desde adentro del tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se cancela el tramite presionando el boton "cancelar tramite"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -300,9 +280,7 @@ Test 1 / A - Excencion impuesto provincial automotor: cancelar tramite desde ade
 Test 1 / A - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -310,9 +288,7 @@ Test 1 / A - Excencion impuesto provincial automotor: verificar si el boton del 
 Test 1 / A - Excencion impuesto provincial automotor: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -322,9 +298,7 @@ Test 1 / A - Excencion impuesto provincial automotor: verificar si el boton canc
 Test 1 / A - Excencion impuesto provincial automotor: verificar el estado del tramite (cancelado) - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMistramitesRecientes}    3    ${tramite}    Cancelado
@@ -333,9 +307,7 @@ Test 1 / A - Excencion impuesto provincial automotor: verificar el estado del tr
 Test 1 / A - Excencion impuesto provincial automotor: verificar el estado del tramite (cancelado) - boton cancelar tramite [operador]
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -345,9 +317,7 @@ Test 1 / A - Excencion impuesto provincial automotor: verificar el estado del tr
 Test 1 / A - Excencion impuesto provincial automotor: verificar que el tramite no exista - boton cancelar tramite [responsable area]
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -357,9 +327,7 @@ Test 1 / A - Excencion impuesto provincial automotor: verificar que el tramite n
 Test 1 / A - Excencion impuesto provincial automotor: verificar que el tramite no exista - boton cancelar tramite [Direccion]
     [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -369,9 +337,7 @@ Test 1 / A - Excencion impuesto provincial automotor: verificar que el tramite n
 Test 1 / A - Excencion impuesto provincial automotor: verificar que el tramite no exista - boton cancelar tramite [gestion]
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -382,9 +348,7 @@ Test 1 / A - Excencion impuesto provincial automotor: verificar que el tramite n
 Test 1 / A - Excencion impuesto provincial automotor: verificar que el personal no pueda realizar acciones - boton cancelar tramite [operador mesa]
     [Documentation]    Se ingresa como operador mesa y se verifica que no aparezcan los botones de acciones para realizar sobre el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -404,9 +368,7 @@ Test 1 / A - Excencion impuesto provincial automotor: verificar que el personal 
 Test 1 / A - Excencion impuesto provincial automotor: verificar Historial - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -417,9 +379,7 @@ Test 1 / A - Excencion impuesto provincial automotor: verificar Historial - boto
 Test 1 / A - Excencion impuesto provincial automotor: verificar Historial - boton cancelar tramite [operador mesa]
     [Documentation]    Desde el operador mesa, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -444,9 +404,7 @@ Test 1 /B - Excencion impuesto provincial automotor: crear tramite [ciudadano]
 Test 1 / B - Excencion impuesto provincial automotor: cancelar tramite desde el tacho [ciudadano]
     [Documentation]    Desde el ciudadano, se cancela el tramite presionando el icono del tacho del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMisTramitesRecientes}    ${botonTachoINICIO}    ${tramite}
@@ -459,9 +417,7 @@ Test 1 / B - Excencion impuesto provincial automotor: cancelar tramite desde el 
 Test 1 / B - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -469,9 +425,7 @@ Test 1 / B - Excencion impuesto provincial automotor: verificar si el boton del 
 Test 1 / B - Excencion impuesto provincial automotor: verificar si el boton cancelar tramite no existe - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -481,9 +435,7 @@ Test 1 / B - Excencion impuesto provincial automotor: verificar si el boton canc
 Test 1 / B - Excencion impuesto provincial automotor: verificar el estado del tramite (cancelado) - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMistramitesRecientes}    3    ${tramite}    Cancelado
@@ -492,9 +444,7 @@ Test 1 / B - Excencion impuesto provincial automotor: verificar el estado del tr
 Test 1 / B - Excencion impuesto provincial automotor: verificar el estado del tramite (cancelado) - icono tacho de cancelar tramite [operador]
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -504,9 +454,7 @@ Test 1 / B - Excencion impuesto provincial automotor: verificar el estado del tr
 Test 1 / B - Excencion impuesto provincial automotor: verificar que el tramite no exista - icono tacho de cancelar tramite [responsable area]
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -516,9 +464,7 @@ Test 1 / B - Excencion impuesto provincial automotor: verificar que el tramite n
 Test 1 / B - Excencion impuesto provincial automotor: verificar que el tramite no exista - icono tacho de cancelar tramite [Direccion]
     [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -528,9 +474,7 @@ Test 1 / B - Excencion impuesto provincial automotor: verificar que el tramite n
 Test 1 / B - Excencion impuesto provincial automotor: verificar que el tramite no exista - icono tacho de cancelar tramite [gestion]
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -541,9 +485,7 @@ Test 1 / B - Excencion impuesto provincial automotor: verificar que el tramite n
 Test 1 / B - Excencion impuesto provincial automotor: verificar que el personal no pueda realizar acciones - icono tacho de cancelar tramite [operador mesa]
     [Documentation]    Se ingresa como operador mesa y se verifica que no aparezcan los botones de acciones para realizar sobre el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -563,9 +505,7 @@ Test 1 / B - Excencion impuesto provincial automotor: verificar que el personal 
 Test 1 / B - Excencion impuesto provincial automotor: verificar Historial - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -576,9 +516,7 @@ Test 1 / B - Excencion impuesto provincial automotor: verificar Historial - icon
 Test 1 / B - Excencion impuesto provincial automotor: verificar Historial - icono tacho de cancelar tramite [operador mesa]
     [Documentation]    Desde el operador mesa, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -601,9 +539,7 @@ Test 2 / A - Excencion impuesto provincial automotor: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 2 / A - Excencion impuesto provincial automotor: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -611,9 +547,7 @@ Test 2 / A - Excencion impuesto provincial automotor: Indicacion del numero de p
 Test 2 / A - Excencion impuesto provincial automotor: se selecciona la opcion "solicitar datos adicionales" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "Solicitar Datos Adicionales"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -633,9 +567,7 @@ Test 2 / A - Excencion impuesto provincial automotor: se selecciona la opcion "s
 Test 2 / A - Excencion impuesto provincial automotor: cancelar tramite desde adentro del tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se cancela el tramite presionando el boton "cancelar tramite"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -649,9 +581,7 @@ Test 2 / A - Excencion impuesto provincial automotor: cancelar tramite desde ade
 Test 2 / A - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -659,9 +589,7 @@ Test 2 / A - Excencion impuesto provincial automotor: verificar si el boton del 
 Test 2 / A - Excencion impuesto provincial automotor: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -671,9 +599,7 @@ Test 2 / A - Excencion impuesto provincial automotor: verificar si el boton canc
 Test 2 / A - Excencion impuesto provincial automotor: verificar el estado del tramite (cancelado) - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMistramitesRecientes}    3    ${tramite}    Cancelado
@@ -681,9 +607,7 @@ Test 2 / A - Excencion impuesto provincial automotor: verificar el estado del tr
 Test 2 / A - Excencion impuesto provincial automotor: verificar que el tramite no exista - boton cancelar tramite [operador mesa]
     [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -693,9 +617,7 @@ Test 2 / A - Excencion impuesto provincial automotor: verificar que el tramite n
 Test 2 / A - Excencion impuesto provincial automotor: verificar que el tramite no exista - boton cancelar tramite [responsable area]
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -705,9 +627,7 @@ Test 2 / A - Excencion impuesto provincial automotor: verificar que el tramite n
 Test 2 / A - Excencion impuesto provincial automotor: verificar que el tramite no exista - boton cancelar tramite [Direccion]
     [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -717,9 +637,7 @@ Test 2 / A - Excencion impuesto provincial automotor: verificar que el tramite n
 Test 2 / A - Excencion impuesto provincial automotor: verificar que el tramite no exista - boton cancelar tramite [gestion]
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -729,9 +647,7 @@ Test 2 / A - Excencion impuesto provincial automotor: verificar que el tramite n
 Test 2 / A - Excencion impuesto provincial automotor: verificar Historial - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -750,9 +666,7 @@ Test 2 / B - Excencion impuesto provincial automotor: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 2 / B - Excencion impuesto provincial automotor: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -760,9 +674,7 @@ Test 2 / B - Excencion impuesto provincial automotor: Indicacion del numero de p
 Test 2 / B - Excencion impuesto provincial automotor: se selecciona la opcion "solicitar datos adicionales" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "Solicitar Datos Adicionales"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -770,10 +682,7 @@ Test 2 / B - Excencion impuesto provincial automotor: se selecciona la opcion "s
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     execute javascript    window.scrollTo(0,800)
-    Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
-    Validar y completar campo    ${campoComentario}    Solicitar Datos Adicionales    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonSolicitarDatosAdicionales}    Solicitar Datos Adicionales    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -782,9 +691,7 @@ Test 2 / B - Excencion impuesto provincial automotor: se selecciona la opcion "s
 Test 2 / B - Excencion impuesto provincial automotor: cancelar tramite desde el tacho [ciudadano]
     [Documentation]    Desde el ciudadano, se cancela el tramite presionando el icono del tacho del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMisTramitesRecientes}    ${botonTachoINICIO}    ${tramite}
@@ -797,9 +704,7 @@ Test 2 / B - Excencion impuesto provincial automotor: cancelar tramite desde el 
 Test 2 / B - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -807,9 +712,7 @@ Test 2 / B - Excencion impuesto provincial automotor: verificar si el boton del 
 Test 2 / B - Excencion impuesto provincial automotor: verificar si el boton cancelar tramite no existe - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -819,9 +722,7 @@ Test 2 / B - Excencion impuesto provincial automotor: verificar si el boton canc
 Test 2 / B - Excencion impuesto provincial automotor: verificar el estado del tramite (cancelado) - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMistramitesRecientes}    3    ${tramite}    Cancelado
@@ -829,9 +730,7 @@ Test 2 / B - Excencion impuesto provincial automotor: verificar el estado del tr
 Test 2 / B - Excencion impuesto provincial automotor: verificar que el tramite no exista - icono tacho de cancelar tramite [operador mesa]
     [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -841,9 +740,7 @@ Test 2 / B - Excencion impuesto provincial automotor: verificar que el tramite n
 Test 2 / B - Excencion impuesto provincial automotor: verificar que el tramite no exista - icono tacho de cancelar tramite [responsable area]
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -853,9 +750,7 @@ Test 2 / B - Excencion impuesto provincial automotor: verificar que el tramite n
 Test 2 / B - Excencion impuesto provincial automotor: verificar que el tramite no exista - icono tacho de cancelar tramite [Direccion]
     [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -865,9 +760,7 @@ Test 2 / B - Excencion impuesto provincial automotor: verificar que el tramite n
 Test 2 / B - Excencion impuesto provincial automotor: verificar que el tramite no exista - icono tacho de cancelar tramite [gestion]
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -877,9 +770,7 @@ Test 2 / B - Excencion impuesto provincial automotor: verificar que el tramite n
 Test 2 / B - Excencion impuesto provincial automotor: verificar Historial - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -900,9 +791,7 @@ Test 3 /A - Excencion impuesto provincial automotor: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 3 /A - Excencion impuesto provincial automotor: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -910,19 +799,14 @@ Test 3 /A - Excencion impuesto provincial automotor: Indicacion del numero de pr
 Test 3 / A - Excencion impuesto provincial automotor: se selecciona la opcion "enviar a Direccion" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarDireccion}    enviarDireccion
-    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${enviarDireccion}    enviar a Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -932,9 +816,7 @@ Test 3 / A - Excencion impuesto provincial automotor: se selecciona la opcion "e
 Test 3/A - Excencion impuesto provincial automotor: agregar documentacion complementaria - intentar subir documentacion sin completar los campos [direccion]
     [Documentation]    Entra como operador y se verifica que no se pueda crear la documentacion al intentar subir solo archivo o comentaria
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -954,9 +836,7 @@ Test 3/A - Excencion impuesto provincial automotor: agregar documentacion comple
 Test 3/A - Excencion impuesto provincial automotor: agregar documentacion complementaria - intentar que no se suba debido a que se presiona el boton cancelar [direccion]
     [Documentation]    Entra como operador y se verifica que no se suba la documentacion complementaria debido a que se presiono le boton cancelar en vez de subir
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -978,9 +858,7 @@ Test 3/A - Excencion impuesto provincial automotor: agregar documentacion comple
 Test 3/A - Excencion impuesto provincial automotor: se agrega documentacion complementaria - [direccion]
     [Documentation]    Entra como operador y agrega documentacion complementaria
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -992,9 +870,7 @@ Test 3/A - Excencion impuesto provincial automotor: se agrega documentacion comp
 Test 3/A - Excencion impuesto provincial automotor: se elimina la documentacion complementaria - [direccion]
     [Documentation]    Entra como operador y cuando se quiere eliminar la documentacion complementaria agregada, se presiona el boton cancelar, luego se elimina
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -1013,9 +889,7 @@ Test 3/A - Excencion impuesto provincial automotor: se elimina la documentacion 
 Test 3 / A - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -1023,9 +897,7 @@ Test 3 / A - Excencion impuesto provincial automotor: verificar si el boton del 
 Test 3 / A - Excencion impuesto provincial automotor: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -1036,9 +908,7 @@ Test 3 / A - Excencion impuesto provincial automotor: verificar si el boton canc
 Test 3 / B - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -1046,9 +916,7 @@ Test 3 / B - Excencion impuesto provincial automotor: verificar si el boton del 
 Test 3 / B - Excencion impuesto provincial automotor: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -1060,19 +928,14 @@ Test 3 / B - Excencion impuesto provincial automotor: verificar si el boton canc
 Test 4 / A- Excencion impuesto provincial automotor: se selecciona la opcion "no corresponde" [Direccion]
     [Documentation]    Entra como Direccion para continuar con el proceso dandole a la opcion "No Corresponde" devolviendo el tramite hacia Mesa de Entrada.
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonNoCorresponde}    botonNoCorresponde
-    Validar y completar campo    ${campoComentario}    No Corresponde    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonNoCorresponde}    boton No Corresponde    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1082,9 +945,7 @@ Test 4 / A- Excencion impuesto provincial automotor: se selecciona la opcion "no
 Test 4/A - Excencion impuesto provincial automotor: agregar documentacion complementaria - intentar subir documentacion sin completar los campos [operador mesa]
     [Documentation]    Entra como operador y se verifica que no se pueda crear la documentacion al intentar subir solo archivo o comentaria
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -1104,9 +965,7 @@ Test 4/A - Excencion impuesto provincial automotor: agregar documentacion comple
 Test 4/A - Excencion impuesto provincial automotor: agregar documentacion complementaria - intentar que no se suba debido a que se presiona el boton cancelar [operador mesa]
     [Documentation]    Entra como operador y se verifica que no se suba la documentacion complementaria debido a que se presiono le boton cancelar en vez de subir
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -1129,9 +988,7 @@ Test 4/A - Excencion impuesto provincial automotor: agregar documentacion comple
 Test 4/A - Excencion impuesto provincial automotor: se agrega documentacion complementaria - archivo incorrecto: excel [operador mesa]
     [Documentation]    Entra como operador y agrega documentacion complementaria de un archivo que no seria valido
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -1159,9 +1016,7 @@ Test 4/A - Excencion impuesto provincial automotor: verificacion de documentacio
 Test 4 / A - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -1169,9 +1024,7 @@ Test 4 / A - Excencion impuesto provincial automotor: verificar si el boton del 
 Test 4 / A - Excencion impuesto provincial automotor: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -1182,9 +1035,7 @@ Test 4 / A - Excencion impuesto provincial automotor: verificar si el boton canc
 Test 4 / B - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -1192,9 +1043,7 @@ Test 4 / B - Excencion impuesto provincial automotor: verificar si el boton del 
 Test 4 / B - Excencion impuesto provincial automotor: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -1206,19 +1055,14 @@ Test 4 / B - Excencion impuesto provincial automotor: verificar si el boton canc
 Test 5 / A - Excencion impuesto provincial automotor: se selecciona la opcion "no corresponde" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "No Corresponde"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonNoCorresponde}    botonNoCorresponde
-    Validar y completar campo    ${campoComentario}    No Corresponde    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonNoCorresponde}    boton No Corresponde    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1227,9 +1071,7 @@ Test 5 / A - Excencion impuesto provincial automotor: se selecciona la opcion "n
 Test 5 / A - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -1237,9 +1079,7 @@ Test 5 / A - Excencion impuesto provincial automotor: verificar si el boton del 
 Test 5 / A - Excencion impuesto provincial automotor: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -1250,9 +1090,7 @@ Test 5 / A - Excencion impuesto provincial automotor: verificar si el boton canc
 Test 5 / B - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -1260,9 +1098,7 @@ Test 5 / B - Excencion impuesto provincial automotor: verificar si el boton del 
 Test 5 / B - Excencion impuesto provincial automotor: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -1282,9 +1118,7 @@ Test 6 /A - Excencion impuesto provincial automotor: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 6 /A - Excencion impuesto provincial automotor: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -1292,38 +1126,28 @@ Test 6 /A - Excencion impuesto provincial automotor: Indicacion del numero de pr
 Test 6 / A - Excencion impuesto provincial automotor: se selecciona la opcion "enviar a Direccion" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarDireccion}    enviarDireccion
-    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${enviarDireccion}    enviar a Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 6 / A- Excencion impuesto provincial automotor: se selecciona la opcion "para resolver" [Direccion]
     [Documentation]    Entra como Direccion para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
    # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${paraResolver}    paraResolver
-    Validar y completar campo    ${campoComentario}    Para Resolver    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${paraResolver}    para Resolver    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1333,9 +1157,7 @@ Test 6 / A- Excencion impuesto provincial automotor: se selecciona la opcion "pa
 Test 6/A - Excencion impuesto provincial automotor: agregar documentacion complementaria - intentar subir documentacion sin completar los campos [gestion]
     [Documentation]    Entra como operador y se verifica que no se pueda crear la documentacion al intentar subir solo archivo o comentaria
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -1355,9 +1177,7 @@ Test 6/A - Excencion impuesto provincial automotor: agregar documentacion comple
 Test 6/A - Excencion impuesto provincial automotor: agregar documentacion complementaria - intentar que no se suba debido a que se presiona el boton cancelar [gestion]
     [Documentation]    Entra como operador y se verifica que no se suba la documentacion complementaria debido a que se presiono le boton cancelar en vez de subir
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -1380,9 +1200,7 @@ Test 6/A - Excencion impuesto provincial automotor: agregar documentacion comple
 Test 6/A - Excencion impuesto provincial automotor: se agrega documentacion complementaria - archivo: png [gestion]
     [Documentation]    Entra como operador y agrega documentacion complementaria
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -1410,9 +1228,7 @@ Test 6/A - Excencion impuesto provincial automotor: verificacion de documentacio
 Test 6 / A - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -1420,9 +1236,7 @@ Test 6 / A - Excencion impuesto provincial automotor: verificar si el boton del 
 Test 6 / A - Excencion impuesto provincial automotor: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -1433,9 +1247,7 @@ Test 6 / A - Excencion impuesto provincial automotor: verificar si el boton canc
 Test 6 / B - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -1443,9 +1255,7 @@ Test 6 / B - Excencion impuesto provincial automotor: verificar si el boton del 
 Test 6 / B - Excencion impuesto provincial automotor: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -1457,19 +1267,14 @@ Test 6 / B - Excencion impuesto provincial automotor: verificar si el boton canc
 Test 7 /A- Excencion impuesto provincial automotor: se selecciona la opcion "aprobado" [gestion]
     [Documentation]    Entra como Gestion aprobando el tramite para continuar con el proceso
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonAprobar}    botonAprobar
-    Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonAprobar}    boton Aprobar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1479,9 +1284,7 @@ Test 7 /A- Excencion impuesto provincial automotor: se selecciona la opcion "apr
 Test 7/A - Excencion impuesto provincial automotor: agregar documentacion complementaria - intentar subir documentacion sin completar los campos [operador mesa]
     [Documentation]    Entra como operador y se verifica que no se pueda crear la documentacion al intentar subir solo archivo o comentaria
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -1501,9 +1304,7 @@ Test 7/A - Excencion impuesto provincial automotor: agregar documentacion comple
 Test 7/A - Excencion impuesto provincial automotor: agregar documentacion complementaria - intentar que no se suba debido a que se presiona el boton cancelar [operador mesa]
     [Documentation]    Entra como operador y se verifica que no se suba la documentacion complementaria debido a que se presiono le boton cancelar en vez de subir
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -1525,9 +1326,7 @@ Test 7/A - Excencion impuesto provincial automotor: agregar documentacion comple
 Test 7/A - Excencion impuesto provincial automotor: se agrega documentacion complementaria - archivo: jpeg [operador mesa]
     [Documentation]    Entra como operador y agrega documentacion complementaria
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -1555,9 +1354,7 @@ Test 7/A - Excencion impuesto provincial automotor: verificacion de documentacio
 Test 7 / A - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -1565,9 +1362,7 @@ Test 7 / A - Excencion impuesto provincial automotor: verificar si el boton del 
 Test 7 / A - Excencion impuesto provincial automotor: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -1578,9 +1373,7 @@ Test 7 / A - Excencion impuesto provincial automotor: verificar si el boton canc
 Test 7 / B - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -1588,9 +1381,7 @@ Test 7 / B - Excencion impuesto provincial automotor: verificar si el boton del 
 Test 7 / B - Excencion impuesto provincial automotor: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -1602,18 +1393,15 @@ Test 7 / B - Excencion impuesto provincial automotor: verificar si el boton canc
 Test 8 /A - Excencion impuesto provincial automotor: se selecciona la opcion "informar contribuyente" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso, en este caso "Rechazado"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    #Se selecciona X accion con estado final    ${informarContribuyente}    informar Contribuyente
+    Se selecciona X accion    ${informarContribuyente}    informar Contribuyente    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1622,9 +1410,7 @@ Test 8 /A - Excencion impuesto provincial automotor: se selecciona la opcion "in
 Test 8 / A - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -1632,9 +1418,7 @@ Test 8 / A - Excencion impuesto provincial automotor: verificar si el boton del 
 Test 8 / A - Excencion impuesto provincial automotor: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -1645,9 +1429,7 @@ Test 8 / A - Excencion impuesto provincial automotor: verificar si el boton canc
 Test 8 / B - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -1655,9 +1437,7 @@ Test 8 / B - Excencion impuesto provincial automotor: verificar si el boton del 
 Test 8 / B - Excencion impuesto provincial automotor: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -1677,9 +1457,7 @@ Test 9 /A - Excencion impuesto provincial automotor: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 9 /A - Excencion impuesto provincial automotor: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -1687,57 +1465,42 @@ Test 9 /A - Excencion impuesto provincial automotor: Indicacion del numero de pr
 Test 9 /A - Excencion impuesto provincial automotor: se selecciona la opcion "enviar a Direccion". [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
    # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarDireccion}    enviarDireccion
-    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${enviarDireccion}    enviar a Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 9 /A - Excencion impuesto provincial automotor: se selecciona la opcion "para resolver" [Direccion]
     [Documentation]    Entra como Direccion para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
    # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${paraResolver}    paraResolver
-    Validar y completar campo    ${campoComentario}    Para Resolver    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${paraResolver}    para Resolver    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 9 / A - Excencion impuesto provincial automotor: se selecciona la opcion "rechazar" [gestion]
     [Documentation]     Entra como Gestion Rechazando el tramite y continua con el proceso
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonRechazar}    botonRechazar
-    Validar y completar campo    ${campoComentario}    Rechazado    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonRechazar}    boton Rechazar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1746,9 +1509,7 @@ Test 9 / A - Excencion impuesto provincial automotor: se selecciona la opcion "r
 Test 9 / A - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -1756,9 +1517,7 @@ Test 9 / A - Excencion impuesto provincial automotor: verificar si el boton del 
 Test 9 / A - Excencion impuesto provincial automotor: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -1770,9 +1529,7 @@ Test 9 / A - Excencion impuesto provincial automotor: verificar si el boton canc
 Test 9 / B - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -1780,9 +1537,7 @@ Test 9 / B - Excencion impuesto provincial automotor: verificar si el boton del 
 Test 9 / B - Excencion impuesto provincial automotor: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -1802,9 +1557,7 @@ Test 10 /A - Excencion impuesto provincial automotor: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 10 /A - Excencion impuesto provincial automotor: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -1812,38 +1565,28 @@ Test 10 /A - Excencion impuesto provincial automotor: Indicacion del numero de p
 Test 10 / A - Excencion impuesto provincial automotor: se selecciona la opcion "enviar a Direccion" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarDireccion}    enviarDireccion
-    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${enviarDireccion}    enviar a Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 10 /A- Excencion impuesto provincial automotor: se selecciona la opcion "aprobado" [Direccion]
     [Documentation]    Entra como Direccion aprobando el tramite para continuar con el proceso
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonAprobar}    botonAprobar
-    Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonAprobar}    boton Aprobar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1852,9 +1595,7 @@ Test 10 /A- Excencion impuesto provincial automotor: se selecciona la opcion "ap
 Test 10 / A - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -1862,9 +1603,7 @@ Test 10 / A - Excencion impuesto provincial automotor: verificar si el boton del
 Test 10 / A - Excencion impuesto provincial automotor: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -1875,9 +1614,7 @@ Test 10 / A - Excencion impuesto provincial automotor: verificar si el boton can
 Test 10 / B - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -1885,9 +1622,7 @@ Test 10 / B - Excencion impuesto provincial automotor: verificar si el boton del
 Test 10 / B - Excencion impuesto provincial automotor: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -1907,9 +1642,7 @@ Test 11 /A - Excencion impuesto provincial automotor: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 11 /A - Excencion impuesto provincial automotor: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -1917,38 +1650,28 @@ Test 11 /A - Excencion impuesto provincial automotor: Indicacion del numero de p
 Test 11 / A - Excencion impuesto provincial automotor: se selecciona la opcion "enviar a Direccion" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarDireccion}    enviarDireccion
-    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${enviarDireccion}    enviar a Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 11 /A- Excencion impuesto provincial automotor: se selecciona la opcion "rechazar" [Direccion]
     [Documentation]    Entra como Direccion rechazando el tramite para continuar con el proceso
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonRechazar}    botonRechazar
-    Validar y completar campo    ${campoComentario}    Rechazado    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonRechazar}    boton Rechazar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1957,9 +1680,7 @@ Test 11 /A- Excencion impuesto provincial automotor: se selecciona la opcion "re
 Test 11 / A - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -1967,9 +1688,7 @@ Test 11 / A - Excencion impuesto provincial automotor: verificar si el boton del
 Test 11 / A - Excencion impuesto provincial automotor: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -1980,9 +1699,7 @@ Test 11 / A - Excencion impuesto provincial automotor: verificar si el boton can
 Test 11 / B - Excencion impuesto provincial automotor: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -1990,9 +1707,7 @@ Test 11 / B - Excencion impuesto provincial automotor: verificar si el boton del
 Test 11 / B - Excencion impuesto provincial automotor: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -2019,9 +1734,7 @@ Test 1 /A - Exencion impuesto de sellos: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 1 /A - Exencion impuesto de sellos: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -2030,9 +1743,7 @@ Test 1 /A - Exencion impuesto de sellos: Indicacion del numero de proceso creado
 Test 1 / A - Exencion impuesto de sellos: cancelar tramite desde adentro del tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se cancela el tramite presionando el boton "cancelar tramite"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -2046,9 +1757,7 @@ Test 1 / A - Exencion impuesto de sellos: cancelar tramite desde adentro del tra
 Test 1 / A - Exencion impuesto de sellos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -2056,9 +1765,7 @@ Test 1 / A - Exencion impuesto de sellos: verificar si el boton del tacho esta b
 Test 1 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -2068,9 +1775,7 @@ Test 1 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 1 / A - Exencion impuesto de sellos: verificar el estado del tramite (cancelado) - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMistramitesRecientes}    3    ${tramite}    Cancelado
@@ -2079,9 +1784,7 @@ Test 1 / A - Exencion impuesto de sellos: verificar el estado del tramite (cance
 Test 1 / A - Exencion impuesto de sellos: verificar el estado del tramite (cancelado) - boton cancelar tramite [operador]
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -2091,9 +1794,7 @@ Test 1 / A - Exencion impuesto de sellos: verificar el estado del tramite (cance
 Test 1 / A - Exencion impuesto de sellos: verificar que el tramite no exista - boton cancelar tramite [responsable area]
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -2103,9 +1804,7 @@ Test 1 / A - Exencion impuesto de sellos: verificar que el tramite no exista - b
 Test 1 / A - Exencion impuesto de sellos: verificar que el tramite no exista - boton cancelar tramite [Direccion]
     [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -2115,9 +1814,7 @@ Test 1 / A - Exencion impuesto de sellos: verificar que el tramite no exista - b
 Test 1 / A - Exencion impuesto de sellos: verificar que el tramite no exista - boton cancelar tramite [gestion]
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -2128,9 +1825,7 @@ Test 1 / A - Exencion impuesto de sellos: verificar que el tramite no exista - b
 Test 1 / A - Exencion impuesto de sellos: verificar que el personal no pueda realizar acciones - boton cancelar tramite [operador mesa]
     [Documentation]    Se ingresa como operador mesa y se verifica que no aparezcan los botones de acciones para realizar sobre el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -2150,9 +1845,7 @@ Test 1 / A - Exencion impuesto de sellos: verificar que el personal no pueda rea
 Test 1 / A - Exencion impuesto de sellos: verificar Historial - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -2163,9 +1856,7 @@ Test 1 / A - Exencion impuesto de sellos: verificar Historial - boton cancelar t
 Test 1 / A - Exencion impuesto de sellos: verificar Historial - boton cancelar tramite [operador mesa]
     [Documentation]    Desde el operador mesa, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -2190,9 +1881,7 @@ Test 1 /B - Exencion impuesto de sellos: crear tramite [ciudadano]
 Test 1 / B - Exencion impuesto de sellos: cancelar tramite desde el tacho [ciudadano]
     [Documentation]    Desde el ciudadano, se cancela el tramite presionando el icono del tacho del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMisTramitesRecientes}    ${botonTachoINICIO}    ${tramite}
@@ -2205,9 +1894,7 @@ Test 1 / B - Exencion impuesto de sellos: cancelar tramite desde el tacho [ciuda
 Test 1 / B - Exencion impuesto de sellos: verificar si el boton del tacho esta bloqueado - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -2215,9 +1902,7 @@ Test 1 / B - Exencion impuesto de sellos: verificar si el boton del tacho esta b
 Test 1 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite no existe - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -2227,9 +1912,7 @@ Test 1 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 1 / B - Exencion impuesto de sellos: verificar el estado del tramite (cancelado) - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMistramitesRecientes}    3    ${tramite}    Cancelado
@@ -2238,9 +1921,7 @@ Test 1 / B - Exencion impuesto de sellos: verificar el estado del tramite (cance
 Test 1 / B - Exencion impuesto de sellos: verificar el estado del tramite (cancelado) - icono tacho de cancelar tramite [operador]
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -2250,9 +1931,7 @@ Test 1 / B - Exencion impuesto de sellos: verificar el estado del tramite (cance
 Test 1 / B - Exencion impuesto de sellos: verificar que el tramite no exista - icono tacho de cancelar tramite [responsable area]
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -2262,9 +1941,7 @@ Test 1 / B - Exencion impuesto de sellos: verificar que el tramite no exista - i
 Test 1 / B - Exencion impuesto de sellos: verificar que el tramite no exista - icono tacho de cancelar tramite [Direccion]
     [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -2274,9 +1951,7 @@ Test 1 / B - Exencion impuesto de sellos: verificar que el tramite no exista - i
 Test 1 / B - Exencion impuesto de sellos: verificar que el tramite no exista - icono tacho de cancelar tramite [gestion]
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -2287,9 +1962,7 @@ Test 1 / B - Exencion impuesto de sellos: verificar que el tramite no exista - i
 Test 1 / B - Exencion impuesto de sellos: verificar que el personal no pueda realizar acciones - icono tacho de cancelar tramite [operador mesa]
     [Documentation]    Se ingresa como operador mesa y se verifica que no aparezcan los botones de acciones para realizar sobre el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -2309,9 +1982,7 @@ Test 1 / B - Exencion impuesto de sellos: verificar que el personal no pueda rea
 Test 1 / B - Exencion impuesto de sellos: verificar Historial - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -2322,9 +1993,7 @@ Test 1 / B - Exencion impuesto de sellos: verificar Historial - icono tacho de c
 Test 1 / B - Exencion impuesto de sellos: verificar Historial - icono tacho de cancelar tramite [operador mesa]
     [Documentation]    Desde el operador mesa, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -2347,9 +2016,7 @@ Test 2 / A - Exencion impuesto de sellos: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 2 / A - Exencion impuesto de sellos: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -2357,9 +2024,7 @@ Test 2 / A - Exencion impuesto de sellos: Indicacion del numero de proceso cread
 Test 2 / A - Exencion impuesto de sellos: se selecciona la opcion "solicitar datos adicionales" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "Solicitar Datos Adicionales"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -2367,10 +2032,7 @@ Test 2 / A - Exencion impuesto de sellos: se selecciona la opcion "solicitar dat
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     execute javascript    window.scrollTo(0,800)
-    Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
-    Validar y completar campo    ${campoComentario}    Solicitar Datos Adicionales    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonSolicitarDatosAdicionales}    boton Solicitar Datos Adicionales    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -2379,9 +2041,7 @@ Test 2 / A - Exencion impuesto de sellos: se selecciona la opcion "solicitar dat
 Test 2 / A - Exencion impuesto de sellos: cancelar tramite desde adentro del tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se cancela el tramite presionando el boton "cancelar tramite"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -2395,9 +2055,7 @@ Test 2 / A - Exencion impuesto de sellos: cancelar tramite desde adentro del tra
 Test 2 / A - Exencion impuesto de sellos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -2405,9 +2063,7 @@ Test 2 / A - Exencion impuesto de sellos: verificar si el boton del tacho esta b
 Test 2 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -2417,9 +2073,7 @@ Test 2 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 2 / A - Exencion impuesto de sellos: verificar el estado del tramite (cancelado) - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMistramitesRecientes}    3    ${tramite}    Cancelado
@@ -2427,9 +2081,7 @@ Test 2 / A - Exencion impuesto de sellos: verificar el estado del tramite (cance
 Test 2 / A - Exencion impuesto de sellos: verificar que el tramite no exista - boton cancelar tramite [operador mesa]
     [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -2439,9 +2091,7 @@ Test 2 / A - Exencion impuesto de sellos: verificar que el tramite no exista - b
 Test 2 / A - Exencion impuesto de sellos: verificar que el tramite no exista - boton cancelar tramite [responsable area]
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -2451,9 +2101,7 @@ Test 2 / A - Exencion impuesto de sellos: verificar que el tramite no exista - b
 Test 2 / A - Exencion impuesto de sellos: verificar que el tramite no exista - boton cancelar tramite [Direccion]
     [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -2463,9 +2111,7 @@ Test 2 / A - Exencion impuesto de sellos: verificar que el tramite no exista - b
 Test 2 / A - Exencion impuesto de sellos: verificar que el tramite no exista - boton cancelar tramite [gestion]
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -2475,9 +2121,7 @@ Test 2 / A - Exencion impuesto de sellos: verificar que el tramite no exista - b
 Test 2 / A - Exencion impuesto de sellos: verificar Historial - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -2496,9 +2140,7 @@ Test 2 / B - Exencion impuesto de sellos: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 2 / B - Exencion impuesto de sellos: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -2506,9 +2148,7 @@ Test 2 / B - Exencion impuesto de sellos: Indicacion del numero de proceso cread
 Test 2 / B - Exencion impuesto de sellos: se selecciona la opcion "solicitar datos adicionales" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "Solicitar Datos Adicionales"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -2516,10 +2156,7 @@ Test 2 / B - Exencion impuesto de sellos: se selecciona la opcion "solicitar dat
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     execute javascript    window.scrollTo(0,800)
-    Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
-    Validar y completar campo    ${campoComentario}    Solicitar Datos Adicionales    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonSolicitarDatosAdicionales}    boton Solicitar Datos Adicionales    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -2528,9 +2165,7 @@ Test 2 / B - Exencion impuesto de sellos: se selecciona la opcion "solicitar dat
 Test 2 / B - Exencion impuesto de sellos: cancelar tramite desde el tacho [ciudadano]
     [Documentation]    Desde el ciudadano, se cancela el tramite presionando el icono del tacho del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMisTramitesRecientes}    ${botonTachoINICIO}    ${tramite}
@@ -2543,9 +2178,7 @@ Test 2 / B - Exencion impuesto de sellos: cancelar tramite desde el tacho [ciuda
 Test 2 / B - Exencion impuesto de sellos: verificar si el boton del tacho esta bloqueado - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -2553,9 +2186,7 @@ Test 2 / B - Exencion impuesto de sellos: verificar si el boton del tacho esta b
 Test 2 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite no existe - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -2565,9 +2196,7 @@ Test 2 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 2 / B - Exencion impuesto de sellos: verificar el estado del tramite (cancelado) - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMistramitesRecientes}    3    ${tramite}    Cancelado
@@ -2575,9 +2204,7 @@ Test 2 / B - Exencion impuesto de sellos: verificar el estado del tramite (cance
 Test 2 / B - Exencion impuesto de sellos: verificar que el tramite no exista - icono tacho de cancelar tramite [operador mesa]
     [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -2587,9 +2214,7 @@ Test 2 / B - Exencion impuesto de sellos: verificar que el tramite no exista - i
 Test 2 / B - Exencion impuesto de sellos: verificar que el tramite no exista - icono tacho de cancelar tramite [responsable area]
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -2599,9 +2224,7 @@ Test 2 / B - Exencion impuesto de sellos: verificar que el tramite no exista - i
 Test 2 / B - Exencion impuesto de sellos: verificar que el tramite no exista - icono tacho de cancelar tramite [Direccion]
     [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -2611,9 +2234,7 @@ Test 2 / B - Exencion impuesto de sellos: verificar que el tramite no exista - i
 Test 2 / B - Exencion impuesto de sellos: verificar que el tramite no exista - icono tacho de cancelar tramite [gestion]
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -2623,9 +2244,7 @@ Test 2 / B - Exencion impuesto de sellos: verificar que el tramite no exista - i
 Test 2 / B - Exencion impuesto de sellos: verificar Historial - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -2646,9 +2265,7 @@ Test 3 /A - Exencion impuesto de sellos: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 3 /A - Exencion impuesto de sellos: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -2656,19 +2273,14 @@ Test 3 /A - Exencion impuesto de sellos: Indicacion del numero de proceso creado
 Test 3 / A - Exencion impuesto de sellos: se selecciona la opcion "enviar a Direccion" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarDireccion}    enviarDireccion
-    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${enviarDireccion}    enviar a Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -2677,9 +2289,7 @@ Test 3 / A - Exencion impuesto de sellos: se selecciona la opcion "enviar a Dire
 Test 3 / A - Exencion impuesto de sellos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -2687,9 +2297,7 @@ Test 3 / A - Exencion impuesto de sellos: verificar si el boton del tacho esta b
 Test 3 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -2700,9 +2308,7 @@ Test 3 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 3 / B - Exencion impuesto de sellos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -2710,9 +2316,7 @@ Test 3 / B - Exencion impuesto de sellos: verificar si el boton del tacho esta b
 Test 3 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -2724,19 +2328,14 @@ Test 3 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 4 / A- Exencion impuesto de sellos: se selecciona la opcion "no corresponde" [Direccion]
     [Documentation]    Entra como Direccion para continuar con el proceso dandole a la opcion "No Corresponde" devolviendo el tramite hacia Mesa de Entrada.
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonNoCorresponde}    botonNoCorresponde
-    Validar y completar campo    ${campoComentario}    No Corresponde    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonNoCorresponde}    boton No Corresponde    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -2745,9 +2344,7 @@ Test 4 / A- Exencion impuesto de sellos: se selecciona la opcion "no corresponde
 Test 4 / A - Exencion impuesto de sellos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -2755,9 +2352,7 @@ Test 4 / A - Exencion impuesto de sellos: verificar si el boton del tacho esta b
 Test 4 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -2768,9 +2363,7 @@ Test 4 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 4 / B - Exencion impuesto de sellos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -2778,9 +2371,7 @@ Test 4 / B - Exencion impuesto de sellos: verificar si el boton del tacho esta b
 Test 4 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -2792,19 +2383,14 @@ Test 4 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 5 / A - Exencion impuesto de sellos: se selecciona la opcion "no corresponde" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "No Corresponde"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonNoCorresponde}    botonNoCorresponde
-    Validar y completar campo    ${campoComentario}    No Corresponde    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonNoCorresponde}    boton No Corresponde    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -2813,9 +2399,7 @@ Test 5 / A - Exencion impuesto de sellos: se selecciona la opcion "no correspond
 Test 5 / A - Exencion impuesto de sellos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -2823,9 +2407,7 @@ Test 5 / A - Exencion impuesto de sellos: verificar si el boton del tacho esta b
 Test 5 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -2836,9 +2418,7 @@ Test 5 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 5 / B - Exencion impuesto de sellos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -2846,9 +2426,7 @@ Test 5 / B - Exencion impuesto de sellos: verificar si el boton del tacho esta b
 Test 5 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -2868,9 +2446,7 @@ Test 6 /A - Exencion impuesto de sellos: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 6 /A - Exencion impuesto de sellos: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -2878,38 +2454,28 @@ Test 6 /A - Exencion impuesto de sellos: Indicacion del numero de proceso creado
 Test 6 / A - Exencion impuesto de sellos: se selecciona la opcion "enviar a Direccion" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarDireccion}    enviarDireccion
-    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${enviarDireccion}    enviar a Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 6 / A- Exencion impuesto de sellos: se selecciona la opcion "para resolver" [Direccion]
     [Documentation]    Entra como Direccion para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
    # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${paraResolver}    paraResolver
-    Validar y completar campo    ${campoComentario}    Para Resolver    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${paraResolver}    para Resolver    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -2918,9 +2484,7 @@ Test 6 / A- Exencion impuesto de sellos: se selecciona la opcion "para resolver"
 Test 6 / A - Exencion impuesto de sellos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -2928,9 +2492,7 @@ Test 6 / A - Exencion impuesto de sellos: verificar si el boton del tacho esta b
 Test 6 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -2941,9 +2503,7 @@ Test 6 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 6 / B - Exencion impuesto de sellos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -2951,9 +2511,7 @@ Test 6 / B - Exencion impuesto de sellos: verificar si el boton del tacho esta b
 Test 6 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -2965,19 +2523,14 @@ Test 6 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 7 /A- Exencion impuesto de sellos: se selecciona la opcion "aprobado" [gestion]
     [Documentation]    Entra como Gestion aprobando el tramite para continuar con el proceso
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonAprobar}    botonAprobar
-    Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonAprobar}    boton Aprobar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -2986,9 +2539,7 @@ Test 7 /A- Exencion impuesto de sellos: se selecciona la opcion "aprobado" [gest
 Test 7 / A - Exencion impuesto de sellos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -2996,9 +2547,7 @@ Test 7 / A - Exencion impuesto de sellos: verificar si el boton del tacho esta b
 Test 7 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -3009,9 +2558,7 @@ Test 7 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 7 / B - Exencion impuesto de sellos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -3019,9 +2566,7 @@ Test 7 / B - Exencion impuesto de sellos: verificar si el boton del tacho esta b
 Test 7 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -3033,18 +2578,15 @@ Test 7 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 8 /A - Exencion impuesto de sellos: se selecciona la opcion "informar contribuyente" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso, en este caso "Rechazado"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    #Se selecciona X accion con estado final    ${informarContribuyente}    informar Contribuyente
+    Se selecciona X accion    ${informarContribuyente}    informar Contribuyente    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -3053,9 +2595,7 @@ Test 8 /A - Exencion impuesto de sellos: se selecciona la opcion "informar contr
 Test 8 / A - Exencion impuesto de sellos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -3063,9 +2603,7 @@ Test 8 / A - Exencion impuesto de sellos: verificar si el boton del tacho esta b
 Test 8 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -3076,9 +2614,7 @@ Test 8 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 8 / B - Exencion impuesto de sellos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -3086,9 +2622,7 @@ Test 8 / B - Exencion impuesto de sellos: verificar si el boton del tacho esta b
 Test 8 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -3108,9 +2642,7 @@ Test 9 /A - Exencion impuesto de sellos: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 9 /A - Exencion impuesto de sellos: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -3118,57 +2650,42 @@ Test 9 /A - Exencion impuesto de sellos: Indicacion del numero de proceso creado
 Test 9 /A - Exencion impuesto de sellos: se selecciona la opcion "enviar a Direccion". [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
    # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarDireccion}    enviarDireccion
-    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${enviarDireccion}    enviar a Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 9 /A - Exencion impuesto de sellos: se selecciona la opcion "para resolver" [Direccion]
     [Documentation]    Entra como Direccion para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
    # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${paraResolver}    paraResolver
-    Validar y completar campo    ${campoComentario}    Para Resolver    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${paraResolver}    para Resolver    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 9 / A - Exencion impuesto de sellos: se selecciona la opcion "rechazar" [gestion]
     [Documentation]     Entra como Gestion Rechazando el tramite y continua con el proceso
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonRechazar}    botonRechazar
-    Validar y completar campo    ${campoComentario}    Rechazado    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonRechazar}    boton Rechazar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -3177,9 +2694,7 @@ Test 9 / A - Exencion impuesto de sellos: se selecciona la opcion "rechazar" [ge
 Test 9 / A - Exencion impuesto de sellos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -3187,9 +2702,7 @@ Test 9 / A - Exencion impuesto de sellos: verificar si el boton del tacho esta b
 Test 9 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -3201,9 +2714,7 @@ Test 9 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite
 Test 9 / B - Exencion impuesto de sellos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -3211,9 +2722,7 @@ Test 9 / B - Exencion impuesto de sellos: verificar si el boton del tacho esta b
 Test 9 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -3233,9 +2742,7 @@ Test 10 /A - Exencion impuesto de sellos: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 10 /A - Exencion impuesto de sellos: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -3243,38 +2750,28 @@ Test 10 /A - Exencion impuesto de sellos: Indicacion del numero de proceso cread
 Test 10 / A - Exencion impuesto de sellos: se selecciona la opcion "enviar a Direccion" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarDireccion}    enviarDireccion
-    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${enviarDireccion}    enviar a Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 10 /A- Exencion impuesto de sellos: se selecciona la opcion "aprobado" [Direccion]
     [Documentation]    Entra como Direccion aprobando el tramite para continuar con el proceso
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonAprobar}    botonAprobar
-    Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonAprobar}    boton Aprobar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -3283,9 +2780,7 @@ Test 10 /A- Exencion impuesto de sellos: se selecciona la opcion "aprobado" [Dir
 Test 10 / A - Exencion impuesto de sellos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -3293,9 +2788,7 @@ Test 10 / A - Exencion impuesto de sellos: verificar si el boton del tacho esta 
 Test 10 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -3306,9 +2799,7 @@ Test 10 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramit
 Test 10 / B - Exencion impuesto de sellos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -3316,9 +2807,7 @@ Test 10 / B - Exencion impuesto de sellos: verificar si el boton del tacho esta 
 Test 10 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -3338,9 +2827,7 @@ Test 11 /A - Exencion impuesto de sellos: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 11 /A - Exencion impuesto de sellos: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -3348,38 +2835,28 @@ Test 11 /A - Exencion impuesto de sellos: Indicacion del numero de proceso cread
 Test 11 / A - Exencion impuesto de sellos: se selecciona la opcion "enviar a Direccion" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarDireccion}    enviarDireccion
-    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${enviarDireccion}    enviar a Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 11 /A- Exencion impuesto de sellos: se selecciona la opcion "rechazar" [Direccion]
     [Documentation]    Entra como Direccion rechazando el tramite para continuar con el proceso
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonRechazar}    botonRechazar
-    Validar y completar campo    ${campoComentario}    Rechazado    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonRechazar}    boton Rechazar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -3388,9 +2865,7 @@ Test 11 /A- Exencion impuesto de sellos: se selecciona la opcion "rechazar" [Dir
 Test 11 / A - Exencion impuesto de sellos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -3398,9 +2873,7 @@ Test 11 / A - Exencion impuesto de sellos: verificar si el boton del tacho esta 
 Test 11 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -3411,9 +2884,7 @@ Test 11 / A - Exencion impuesto de sellos: verificar si el boton cancelar tramit
 Test 11 / B - Exencion impuesto de sellos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -3421,9 +2892,7 @@ Test 11 / B - Exencion impuesto de sellos: verificar si el boton del tacho esta 
 Test 11 / B - Exencion impuesto de sellos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -3450,9 +2919,7 @@ Test 1 /A - Nota formal: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 1 /A - Nota formal: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -3461,9 +2928,7 @@ Test 1 /A - Nota formal: Indicacion del numero de proceso creado
 Test 1 / A - Nota formal: cancelar tramite desde adentro del tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se cancela el tramite presionando el boton "cancelar tramite"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -3477,9 +2942,7 @@ Test 1 / A - Nota formal: cancelar tramite desde adentro del tramite [ciudadano]
 Test 1 / A - Nota formal: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -3487,9 +2950,7 @@ Test 1 / A - Nota formal: verificar si el boton del tacho esta bloqueado - boton
 Test 1 / A - Nota formal: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -3499,9 +2960,7 @@ Test 1 / A - Nota formal: verificar si el boton cancelar tramite no existe - bot
 Test 1 / A - Nota formal: verificar el estado del tramite (cancelado) - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMistramitesRecientes}    3    ${tramite}    Cancelado
@@ -3510,9 +2969,7 @@ Test 1 / A - Nota formal: verificar el estado del tramite (cancelado) - boton ca
 Test 1 / A - Nota formal: verificar el estado del tramite (cancelado) - boton cancelar tramite [operador]
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -3522,9 +2979,7 @@ Test 1 / A - Nota formal: verificar el estado del tramite (cancelado) - boton ca
 Test 1 / A - Nota formal: verificar que el tramite no exista - boton cancelar tramite [responsable area]
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -3534,9 +2989,7 @@ Test 1 / A - Nota formal: verificar que el tramite no exista - boton cancelar tr
 Test 1 / A - Nota formal: verificar que el tramite no exista - boton cancelar tramite [Direccion]
     [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -3546,9 +2999,7 @@ Test 1 / A - Nota formal: verificar que el tramite no exista - boton cancelar tr
 Test 1 / A - Nota formal: verificar que el tramite no exista - boton cancelar tramite [gestion]
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -3559,9 +3010,7 @@ Test 1 / A - Nota formal: verificar que el tramite no exista - boton cancelar tr
 Test 1 / A - Nota formal: verificar que el personal no pueda realizar acciones - boton cancelar tramite [operador mesa]
     [Documentation]    Se ingresa como operador mesa y se verifica que no aparezcan los botones de acciones para realizar sobre el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -3581,9 +3030,7 @@ Test 1 / A - Nota formal: verificar que el personal no pueda realizar acciones -
 Test 1 / A - Nota formal: verificar Historial - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -3594,9 +3041,7 @@ Test 1 / A - Nota formal: verificar Historial - boton cancelar tramite [ciudadan
 Test 1 / A - Nota formal: verificar Historial - boton cancelar tramite [operador mesa]
     [Documentation]    Desde el operador mesa, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -3621,9 +3066,7 @@ Test 1 /B - Nota formal: crear tramite [ciudadano]
 Test 1 / B - Nota formal: cancelar tramite desde el tacho [ciudadano]
     [Documentation]    Desde el ciudadano, se cancela el tramite presionando el icono del tacho del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMisTramitesRecientes}    ${botonTachoINICIO}    ${tramite}
@@ -3636,9 +3079,7 @@ Test 1 / B - Nota formal: cancelar tramite desde el tacho [ciudadano]
 Test 1 / B - Nota formal: verificar si el boton del tacho esta bloqueado - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -3646,9 +3087,7 @@ Test 1 / B - Nota formal: verificar si el boton del tacho esta bloqueado - icono
 Test 1 / B - Nota formal: verificar si el boton cancelar tramite no existe - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -3658,9 +3097,7 @@ Test 1 / B - Nota formal: verificar si el boton cancelar tramite no existe - ico
 Test 1 / B - Nota formal: verificar el estado del tramite (cancelado) - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMistramitesRecientes}    3    ${tramite}    Cancelado
@@ -3669,9 +3106,7 @@ Test 1 / B - Nota formal: verificar el estado del tramite (cancelado) - icono ta
 Test 1 / B - Nota formal: verificar el estado del tramite (cancelado) - icono tacho de cancelar tramite [operador]
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -3681,9 +3116,7 @@ Test 1 / B - Nota formal: verificar el estado del tramite (cancelado) - icono ta
 Test 1 / B - Nota formal: verificar que el tramite no exista - icono tacho de cancelar tramite [responsable area]
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -3693,9 +3126,7 @@ Test 1 / B - Nota formal: verificar que el tramite no exista - icono tacho de ca
 Test 1 / B - Nota formal: verificar que el tramite no exista - icono tacho de cancelar tramite [Direccion]
     [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -3705,9 +3136,7 @@ Test 1 / B - Nota formal: verificar que el tramite no exista - icono tacho de ca
 Test 1 / B - Nota formal: verificar que el tramite no exista - icono tacho de cancelar tramite [gestion]
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -3718,9 +3147,7 @@ Test 1 / B - Nota formal: verificar que el tramite no exista - icono tacho de ca
 Test 1 / B - Nota formal: verificar que el personal no pueda realizar acciones - icono tacho de cancelar tramite [operador mesa]
     [Documentation]    Se ingresa como operador mesa y se verifica que no aparezcan los botones de acciones para realizar sobre el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -3740,9 +3167,7 @@ Test 1 / B - Nota formal: verificar que el personal no pueda realizar acciones -
 Test 1 / B - Nota formal: verificar Historial - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -3753,9 +3178,7 @@ Test 1 / B - Nota formal: verificar Historial - icono tacho de cancelar tramite 
 Test 1 / B - Nota formal: verificar Historial - icono tacho de cancelar tramite [operador mesa]
     [Documentation]    Desde el operador mesa, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -3778,9 +3201,7 @@ Test 2 / A - Nota formal: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 2 / A - Nota formal: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -3788,9 +3209,7 @@ Test 2 / A - Nota formal: Indicacion del numero de proceso creado
 Test 2 / A - Nota formal: se selecciona la opcion "solicitar datos adicionales" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "Solicitar Datos Adicionales"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -3798,10 +3217,7 @@ Test 2 / A - Nota formal: se selecciona la opcion "solicitar datos adicionales" 
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     execute javascript    window.scrollTo(0,800)
-    Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
-    Validar y completar campo    ${campoComentario}    Solicitar Datos Adicionales    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonSolicitarDatosAdicionales}    boton Solicitar Datos Adicionales    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -3810,9 +3226,7 @@ Test 2 / A - Nota formal: se selecciona la opcion "solicitar datos adicionales" 
 Test 2 / A - Nota formal: cancelar tramite desde adentro del tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se cancela el tramite presionando el boton "cancelar tramite"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -3826,9 +3240,7 @@ Test 2 / A - Nota formal: cancelar tramite desde adentro del tramite [ciudadano]
 Test 2 / A - Nota formal: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -3836,9 +3248,7 @@ Test 2 / A - Nota formal: verificar si el boton del tacho esta bloqueado - boton
 Test 2 / A - Nota formal: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -3848,9 +3258,7 @@ Test 2 / A - Nota formal: verificar si el boton cancelar tramite no existe - bot
 Test 2 / A - Nota formal: verificar el estado del tramite (cancelado) - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMistramitesRecientes}    3    ${tramite}    Cancelado
@@ -3858,9 +3266,7 @@ Test 2 / A - Nota formal: verificar el estado del tramite (cancelado) - boton ca
 Test 2 / A - Nota formal: verificar que el tramite no exista - boton cancelar tramite [operador mesa]
     [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -3870,9 +3276,7 @@ Test 2 / A - Nota formal: verificar que el tramite no exista - boton cancelar tr
 Test 2 / A - Nota formal: verificar que el tramite no exista - boton cancelar tramite [responsable area]
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -3882,9 +3286,7 @@ Test 2 / A - Nota formal: verificar que el tramite no exista - boton cancelar tr
 Test 2 / A - Nota formal: verificar que el tramite no exista - boton cancelar tramite [Direccion]
     [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -3894,9 +3296,7 @@ Test 2 / A - Nota formal: verificar que el tramite no exista - boton cancelar tr
 Test 2 / A - Nota formal: verificar que el tramite no exista - boton cancelar tramite [gestion]
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -3906,9 +3306,7 @@ Test 2 / A - Nota formal: verificar que el tramite no exista - boton cancelar tr
 Test 2 / A - Nota formal: verificar Historial - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -3927,9 +3325,7 @@ Test 2 / B - Nota formal: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 2 / B - Nota formal: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -3937,9 +3333,7 @@ Test 2 / B - Nota formal: Indicacion del numero de proceso creado
 Test 2 / B - Nota formal: se selecciona la opcion "solicitar datos adicionales" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "Solicitar Datos Adicionales"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -3947,10 +3341,7 @@ Test 2 / B - Nota formal: se selecciona la opcion "solicitar datos adicionales" 
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     execute javascript    window.scrollTo(0,800)
-    Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
-    Validar y completar campo    ${campoComentario}    Solicitar Datos Adicionales    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonSolicitarDatosAdicionales}    boton Solicitar Datos Adicionales    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -3959,9 +3350,7 @@ Test 2 / B - Nota formal: se selecciona la opcion "solicitar datos adicionales" 
 Test 2 / B - Nota formal: cancelar tramite desde el tacho [ciudadano]
     [Documentation]    Desde el ciudadano, se cancela el tramite presionando el icono del tacho del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMisTramitesRecientes}    ${botonTachoINICIO}    ${tramite}
@@ -3974,9 +3363,7 @@ Test 2 / B - Nota formal: cancelar tramite desde el tacho [ciudadano]
 Test 2 / B - Nota formal: verificar si el boton del tacho esta bloqueado - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -3984,9 +3371,7 @@ Test 2 / B - Nota formal: verificar si el boton del tacho esta bloqueado - icono
 Test 2 / B - Nota formal: verificar si el boton cancelar tramite no existe - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -3996,9 +3381,7 @@ Test 2 / B - Nota formal: verificar si el boton cancelar tramite no existe - ico
 Test 2 / B - Nota formal: verificar el estado del tramite (cancelado) - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMistramitesRecientes}    3    ${tramite}    Cancelado
@@ -4006,9 +3389,7 @@ Test 2 / B - Nota formal: verificar el estado del tramite (cancelado) - icono ta
 Test 2 / B - Nota formal: verificar que el tramite no exista - icono tacho de cancelar tramite [operador mesa]
     [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -4018,9 +3399,7 @@ Test 2 / B - Nota formal: verificar que el tramite no exista - icono tacho de ca
 Test 2 / B - Nota formal: verificar que el tramite no exista - icono tacho de cancelar tramite [responsable area]
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -4030,9 +3409,7 @@ Test 2 / B - Nota formal: verificar que el tramite no exista - icono tacho de ca
 Test 2 / B - Nota formal: verificar que el tramite no exista - icono tacho de cancelar tramite [Direccion]
     [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -4042,9 +3419,7 @@ Test 2 / B - Nota formal: verificar que el tramite no exista - icono tacho de ca
 Test 2 / B - Nota formal: verificar que el tramite no exista - icono tacho de cancelar tramite [gestion]
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -4054,9 +3429,7 @@ Test 2 / B - Nota formal: verificar que el tramite no exista - icono tacho de ca
 Test 2 / B - Nota formal: verificar Historial - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -4077,9 +3450,7 @@ Test 3 /A - Nota formal: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 3 /A - Nota formal: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -4087,19 +3458,14 @@ Test 3 /A - Nota formal: Indicacion del numero de proceso creado
 Test 3 / A - Nota formal: se selecciona la opcion "enviar a Direccion" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarDireccion}    enviarDireccion
-    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${enviarDireccion}    enviar a Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -4108,9 +3474,7 @@ Test 3 / A - Nota formal: se selecciona la opcion "enviar a Direccion" [operador
 Test 3 / A - Nota formal: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -4118,9 +3482,7 @@ Test 3 / A - Nota formal: verificar si el boton del tacho esta bloqueado - boton
 Test 3 / A - Nota formal: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -4131,9 +3493,7 @@ Test 3 / A - Nota formal: verificar si el boton cancelar tramite no existe - bot
 Test 3 / B - Nota formal: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -4141,9 +3501,7 @@ Test 3 / B - Nota formal: verificar si el boton del tacho esta bloqueado - boton
 Test 3 / B - Nota formal: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -4155,19 +3513,14 @@ Test 3 / B - Nota formal: verificar si el boton cancelar tramite no existe - bot
 Test 4 / A- Nota formal: se selecciona la opcion "no corresponde" [Direccion]
     [Documentation]    Entra como Direccion para continuar con el proceso dandole a la opcion "No Corresponde" devolviendo el tramite hacia Mesa de Entrada.
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonNoCorresponde}    botonNoCorresponde
-    Validar y completar campo    ${campoComentario}    No Corresponde    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonNoCorresponde}    boton No Corresponde    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -4176,9 +3529,7 @@ Test 4 / A- Nota formal: se selecciona la opcion "no corresponde" [Direccion]
 Test 4 / A - Nota formal: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -4186,9 +3537,7 @@ Test 4 / A - Nota formal: verificar si el boton del tacho esta bloqueado - boton
 Test 4 / A - Nota formal: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -4199,9 +3548,7 @@ Test 4 / A - Nota formal: verificar si el boton cancelar tramite no existe - bot
 Test 4 / B - Nota formal: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -4209,9 +3556,7 @@ Test 4 / B - Nota formal: verificar si el boton del tacho esta bloqueado - boton
 Test 4 / B - Nota formal: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -4223,19 +3568,14 @@ Test 4 / B - Nota formal: verificar si el boton cancelar tramite no existe - bot
 Test 5 / A - Nota formal: se selecciona la opcion "no corresponde" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "No Corresponde"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonNoCorresponde}    botonNoCorresponde
-    Validar y completar campo    ${campoComentario}    No Corresponde    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonNoCorresponde}    boton No Corresponde    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -4244,9 +3584,7 @@ Test 5 / A - Nota formal: se selecciona la opcion "no corresponde" [operador mes
 Test 5 / A - Nota formal: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -4254,9 +3592,7 @@ Test 5 / A - Nota formal: verificar si el boton del tacho esta bloqueado - boton
 Test 5 / A - Nota formal: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -4267,9 +3603,7 @@ Test 5 / A - Nota formal: verificar si el boton cancelar tramite no existe - bot
 Test 5 / B - Nota formal: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -4277,9 +3611,7 @@ Test 5 / B - Nota formal: verificar si el boton del tacho esta bloqueado - boton
 Test 5 / B - Nota formal: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -4299,9 +3631,7 @@ Test 6 /A - Nota formal: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 6 /A - Nota formal: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -4309,38 +3639,28 @@ Test 6 /A - Nota formal: Indicacion del numero de proceso creado
 Test 6 / A - Nota formal: se selecciona la opcion "enviar a Direccion" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarDireccion}    enviarDireccion
-    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${enviarDireccion}    enviar a Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 6 / A- Nota formal: se selecciona la opcion "para resolver" [Direccion]
     [Documentation]    Entra como Direccion para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
    # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${paraResolver}    paraResolver
-    Validar y completar campo    ${campoComentario}    Para Resolver    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${paraResolver}    para Resolver    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -4349,9 +3669,7 @@ Test 6 / A- Nota formal: se selecciona la opcion "para resolver" [Direccion]
 Test 6 / A - Nota formal: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -4359,9 +3677,7 @@ Test 6 / A - Nota formal: verificar si el boton del tacho esta bloqueado - boton
 Test 6 / A - Nota formal: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -4372,9 +3688,7 @@ Test 6 / A - Nota formal: verificar si el boton cancelar tramite no existe - bot
 Test 6 / B - Nota formal: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -4382,9 +3696,7 @@ Test 6 / B - Nota formal: verificar si el boton del tacho esta bloqueado - boton
 Test 6 / B - Nota formal: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -4396,19 +3708,14 @@ Test 6 / B - Nota formal: verificar si el boton cancelar tramite no existe - bot
 Test 7 /A- Nota formal: se selecciona la opcion "aprobado" [gestion]
     [Documentation]    Entra como Gestion aprobando el tramite para continuar con el proceso
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonAprobar}    botonAprobar
-    Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonAprobar}    boton Aprobar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -4417,9 +3724,7 @@ Test 7 /A- Nota formal: se selecciona la opcion "aprobado" [gestion]
 Test 7 / A - Nota formal: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -4427,9 +3732,7 @@ Test 7 / A - Nota formal: verificar si el boton del tacho esta bloqueado - boton
 Test 7 / A - Nota formal: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -4440,9 +3743,7 @@ Test 7 / A - Nota formal: verificar si el boton cancelar tramite no existe - bot
 Test 7 / B - Nota formal: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -4450,9 +3751,7 @@ Test 7 / B - Nota formal: verificar si el boton del tacho esta bloqueado - boton
 Test 7 / B - Nota formal: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -4464,18 +3763,15 @@ Test 7 / B - Nota formal: verificar si el boton cancelar tramite no existe - bot
 Test 8 /A - Nota formal: se selecciona la opcion "informar contribuyente" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso, en este caso "Rechazado"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    #Se selecciona X accion con estado final    ${informarContribuyente}    informar Contribuyente
+    Se selecciona X accion    ${informarContribuyente}    informar Contribuyente    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -4484,9 +3780,7 @@ Test 8 /A - Nota formal: se selecciona la opcion "informar contribuyente" [opera
 Test 8 / A - Nota formal: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -4494,9 +3788,7 @@ Test 8 / A - Nota formal: verificar si el boton del tacho esta bloqueado - boton
 Test 8 / A - Nota formal: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -4507,9 +3799,7 @@ Test 8 / A - Nota formal: verificar si el boton cancelar tramite no existe - bot
 Test 8 / B - Nota formal: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -4517,9 +3807,7 @@ Test 8 / B - Nota formal: verificar si el boton del tacho esta bloqueado - boton
 Test 8 / B - Nota formal: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -4539,9 +3827,7 @@ Test 9 /A - Nota formal: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 9 /A - Nota formal: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -4549,57 +3835,42 @@ Test 9 /A - Nota formal: Indicacion del numero de proceso creado
 Test 9 /A - Nota formal: se selecciona la opcion "enviar a Direccion". [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
    # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarDireccion}    enviarDireccion
-    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${enviarDireccion}    enviar a Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 9 /A - Nota formal: se selecciona la opcion "para resolver" [Direccion]
     [Documentation]    Entra como Direccion para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
    # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${paraResolver}    paraResolver
-    Validar y completar campo    ${campoComentario}    Para Resolver    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${paraResolver}    para Resolver    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 9 / A - Nota formal: se selecciona la opcion "rechazar" [gestion]
     [Documentation]     Entra como Gestion Rechazando el tramite y continua con el proceso
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonRechazar}    botonRechazar
-    Validar y completar campo    ${campoComentario}    Rechazado    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonRechazar}    boton Rechazar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -4608,9 +3879,7 @@ Test 9 / A - Nota formal: se selecciona la opcion "rechazar" [gestion]
 Test 9 / A - Nota formal: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -4618,9 +3887,7 @@ Test 9 / A - Nota formal: verificar si el boton del tacho esta bloqueado - boton
 Test 9 / A - Nota formal: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -4632,9 +3899,7 @@ Test 9 / A - Nota formal: verificar si el boton cancelar tramite no existe - bot
 Test 9 / B - Nota formal: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -4642,9 +3907,7 @@ Test 9 / B - Nota formal: verificar si el boton del tacho esta bloqueado - boton
 Test 9 / B - Nota formal: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -4664,9 +3927,7 @@ Test 10 /A - Nota formal: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 10 /A - Nota formal: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -4674,38 +3935,28 @@ Test 10 /A - Nota formal: Indicacion del numero de proceso creado
 Test 10 / A - Nota formal: se selecciona la opcion "enviar a Direccion" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarDireccion}    enviarDireccion
-    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${enviarDireccion}    enviar a Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 10 /A- Nota formal: se selecciona la opcion "aprobado" [Direccion]
     [Documentation]    Entra como Direccion aprobando el tramite para continuar con el proceso
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonAprobar}    botonAprobar
-    Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonAprobar}    boton Aprobar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -4714,9 +3965,7 @@ Test 10 /A- Nota formal: se selecciona la opcion "aprobado" [Direccion]
 Test 10 / A - Nota formal: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -4724,9 +3973,7 @@ Test 10 / A - Nota formal: verificar si el boton del tacho esta bloqueado - boto
 Test 10 / A - Nota formal: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -4737,9 +3984,7 @@ Test 10 / A - Nota formal: verificar si el boton cancelar tramite no existe - bo
 Test 10 / B - Nota formal: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -4747,9 +3992,7 @@ Test 10 / B - Nota formal: verificar si el boton del tacho esta bloqueado - boto
 Test 10 / B - Nota formal: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -4769,9 +4012,7 @@ Test 11 /A - Nota formal: crear tramite [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 11 /A - Nota formal: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -4779,38 +4020,28 @@ Test 11 /A - Nota formal: Indicacion del numero de proceso creado
 Test 11 / A - Nota formal: se selecciona la opcion "enviar a Direccion" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarDireccion}    enviarDireccion
-    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${enviarDireccion}    enviar a Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 11 /A- Nota formal: se selecciona la opcion "rechazar" [Direccion]
     [Documentation]    Entra como Direccion rechazando el tramite para continuar con el proceso
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonRechazar}    botonRechazar
-    Validar y completar campo    ${campoComentario}    Rechazado    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonRechazar}    boton Rechazar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -4819,9 +4050,7 @@ Test 11 /A- Nota formal: se selecciona la opcion "rechazar" [Direccion]
 Test 11 / A - Nota formal: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -4829,9 +4058,7 @@ Test 11 / A - Nota formal: verificar si el boton del tacho esta bloqueado - boto
 Test 11 / A - Nota formal: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -4842,9 +4069,7 @@ Test 11 / A - Nota formal: verificar si el boton cancelar tramite no existe - bo
 Test 11 / B - Nota formal: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -4852,9 +4077,7 @@ Test 11 / B - Nota formal: verificar si el boton del tacho esta bloqueado - boto
 Test 11 / B - Nota formal: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -4882,9 +4105,7 @@ Test 1 /A - Exencion impuesto sobre los ingresos brutos: crear tramite [ciudadan
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 1 /A - Exencion impuesto sobre los ingresos brutos: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -4893,9 +4114,7 @@ Test 1 /A - Exencion impuesto sobre los ingresos brutos: Indicacion del numero d
 Test 1 / A - Exencion impuesto sobre los ingresos brutos: cancelar tramite desde adentro del tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se cancela el tramite presionando el boton "cancelar tramite"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -4909,9 +4128,7 @@ Test 1 / A - Exencion impuesto sobre los ingresos brutos: cancelar tramite desde
 Test 1 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -4919,9 +4136,7 @@ Test 1 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 1 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -4931,9 +4146,7 @@ Test 1 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 1 / A - Exencion impuesto sobre los ingresos brutos: verificar el estado del tramite (cancelado) - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMistramitesRecientes}    3    ${tramite}    Cancelado
@@ -4942,9 +4155,7 @@ Test 1 / A - Exencion impuesto sobre los ingresos brutos: verificar el estado de
 Test 1 / A - Exencion impuesto sobre los ingresos brutos: verificar el estado del tramite (cancelado) - boton cancelar tramite [operador]
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -4954,9 +4165,7 @@ Test 1 / A - Exencion impuesto sobre los ingresos brutos: verificar el estado de
 Test 1 / A - Exencion impuesto sobre los ingresos brutos: verificar que el tramite no exista - boton cancelar tramite [responsable area]
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -4966,9 +4175,7 @@ Test 1 / A - Exencion impuesto sobre los ingresos brutos: verificar que el trami
 Test 1 / A - Exencion impuesto sobre los ingresos brutos: verificar que el tramite no exista - boton cancelar tramite [Direccion]
     [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -4978,9 +4185,7 @@ Test 1 / A - Exencion impuesto sobre los ingresos brutos: verificar que el trami
 Test 1 / A - Exencion impuesto sobre los ingresos brutos: verificar que el tramite no exista - boton cancelar tramite [gestion]
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -4991,9 +4196,7 @@ Test 1 / A - Exencion impuesto sobre los ingresos brutos: verificar que el trami
 Test 1 / A - Exencion impuesto sobre los ingresos brutos: verificar que el personal no pueda realizar acciones - boton cancelar tramite [operador mesa]
     [Documentation]    Se ingresa como operador mesa y se verifica que no aparezcan los botones de acciones para realizar sobre el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -5013,9 +4216,7 @@ Test 1 / A - Exencion impuesto sobre los ingresos brutos: verificar que el perso
 Test 1 / A - Exencion impuesto sobre los ingresos brutos: verificar Historial - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -5026,9 +4227,7 @@ Test 1 / A - Exencion impuesto sobre los ingresos brutos: verificar Historial - 
 Test 1 / A - Exencion impuesto sobre los ingresos brutos: verificar Historial - boton cancelar tramite [operador mesa]
     [Documentation]    Desde el operador mesa, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -5053,9 +4252,7 @@ Test 1 /B - Exencion impuesto sobre los ingresos brutos: crear tramite [ciudadan
 Test 1 / B - Exencion impuesto sobre los ingresos brutos: cancelar tramite desde el tacho [ciudadano]
     [Documentation]    Desde el ciudadano, se cancela el tramite presionando el icono del tacho del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMisTramitesRecientes}    ${botonTachoINICIO}    ${tramite}
@@ -5068,9 +4265,7 @@ Test 1 / B - Exencion impuesto sobre los ingresos brutos: cancelar tramite desde
 Test 1 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton del tacho esta bloqueado - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -5078,9 +4273,7 @@ Test 1 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 1 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton cancelar tramite no existe - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -5090,9 +4283,7 @@ Test 1 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 1 / B - Exencion impuesto sobre los ingresos brutos: verificar el estado del tramite (cancelado) - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMistramitesRecientes}    3    ${tramite}    Cancelado
@@ -5101,9 +4292,7 @@ Test 1 / B - Exencion impuesto sobre los ingresos brutos: verificar el estado de
 Test 1 / B - Exencion impuesto sobre los ingresos brutos: verificar el estado del tramite (cancelado) - icono tacho de cancelar tramite [operador]
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -5113,9 +4302,7 @@ Test 1 / B - Exencion impuesto sobre los ingresos brutos: verificar el estado de
 Test 1 / B - Exencion impuesto sobre los ingresos brutos: verificar que el tramite no exista - icono tacho de cancelar tramite [responsable area]
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -5125,9 +4312,7 @@ Test 1 / B - Exencion impuesto sobre los ingresos brutos: verificar que el trami
 Test 1 / B - Exencion impuesto sobre los ingresos brutos: verificar que el tramite no exista - icono tacho de cancelar tramite [Direccion]
     [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -5137,9 +4322,7 @@ Test 1 / B - Exencion impuesto sobre los ingresos brutos: verificar que el trami
 Test 1 / B - Exencion impuesto sobre los ingresos brutos: verificar que el tramite no exista - icono tacho de cancelar tramite [gestion]
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -5150,9 +4333,7 @@ Test 1 / B - Exencion impuesto sobre los ingresos brutos: verificar que el trami
 Test 1 / B - Exencion impuesto sobre los ingresos brutos: verificar que el personal no pueda realizar acciones - icono tacho de cancelar tramite [operador mesa]
     [Documentation]    Se ingresa como operador mesa y se verifica que no aparezcan los botones de acciones para realizar sobre el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -5172,9 +4353,7 @@ Test 1 / B - Exencion impuesto sobre los ingresos brutos: verificar que el perso
 Test 1 / B - Exencion impuesto sobre los ingresos brutos: verificar Historial - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -5185,9 +4364,7 @@ Test 1 / B - Exencion impuesto sobre los ingresos brutos: verificar Historial - 
 Test 1 / B - Exencion impuesto sobre los ingresos brutos: verificar Historial - icono tacho de cancelar tramite [operador mesa]
     [Documentation]    Desde el operador mesa, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -5210,9 +4387,7 @@ Test 2 / A - Exencion impuesto sobre los ingresos brutos: crear tramite [ciudada
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 2 / A - Exencion impuesto sobre los ingresos brutos: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -5220,9 +4395,7 @@ Test 2 / A - Exencion impuesto sobre los ingresos brutos: Indicacion del numero 
 Test 2 / A - Exencion impuesto sobre los ingresos brutos: se selecciona la opcion "solicitar datos adicionales" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "Solicitar Datos Adicionales"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -5230,10 +4403,7 @@ Test 2 / A - Exencion impuesto sobre los ingresos brutos: se selecciona la opcio
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     execute javascript    window.scrollTo(0,800)
-    Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
-    Validar y completar campo    ${campoComentario}    Solicitar Datos Adicionales    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonSolicitarDatosAdicionales}    boton Solicitar Datos Adicionales    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -5242,9 +4412,7 @@ Test 2 / A - Exencion impuesto sobre los ingresos brutos: se selecciona la opcio
 Test 2 / A - Exencion impuesto sobre los ingresos brutos: cancelar tramite desde adentro del tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se cancela el tramite presionando el boton "cancelar tramite"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -5258,9 +4426,7 @@ Test 2 / A - Exencion impuesto sobre los ingresos brutos: cancelar tramite desde
 Test 2 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -5268,9 +4434,7 @@ Test 2 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 2 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -5280,9 +4444,7 @@ Test 2 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 2 / A - Exencion impuesto sobre los ingresos brutos: verificar el estado del tramite (cancelado) - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMistramitesRecientes}    3    ${tramite}    Cancelado
@@ -5290,9 +4452,7 @@ Test 2 / A - Exencion impuesto sobre los ingresos brutos: verificar el estado de
 Test 2 / A - Exencion impuesto sobre los ingresos brutos: verificar que el tramite no exista - boton cancelar tramite [operador mesa]
     [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -5302,9 +4462,7 @@ Test 2 / A - Exencion impuesto sobre los ingresos brutos: verificar que el trami
 Test 2 / A - Exencion impuesto sobre los ingresos brutos: verificar que el tramite no exista - boton cancelar tramite [responsable area]
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -5314,9 +4472,7 @@ Test 2 / A - Exencion impuesto sobre los ingresos brutos: verificar que el trami
 Test 2 / A - Exencion impuesto sobre los ingresos brutos: verificar que el tramite no exista - boton cancelar tramite [Direccion]
     [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -5326,9 +4482,7 @@ Test 2 / A - Exencion impuesto sobre los ingresos brutos: verificar que el trami
 Test 2 / A - Exencion impuesto sobre los ingresos brutos: verificar que el tramite no exista - boton cancelar tramite [gestion]
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -5338,9 +4492,7 @@ Test 2 / A - Exencion impuesto sobre los ingresos brutos: verificar que el trami
 Test 2 / A - Exencion impuesto sobre los ingresos brutos: verificar Historial - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -5359,9 +4511,7 @@ Test 2 / B - Exencion impuesto sobre los ingresos brutos: crear tramite [ciudada
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 2 / B - Exencion impuesto sobre los ingresos brutos: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -5369,9 +4519,7 @@ Test 2 / B - Exencion impuesto sobre los ingresos brutos: Indicacion del numero 
 Test 2 / B - Exencion impuesto sobre los ingresos brutos: se selecciona la opcion "solicitar datos adicionales" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "Solicitar Datos Adicionales"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -5379,10 +4527,7 @@ Test 2 / B - Exencion impuesto sobre los ingresos brutos: se selecciona la opcio
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     execute javascript    window.scrollTo(0,800)
-    Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
-    Validar y completar campo    ${campoComentario}    Solicitar Datos Adicionales    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonSolicitarDatosAdicionales}    boton Solicitar Datos Adicionales    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -5391,9 +4536,7 @@ Test 2 / B - Exencion impuesto sobre los ingresos brutos: se selecciona la opcio
 Test 2 / B - Exencion impuesto sobre los ingresos brutos: cancelar tramite desde el tacho [ciudadano]
     [Documentation]    Desde el ciudadano, se cancela el tramite presionando el icono del tacho del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMisTramitesRecientes}    ${botonTachoINICIO}    ${tramite}
@@ -5406,9 +4549,7 @@ Test 2 / B - Exencion impuesto sobre los ingresos brutos: cancelar tramite desde
 Test 2 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton del tacho esta bloqueado - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -5416,9 +4557,7 @@ Test 2 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 2 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton cancelar tramite no existe - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -5428,9 +4567,7 @@ Test 2 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 2 / B - Exencion impuesto sobre los ingresos brutos: verificar el estado del tramite (cancelado) - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMistramitesRecientes}    3    ${tramite}    Cancelado
@@ -5438,9 +4575,7 @@ Test 2 / B - Exencion impuesto sobre los ingresos brutos: verificar el estado de
 Test 2 / B - Exencion impuesto sobre los ingresos brutos: verificar que el tramite no exista - icono tacho de cancelar tramite [operador mesa]
     [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -5450,9 +4585,7 @@ Test 2 / B - Exencion impuesto sobre los ingresos brutos: verificar que el trami
 Test 2 / B - Exencion impuesto sobre los ingresos brutos: verificar que el tramite no exista - icono tacho de cancelar tramite [responsable area]
     [Documentation]    Desde el resp area, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userRespArea}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -5462,9 +4595,7 @@ Test 2 / B - Exencion impuesto sobre los ingresos brutos: verificar que el trami
 Test 2 / B - Exencion impuesto sobre los ingresos brutos: verificar que el tramite no exista - icono tacho de cancelar tramite [Direccion]
     [Documentation]    Desde Direccion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -5474,9 +4605,7 @@ Test 2 / B - Exencion impuesto sobre los ingresos brutos: verificar que el trami
 Test 2 / B - Exencion impuesto sobre los ingresos brutos: verificar que el tramite no exista - icono tacho de cancelar tramite [gestion]
     [Documentation]    Desde gestion, se verifica que no se pueda visualizar el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
@@ -5486,9 +4615,7 @@ Test 2 / B - Exencion impuesto sobre los ingresos brutos: verificar que el trami
 Test 2 / B - Exencion impuesto sobre los ingresos brutos: verificar Historial - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -5509,9 +4636,7 @@ Test 3 /A - Exencion impuesto sobre los ingresos brutos: crear tramite [ciudadan
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 3 /A - Exencion impuesto sobre los ingresos brutos: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -5519,19 +4644,14 @@ Test 3 /A - Exencion impuesto sobre los ingresos brutos: Indicacion del numero d
 Test 3 / A - Exencion impuesto sobre los ingresos brutos: se selecciona la opcion "enviar a Direccion" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarDireccion}    enviarDireccion
-    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${enviarDireccion}    enviar Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -5540,9 +4660,7 @@ Test 3 / A - Exencion impuesto sobre los ingresos brutos: se selecciona la opcio
 Test 3 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -5550,9 +4668,7 @@ Test 3 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 3 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -5563,9 +4679,7 @@ Test 3 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 3 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -5573,9 +4687,7 @@ Test 3 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 3 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -5587,19 +4699,14 @@ Test 3 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 4 / A- Exencion impuesto sobre los ingresos brutos: se selecciona la opcion "no corresponde" [Direccion]
     [Documentation]    Entra como Direccion para continuar con el proceso dandole a la opcion "No Corresponde" devolviendo el tramite hacia Mesa de Entrada.
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonNoCorresponde}    botonNoCorresponde
-    Validar y completar campo    ${campoComentario}    No Corresponde    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonNoCorresponde}    boton No Corresponde    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -5608,9 +4715,7 @@ Test 4 / A- Exencion impuesto sobre los ingresos brutos: se selecciona la opcion
 Test 4 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -5618,9 +4723,7 @@ Test 4 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 4 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -5631,9 +4734,7 @@ Test 4 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 4 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -5641,9 +4742,7 @@ Test 4 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 4 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -5655,19 +4754,14 @@ Test 4 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 5 / A - Exencion impuesto sobre los ingresos brutos: se selecciona la opcion "no corresponde" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "No Corresponde"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonNoCorresponde}    botonNoCorresponde
-    Validar y completar campo    ${campoComentario}    No Corresponde    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonNoCorresponde}    boton No Corresponde    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -5676,9 +4770,7 @@ Test 5 / A - Exencion impuesto sobre los ingresos brutos: se selecciona la opcio
 Test 5 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -5686,9 +4778,7 @@ Test 5 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 5 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -5699,9 +4789,7 @@ Test 5 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 5 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -5709,9 +4797,7 @@ Test 5 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 5 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -5731,9 +4817,7 @@ Test 6 /A - Exencion impuesto sobre los ingresos brutos: crear tramite [ciudadan
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 6 /A - Exencion impuesto sobre los ingresos brutos: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -5741,38 +4825,28 @@ Test 6 /A - Exencion impuesto sobre los ingresos brutos: Indicacion del numero d
 Test 6 / A - Exencion impuesto sobre los ingresos brutos: se selecciona la opcion "enviar a Direccion" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarDireccion}    enviarDireccion
-    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${enviarDireccion}    enviar a Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 6 / A- Exencion impuesto sobre los ingresos brutos: se selecciona la opcion "para resolver" [Direccion]
     [Documentation]    Entra como Direccion para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
    # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${paraResolver}    paraResolver
-    Validar y completar campo    ${campoComentario}    Para Resolver    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${paraResolver}    para Resolver    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -5781,9 +4855,7 @@ Test 6 / A- Exencion impuesto sobre los ingresos brutos: se selecciona la opcion
 Test 6 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -5791,9 +4863,7 @@ Test 6 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 6 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -5804,9 +4874,7 @@ Test 6 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 6 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -5814,9 +4882,7 @@ Test 6 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 6 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -5828,19 +4894,14 @@ Test 6 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 7 /A- Exencion impuesto sobre los ingresos brutos: se selecciona la opcion "aprobado" [gestion]
     [Documentation]    Entra como Gestion aprobando el tramite para continuar con el proceso
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonAprobar}    botonAprobar
-    Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonAprobar}    boton Aprobar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -5849,9 +4910,7 @@ Test 7 /A- Exencion impuesto sobre los ingresos brutos: se selecciona la opcion 
 Test 7 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -5859,9 +4918,7 @@ Test 7 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 7 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -5872,9 +4929,7 @@ Test 7 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 7 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -5882,9 +4937,7 @@ Test 7 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 7 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -5896,18 +4949,15 @@ Test 7 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 8 /A - Exencion impuesto sobre los ingresos brutos: se selecciona la opcion "informar contribuyente" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso, en este caso "Rechazado"
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    #Se selecciona X accion con estado final    ${informarContribuyente}    informar Contribuyente
+    Se selecciona X accion    ${informarContribuyente}    informar Contribuyente    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -5916,9 +4966,7 @@ Test 8 /A - Exencion impuesto sobre los ingresos brutos: se selecciona la opcion
 Test 8 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -5926,9 +4974,7 @@ Test 8 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 8 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -5939,9 +4985,7 @@ Test 8 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 8 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -5949,9 +4993,7 @@ Test 8 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 8 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -5971,9 +5013,7 @@ Test 9 /A - Exencion impuesto sobre los ingresos brutos: crear tramite [ciudadan
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 9 /A - Exencion impuesto sobre los ingresos brutos: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -5981,57 +5021,42 @@ Test 9 /A - Exencion impuesto sobre los ingresos brutos: Indicacion del numero d
 Test 9 /A - Exencion impuesto sobre los ingresos brutos: se selecciona la opcion "enviar a Direccion". [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
    # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarDireccion}    enviarDireccion
-    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${enviarDireccion}    enviar a Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 9 /A - Exencion impuesto sobre los ingresos brutos: se selecciona la opcion "para resolver" [Direccion]
     [Documentation]    Entra como Direccion para continuar con el proceso,utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
    # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${paraResolver}    paraResolver
-    Validar y completar campo    ${campoComentario}    Para Resolver    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${paraResolver}    para Resolver    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 9 / A - Exencion impuesto sobre los ingresos brutos: se selecciona la opcion "rechazar" [gestion]
     [Documentation]     Entra como Gestion Rechazando el tramite y continua con el proceso
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonRechazar}    botonRechazar
-    Validar y completar campo    ${campoComentario}    Rechazado    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonRechazar}    boton Rechazar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -6040,9 +5065,7 @@ Test 9 / A - Exencion impuesto sobre los ingresos brutos: se selecciona la opcio
 Test 9 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -6050,9 +5073,7 @@ Test 9 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 9 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -6064,9 +5085,7 @@ Test 9 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 9 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -6074,9 +5093,7 @@ Test 9 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton 
 Test 9 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -6096,9 +5113,7 @@ Test 10 /A - Exencion impuesto sobre los ingresos brutos: crear tramite [ciudada
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 10 /A - Exencion impuesto sobre los ingresos brutos: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -6106,38 +5121,28 @@ Test 10 /A - Exencion impuesto sobre los ingresos brutos: Indicacion del numero 
 Test 10 / A - Exencion impuesto sobre los ingresos brutos: se selecciona la opcion "enviar a Direccion" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarDireccion}    enviarDireccion
-    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${enviarDireccion}    enviar a Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 10 /A- Exencion impuesto sobre los ingresos brutos: se selecciona la opcion "aprobado" [Direccion]
     [Documentation]    Entra como Direccion aprobando el tramite para continuar con el proceso
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonAprobar}    botonAprobar
-    Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonAprobar}    boton Aprobar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -6146,9 +5151,7 @@ Test 10 /A- Exencion impuesto sobre los ingresos brutos: se selecciona la opcion
 Test 10 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -6156,9 +5159,7 @@ Test 10 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton
 Test 10 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -6169,9 +5170,7 @@ Test 10 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton
 Test 10 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -6179,9 +5178,7 @@ Test 10 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton
 Test 10 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -6201,9 +5198,7 @@ Test 11 /A - Exencion impuesto sobre los ingresos brutos: crear tramite [ciudada
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 11 /A - Exencion impuesto sobre los ingresos brutos: Indicacion del numero de proceso creado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     [Documentation]    Numero del proceso creado: ${tramite}
     Asignar Tag Numerado
     Log To Console    Comentario del proceso
@@ -6211,38 +5206,28 @@ Test 11 /A - Exencion impuesto sobre los ingresos brutos: Indicacion del numero 
 Test 11 / A - Exencion impuesto sobre los ingresos brutos: se selecciona la opcion "enviar a Direccion" [operador mesa]
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${enviarDireccion}    enviarDireccion
-    Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${enviarDireccion}    enviar a Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 11 /A- Exencion impuesto sobre los ingresos brutos: se selecciona la opcion "rechazar" [Direccion]
     [Documentation]    Entra como Direccion rechazando el tramite para continuar con el proceso
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
     Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
     Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Validar y hacer clic en el boton    ${botonRechazar}    botonRechazar
-    Validar y completar campo    ${campoComentario}    Rechazado    campoComentario
-    Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
-    Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Se selecciona X accion    ${botonRechazar}    boton Rechazar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -6251,9 +5236,7 @@ Test 11 /A- Exencion impuesto sobre los ingresos brutos: se selecciona la opcion
 Test 11 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -6261,9 +5244,7 @@ Test 11 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton
 Test 11 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
@@ -6274,9 +5255,7 @@ Test 11 / A - Exencion impuesto sobre los ingresos brutos: verificar si el boton
 Test 11 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    ${tablaConTramite}${botonTachoINICIO}
@@ -6284,9 +5263,7 @@ Test 11 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton
 Test 11 / B - Exencion impuesto sobre los ingresos brutos: verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
-    #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-    #Sino corre
     Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}

@@ -367,7 +367,7 @@ Test 2 - Excencion Impuesto de Sellos: se selecciona la opcion "solicitar datos 
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Execute Javascript    window.scrollTo(0,800)
-    Se selecciona X accion    ${botonSolicitarDatosAdicionales}    boton Solicitar Datos Adicionales
+    Se selecciona X accion    ${botonSolicitarDatosAdicionales}    boton Solicitar Datos Adicionales    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -595,7 +595,7 @@ Test 3 - Excencion Impuesto de Sellos: se selecciona la opcion "no corresponde" 
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${botonNoCorresponde}    boton No Corresponde
+    Se selecciona X accion    ${botonNoCorresponde}    boton No Corresponde    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -773,7 +773,7 @@ Test 4 - Excencion Impuesto de Sellos: se selecciona la opcion "enviar a Direcci
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${enviarDireccion}    enviar A Direccion
+    Se selecciona X accion    ${enviarDireccion}    enviar A Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -852,7 +852,7 @@ Test 4 - Excencion Impuesto de Sellos: se selecciona la opcion "no corresponde" 
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Execute Javascript    window.scrollTo(0,1200)
-    Se selecciona X accion    ${botonNoCorresponde}    boton No Corresponde
+    Se selecciona X accion    ${botonNoCorresponde}    boton No Corresponde    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -930,7 +930,7 @@ Test 4 - Excencion Impuesto de Sellos: se selecciona la opcion "enviar a Direcci
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${enviarDireccion}    enviar A Direccion
+    Se selecciona X accion    ${enviarDireccion}    enviar A Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1008,7 +1008,7 @@ Test 4 - Excencion Impuesto de Sellos: se selecciona la opcion "para resolver" [
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${paraResolver}    para Resolver
+    Se selecciona X accion    ${paraResolver}    para Resolver    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1086,7 +1086,7 @@ Test 4 - Excencion Impuesto de Sellos: se selecciona la opcion "aprobado" [gesti
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${botonAprobar}    boton Aprobar
+    Se selecciona X accion    ${botonAprobar}    boton Aprobar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1165,7 +1165,7 @@ Test 4 - Excencion Impuesto de Sellos: se selecciona la opcion "informar al cont
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     #Se selecciona X accion con estado final    ${informarContribuyente}    informar Contribuyente
-    Se selecciona X accion    ${informarContribuyente}    informar
+    Se selecciona X accion    ${informarContribuyente}    informar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1339,7 +1339,7 @@ Test 5 - Excencion Impuesto de Sellos: se selecciona la opcion "enviar a Direcci
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     #Se selecciona X accion con estado final    ${informarContribuyente}    informar Contribuyente
-    Se selecciona X accion    ${informarContribuyente}    informar
+    Se selecciona X accion    ${informarContribuyente}    informar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1418,7 +1418,7 @@ Test 5 - Excencion Impuesto de Sellos: se selecciona la opcion "para resolver" [
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${paraResolver}    para Resolver
+    Se selecciona X accion    ${paraResolver}    para Resolver    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1496,7 +1496,7 @@ Test 5 - Excencion Impuesto de Sellos: se selecciona la opcion "rechazar" [gesti
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${botonRechazar}    rechazar
+    Se selecciona X accion    ${botonRechazar}    rechazar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1575,7 +1575,7 @@ Test 5 - Excencion Impuesto de Sellos: se selecciona la opcion "informar contrib
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     #Se selecciona X accion con estado final    ${informarContribuyente}    informar Contribuyente
-    Se selecciona X accion    ${informarContribuyente}    informar
+    Se selecciona X accion    ${informarContribuyente}    informar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1746,7 +1746,7 @@ Test 6 - Excencion Impuesto de Sellos: se selecciona la opcion "enviar a Direcci
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${enviarDireccion}    enviar A Direccion
+    Se selecciona X accion    ${enviarDireccion}    enviar A Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1824,7 +1824,7 @@ Test 6 - Excencion Impuesto de Sellos: se selecciona la opcion "aprobar" [Direcc
     Inicio sesion y verificacion de texto inicial - operador    ${userSecretaria}  ${pass}  Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${botonAprobar}    aprobar
+    Se selecciona X accion    ${botonAprobar}    aprobar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1903,7 +1903,7 @@ Test 6 - Excencion Impuesto de Sellos: se selecciona la opcion "informar contrib
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     #Se selecciona X accion con estado final    ${informarContribuyente}    informar Contribuyente
-    Se selecciona X accion    ${informarContribuyente}    informar
+    Se selecciona X accion    ${informarContribuyente}    informar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -2073,7 +2073,7 @@ Test 7 - Excencion Impuesto de Sellos: se selecciona la opcion "enviar a Direcci
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${enviarDireccion}    enviar A Direccion
+    Se selecciona X accion    ${enviarDireccion}    enviar A Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -2151,7 +2151,7 @@ Test 7 - Excencion Impuesto de Sellos: se selecciona la opcion "rechazar" [Direc
     Inicio sesion y verificacion de texto inicial - operador    ${userSecretaria}  ${pass}  Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-     Se selecciona X accion    ${botonRechazar}    rechazar
+     Se selecciona X accion    ${botonRechazar}    rechazar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -2230,7 +2230,7 @@ Test 7 - Excencion Impuesto de Sellos: se selecciona la opcion "informar contrib
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     #Se selecciona X accion con estado final    ${informarContribuyente}    informar Contribuyente
-    Se selecciona X accion    ${informarContribuyente}    informar
+    Se selecciona X accion    ${informarContribuyente}    informar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 

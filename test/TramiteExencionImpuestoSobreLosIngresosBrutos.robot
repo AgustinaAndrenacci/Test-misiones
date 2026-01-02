@@ -365,7 +365,7 @@ Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     Execute Javascript    window.scrollTo(0,800)
-    Se selecciona X accion    ${botonSolicitarDatosAdicionales}    datos adicionales
+    Se selecciona X accion    ${botonSolicitarDatosAdicionales}    datos adicionales    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -591,7 +591,7 @@ Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${botonNoCorresponde}    boton No Corresponde
+    Se selecciona X accion    ${botonNoCorresponde}    boton No Corresponde    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -767,7 +767,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${enviarDireccion}    enviar Direccion
+    Se selecciona X accion    ${enviarDireccion}    enviar Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -847,7 +847,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${botonNoCorresponde}    boton No Corresponde
+    Se selecciona X accion    ${botonNoCorresponde}    boton No Corresponde    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -927,7 +927,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${enviarDireccion}    enviar Direccion
+    Se selecciona X accion    ${enviarDireccion}    enviar Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1007,7 +1007,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${paraResolver}    para Resolver
+    Se selecciona X accion    ${paraResolver}    para Resolver    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1087,7 +1087,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${botonAprobar}    boton Aprobar
+    Se selecciona X accion    ${botonAprobar}    boton Aprobar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1168,7 +1168,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     #Se selecciona X accion con estado final    ${informarContribuyente}    informar Contribuyente
-    Se selecciona X accion    ${informarContribuyente}    informar
+    Se selecciona X accion    ${informarContribuyente}    informar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1354,7 +1354,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${enviarDireccion}    enviar Direccion
+    Se selecciona X accion    ${enviarDireccion}    enviar Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1435,7 +1435,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${paraResolver}    para Resolver
+    Se selecciona X accion    ${paraResolver}    para Resolver    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1515,7 +1515,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${botonRechazar}    boton Rechazar
+    Se selecciona X accion    ${botonRechazar}    boton Rechazar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1596,7 +1596,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     #Se selecciona X accion con estado final    ${informarContribuyente}    informar Contribuyente
-    Se selecciona X accion    ${informarContribuyente}    informar
+    Se selecciona X accion    ${informarContribuyente}    informar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1767,7 +1767,7 @@ Test 6 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${enviarDireccion}    enviar A Direccion
+    Se selecciona X accion    ${enviarDireccion}    enviar A Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1845,7 +1845,7 @@ Test 6 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Inicio sesion y verificacion de texto inicial - operador    ${userSecretaria}  ${pass}  Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${botonAprobar}    aprobar
+    Se selecciona X accion    ${botonAprobar}    aprobar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -1924,7 +1924,7 @@ Test 6 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     #Se selecciona X accion con estado final    ${informarContribuyente}    informar Contribuyente
-    Se selecciona X accion    ${informarContribuyente}    informar
+    Se selecciona X accion    ${informarContribuyente}    informar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -2094,7 +2094,7 @@ Test 7 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${enviarDireccion}    enviar Direccion
+    Se selecciona X accion    ${enviarDireccion}    enviar Direccion    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -2172,7 +2172,7 @@ Test 7 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     Inicio sesion y verificacion de texto inicial - operador    ${userSecretaria}  ${pass}  Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${botonRechazar}    rechazar
+    Se selecciona X accion    ${botonRechazar}    rechazar    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -2251,7 +2251,7 @@ Test 7 - Excencion Impuesto Sobre los Ingresos Brutos: se selecciona la opcion "
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     #Se selecciona X accion con estado final    ${informarContribuyente}    informar Contribuyente
-    Se selecciona X accion    ${informarContribuyente}    informar contribuyente
+    Se selecciona X accion    ${informarContribuyente}    informar contribuyente    ${FILEpdfAgus}    ${pdfAgus}
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 

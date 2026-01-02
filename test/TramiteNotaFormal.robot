@@ -309,7 +309,7 @@ Test 2 - Nota formal: se selecciona la opcion "solicitar datos adicionales" [ope
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     execute javascript    window.scrollTo(0,800)
-    Se selecciona X accion    ${botonSolicitarDatosAdicionales}    Solicitar Datos Adicionales
+    Se selecciona X accion    ${botonSolicitarDatosAdicionales}    Solicitar Datos Adicionales    ${FILEpdfAgus}    ${pdfAgus}
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 2 - Nota formal: verificar el estado del tramite (pendiente contributente) [ciudadano] 11
@@ -501,7 +501,7 @@ Test 3 - Nota formal: se selecciona la opcion "no corresponde" [operador mesa]
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${botonNoCorresponde}    No Corresponde
+    Se selecciona X accion    ${botonNoCorresponde}    No Corresponde    ${FILEpdfAgus}    ${pdfAgus}
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 3 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 11
@@ -650,7 +650,7 @@ Test 4 - Nota formal: se selecciona la opcion "enviar a Direccion" [operador mes
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${enviarDireccion}    Enviar A Direccion
+    Se selecciona X accion    ${enviarDireccion}    Enviar A Direccion    ${FILEpdfAgus}    ${pdfAgus}
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 11
@@ -714,7 +714,7 @@ Test 4 - Nota formal: se selecciona la opcion "no corresponde" [Direccion]
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${botonNoCorresponde}    No Corresponde
+    Se selecciona X accion    ${botonNoCorresponde}    No Corresponde    ${FILEpdfAgus}    ${pdfAgus}
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 18
@@ -777,7 +777,7 @@ Test 4 - Nota formal: se selecciona la opcion "enviar a Direccion". [operador me
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
    # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${enviarDireccion}    Enviar A Direccion
+    Se selecciona X accion    ${enviarDireccion}    Enviar A Direccion    ${FILEpdfAgus}    ${pdfAgus}
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 25
@@ -841,7 +841,7 @@ Test 4 - Nota formal: se selecciona la opcion "para resolver" [Direccion]
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
    # Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${paraResolver}    Para Resolver
+    Se selecciona X accion    ${paraResolver}    Para Resolver    ${FILEpdfAgus}    ${pdfAgus}
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 4 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 32
@@ -905,7 +905,7 @@ Test 4 - Nota formal: se selecciona la opcion "aprobado" [gestion]
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${botonAprobar}    Aprobar
+    Se selecciona X accion    ${botonAprobar}    Aprobar    ${FILEpdfAgus}    ${pdfAgus}
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 
@@ -971,7 +971,7 @@ Test 4 - Nota formal: se selecciona la opcion "informar al contribuyente" [opera
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     #Se selecciona X accion con estado final    ${informarContribuyente}    informar Contribuyente
-    Se selecciona X accion    ${informarContribuyente}    informar Contribuyente
+    Se selecciona X accion    ${informarContribuyente}    informar Contribuyente    ${FILEpdfAgus}    ${pdfAgus}
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 4 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 46
@@ -1116,7 +1116,7 @@ Test 5 - Nota formal: se selecciona la opcion "enviar a Direccion" [operador mes
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${enviarDireccion}    enviar A Direccion
+    Se selecciona X accion    ${enviarDireccion}    enviar A Direccion    ${FILEpdfAgus}    ${pdfAgus}
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 11
@@ -1180,7 +1180,7 @@ Test 5 - Nota formal: se selecciona la opcion "para resolver" [Direccion]
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${paraResolver}    para resolver
+    Se selecciona X accion    ${paraResolver}    para resolver    ${FILEpdfAgus}    ${pdfAgus}
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 5 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 18
@@ -1244,7 +1244,7 @@ Test 5 - Nota formal: se selecciona la opcion "rechazar" [gestion]
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${botonRechazar}    rechazar
+    Se selecciona X accion    ${botonRechazar}    rechazar    ${FILEpdfAgus}    ${pdfAgus}
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 5 - Nota formal: verificar el estado del tramite (resuelto) [ciudadano] 25
@@ -1309,7 +1309,7 @@ Test 5 - Nota formal: se selecciona la opcion "informar contribuyente" [operador
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     #Se selecciona X accion con estado final    ${informarContribuyente}    informar Contribuyente
-    Se selecciona X accion    ${informarContribuyente}    informar Contribuyente
+    Se selecciona X accion    ${informarContribuyente}    informar Contribuyente    ${FILEpdfAgus}    ${pdfAgus}
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 5 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 32
@@ -1451,7 +1451,7 @@ Test 6 - Nota formal: se selecciona la opcion "enviar a Direccion" [operador mes
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${enviarDireccion}    enviar A Direccion
+    Se selecciona X accion    ${enviarDireccion}    enviar A Direccion    ${FILEpdfAgus}    ${pdfAgus}
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 6 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 11
@@ -1514,7 +1514,7 @@ Test 6 - Nota formal: se selecciona la opcion "aprobar" [Direccion]
     Inicio sesion y verificacion de texto inicial - operador    ${userSecretaria}  ${pass}  Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${botonAprobar}    aprobar
+    Se selecciona X accion    ${botonAprobar}    aprobar    ${FILEpdfAgus}    ${pdfAgus}
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 6 - Nota formal: verificar el estado del tramite (resuelto) [ciudadano] 25
@@ -1578,7 +1578,7 @@ Test 6 - Nota formal: se selecciona la opcion "informar contribuyente" [operador
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     #Se selecciona X accion con estado final    ${informarContribuyente}    informar Contribuyente
-    Se selecciona X accion    ${informarContribuyente}    informar Contribuyente
+    Se selecciona X accion    ${informarContribuyente}    informar Contribuyente    ${FILEpdfAgus}    ${pdfAgus}
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 6 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 32
@@ -1720,7 +1720,7 @@ Test 7 - Nota formal: se selecciona la opcion "enviar a Direccion" [operador mes
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${enviarDireccion}    enviar Direccion
+    Se selecciona X accion    ${enviarDireccion}    enviar Direccion    ${FILEpdfAgus}    ${pdfAgus}
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 7 - Nota formal: verificar el estado del tramite (en curso) [ciudadano] 11
@@ -1783,7 +1783,7 @@ Test 7 - Nota formal: se selecciona la opcion "rechazar" [Direccion]
     Inicio sesion y verificacion de texto inicial - operador    ${userSecretaria}  ${pass}  Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
-    Se selecciona X accion    ${botonRechazar}    rechazar
+    Se selecciona X accion    ${botonRechazar}    rechazar    ${FILEpdfAgus}    ${pdfAgus}
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 7 - Nota formal: verificar el estado del tramite (resuelto) [ciudadano] 25
@@ -1847,7 +1847,7 @@ Test 7 - Nota formal: se selecciona la opcion "informar contribuyente" [operador
     #Validar y hacer clic en el boton    ${abrirPrimerTramiteAgus}    abrirPrimerTramite
     Abrir Tramite Por Numero    ${tramite}
     #Se selecciona X accion con estado final    ${informarContribuyente}    informar Contribuyente
-    Se selecciona X accion    ${informarContribuyente}    informar Contribuyente
+    Se selecciona X accion    ${informarContribuyente}    informar Contribuyente    ${FILEpdfAgus}    ${pdfAgus}
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 7 - Nota formal: verificar el estado del tramite (cerrado) [ciudadano] 32
