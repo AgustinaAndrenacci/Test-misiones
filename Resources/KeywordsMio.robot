@@ -21,11 +21,11 @@ Asignar Tag Numerado
 Abrir Navegador
     Open Browser    ${page}    ${browser}
     Maximize Browser Window
-    Sleep    2s
+    Sleep    1s
 
 Cerrar Navegador
     Close browser
-    Sleep  2s
+    Sleep    1s
 
 Abrir Navegador en modo incognito
     [Documentation]    Abre el navegador usando la función de Python para configurar opciones.
@@ -299,7 +299,7 @@ Verificar presencia de
         Captura Screenshot In Log
         Fail    ${mensajeExtra}
     END
-    Sleep  2s
+
 
 Verificar no presencia de
     [Arguments]    ${elemento}    ${mensajeExtra}
@@ -309,7 +309,7 @@ Verificar no presencia de
         Captura Screenshot In Log
         Fail    ${mensajeExtra}
     END
-    Sleep  2s
+
 
 Verificar presencia parcial
     [Arguments]    ${textoEsperado}    ${mensajeExtra}
@@ -357,7 +357,7 @@ Verificar y presionar ítem en lista
         Captura Screenshot In Log    ${selector}
         Fail    No se pudo seleccionar el ítem: "${item}"
     END
-    Sleep  2s
+
 
 Verificar y presionar ítem en lista index
     [Arguments]    ${selector}    ${item}
@@ -368,7 +368,7 @@ Verificar y presionar ítem en lista index
         Captura Screenshot In Log    ${selector}
         Fail    No se pudo seleccionar el ítem: "${item}"
     END
-    Sleep  2s
+
 
 
 #Validar Automatico--------------------------------------------------------------------------------------------------------------------------------------------------
@@ -383,7 +383,7 @@ Validar y completar campo
         Captura Screenshot In Log    ${mensaje}
         Fail    No se pudo completar el campo: ${mensaje}
     END
-    Sleep  2s
+
 
 Validar y hacer clic en el boton
     [Arguments]    ${selector}    ${mensaje}
@@ -400,7 +400,7 @@ Validar y hacer clic en el boton
         Captura Screenshot In Log    ${mensaje}
         Fail    Boton no encontrado: ${mensaje}
     END
-    Sleep  2s
+
 
 Validar y hacer clic en el boton2
     [Arguments]    ${selector}    ${mensaje}
@@ -419,7 +419,7 @@ Validar y hacer clic en el boton2
         Captura Screenshot In Log    ${mensaje}
         Fail    Boton no encontrado: ${mensaje}
     END
-    Sleep  2s
+
 
 Validar y hacer clic en la seccion
     [Arguments]    ${selector}    ${mensaje}
@@ -436,7 +436,7 @@ Validar y hacer clic en la seccion
         Captura Screenshot In Log    ${mensaje}
         Fail    Seccion no encontrada: ${mensaje}
     END
-    Sleep  2s
+
 
 #MENSAJES ERROR------------------------------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
