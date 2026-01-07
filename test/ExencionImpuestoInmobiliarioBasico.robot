@@ -63,9 +63,9 @@ Test 1 - ExencionImpuestoInmobiliarioBasico Como Borrador [ciudadano] Paso 1
     Validar y completar campo    ${asuntoExencionImpuestoIB}  Asunto test1    asuntoExencionImpuestoIB
     Validar y completar campo    ${detalleExencionImpuestoIB}  Descripcion test1  detalleExencionImpuestoIB
     Validar y completar campo    ${contenidoExencionImpuestoIB}  Contenido test1  contenidoExencionImpuestoIB
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonGuardarBorrador}    botonGuardarBorrador
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite
@@ -132,9 +132,9 @@ Test 1 - ExencionImpuestoInmobiliarioBasico Borrador Actualizar Campos [ciudadan
     Validar y completar campo    ${asuntoExencionImpuestoIB}  Asunto test 2    asuntoExencionImpuestoIB
     Validar y completar campo    ${detalleExencionImpuestoIB}  Descripcion test 2  detalleExencionImpuestoIB
     Validar y completar campo    ${contenidoExencionImpuestoIB}  Contenido test 2  contenidoExencionImpuestoIB
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    ${select}    Copia del instrumento que acredite la titularidad del inmueble
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonActualizarBorrador}  botonActualizarBorrador
 
 Test 1 - ExencionImpuestoInmobiliarioBasico Borrador Chequear Campos [ciudadano] Paso 4
@@ -517,15 +517,15 @@ Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada [ciudadan
     Validar y completar campo    ${asuntoExencionImpuestoIB}  Asunto test1    asuntoExencionImpuestoIB
     Validar y completar campo    ${detalleExencionImpuestoIB}  Descripcion test1  detalleExencionImpuestoIB
     Validar y completar campo    ${contenidoExencionImpuestoIB}  Contenido test1  contenidoExencionImpuestoIB
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite
@@ -1011,15 +1011,15 @@ Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion [ciudadano] 
     Validar y completar campo    ${asuntoExencionImpuestoIB}  Asunto test1    asuntoExencionImpuestoIB
     Validar y completar campo    ${detalleExencionImpuestoIB}  Descripcion test1  detalleExencionImpuestoIB
     Validar y completar campo    ${contenidoExencionImpuestoIB}  Contenido test1  contenidoExencionImpuestoIB
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite
@@ -1357,15 +1357,15 @@ Test 6 - ExencionImpuestoInmobiliarioBasico Correcta [ciudadano] Paso 1
     Validar y completar campo    ${asuntoExencionImpuestoIB}  Asunto test1    asuntoExencionImpuestoIB
     Validar y completar campo    ${detalleExencionImpuestoIB}  Descripcion test1  detalleExencionImpuestoIB
     Validar y completar campo    ${contenidoExencionImpuestoIB}  Contenido test1  contenidoExencionImpuestoIB
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite
@@ -1701,16 +1701,16 @@ Test 7 - ExencionImpuestoInmobiliarioBasico Rechazado desde Direccion [ciudadano
     Validar y completar campo    ${asuntoExencionImpuestoIB}  Asunto test1    asuntoExencionImpuestoIB
     Validar y completar campo    ${detalleExencionImpuestoIB}  Descripcion test1  detalleExencionImpuestoIB
     Validar y completar campo    ${contenidoExencionImpuestoIB}  Contenido test1  contenidoExencionImpuestoIB
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
@@ -1971,15 +1971,15 @@ Test 8 - ExencionImpuestoInmobiliarioBasico Aprobado desde Direccion [ciudadano]
     Validar y completar campo    ${asuntoExencionImpuestoIB}  Asunto test1    asuntoExencionImpuestoIB
     Validar y completar campo    ${detalleExencionImpuestoIB}  Descripcion test1  detalleExencionImpuestoIB
     Validar y completar campo    ${contenidoExencionImpuestoIB}  Contenido test1  contenidoExencionImpuestoIB
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite

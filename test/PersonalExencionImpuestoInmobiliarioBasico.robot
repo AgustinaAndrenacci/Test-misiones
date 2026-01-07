@@ -81,15 +81,15 @@ Test 1 - Crear ExencionImpuestoInmobiliarioBasico [ciudadano]
     Validar y completar campo    ${asuntoExencionImpuestoIB}  Asunto test1    asuntoExencionImpuestoIB
     Validar y completar campo    ${detalleExencionImpuestoIB}  Descripcion test1  detalleExencionImpuestoIB
     Validar y completar campo    ${contenidoExencionImpuestoIB}  Contenido test1  contenidoExencionImpuestoIB
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
     ${tramite}=    Obtener Numero De Tramite

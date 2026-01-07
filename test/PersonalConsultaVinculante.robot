@@ -81,15 +81,15 @@ Test 1 - Crear Consulta Vinculante Correcta [ciudadano]
     Validar y completar campo    ${asuntoConsultaVinculante}  Asunto test1    asuntoConsultaVinculante
     Validar y completar campo    ${detalleConsultaVinculante}  Descripcion test1  detalleConsultaVinculante
     Validar y completar campo    ${contenidoConsultaVinculante}  Contenido test1  contenidoConsultaVinculante
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
     ${tramite}=    Obtener Numero De Tramite

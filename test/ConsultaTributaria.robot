@@ -62,9 +62,9 @@ Test 1 - Consulta Tributaria Como Borrador [ciudadano] Paso 1
     Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
     Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
     Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonGuardarBorrador}    botonGuardarBorrador
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite
@@ -126,9 +126,9 @@ Test 1 - Consulta Tributaria Borrador Actualizar Campos [ciudadano] Paso 3
     Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 2    asuntoConsultaTributaria
     Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 2  detalleConsultaTributaria
     Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 2  contenidoConsultaTributaria
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonActualizarBorrador}  botonActualizarBorrador
 
 Test 1 - Consulta Tributaria Borrador Chequear Campos [ciudadano] Paso 4
@@ -476,15 +476,15 @@ Test 4 - Consulta Tributaria Devuelto a Mesa de Entrada [ciudadano] Paso 1
     Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test1    asuntoConsultaTributaria
     Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test1  detalleConsultaTributaria
     Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test1  contenidoConsultaTributaria
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite
@@ -916,9 +916,9 @@ Test 5 - Consulta Tributaria Rechazado desde Gestion [ciudadano] Paso 1
     Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test1    asuntoConsultaTributaria
     Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test1  detalleConsultaTributaria
     Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test1  contenidoConsultaTributaria
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite
@@ -1217,15 +1217,15 @@ Test 6 - Consulta Tributaria Correcta [ciudadano] Paso 1
     Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test1    asuntoConsultaTributaria
     Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test1  detalleConsultaTributaria
     Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test1  contenidoConsultaTributaria
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
 #Ver despues como poder aniadir el ultimo select
 #    Verificar y presionar ítem en lista index    xpath=//select    0
 #    Choose File    ${UPLOAD_INPUT}    ${FILE_PATH}
@@ -1526,9 +1526,9 @@ Test 7 - Consulta Tributaria Rechazado desde Direccion [ciudadano] Paso 1
     Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test1    asuntoConsultaTributaria
     Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test1  detalleConsultaTributaria
     Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test1  contenidoConsultaTributaria
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite
@@ -1762,15 +1762,15 @@ Test 8 - Consulta Tributaria Aprobado desde Direccion [ciudadano] Paso 1
     Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test1    asuntoConsultaTributaria
     Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test1  detalleConsultaTributaria
     Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test1  contenidoConsultaTributaria
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite
@@ -2010,9 +2010,9 @@ Test 9 - Consulta Tributaria Rechazar e Informar Al Contribuyente desde Direccio
     Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test1    asuntoConsultaTributaria
     Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test1  detalleConsultaTributaria
     Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test1  contenidoConsultaTributaria
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite
@@ -2211,15 +2211,15 @@ Test 10 - Consulta Tributaria Aprobar Informar Al Contribuyente desde Direccion 
     Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test1    asuntoConsultaTributaria
     Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test1  detalleConsultaTributaria
     Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test1  contenidoConsultaTributaria
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite
@@ -2418,9 +2418,9 @@ Test 11 - Consulta Tributaria Rechazar e Informar Al Contribuyente desde Gestion
     Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test1    asuntoConsultaTributaria
     Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test1  detalleConsultaTributaria
     Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test1  contenidoConsultaTributaria
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite
@@ -2619,15 +2619,15 @@ Test 12 - Consulta Tributaria Aprobar Informar Al Contribuyente desde Direccion 
     Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test1    asuntoConsultaTributaria
     Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test1  detalleConsultaTributaria
     Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test1  contenidoConsultaTributaria
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite

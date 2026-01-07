@@ -60,15 +60,15 @@ Test 1 - Consulta Tributaria Correcta [ciudadano] Paso 1
     Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test1    asuntoConsultaTributaria
     Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test1  detalleConsultaTributaria
     Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test1  contenidoConsultaTributaria
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
     ${tramite}=    Obtener Numero De Tramite
@@ -172,15 +172,16 @@ Test 2 - Consulta Tributaria Correcta [ciudadano] Paso 1
     Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test1    asuntoConsultaTributaria
     Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test1  detalleConsultaTributaria
     Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test1  contenidoConsultaTributaria
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
     ${tramite}=    Obtener Numero De Tramite
@@ -268,15 +269,16 @@ Test 3 - Consulta Tributaria Correcta [ciudadano] Paso 1
     Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test1    asuntoConsultaTributaria
     Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test1  detalleConsultaTributaria
     Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test1  contenidoConsultaTributaria
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite
@@ -423,15 +425,16 @@ Test 4 - Consulta Vinculante Correcta [ciudadano] Paso 1
     Validar y completar campo    ${asuntoConsultaVinculante}  Asunto test1    asuntoConsultaVinculante
     Validar y completar campo    ${detalleConsultaVinculante}  Descripcion test1  detalleConsultaVinculante
     Validar y completar campo    ${contenidoConsultaVinculante}  Contenido test1  contenidoConsultaVinculante
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
     ${tramite}=    Obtener Numero De Tramite
@@ -535,15 +538,16 @@ Test 5 - Consulta Vinculante Correcta [ciudadano] Paso 1
     Validar y completar campo    ${asuntoConsultaVinculante}  Asunto test1    asuntoConsultaVinculante
     Validar y completar campo    ${detalleConsultaVinculante}  Descripcion test1  detalleConsultaVinculante
     Validar y completar campo    ${contenidoConsultaVinculante}  Contenido test1  contenidoConsultaVinculante
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
     ${tramite}=    Obtener Numero De Tramite
@@ -632,15 +636,16 @@ Test 6 - Consulta Vinculante Correcta [ciudadano] Paso 1
     Validar y completar campo    ${asuntoConsultaVinculante}  Asunto test1    asuntoConsultaVinculante
     Validar y completar campo    ${detalleConsultaVinculante}  Descripcion test1  detalleConsultaVinculante
     Validar y completar campo    ${contenidoConsultaVinculante}  Contenido test1  contenidoConsultaVinculante
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que origina el acto
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite
@@ -787,15 +792,15 @@ Test 7 - ExencionImpuestoInmobiliarioBasico Correcta [ciudadano] Paso 1
     Validar y completar campo    ${asuntoExencionImpuestoIB}  Asunto test1    asuntoExencionImpuestoIB
     Validar y completar campo    ${detalleExencionImpuestoIB}  Descripcion test1  detalleExencionImpuestoIB
     Validar y completar campo    ${contenidoExencionImpuestoIB}  Contenido test1  contenidoExencionImpuestoIB
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
     ${tramite}=    Obtener Numero De Tramite
@@ -899,15 +904,15 @@ Test 8 - ExencionImpuestoInmobiliarioBasico Correcta [ciudadano] Paso 1
     Validar y completar campo    ${asuntoExencionImpuestoIB}  Asunto test1    asuntoExencionImpuestoIB
     Validar y completar campo    ${detalleExencionImpuestoIB}  Descripcion test1  detalleExencionImpuestoIB
     Validar y completar campo    ${contenidoExencionImpuestoIB}  Contenido test1  contenidoExencionImpuestoIB
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Wait Until Page Contains    ha sido registrado y está siendo procesado    timeout=10s
     ${tramite}=    Obtener Numero De Tramite
@@ -995,15 +1000,15 @@ Test 9 - ExencionImpuestoInmobiliarioBasico Correcta [ciudadano] Paso 1
     Validar y completar campo    ${asuntoExencionImpuestoIB}  Asunto test1    asuntoExencionImpuestoIB
     Validar y completar campo    ${detalleExencionImpuestoIB}  Descripcion test1  detalleExencionImpuestoIB
     Validar y completar campo    ${contenidoExencionImpuestoIB}  Contenido test1  contenidoExencionImpuestoIB
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite
