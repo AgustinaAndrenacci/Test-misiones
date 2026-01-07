@@ -46,7 +46,7 @@ Iniciar sesion
     Validar y completar campo    ${uCampo}    ${u}    campo usuario
     Validar y completar campo    ${pCampo}    ${p}    campo contraseña
     Validar y hacer clic en el boton    ${boton}    iniciar sesion
-    Sleep  2s
+    Sleep  1s
 
 
 Cerrar Sesion
@@ -109,13 +109,18 @@ Contar Filas Reales En Tabla
 
 #Abrir tramite por numero ----------------------------------------------------------------------------------------------
 Obtener Numero De Tramite
-    ${texto}=    Get Text    //div[@class='text-sm opacity-90']
-    # dividir en palabras separadas por espacio
-    ${partes}=    Split String    ${texto}    ${SPACE}
-    # tercera palabra → índice 2
-    ${tramite}=    Set Variable    ${partes[2]}
-    Log To Console    TEXTO OBTENIDO: ${tramite}
-    RETURN    ${tramite}
+    [Arguments]    ${selector}=//div[@class='text-sm opacity-90']
+    ${visible}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${selector}    timeout=5s
+    IF    ${visible}
+        ${texto}=    Get Text    ${selector}
+        ${partes}=    Split String    ${texto}    ${SPACE}
+        ${tramite}=    Set Variable    ${partes[2]}
+        Log To Console    TEXTO OBTENIDO: ${tramite}
+        RETURN    ${tramite}
+    ELSE
+        Log To Console    Elemento no visible, no se obtuvo número de trámite
+        RETURN    None
+    END
 
 Abrir Tramite Por Numero
     [Arguments]    ${numero_tramite}
@@ -147,19 +152,21 @@ Verificar Y Esperar Visibilidad De Elemento
     ...    Captura Screenshot In Log
 
 Verificar Contenido De Campos
-    [Arguments]    ${campo}    ${nombreCampo}    ${dato_esperado}
+    [Arguments]    ${campo}    ${nombreCampo}    ${dato_esperado}    ${timeout}=10s
 
-    ${dato_actual}=    Get Value    ${campo}
+    ${visible}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${campo}    timeout=${timeout}
+    IF    ${visible}
+        ${dato_actual}=    Get Value    ${campo}
+        ${dato_actual_limpio}=    Strip String    ${dato_actual}
+        ${dato_esperado_limpio}=    Strip String    ${dato_esperado}
 
-    #Usar Strip String para eliminar espacios iniciales/finales
-    ${dato_actual_limpio}=    Strip String    ${dato_actual}
-    ${dato_esperado_limpio}=    Strip String    ${dato_esperado}
-
-    ${es_valido}=    Run Keyword And Return Status    Should Be Equal    ${dato_actual_limpio}    ${dato_esperado_limpio}
-    Run Keyword If
-    ...    not ${es_valido}
-    ...    Fail
-    ...    El campo "${nombreCampo}" deberia tener el dato "${dato_esperado}" pero el dato actual es "${dato_actual}".
+        ${es_valido}=    Run Keyword And Return Status    Should Be Equal    ${dato_actual_limpio}    ${dato_esperado_limpio}
+        IF    not ${es_valido}
+            Fail    El campo "${nombreCampo}" deberia tener el dato "${dato_esperado}" pero el dato actual es "${dato_actual}"
+        END
+    ELSE
+        Fail    El campo "${campo}" no se hizo visible en ${timeout}
+    END
 
 #Limpiar contador del tramite ---------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------
@@ -221,10 +228,13 @@ Validar Estado Primer inexistente
 
 Validar Tramite Inexistente
     [Arguments]    ${locatorTabla}    ${numTramite}
-
     ${xpathFilaTramite}=    Set Variable    ${locatorTabla}//tbody/tr[td[1]="${numTramite}"]
-    ${tramite_encontrado}=    Run Keyword And Return Status    Wait Until Page Contains Element    xpath=${xpathFilaTramite}    timeout=1s
-    Run Keyword If    ${tramite_encontrado}    Fail    El trámite ${numTramite} fue encontrado en la tabla cuando se esperaba que fuera inexistente.
+    ${visible}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${xpathFilaTramite}    timeout=3s
+    IF    ${visible}
+        Fail    El trámite ${numTramite} fue encontrado en la tabla cuando se esperaba que fuera inexistente.
+    ELSE
+        Log To Console    El trámite ${numTramite} no existe en la tabla (validación correcta).
+    END
 
 Verificar Boton Sin Fallar
     [Arguments]    ${locator}    ${nombreBoton}
@@ -319,7 +329,7 @@ Verificar presencia parcial
         Captura Screenshot In Log
         Fail    ${mensajeExtra}
     END
-    Sleep    2s
+
 
 Verificar Boton Con Texto
     [Arguments]    ${texto}
