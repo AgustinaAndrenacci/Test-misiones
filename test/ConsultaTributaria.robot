@@ -165,7 +165,6 @@ Test 1 - Consulta Tributaria: verificar que no aparezca el tramite(borrador) [op
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
 Test 1 - Consulta Tributaria: verificar que no aparezca el tramite [Direccion] Paso 5

@@ -194,7 +194,7 @@ Test 2 - Consulta Tributaria: cancelar tramite desde el tacho [ciudadano] Paso 2
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMisTramitesRecientes}    ${botonTachoINICIO}    ${tramite}
     Validar y hacer clic en el boton    ${botonSiCancelarINCIO}    boton si,cancelar
@@ -560,7 +560,7 @@ Test 5 - Consulta Vinculante: cancelar tramite desde el tacho [ciudadano] Paso 2
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMisTramitesRecientes}    ${botonTachoINICIO}    ${tramite2}
     Validar y hacer clic en el boton    ${botonSiCancelarINCIO}    boton si,cancelar
@@ -925,7 +925,7 @@ Test 8 - ExencionImpuestoInmobiliarioBasico: cancelar tramite desde el tacho [ci
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMisTramitesRecientes}    ${botonTachoINICIO}    ${tramite2}
     Validar y hacer clic en el boton    ${botonSiCancelarINCIO}    boton si,cancelar

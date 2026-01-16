@@ -14,7 +14,6 @@ ${page}  https://tsgqa.digitrack.com.ar/auth/signin
 
 #Usuarios --------------------------------------------------------------------------------------
 ${userCiudadano}  20401234560
-${userCiudadano3}  30709021296
 ${userCiudadano2}  30709021296
 ${passCiudadano}  1234
 
