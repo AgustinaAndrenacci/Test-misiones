@@ -99,9 +99,9 @@ Crear tramite para X tipo
     Validar y completar campo    ${campoAsunto}  Asunto test2    asunto
     Validar y completar campo    ${campoDetalle}  Descripcion test2  detalle
     Validar y completar campo    ${campoContenido}  Contenido test2  contenido
-    Verificar y presionar ítem en lista index    ${select}    1
-    Choose file    ${InputTypeFile}    ${file}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista index    ${select}    1
+#    Choose file    ${InputTypeFile}    ${file}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
 

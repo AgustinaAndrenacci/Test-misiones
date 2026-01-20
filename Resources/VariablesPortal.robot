@@ -10,11 +10,10 @@ ${COUNTER}    0
 
 #Principal --------------------------------------------------------------------------------------
 ${browser}  Chrome
-${page}  https://tsgqa.digitrack.com.ar/auth/signin
-
+${pageCiudadano}  https://mde-digital.ngrok.io/auth/signin/extranet
+${pagePersonal}  https://mde-digital.ngrok.io/auth/signin/intranet
 #Usuarios --------------------------------------------------------------------------------------
 ${userCiudadano}  20401234560
-${userCiudadano3}  30709021296
 ${userCiudadano2}  30709021296
 ${passCiudadano}  1234
 
@@ -57,6 +56,7 @@ ${pestañaPersonal}    //button[text()='Personal']
 #-------------------------VARIABLES GLOBALES ADMINISTRACION------------------------------
 #----------------------------------------------------------------------------------------
 
+${botonMesaEntradaVirtual}   //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Mesa de Entrada Virtual']
 ${botonBandejaEntrada}    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']
 ${abrirPrimerTramite}    //tbody/tr[1]/td[1]
 ${abrirPrimerTramiteAgus}    //tbody/tr[1]/td[1]//a

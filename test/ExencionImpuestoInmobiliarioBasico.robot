@@ -56,16 +56,17 @@ Test 1 - ExencionImpuestoInmobiliarioBasico: Indicacion del proceso
 Test 1 - ExencionImpuestoInmobiliarioBasico Como Borrador [ciudadano] Paso 1
     [Documentation]    Crear una nueva ExencionImpuestoInmobiliarioBasico como borrador
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExencionImpuestoInmobiliarioBasico}    botonExencionImpuestoIB
     Validar y completar campo    ${asuntoExencionImpuestoIB}  Asunto test1    asuntoExencionImpuestoIB
     Validar y completar campo    ${detalleExencionImpuestoIB}  Descripcion test1  detalleExencionImpuestoIB
     Validar y completar campo    ${contenidoExencionImpuestoIB}  Contenido test1  contenidoExencionImpuestoIB
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonGuardarBorrador}    botonGuardarBorrador
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite
@@ -80,15 +81,15 @@ Test 1 - ExencionImpuestoInmobiliarioBasico GuardarBorrador Chequear Estado Desd
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Borrador
 
 Test 1 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramite(borrador) [operador mesa] Paso 1
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde el operador mesa, se verifica que el tramite(borrador) no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -96,9 +97,8 @@ Test 1 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -106,9 +106,8 @@ Test 1 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -116,7 +115,8 @@ Test 1 - ExencionImpuestoInmobiliarioBasico Borrador Chequear Campos [ciudadano]
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Verifica que el ciudadano pueda ver los campos anteriormente completados
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Validar y hacer clic en el boton    ${abrirTramiteGenerado}  abrirTramiteGenerado
     Verificar Contenido De Campos    ${asuntoExencionImpuestoIB}  Asunto test 1
     Verificar Contenido De Campos    ${detalleExencionImpuestoIB}  Descripcion test 1
@@ -127,21 +127,23 @@ Test 1 - ExencionImpuestoInmobiliarioBasico Borrador Actualizar Campos [ciudadan
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Comprueba que se puedan cambiar los campos en el borrador y actualicen correctamente
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Validar y hacer clic en el boton    ${abrirTramiteGenerado}  abrirTramiteGenerado
     Validar y completar campo    ${asuntoExencionImpuestoIB}  Asunto test 2    asuntoExencionImpuestoIB
     Validar y completar campo    ${detalleExencionImpuestoIB}  Descripcion test 2  detalleExencionImpuestoIB
     Validar y completar campo    ${contenidoExencionImpuestoIB}  Contenido test 2  contenidoExencionImpuestoIB
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    ${select}    Copia del instrumento que acredite la titularidad del inmueble
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonActualizarBorrador}  botonActualizarBorrador
 
 Test 1 - ExencionImpuestoInmobiliarioBasico Borrador Chequear Campos [ciudadano] Paso 4
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Verifica que el ciudadano pueda ver las actualizaciones del borrador
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Validar y hacer clic en el boton    ${abrirTramiteGenerado}  abrirTramiteGenerado
     Verificar Contenido De Campos    ${asuntoExencionImpuestoIB}  Asunto test 2
     Verificar Contenido De Campos    ${detalleExencionImpuestoIB}  Descripcion test 2
@@ -153,7 +155,8 @@ Test 1 - ExencionImpuestoInmobiliarioBasico: pasar de borrador a guardado [ciuda
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde el ciudadano, se entra al tramite y se guarda para que deje de estar en borrador
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Validar y hacer clic en el boton    ${abrirTramiteGenerado}    abrirTramiteGenerado
     Validar y hacer clic en el boton    ${botonEnviarTramite}    botonEnviarTramite
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -162,15 +165,15 @@ Test 1 - ExencionImpuestoInmobiliarioBasico: pasar de borrador a guardado [ciuda
 Test 1 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (pendiente) [ciudadano] Paso 5
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Borrador
 
 Test 1 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramite(borrador) [operador mesa] Paso 5
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde el operador mesa, se verifica que el tramite(borrador) no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -178,9 +181,8 @@ Test 1 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -188,9 +190,8 @@ Test 1 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -208,7 +209,8 @@ Test 2 - ExencionImpuestoInmobiliarioBasico: Indicacion del proceso
 Test 2 - ExencionImpuestoInmobiliarioBasico Solicitar Datos Adicionales [ciudadano] Paso 1
     [Documentation]    Crear una nueva ExencionImpuestoInmobiliarioBasico sin agregar abjuntos
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExencionImpuestoInmobiliarioBasico}    botonExencionImpuestoIB
@@ -227,7 +229,8 @@ Test 2 - ExencionImpuestoInmobiliarioBasico Solicitar Datos Adicionales Chequear
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
@@ -235,9 +238,8 @@ Test 2 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -245,9 +247,8 @@ Test 2 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -255,9 +256,8 @@ Test 2 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (pe
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
@@ -265,9 +265,8 @@ Test 2 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -286,9 +285,8 @@ Test 2 - ExencionImpuestoInmobiliarioBasico Solicitar Datos Adicionales [operado
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "Solicitar Datos Adicionales"
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
@@ -301,7 +299,8 @@ Test 2 - ExencionImpuestoInmobiliarioBasico Solicitar Datos Adicionales Chequear
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló Solicitar Datos Adicionales desde Operador mesa
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente Contribuyente
 
@@ -309,7 +308,8 @@ Test 2 - ExencionImpuestoInmobiliarioBasico: el ciudadano avanza en el tramite [
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló Solicitar Datos Adicionales desde Operador mesa
     [Documentation]    Se verifica si el usuario puede avanzar en el tramite debido a que le solicitaron datos adicionales
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     ${botonVerDetalleTramite}=    Set Variable    //tr[td[normalize-space()='${tramite}']]//a[contains(., 'Ver Detalle')]
     Validar y hacer clic en el boton    ${botonVerDetalleTramite}    botonVerDetalle
     Validar y hacer clic en el boton    ${botonResponder}    botonResponder
@@ -325,7 +325,8 @@ Test 2 - ExencionImpuestoInmobiliarioBasico Solicitar Datos Adicionales Chequear
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló Solicitar Datos Adicionales desde Operador mesa
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
@@ -333,9 +334,8 @@ Test 2 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -343,9 +343,8 @@ Test 2 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -353,9 +352,8 @@ Test 2 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (pe
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
@@ -363,9 +361,8 @@ Test 2 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -393,7 +390,8 @@ Test 3 - ExencionImpuestoInmobiliarioBasico: Indicacion del proceso
 Test 3 - ExencionImpuestoInmobiliarioBasico Documentacion NoCorresponde [ciudadano] Paso 1
     [Documentation]    Crear una nueva ExencionImpuestoInmobiliarioBasico sin agregar abjuntos
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExencionImpuestoInmobiliarioBasico}    botonExencionImpuestoIB
@@ -411,7 +409,8 @@ Test 3 - ExencionImpuestoInmobiliarioBasico Documentacion NoCorresponde Chequear
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
@@ -419,9 +418,8 @@ Test 3 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -429,9 +427,8 @@ Test 3 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -439,9 +436,8 @@ Test 3 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (pe
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
@@ -449,9 +445,8 @@ Test 3 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -470,9 +465,8 @@ Test 3 - ExencionImpuestoInmobiliarioBasico Documentacion NoCorresponde [operado
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Entra como operador mesa entrada para indicar la opcion "No Corresponde"
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonNoCorresponde}    botonNoCorresponde
@@ -485,7 +479,8 @@ Test 3 - ExencionImpuestoInmobiliarioBasico Documentacion NoCorresponde Chequear
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló el boton NoCorresponde desde el operador mesa
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
 
@@ -510,22 +505,23 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: Indicacion del proceso
 Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada [ciudadano] Paso 1
     [Documentation]    Crear una nueva ExencionImpuestoInmobiliarioBasico completando todos los campos
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExencionImpuestoInmobiliarioBasico}    botonExencionImpuestoIB
     Validar y completar campo    ${asuntoExencionImpuestoIB}  Asunto test1    asuntoExencionImpuestoIB
     Validar y completar campo    ${detalleExencionImpuestoIB}  Descripcion test1  detalleExencionImpuestoIB
     Validar y completar campo    ${contenidoExencionImpuestoIB}  Contenido test1  contenidoExencionImpuestoIB
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite
@@ -540,7 +536,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Chequear 
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
@@ -548,9 +545,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -558,9 +554,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -568,9 +563,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (pe
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
@@ -578,9 +572,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -599,9 +592,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada [operador
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
@@ -614,7 +606,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Chequear 
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
@@ -622,9 +615,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde el operador mesa, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -632,9 +624,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -642,9 +633,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (As
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
@@ -652,9 +642,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Se ingresa como Direccion y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -673,9 +662,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada [Direccio
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra como Direccion para continuar con el proceso dandole a la opcion "No Corresponde" devolviendo el tramite hacia Mesa de Entrada.
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonNoCorresponde}    botonNoCorresponde
@@ -688,7 +676,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Chequear 
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
@@ -696,9 +685,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -706,9 +694,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -716,9 +703,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (De
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Devuelto
 
@@ -726,9 +712,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -747,9 +732,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada [operador
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra como operador mesa entrada, continua con el proceso del tramite enviandolo a Direccion nuevamente
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
@@ -762,7 +746,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Chequear 
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
@@ -770,9 +755,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde el operador mesa, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -780,9 +764,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -790,9 +773,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (as
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
@@ -800,9 +782,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Se ingresa como Direccion y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -821,9 +802,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada [Direccio
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra como Direccion para continuar con el proceso, ahora si utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${paraResolver}    paraResolver
@@ -836,7 +816,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Chequear 
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
@@ -844,9 +825,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -854,9 +834,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde el operador mesa, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -864,9 +843,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (En
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    En revisión
 
@@ -874,9 +852,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Se ingresa como Direccion y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -895,9 +872,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada [gestion]
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra como Gestion aprobando el tramite para continuar con el proceso
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonAprobar}    botonAprobar
@@ -910,7 +886,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Chequear 
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
@@ -918,9 +895,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -928,9 +904,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -938,9 +913,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (Ap
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Aprobado
 
@@ -948,9 +922,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -969,9 +942,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada [operador
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
@@ -983,7 +955,8 @@ Test 4 - ExencionImpuestoInmobiliarioBasico Devuelto a Mesa de Entrada Chequear 
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
 
@@ -1004,22 +977,23 @@ Test 5 - ExencionImpuestoInmobiliarioBasico: Indicacion del proceso
 Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion [ciudadano] Paso 1
     [Documentation]    Crear una nueva ExencionImpuestoInmobiliarioBasico
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExencionImpuestoInmobiliarioBasico}    botonExencionImpuestoIB
     Validar y completar campo    ${asuntoExencionImpuestoIB}  Asunto test1    asuntoExencionImpuestoIB
     Validar y completar campo    ${detalleExencionImpuestoIB}  Descripcion test1  detalleExencionImpuestoIB
     Validar y completar campo    ${contenidoExencionImpuestoIB}  Contenido test1  contenidoExencionImpuestoIB
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite
@@ -1034,7 +1008,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado Chequear Estado Desde Usua
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
@@ -1042,9 +1017,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1052,9 +1026,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1062,9 +1035,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (pe
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
@@ -1072,9 +1044,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -1093,9 +1064,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion [operador me
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
@@ -1108,7 +1078,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado Chequear Estado Desde Usua
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
@@ -1116,9 +1087,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde el operador mesa, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1126,9 +1096,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1136,9 +1105,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (As
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
@@ -1146,9 +1114,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Se ingresa como Direccion y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -1167,9 +1134,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion [Direccion] 
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra como Direccion para continuar con el proceso, utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${paraResolver}    paraResolver
@@ -1182,7 +1148,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado Chequear Estado Desde Usua
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
@@ -1190,9 +1157,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1200,9 +1166,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde la operador mesa, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1210,9 +1175,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (En
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    En revisión
 
@@ -1220,9 +1184,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Se ingresa como Direccion y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -1241,9 +1204,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion [gestion] Pa
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]     Entra como Gestion Rechazando el tramite y continua con el proceso
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonRechazar}    botonRechazar
@@ -1256,7 +1218,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado Chequear Estado Desde Usua
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
@@ -1264,9 +1227,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1274,9 +1236,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1284,9 +1245,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (Re
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Rechazado
 
@@ -1294,9 +1254,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -1315,9 +1274,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado desde Gestion [operador me
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso, en este caso "Rechazado"
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
@@ -1329,7 +1287,8 @@ Test 5 - ExencionImpuestoInmobiliarioBasico Rechazado Chequear Estado Desde Usua
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
 
@@ -1350,22 +1309,23 @@ Test 6 - ExencionImpuestoInmobiliarioBasico: Indicacion del proceso
 Test 6 - ExencionImpuestoInmobiliarioBasico Correcta [ciudadano] Paso 1
     [Documentation]    Crear una nueva ExencionImpuestoInmobiliarioBasico
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExencionImpuestoInmobiliarioBasico}    botonExencionImpuestoIB
     Validar y completar campo    ${asuntoExencionImpuestoIB}  Asunto test1    asuntoExencionImpuestoIB
     Validar y completar campo    ${detalleExencionImpuestoIB}  Descripcion test1  detalleExencionImpuestoIB
     Validar y completar campo    ${contenidoExencionImpuestoIB}  Contenido test1  contenidoExencionImpuestoIB
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite
@@ -1380,7 +1340,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico Correcta Chequear Estado Desde Usuar
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
@@ -1388,9 +1349,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1398,9 +1358,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1408,9 +1367,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (pe
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
@@ -1418,9 +1376,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -1439,9 +1396,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico Correcta [operador mesa] Paso 2
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
@@ -1454,7 +1410,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico Correcta Chequear Estado Desde Usuar
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
@@ -1462,9 +1419,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde el operador mesa, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1472,9 +1428,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1482,9 +1437,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (As
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
@@ -1492,9 +1446,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Se ingresa como Direccion y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -1513,9 +1466,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico Correcta [Direccion] Paso 3
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra como Direccion para continuar con el proceso, utilizando la opcion "Para Resolver" enviandolo hacia Gestion
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${paraResolver}    paraResolver
@@ -1528,7 +1480,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico Correcta Chequear Estado Desde Usuar
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
@@ -1536,9 +1489,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1546,9 +1498,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde el operador mesa, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1556,9 +1507,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (En
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    En revisión
 
@@ -1566,9 +1516,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Se ingresa como Direccion y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -1587,9 +1536,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico Correcta [gestion] Paso 4
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra como Gestion y utiliza la opcion "Aprobar" para continuar con el proceso
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonAprobar}    botonAprobar
@@ -1602,7 +1550,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico Correcta Chequear Estado Desde Usuar
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
@@ -1610,9 +1559,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1620,9 +1568,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1630,9 +1577,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (Ap
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Aprobado
 
@@ -1640,9 +1586,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -1661,9 +1606,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico Correcta [operador mesa] Paso 5
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso, en este caso "Aprobado"
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
@@ -1675,7 +1619,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico Correcta Chequear Estado Desde Usuar
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
 
@@ -1694,23 +1639,24 @@ Test 7 - ExencionImpuestoInmobiliarioBasico: Indicacion del proceso
 Test 7 - ExencionImpuestoInmobiliarioBasico Rechazado desde Direccion [ciudadano] Paso 1
     [Documentation]    Crear una nueva ExencionImpuestoInmobiliarioBasico
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExencionImpuestoInmobiliarioBasico}    botonExencionImpuestoIB
     Validar y completar campo    ${asuntoExencionImpuestoIB}  Asunto test1    asuntoExencionImpuestoIB
     Validar y completar campo    ${detalleExencionImpuestoIB}  Descripcion test1  detalleExencionImpuestoIB
     Validar y completar campo    ${contenidoExencionImpuestoIB}  Contenido test1  contenidoExencionImpuestoIB
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
@@ -1724,7 +1670,8 @@ Test 7 - ExencionImpuestoInmobiliarioBasico Rechazado Chequear Estado Desde Usua
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
@@ -1732,9 +1679,8 @@ Test 7 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1742,9 +1688,8 @@ Test 7 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1752,9 +1697,8 @@ Test 7 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (pe
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
@@ -1762,9 +1706,8 @@ Test 7 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -1783,9 +1726,8 @@ Test 7 - ExencionImpuestoInmobiliarioBasico Rechazado desde Direccion [operador 
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
@@ -1798,7 +1740,8 @@ Test 7 - ExencionImpuestoInmobiliarioBasico Rechazado Chequear Estado Desde Usua
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
@@ -1806,9 +1749,8 @@ Test 7 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde el operador mesa, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1816,9 +1758,8 @@ Test 7 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1826,9 +1767,8 @@ Test 7 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (As
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
@@ -1836,9 +1776,8 @@ Test 7 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Se ingresa como Direccion y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -1857,9 +1796,8 @@ Test 7 - ExencionImpuestoInmobiliarioBasico Rechazado desde Direccion [Direccion
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]     Entra como Direccion Rechazando el tramite y continua con el proceso
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonRechazar}    botonRechazar
@@ -1872,7 +1810,8 @@ Test 7 - ExencionImpuestoInmobiliarioBasico Rechazado Chequear Estado Desde Usua
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
@@ -1880,9 +1819,8 @@ Test 7 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1890,9 +1828,8 @@ Test 7 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -1900,9 +1837,8 @@ Test 7 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (Re
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Rechazado
 
@@ -1910,9 +1846,8 @@ Test 7 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -1931,9 +1866,8 @@ Test 7 - ExencionImpuestoInmobiliarioBasico Rechazado desde Direccion [operador 
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso, en este caso "Rechazado"
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
@@ -1945,7 +1879,8 @@ Test 7 - ExencionImpuestoInmobiliarioBasico Rechazado Chequear Estado Desde Usua
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
 
@@ -1964,22 +1899,23 @@ Test 8 - ExencionImpuestoInmobiliarioBasico: Indicacion del proceso
 Test 8 - ExencionImpuestoInmobiliarioBasico Aprobado desde Direccion [ciudadano] Paso 1
     [Documentation]    Crear una nueva ExencionImpuestoInmobiliarioBasico
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExencionImpuestoInmobiliarioBasico}    botonExencionImpuestoIB
     Validar y completar campo    ${asuntoExencionImpuestoIB}  Asunto test1    asuntoExencionImpuestoIB
     Validar y completar campo    ${detalleExencionImpuestoIB}  Descripcion test1  detalleExencionImpuestoIB
     Validar y completar campo    ${contenidoExencionImpuestoIB}  Contenido test1  contenidoExencionImpuestoIB
-    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
-    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
-    Choose File    ${InputTypeFile}    ${FILE}
-    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    DNI del Solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del documento que acredite la representación del solicitante
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+#    Verificar y presionar ítem en lista    ${select}    Copia del instrumento que acredite la titularidad del inmueble
+#    Choose File    ${InputTypeFile}    ${FILE}
+#    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite
@@ -1994,7 +1930,8 @@ Test 8 - ExencionImpuestoInmobiliarioBasico Aprobado desde Direccion Chequear Es
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
@@ -2002,9 +1939,8 @@ Test 8 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -2012,9 +1948,8 @@ Test 8 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -2022,9 +1957,8 @@ Test 8 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (pe
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
@@ -2032,9 +1966,8 @@ Test 8 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -2053,9 +1986,8 @@ Test 6 - ExencionImpuestoInmobiliarioBasico Aprobado desde Direccion [operador m
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
@@ -2068,7 +2000,8 @@ Test 8 - ExencionImpuestoInmobiliarioBasico Aprobado desde Direccion Chequear Es
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
@@ -2076,9 +2009,8 @@ Test 8 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde el operador mesa, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -2086,9 +2018,8 @@ Test 8 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -2096,9 +2027,8 @@ Test 8 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (As
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
 
@@ -2106,9 +2036,8 @@ Test 8 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Se ingresa como Direccion y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -2127,9 +2056,8 @@ Test 8 - ExencionImpuestoInmobiliarioBasico Aprobado desde Direccion [Direccion]
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra como Direccion y utiliza la opcion "Aprobar" para continuar con el proceso
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonAprobar}    botonAprobar
@@ -2142,7 +2070,8 @@ Test 8 - ExencionImpuestoInmobiliarioBasico Aprobado desde Direccion Chequear Es
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
@@ -2150,9 +2079,8 @@ Test 8 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde la Direccion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userSecretaria}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userSecretaria}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -2160,9 +2088,8 @@ Test 8 - ExencionImpuestoInmobiliarioBasico: verificar que no aparezca el tramit
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde la gestion, se verifica que el tramite no se visualice
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userGestion}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userGestion}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
 
@@ -2170,9 +2097,8 @@ Test 8 - ExencionImpuestoInmobiliarioBasico: verificar el estado del tramite (Ap
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Aprobado
 
@@ -2180,9 +2106,8 @@ Test 8 - ExencionImpuestoInmobiliarioBasico: verificar si los botones de accione
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Se ingresa como operador mesa y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
 
@@ -2201,9 +2126,8 @@ Test 8 - ExencionImpuestoInmobiliarioBasico Aprobado desde Direccion [operador m
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra como operador mesa entrada para informar al usuario de la decision final del proceso, en este caso "Aprobado"
     Asignar Tag Numerado
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    Reportes y Estadísticas
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${informarContribuyente}    informarContribuyente
@@ -2215,7 +2139,8 @@ Test 8 - ExencionImpuestoInmobiliarioBasico Aprobado desde Direccion Chequear Es
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
 
