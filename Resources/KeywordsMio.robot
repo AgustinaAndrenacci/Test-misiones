@@ -109,7 +109,7 @@ Contar Filas Reales En Tabla
 
 #Abrir tramite por numero ----------------------------------------------------------------------------------------------
 Obtener Numero De Tramite
-    ${texto}=    Get Text    //div[@class='text-sm opacity-90']
+    ${texto}=    Get Text    //li[@role='status']
     # dividir en palabras separadas por espacio
     ${partes}=    Split String    ${texto}    ${SPACE}
     # tercera palabra → índice 2

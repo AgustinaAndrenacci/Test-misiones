@@ -48,7 +48,7 @@ Test 1 - Excencion Impuesto de Sellos: Indicacion del proceso 1
 Test 1 - Excencion Impuesto de Sellos: crear tramite como borrador [ciudadano] 2
     [Documentation]    El ciudadano crea un tramite de Excencion Impuesto de Sellos
     Asignar Tag Numerado
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    botonExenciónImpuestoDeSellos
     Validar y completar campo    ${asuntoExenciónImpuestoDeSellos}  Asunto test0    asuntoExenciónImpuestoDeSellos
@@ -88,7 +88,7 @@ Test 1 - Excencion Impuesto de Sellos: verificar el estado del tramite (borrador
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Borrador
 
 Test 1 - Excencion Impuesto de Sellos: verificar el estado del tramite (Borrador) [operador mesa] 5
@@ -138,7 +138,7 @@ Test 1 - Excencion Impuesto de Sellos: Verificacion de datos
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${abrirTramiteGenerado}    tramite
 
     #chequeo que los campos esten corretos
@@ -153,7 +153,7 @@ Test 1 - Excencion Impuesto de Sellos: modificacion de datos
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${abrirTramiteGenerado}    tramite
 
     #borro y actualizo los datos
@@ -174,7 +174,7 @@ Test 1 - Excencion Impuesto de Sellos: verificacion de los datos del tramite
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${abrirTramiteGenerado}    tramite
 
     #chequeo que los campos esten corretos
@@ -189,7 +189,7 @@ Test 1 - Excencion Impuesto de Sellos: pasar de borrador a guardado
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${abrirTramiteGenerado}    tramite
 
     Validar y hacer clic en el boton    ${botonContinuarBorrador}    abrirPrimerTramite
@@ -202,7 +202,7 @@ Test 1 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendient
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 1 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendiente) [operador] 4
@@ -255,7 +255,7 @@ Test 2 - Excencion Impuesto de Sellos: Indicacion del proceso 1
 Test 2 - Excencion Impuesto de Sellos: crear tramite [ciudadano] 2
     [Documentation]    El ciudadano crea una nueva Excencion Impuesto de Sellos sin agregar adjuntos
     Asignar Tag Numerado
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    botonExenciónImpuestoDeSellos
     Validar y completar campo    ${asuntoExenciónImpuestoDeSellos}  Asunto test2    asuntoExenciónImpuestoDeSellos
@@ -298,7 +298,7 @@ Test 2 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendient
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 2 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendiente) [operador] 5
@@ -377,7 +377,7 @@ Test 2 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendient
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente Contribuyente
 
 Test 2 - Excencion Impuesto de Sellos: verificar que el tramite no exista [operador mesa] 12
@@ -426,7 +426,7 @@ Test 2 - Excencion Impuesto de Sellos: se responde [ciudadano]
     #Si fallo lo anterior
     #Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
     Validar y hacer clic en el boton    ${botonResponder}    botonResponder
     Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
@@ -444,7 +444,7 @@ Test 2 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendient
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 2 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendiente) [operador mesa] 5
@@ -482,7 +482,7 @@ Test 3 - Excencion Impuesto de Sellos: Indicacion del proceso 1
 Test 3 - Excencion Impuesto de Sellos: Se crea un tramite de Excencion Impuesto de Sellos [ciudadano] 2
     [Documentation]    El ciudadano crea una nueva Excencion Impuesto de Sellos
     Asignar Tag Numerado
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    botonExenciónImpuestoDeSellos
     Validar y completar campo    ${asuntoExenciónImpuestoDeSellos}  Asunto test3    asuntoExenciónImpuestoDeSellos
@@ -527,7 +527,7 @@ Test 3 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendient
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 3 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendiente) [operador mesa] 5
@@ -605,7 +605,7 @@ Test 3 - Excencion Impuesto de Sellos: verificar el estado del tramite (cerrado)
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
 
 Test 3 - Excencion Impuesto de Sellos: verificar que el tramite no exista [operador mesa] 12
@@ -663,7 +663,7 @@ Test 4 - Excencion Impuesto de Sellos: Indicacion del proceso 1
 Test 4 - Excencion Impuesto de Sellos: se crea un tramite de norta formal [ciudadano] 2
     [Documentation]    Crear una nueva Excencion Impuesto de Sellos
     Asignar Tag Numerado
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    botonExenciónImpuestoDeSellos
     Validar y completar campo    ${asuntoExenciónImpuestoDeSellos}  Asunto test4    asuntoExenciónImpuestoDeSellos
@@ -705,7 +705,7 @@ Test 4 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendient
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 4 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendiente) [operador mesa] 5
@@ -783,7 +783,7 @@ Test 4 - Excencion Impuesto de Sellos: verificar el estado del tramite (en curso
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 4 - Excencion Impuesto de Sellos: verificar el estado del tramite (en curso) [ciudadano] 12
@@ -862,7 +862,7 @@ Test 4 - Excencion Impuesto de Sellos: verificar el estado del tramite (en curso
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 4 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendiente) [operador mesa] 19
@@ -940,7 +940,7 @@ Test 4 - Excencion Impuesto de Sellos: verificar el estado del tramite (en curso
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 4 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendiente) [Direccion] 26
@@ -1018,7 +1018,7 @@ Test 4 - Excencion Impuesto de Sellos: verificar el estado del tramite (en curso
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 4 - Excencion Impuesto de Sellos: verificar el estado del tramite (en curso) [gestion] 33
@@ -1096,7 +1096,7 @@ Test 4 - Excencion Impuesto de Sellos: verificar el estado del tramite (en curso
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
 Test 4 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendiente) [operador mesa] 40
@@ -1175,7 +1175,7 @@ Test 4 - Excencion Impuesto de Sellos: verificar el estado del tramite (cerrado)
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
 
 Test 4 - Excencion Impuesto de Sellos: verificar que el tramite no exista [operador mesa] 47
@@ -1232,7 +1232,7 @@ Test 5 - Excencion Impuesto de Sellos: Indicacion del proceso 1
 Test 5 - Excencion Impuesto de Sellos: se crea un tramite de Excencion Impuesto de Sellos [ciudadano] 2
     [Documentation]    Crear una nueva Excencion Impuesto de Sellos
     Asignar Tag Numerado
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExenciónImpuestoDeSellos}    botonExenciónImpuestoDeSellos
     Validar y completar campo    ${asuntoExenciónImpuestoDeSellos}  Asunto test5    asuntoExenciónImpuestoDeSellos
@@ -1270,7 +1270,7 @@ Test 5 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendient
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 5 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendiente) [operador mesa] 5
@@ -1349,7 +1349,7 @@ Test 5 - Excencion Impuesto de Sellos: verificar el estado del tramite (en curso
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 5 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendiente) [Direccion] 12
@@ -1428,7 +1428,7 @@ Test 5 - Excencion Impuesto de Sellos: verificar el estado del tramite (en curso
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 5 - Excencion Impuesto de Sellos: verificar el estado del tramite (en curso) [gestion] 19
@@ -1506,7 +1506,7 @@ Test 5 - Excencion Impuesto de Sellos: verificar el estado del tramite (en curso
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
 Test 5 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendiente) [operador mesa] 26
@@ -1585,7 +1585,7 @@ Test 5 - Excencion Impuesto de Sellos: verificar el estado del tramite (cerrado)
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaOperador}    3    ${tramite}    Cerrado
 
 Test 5 - Excencion Impuesto de Sellos: verificar que el tramite no exista [operador mesa] 33
@@ -1641,7 +1641,7 @@ Test 6 - Excencion Impuesto de Sellos: Indicacion del proceso
 Test 6 - Excencion Impuesto de Sellos: se crea un tramite de Excencion Impuesto de Sellos [ciudadano]
     [Documentation]    Crear una nueva Excencion Impuesto de Sellos
     Asignar Tag Numerado
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonNotaFormal}    botonNotaFormal
     Validar y completar campo    ${asuntoNotaFormal}  Asunto test5    asuntoNotaFormal
@@ -1678,7 +1678,7 @@ Test 6 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendient
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 6 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendiente) [operador mesa] 5
@@ -1756,7 +1756,7 @@ Test 6 - Excencion Impuesto de Sellos: verificar el estado del tramite (en curso
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 6 - Excencion Impuesto de Sellos: verificar el estado del tramite (asignado) [Direccion] 12
@@ -1834,7 +1834,7 @@ Test 6 - Excencion Impuesto de Sellos: verificar el estado del tramite (resuelto
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
 Test 6 - Excencion Impuesto de Sellos: verificar el estado del tramite (aprobado) [operador mesa] 26
@@ -1913,7 +1913,7 @@ Test 6 - Excencion Impuesto de Sellos: verificar el estado del tramite (cerrado)
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaOperador}    3    ${tramite}    Cerrado
 
 Test 6 - Excencion Impuesto de Sellos: verificar que el tramite no exista [operador mesa] 33
@@ -1968,7 +1968,7 @@ Test 7 - Excencion Impuesto de Sellos: Indicacion del proceso
 Test 7 - Excencion Impuesto de Sellos: se crea un tramite de Excencion Impuesto de Sellos [ciudadano]
     [Documentation]    Crear una nueva Excencion Impuesto de Sellos
     Asignar Tag Numerado
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonNotaFormal}    botonNotaFormal
     Validar y completar campo    ${asuntoNotaFormal}  Asunto test5    asuntoNotaFormal
@@ -2005,7 +2005,7 @@ Test 7 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendient
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 7 - Excencion Impuesto de Sellos: verificar el estado del tramite (pendiente) [operador mesa] 5
@@ -2083,7 +2083,7 @@ Test 7 - Excencion Impuesto de Sellos: verificar el estado del tramite (en curso
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 7 - Excencion Impuesto de Sellos: verificar el estado del tramite (asignado) [Direccion] 12
@@ -2161,7 +2161,7 @@ Test 7 - Excencion Impuesto de Sellos: verificar el estado del tramite (resuelto
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
 Test 7 - Excencion Impuesto de Sellos: verificar el estado del tramite (rechazado) [operador mesa] 26
@@ -2240,7 +2240,7 @@ Test 7 - Excencion Impuesto de Sellos: verificar el estado del tramite (cerrado)
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaOperador}    3    ${tramite}    Cerrado
 
 Test 7 - Excencion Impuesto de Sellos: verificar que el tramite no exista [operador mesa] 33

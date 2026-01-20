@@ -48,7 +48,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: Indicacion del proceso
 Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: crear tramite como borrador [ciudadano]
     [Documentation]    El ciudadano crea un tramite de Excencion Impuesto Sobre los Ingresos Brutos
     Asignar Tag Numerado
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    botonExencionImpuestoSobreLosIngresosBrutos
     Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test0    asuntoExencionImpuestoSobreLosIngresosBrutos
@@ -86,7 +86,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Borrador
 
 Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (Borrador) [operador mesa] 5
@@ -136,7 +136,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: Verificacion de datos
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${abrirTramiteGenerado}    tramite
 
     #chequeo que los campos esten corretos
@@ -151,7 +151,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: modificacion de datos
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${abrirTramiteGenerado}    tramite
 
     #borro y actualizo los datos
@@ -172,7 +172,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificacion de los datos
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${abrirTramiteGenerado}    tramite
 
     #chequeo que los campos esten corretos
@@ -187,7 +187,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: pasar de borrador a guard
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${abrirTramiteGenerado}    tramite
 
     Validar y hacer clic en el boton    ${botonContinuarBorrador}    abrirPrimerTramite
@@ -201,7 +201,7 @@ Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 1 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador] 4
@@ -254,7 +254,7 @@ Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: Indicacion del proceso
 Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: crear tramite [ciudadano]
     [Documentation]    El ciudadano crea una nueva Excencion Impuesto Sobre los Ingresos Brutos sin agregar adjuntos
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    botonExencionImpuestoSobreLosIngresosBrutos
     Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test2    asuntoExencionImpuestoSobreLosIngresosBrutos
@@ -294,7 +294,7 @@ Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador] 5
@@ -375,7 +375,7 @@ Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente Contribuyente
 
 Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [operador mesa] 12
@@ -424,7 +424,7 @@ Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: se responde [ciudadano]
     #Si fallo lo anterior
     #Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Presionar x boton en la fila del tramite    ${tablaMistramitesRecientes}    ${botonVerDetalleINICIO}    ${tramite}
     Validar y hacer clic en el boton    ${botonResponder}    botonResponder
     Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
@@ -442,7 +442,7 @@ Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 2 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador mesa] 5
@@ -480,7 +480,7 @@ Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: Indicacion del proceso
 Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: Se crea un tramite de Excencion Impuesto Sobre los Ingresos Brutos [ciudadano]
     [Documentation]    El ciudadano crea una nueva Excencion Impuesto Sobre los Ingresos Brutos
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    botonExencionImpuestoSobreLosIngresosBrutos
     Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test3    asuntoExencionImpuestoSobreLosIngresosBrutos
@@ -521,7 +521,7 @@ Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador mesa] 5
@@ -601,7 +601,7 @@ Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
 
 Test 3 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [operador mesa] 12
@@ -659,7 +659,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: Indicacion del proceso
 Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: se crea un tramite de norta formal [ciudadano]
     [Documentation]    Crear una nueva Excencion Impuesto Sobre los Ingresos Brutos
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    botonExencionImpuestoSobreLosIngresosBrutos
     Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test4    asuntoExencionImpuestoSobreLosIngresosBrutos
@@ -697,7 +697,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador mesa] 5
@@ -777,7 +777,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (en curso) [ciudadano] 12
@@ -857,7 +857,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador mesa] 19
@@ -937,7 +937,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [Direccion] 26
@@ -1017,7 +1017,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (en curso) [gestion] 33
@@ -1097,7 +1097,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
 Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador mesa] 40
@@ -1178,7 +1178,7 @@ Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
 
 Test 4 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [operador mesa] 47
@@ -1234,7 +1234,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: Indicacion del proceso
 Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: se crea un tramite de Excencion Impuesto Sobre los Ingresos Brutos [ciudadano]
     [Documentation]    Crear una nueva Excencion Impuesto Sobre los Ingresos Brutos
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano3}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonExencionImpuestoSobreLosIngresosBrutos}    botonExencionImpuestoSobreLosIngresosBrutos
     Validar y completar campo    ${asuntoExencionImpuestoSobreLosIngresosBrutos}  Asunto test5    asuntoExencionImpuestoSobreLosIngresosBrutos
@@ -1284,7 +1284,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador mesa] 5
@@ -1364,7 +1364,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [Direccion] 12
@@ -1445,7 +1445,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (en curso) [gestion] 19
@@ -1525,7 +1525,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
 Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador mesa] 26
@@ -1606,7 +1606,7 @@ Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaOperador}    3    ${tramite}    Cerrado
 
 Test 5 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [operador mesa] 33
@@ -1662,7 +1662,7 @@ Test 6 - Excencion Impuesto Sobre los Ingresos Brutos: Indicacion del proceso
 Test 6 - Excencion Impuesto Sobre los Ingresos Brutos: se crea un tramite de Excencion Impuesto Sobre los Ingresos Brutos [ciudadano]
     [Documentation]    Crear una nueva Excencion Impuesto Sobre los Ingresos Brutos
     Asignar Tag Numerado
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonNotaFormal}    botonNotaFormal
     Validar y completar campo    ${asuntoNotaFormal}  Asunto test5    asuntoNotaFormal
@@ -1699,7 +1699,7 @@ Test 6 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 6 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador mesa] 5
@@ -1777,7 +1777,7 @@ Test 6 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 6 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (asignado) [Direccion] 12
@@ -1855,7 +1855,7 @@ Test 6 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
 Test 6 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (aprobado) [operador mesa] 26
@@ -1934,7 +1934,7 @@ Test 6 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaOperador}    3    ${tramite}    Cerrado
 
 Test 6 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [operador mesa] 33
@@ -1989,7 +1989,7 @@ Test 7 - Excencion Impuesto Sobre los Ingresos Brutos: Indicacion del proceso
 Test 7 - Excencion Impuesto Sobre los Ingresos Brutos: se crea un tramite de Excencion Impuesto Sobre los Ingresos Brutos [ciudadano]
     [Documentation]    Crear una nueva Excencion Impuesto Sobre los Ingresos Brutos
     Asignar Tag Numerado
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonNotaFormal}    botonNotaFormal
     Validar y completar campo    ${asuntoNotaFormal}  Asunto test5    asuntoNotaFormal
@@ -2026,7 +2026,7 @@ Test 7 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
 Test 7 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (pendiente) [operador mesa] 5
@@ -2104,7 +2104,7 @@ Test 7 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
 
 Test 7 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (asignado) [Direccion] 12
@@ -2182,7 +2182,7 @@ Test 7 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Resuelto
 
 Test 7 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del tramite (rechazado) [operador mesa] 26
@@ -2261,7 +2261,7 @@ Test 7 - Excencion Impuesto Sobre los Ingresos Brutos: verificar el estado del t
     #Si fallo lo anterior
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     #Sino corre
-    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano3}  ${passCiudadano}  ${circuloUsuario}
+    Inicio sesion y verificacion de texto inicial - ciudadano    ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaOperador}    3    ${tramite}    Cerrado
 
 Test 7 - Excencion Impuesto Sobre los Ingresos Brutos: verificar que el tramite no exista [operador mesa] 33

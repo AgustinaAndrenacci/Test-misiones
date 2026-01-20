@@ -22,7 +22,7 @@ Test Teardown  Cerrar navegador
 Login Ciudadano - Correcto
     [Documentation]    Se inicia sesion con un usuario ciudadano
     [tags]    test_01
-    Iniciar sesion  ${userCiudadano}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar presencia de  ${tituloPagina1}  No se pudo iniciar sesion
 
 
@@ -96,7 +96,7 @@ Cerrar sesion
     [Documentation]    Se loguea con un usuario y se comprueba si se cierra sesion
     [tags]    test_12
     #Iniciar sesion
-    Iniciar sesion  ${userCiudadano}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
     Verificar presencia de  ${tituloPagina1}  No se pudo iniciar sesion
 
     #Cerrar sesion

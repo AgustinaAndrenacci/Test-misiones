@@ -1,0 +1,38 @@
+CIUDADANO
+OK-Crear el tramite 
+OK-Chequear que el tramite exista en el inicio + estado
+-Cancelar el tramite (tacho/boton)
+OK-Ver que no se pueda cancelar el tramite
+-Entrar al tramite: visualizar los datos + historial
+
+OPERADOR MESA
+Mesa de entrada virtual-> ver el tramite que le corresponde + datos + estado
+Consulta de tramite -> ve los tramites que no le corresponde (no puede realizar acciones ni subir documentacion complementaria)
+//Acciones
+OKEnviar a direccion
+OKNo corresponde
+OKSolicitar datos adicionales (ida y vuelta)
+
+DIRECCION
+Bandeja de entrada -> sus tramites en ejecucion
+Tramites finalizados -> los tramites que la direccion o el departamento finaliza
+//Acciones
+No corresponde
+Solicitar datos adicionales
+Derivar
+OKAprobar e informar al contribuyente
+OKRechazar e informar al contribuyente
+
+DEPARTAMENTO - AGUS
+Bandeja de entrada -> sus tramites en ejecucion
+Tramites finalizados -> los tramites que la direccion o el departamento finaliza
+//Acciones
+Solicitar datos adicionales
+Aprobar e informar al contribuyente
+Rechazar e informar al contribuyente
+
+**Cuando se finaliza un tramite, hay que ver donde queda (en que bandeja de que usuario)
+**Documentacion complementaria
+**Historial
+
+
