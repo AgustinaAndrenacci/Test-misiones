@@ -4,6 +4,34 @@ Library    String
 Library  BuiltIn
 
 *** Keywords ***
+
+#KEYWORDS QUE NO SE USAN---------------------------------------------------------------------------------------------------------------------------------------------
+#----------------------------CHEQUEAR SI SE BORRAN O NO--------------------------------------------------------------------------------------------------------------
+
+Validar Estado Primer Tramite
+    [Arguments]    ${locatorTabla}    @{permitidos}
+    ${primerEstadoCelda}=    Get WebElement    xpath=${locatorTabla}//tbody/tr[1]/td[3]
+    ${estado}=    Get Text    ${primerEstadoCelda}
+    Log to console    Estado del primer trámite: ${estado}
+    ${es_valido}=    Run Keyword And Return Status    Should Contain    ${permitidos}    ${estado}
+    Run Keyword If    not ${es_valido}    Fail    Aparecio el estado: '${estado}', cuando se esperaba que el tramite este en el estado: ${permitidos}
+
+Validar Estado Primer Tramite personal
+    [Arguments]    ${locatorTabla}    @{permitidos}
+    ${primerEstadoCelda}=    Get WebElement    xpath=${locatorTabla}//tbody/tr[1]/td[4]
+    ${estado}=    Get Text    ${primerEstadoCelda}
+    Log to console    Estado del primer trámite: ${estado}
+    ${es_valido}=    Run Keyword And Return Status    Should Contain    ${permitidos}    ${estado}
+    Run Keyword If    not ${es_valido}    Fail    Aparecio el estado: '${estado}', cuando se esperaba que el tramite este en el estado: ${permitidos}
+
+Validar Estado Primer inexistente
+    [Arguments]    ${locatorTabla}    @{estadoViene}
+    ${primerEstadoCelda}=    Get WebElement    xpath=${locatorTabla}//tbody/tr[1]/td[4]
+    ${estado}=    Get Text    ${primerEstadoCelda}
+    Log to console    Estado del primer trámite: ${estado}
+    ${es_valido}=    Run Keyword And Return Status    Should Contain    ${estadoViene}    ${estado}
+    Run Keyword If    ${es_valido}    Fail    Aparecio el estado: '${estado}', cuando no se deberia observar
+
 #TAGS AUTOMATICOS----------------------------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -28,6 +56,7 @@ Cerrar Navegador
     Sleep    1s
 
 Abrir Navegador en modo incognito
+    [Arguments]    ${page}
     [Documentation]    Abre el navegador usando la función de Python para configurar opciones.
 
     # 1. Llama a la función de Python para obtener el objeto Options
@@ -140,6 +169,7 @@ Verificar Y Esperar Visibilidad De Elemento por localizador
     ...    Fail    El elemento "${elemento}" NO se visualiza después de ${timeout}.
     ...    Captura Screenshot In Log
 
+
 Verificar Y Esperar Visibilidad De Elemento
 #Se le pasa una frase, palabra y ve si esta visible
     [Arguments]    ${elemento}    ${timeout}=10s
@@ -162,9 +192,11 @@ Verificar Contenido De Campos
 
         ${es_valido}=    Run Keyword And Return Status    Should Be Equal    ${dato_actual_limpio}    ${dato_esperado_limpio}
         IF    not ${es_valido}
+            Captura Screenshot In Log
             Fail    El campo "${nombreCampo}" deberia tener el dato "${dato_esperado}" pero el dato actual es "${dato_actual}"
         END
     ELSE
+        Captura Screenshot In Log
         Fail    El campo "${campo}" no se hizo visible en ${timeout}
     END
 
@@ -189,14 +221,6 @@ Presionar x boton en la fila del tramite
 #Verificar Automatico------------------------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Validar Estado Primer Tramite
-    [Arguments]    ${locatorTabla}    @{permitidos}
-    ${primerEstadoCelda}=    Get WebElement    xpath=${locatorTabla}//tbody/tr[1]/td[3]
-    ${estado}=    Get Text    ${primerEstadoCelda}
-    Log to console    Estado del primer trámite: ${estado}
-    ${es_valido}=    Run Keyword And Return Status    Should Contain    ${permitidos}    ${estado}
-    Run Keyword If    not ${es_valido}    Fail    Aparecio el estado: '${estado}', cuando se esperaba que el tramite este en el estado: ${permitidos}
-
 Validar Estado con numero de tramite
     [Arguments]    ${locatorTabla}    ${numColumnaEstado}    ${numTramite}    @{permitidos}
 
@@ -208,29 +232,17 @@ Validar Estado con numero de tramite
     #Chequeo si los estados son iguales
     ${es_valido}=    Run Keyword And Return Status    Should Contain    ${permitidos}    ${estado}
     #Fallar si el estado no es válido
-    Run Keyword If    not ${es_valido}    Fail    El trámite ${numTramite} tiene el estado: '${estado}', cuando se esperaba: ${permitidos}
+    Run Keyword If    not ${es_valido}
+    ...    Captura Screenshot In Log
+    ...    Fail    El trámite ${numTramite} tiene el estado: '${estado}', cuando se esperaba: ${permitidos}
 
-Validar Estado Primer Tramite personal
-    [Arguments]    ${locatorTabla}    @{permitidos}
-    ${primerEstadoCelda}=    Get WebElement    xpath=${locatorTabla}//tbody/tr[1]/td[4]
-    ${estado}=    Get Text    ${primerEstadoCelda}
-    Log to console    Estado del primer trámite: ${estado}
-    ${es_valido}=    Run Keyword And Return Status    Should Contain    ${permitidos}    ${estado}
-    Run Keyword If    not ${es_valido}    Fail    Aparecio el estado: '${estado}', cuando se esperaba que el tramite este en el estado: ${permitidos}
-
-Validar Estado Primer inexistente
-    [Arguments]    ${locatorTabla}    @{estadoViene}
-    ${primerEstadoCelda}=    Get WebElement    xpath=${locatorTabla}//tbody/tr[1]/td[4]
-    ${estado}=    Get Text    ${primerEstadoCelda}
-    Log to console    Estado del primer trámite: ${estado}
-    ${es_valido}=    Run Keyword And Return Status    Should Contain    ${estadoViene}    ${estado}
-    Run Keyword If    ${es_valido}    Fail    Aparecio el estado: '${estado}', cuando no se deberia observar
 
 Validar Tramite Inexistente
     [Arguments]    ${locatorTabla}    ${numTramite}
     ${xpathFilaTramite}=    Set Variable    ${locatorTabla}//tbody/tr[td[1]="${numTramite}"]
     ${visible}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${xpathFilaTramite}    timeout=3s
     IF    ${visible}
+        Captura Screenshot In Log
         Fail    El trámite ${numTramite} fue encontrado en la tabla cuando se esperaba que fuera inexistente.
     ELSE
         Log To Console    El trámite ${numTramite} no existe en la tabla (validación correcta).
@@ -244,7 +256,6 @@ Verificar Boton Sin Fallar
 
     Run Keyword If    '${status}' == 'FAIL'    Log    El botón con locator ${nombreBoton} NO está visible    WARN
     Run Keyword If    '${status}' == 'PASS'    Log To Console    El botón con locator ${nombreBoton} está visible.
-
 
 Verificar si el boton no existe Sin Fallar
     [Arguments]    ${locator}    ${nombreBoton}
@@ -310,7 +321,6 @@ Verificar presencia de
         Fail    ${mensajeExtra}
     END
 
-
 Verificar no presencia de
     [Arguments]    ${elemento}    ${mensajeExtra}
     Wait Until Element Is Visible    ${elemento}    timeout=7s
@@ -320,7 +330,6 @@ Verificar no presencia de
         Fail    ${mensajeExtra}
     END
 
-
 Verificar presencia parcial
     [Arguments]    ${textoEsperado}    ${mensajeExtra}
     Wait Until Page Contains    ${textoEsperado}    timeout=7s
@@ -329,7 +338,6 @@ Verificar presencia parcial
         Captura Screenshot In Log
         Fail    ${mensajeExtra}
     END
-
 
 Verificar Boton Con Texto
     [Arguments]    ${texto}
@@ -368,7 +376,6 @@ Verificar y presionar ítem en lista
         Fail    No se pudo seleccionar el ítem: "${item}"
     END
 
-
 Verificar y presionar ítem en lista index
     [Arguments]    ${selector}    ${item}
     ${visible} =    Run Keyword And Return Status    Wait Until Element Is Visible    ${selector}    timeout=5s
@@ -394,7 +401,6 @@ Validar y completar campo
         Fail    No se pudo completar el campo: ${mensaje}
     END
 
-
 Validar y hacer clic en el boton
     [Arguments]    ${selector}    ${mensaje}
     ${visible} =    Run Keyword And Return Status    Wait Until Element Is Visible    ${selector}    timeout=5s
@@ -410,7 +416,6 @@ Validar y hacer clic en el boton
         Captura Screenshot In Log    ${mensaje}
         Fail    Boton no encontrado: ${mensaje}
     END
-
 
 Validar y hacer clic en el boton2
     [Arguments]    ${selector}    ${mensaje}
@@ -429,7 +434,6 @@ Validar y hacer clic en el boton2
         Captura Screenshot In Log    ${mensaje}
         Fail    Boton no encontrado: ${mensaje}
     END
-
 
 Validar y hacer clic en la seccion
     [Arguments]    ${selector}    ${mensaje}
