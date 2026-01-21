@@ -34,12 +34,14 @@ ${userFake12}  123456789101112
 
 #Pagina inicio-----------------------------------------------------------------------------------
 #Cerrar sesion///////////////////////////////////////////////
-${circuloUsuario}  css:.rounded-full
+${circuloUsuario}  css:span.rounded-full.bg-muted
 ${cerrarSesion}  //button[normalize-space()='Cerrar Sesión']
 ${tituloPagina1}    //h1[normalize-space()='Portal del Ciudadano']
 ${tituloPagina2}    //h1[normalize-space()='Portal de Administrador']
+${tituloPagina3}    //h1[normalize-space()='Reportes y Estadísticas']
 
 #Pagina log-----------------------------------------------------------------------------------
+${botonIngresar}    //button[normalize-space()='Ingresar']
 ${loginFrase}    //h3[normalize-space()='Iniciar Sesión']
 ${campoCuit}    //input[@id='cuit']
 ${campoClaveFiscal}    //input[@id='fiscal-password']

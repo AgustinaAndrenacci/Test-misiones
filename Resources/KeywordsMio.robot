@@ -1023,9 +1023,11 @@ Validar Estado Del Tramite
 
 Validar Detalle
     [Arguments]    ${detalle_esperado}
+    # Es recomendable esperar a que el elemento esté antes de obtener el texto
+    Wait Until Element Is Visible    xpath=//span[normalize-space(.)='Detalle']/following-sibling::span    timeout=5s
     ${detalle_actual}=    Get Text    xpath=//span[normalize-space(.)='Detalle']/following-sibling::span
     Log    Detalle capturado: ${detalle_actual}
-    Run Keyword If    '${detalle_actual}' != '${detalle_esperado}'    Fail    El detalle no coincide con el esperado. Se esperaba: '${detalle_esperado}', sin embargo aparecio: '${detalle_actual}'
+    Should Be Equal    ${detalle_actual}    ${detalle_esperado}    msg=El detalle no coincide. Esperado: ${detalle_esperado}, Actual: ${detalle_actual}
     Log    El detalle coincide con el valor esperado
 
 Validar Asunto
@@ -1048,14 +1050,19 @@ Verificar Tramite Y Capturar Numero
 
 
 Extraer Fecha Creado
-    ${FECHA_CREADO_RAW}=    Get Text    xpath=//span[contains(text(), 'Creado')]
-    ${FECHA_CREADO_LIMPIA}=    Replace String    ${FECHA_CREADO_RAW}    Creado:    ${EMPTY}
-    RETURN    ${FECHA_CREADO_LIMPIA}
+    Wait Until Element Is Visible    xpath=//main//span[contains(text(), 'Creado')]    timeout=10s
+    ${FECHA_CREADO_RAW}=    Get Text    xpath=//main//span[contains(text(), 'Creado')]
+    ${FECHA_LIMPIA}=    Replace String    ${FECHA_CREADO_RAW}    Creado:    ${EMPTY}
+    ${FECHA_FINAL}=    Strip String    ${FECHA_LIMPIA}
+    RETURN    ${FECHA_FINAL}
 
 Extraer Fecha Actualizado
-    ${FECHA_CREADO_RAW}=    Get Text    xpath=//span[contains(text(), 'Actualizado')]
-    ${FECHA_CREADO_LIMPIA}=    Replace String    ${FECHA_CREADO_RAW}    Actualizado:     ${EMPTY}
-    RETURN    ${FECHA_CREADO_LIMPIA}
+    Wait Until Element Is Visible    xpath=//span[contains(., 'Actualizado:')]    timeout=10s
+    ${TEXTO_COMPLETO}=    Get Text       xpath=//span[contains(., 'Actualizado:')]
+    ${PARTES}=    Split String    ${TEXTO_COMPLETO}    separator=:
+    ${FECHA_SUCIA}=    Set Variable    ${PARTES[1]}
+    ${FECHA_LIMPIA}=   Strip String    ${FECHA_SUCIA}
+    RETURN    ${FECHA_LIMPIA}
 
 Comparar Fechas
     [Arguments]    ${FECHA_EXTRAIDA_WEB}
@@ -1087,28 +1094,16 @@ Convertir Fecha Web A ISO
     RETURN    ${fecha_iso}
 
 Validar Acciones Disponibles
-    [Arguments]    ${fallar_si_hay_acciones}=False
-    ${visible}=    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=//h3[normalize-space()='Acciones Disponibles']    timeout=10s
-    IF    ${visible}
-        Log    Verificado: 'Acciones Disponibles' está visible
-        ${texto_acciones}=    Get Text    xpath=//p[contains(text(), 'acciones disponibles')]
-        Log    Texto encontrado: ${texto_acciones}
-
-        ${hay_acciones}=    Run Keyword And Return Status    Should Not Contain    ${texto_acciones}    No hay acciones disponibles
-
-        IF    ${hay_acciones}
-            Log    Hay acciones disponibles
-            IF    ${fallar_si_hay_acciones}
-                Fail    Se detectaron acciones disponibles, y no deberia haber acciones disponibles
-            END
-        ELSE
-            Log    No hay acciones disponibles
-            IF    not ${fallar_si_hay_acciones}
-                Fail    No hay acciones disponibles, y deberia haber acciones disponibles
-            END
-        END
+    [Arguments]    ${debe_haber_acciones}=True
+    Wait Until Element Is Visible    xpath=//h3[contains(., 'Acciones Disponibles')]    timeout=10s
+    ${texto_bloque}=    Get Text    xpath=//h3[contains(., 'Acciones Disponibles')]/parent::div
+    ${no_hay_mensaje}=    Run Keyword And Return Status    Should Contain    ${texto_bloque}    No hay acciones disponibles
+    IF    ${debe_haber_acciones} and ${no_hay_mensaje}
+        Fail    ERROR: Se esperaba encontrar acciones, pero aparece el mensaje: "No hay acciones disponibles".
+    ELSE IF    not ${debe_haber_acciones} and not ${no_hay_mensaje}
+        Fail    ERROR: No se esperaba encontrar acciones, pero el mensaje de "No hay acciones" ha desaparecido (posibles acciones presentes).
     ELSE
-        Fail    El apartado de 'Acciones Disponibles' no se encuentra visible
+        Log    Validación exitosa: El estado de las acciones es el esperado (Debe haber: ${debe_haber_acciones}).
     END
 
 Verificar Numero de Seguimiento

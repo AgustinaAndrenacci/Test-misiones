@@ -58,7 +58,7 @@ Test 22 - Crea un nuevo tramite [ciudadano] Paso 1
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Crear un nuevo tramite
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  //button[normalize-space()='Ingresar']
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
     Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
@@ -421,7 +421,7 @@ Test 23 - Crea un nuevo tramite [ciudadano] Paso 1
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Crear un nuevo tramite
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  //button[normalize-space()='Ingresar']
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
     Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
@@ -779,7 +779,7 @@ Test 24 - Crea un nuevo tramite [ciudadano] Paso 1
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Crear un nuevo tramite
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  //button[normalize-space()='Ingresar']
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
     Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
@@ -1497,7 +1497,7 @@ Crea un nuevo tramite [ciudadano] Paso 1
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Crear un nuevo tramite
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  //button[normalize-space()='Ingresar']
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonIngresar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
 
     # Uso de datos dinámicos del diccionario
