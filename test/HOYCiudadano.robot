@@ -21,6 +21,12 @@ Test Teardown    Cerrar navegador
 
 Suite Setup    Inicializar Contador
 
+*** Variables ***
+${FILE3}    D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/ADJUNTO.pdf
+#${FILE3}       C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/ubicacion.png
+${docLean}    ADJUNTO.pdf
+#${docLean}    ubicacion.png
+
 ***Test Cases***
 
 Crear Consulta Tributaria
@@ -34,8 +40,8 @@ Crear Consulta Tributaria
     Wait Until Element Is Visible    ${botonGuardarBorrador}    timeout=10s
     Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test1  detalleConsultaTributaria
     Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test1  contenidoConsultaTributaria
-    #Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
-    #Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
+    Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
+    Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
     ${tramite}=    Obtener Numero De Tramite
@@ -108,15 +114,15 @@ Consulta Tributaria Verificar DatosPresentados Detalle
     Validar y hacer clic en el boton    ${botonVerDetalleTramite}    botonVerDetalle
     Validar Detalle    Descripcion test1
 
-#Consulta Tributaria Verificar DatosPresentados Archivo
-#    [Documentation]    Verifica que el ciudadano pueda ver correctamente los Datos Presentados de la consulta tributaria, en este caso especificamente el adjunto
-#    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
-#    Asignar Tag Numerado
-#    Abrir Navegador en modo incognito    ${pageCiudadano}
-#    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
-#    ${botonVerDetalleTramite}=    Set Variable    //tr[td[normalize-space()='${tramite}']]//a[contains(., 'Ver Detalle')]
-#    Validar y hacer clic en el boton    ${botonVerDetalleTramite}    botonVerDetalle
-#    Verificar presencia de... con...    ${espacioDeArchivosDocCom}    ${pngAgus}
+Consulta Tributaria Verificar DatosPresentados Archivo
+    [Documentation]    Verifica que el ciudadano pueda ver correctamente los Datos Presentados de la consulta tributaria, en este caso especificamente el adjunto
+    Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
+    Asignar Tag Numerado
+    Abrir Navegador en modo incognito    ${pageCiudadano}
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+    ${botonVerDetalleTramite}=    Set Variable    //tr[td[normalize-space()='${tramite}']]//a[contains(., 'Ver Detalle')]
+    Validar y hacer clic en el boton    ${botonVerDetalleTramite}    botonVerDetalle
+    Verificar presencia de... con...    //div[@class='grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4']    DNI del Solicitante
 
 Consulta Tributaria verificar Estado
     [Documentation]    Verifica que el ciudadano pueda ver correctamente el Estado de la consulta tributaria

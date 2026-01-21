@@ -47,7 +47,9 @@ ${textoEjecutarAccion}    //p[@id='radix-_r_k9_']
 ${a}  Tu trámite TRAM-0105/2026 ha sido registrado y está siendo procesado. Recibirás actualizaciones por email.
 
 ${FILE3}    D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/ADJUNTO.pdf
+#${FILE3}       C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/ubicacion.png
 ${docLean}    ADJUNTO.pdf
+#${docLean}    ubicacion.png
 
 *** Test Cases ***
 #Test 22: Aprobado desde Departamento de informatica
@@ -60,15 +62,9 @@ Test 22 - Crea un nuevo tramite [ciudadano] Paso 1
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
-    Wait Until Element Is Visible    ${botonGuardarBorrador}    timeout=10s
-    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
-    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
-    #Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
-    #Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
@@ -93,7 +89,7 @@ Test 22 - Verificar el estado del tramite (pendiente) [operador mesa] Paso 1
     [Documentation]    Desde la direccion informatica, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
-    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar y hacer clic en el boton    ${botonMesaEntradaVirtual}    botonMesaEntradaVirtual
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
 Test 22 - Verificar si el boton del tacho esta desbloqueado - boton cancelar tramite [ciudadano] Paso 1
@@ -150,7 +146,7 @@ Test 22 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 2
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección de Informática
-    Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Informática
+    #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Informática
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     Choose file    ${botonSeleccionarArchivos}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
@@ -251,7 +247,7 @@ Test 22 - Se selecciona la opcion "Derivar" [Direccion Informatica] Paso 3
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonDerivar}    boton derivar
     #Verificar y presionar ítem en lista combobox  ${areaDestino}  Planificación y Control de Sistemas Informáticos
-    Verificar Texto Actualizado    ${textoEjecutarAccion}    Planificación y Control de Sistemas Informáticos
+    #Verificar Texto Actualizado    ${textoEjecutarAccion}    Planificación y Control de Sistemas Informáticos
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     Choose file    ${botonSeleccionarArchivos}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Planificación y Control de Sistemas Informáticos    campoComentario
@@ -423,15 +419,9 @@ Test 23 - Crea un nuevo tramite [ciudadano] Paso 1
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
-    Wait Until Element Is Visible    ${botonGuardarBorrador}    timeout=10s
-    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
-    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
-    #Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
-    #Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
@@ -459,7 +449,7 @@ Test 23 - Verificar el estado del tramite (pendiente) [operador mesa] Paso 1
     Validar y hacer clic en el boton    ${botonMesaEntradaVirtual}    botonMesaEntradaVirtual
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
-Test 24 - Verificar si el boton del tacho esta desbloqueado - boton cancelar tramite [ciudadano] Paso 1
+Test 23 - Verificar si el boton del tacho esta desbloqueado - boton cancelar tramite [ciudadano] Paso 1
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
@@ -467,7 +457,7 @@ Test 24 - Verificar si el boton del tacho esta desbloqueado - boton cancelar tra
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Element Should Be Enabled    //tbody/tr[td[1]="${tramite}"]
 
-Test 24 - Verificar si el boton cancelar tramite existe - boton cancelar tramite [ciudadano] Paso 1
+Test 23 - Verificar si el boton cancelar tramite existe - boton cancelar tramite [ciudadano] Paso 1
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
@@ -513,7 +503,7 @@ Test 23 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 2
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección de Informática
-    Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Informática
+    #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Informática
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     Choose file    ${botonSeleccionarArchivos}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
@@ -613,7 +603,7 @@ Test 23 - Se selecciona la opcion "Derivar" [Direccion Informatica] Paso 3
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonDerivar}    boton derivar
     #Verificar y presionar ítem en lista combobox  ${areaDestino}  Planificación y Control de Sistemas Informáticos
-    Verificar Texto Actualizado    ${textoEjecutarAccion}    Planificación y Control de Sistemas Informáticos
+    #Verificar Texto Actualizado    ${textoEjecutarAccion}    Planificación y Control de Sistemas Informáticos
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     Choose file    ${botonSeleccionarArchivos}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Planificación y Control de Sistemas Informáticos    campoComentario
@@ -781,15 +771,9 @@ Test 24 - Crea un nuevo tramite [ciudadano] Paso 1
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
-    Wait Until Element Is Visible    ${botonGuardarBorrador}    timeout=10s
-    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
-    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
-    #Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
-    #Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
@@ -989,7 +973,7 @@ Test 24 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 3
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${enviarDireccion}    enviarADireccion
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección de Informática
-    Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Informática
+    #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Informática
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     Choose file    ${botonSeleccionarArchivos}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
@@ -1210,7 +1194,7 @@ Test 24 - Se selecciona la opcion "Derivar" [Direccion Informatica] Paso 5
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonDerivar}    boton derivar
     #Verificar y presionar ítem en lista combobox  ${areaDestino}  Planificación y Control de Sistemas Informáticos
-    Verificar Texto Actualizado    ${textoEjecutarAccion}    Planificación y Control de Sistemas Informáticos
+    #Verificar Texto Actualizado    ${textoEjecutarAccion}    Planificación y Control de Sistemas Informáticos
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     Choose file    ${botonSeleccionarArchivos}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Planificación y Control de Sistemas Informáticos    campoComentario
@@ -1492,22 +1476,4 @@ Test 24 - Verificar el estado y la existencia del tramite en "Tramites Finalizad
 
 #AGREGAR SOLO LECTURA Y DOCU NO
 
-*** Keywords ***
-Crea un nuevo tramite [ciudadano] Paso 1
-    Abrir Navegador en modo incognito    ${pageCiudadano}
-    [Documentation]    Crear un nuevo tramite
-    Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonIngresar}
-    Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
 
-    # Uso de datos dinámicos del diccionario
-    Validar y hacer clic en el boton    ${datos}[boton]     botonTramite
-    Validar y completar campo    ${datos}[asunto]    Asunto    asunto
-    Validar y completar campo    ${datos}[detalle]   Descripcion  detalle
-    Validar y completar campo    ${datos}[cont]      Contenido  contenido
-
-    Subir Documento Correctamente    ${FILE3}    ${datos}[lista]    ${docLean}
-    Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
-
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado

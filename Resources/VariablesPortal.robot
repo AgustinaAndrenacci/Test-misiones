@@ -90,7 +90,8 @@ ${NroExpediente}    //input[@placeholder='Ej: 001234/2025']
 
 ${subtituloConsultaTributaria}    //p[@class='text-muted-foreground']
 ${subtituloConsultaVinculante}    //p[@class='text-muted-foreground']
-${fechaCreacion}    //label[normalize-space(.)='Fecha de Creación']/following-sibling::p
+#${fechaCreacion}    //label[normalize-space(.)='Fecha de Creación']/following-sibling::p
+${fechaCreacion}    xpath=//label[contains(., 'Fecha de Creac')]/following-sibling::p
 
 ${botonSubir}    //button[normalize-space()='Subir']
 ${campoDescripcion}    //textarea[@id='description']
@@ -102,7 +103,7 @@ ${historialAdmin}    //h3[normalize-space()='Historial y Notas']
 #----------------------------------------------------------------------------------------
 
 ${nombreCiudadano}    CREDISER AR
-${emailCiudadano}    30709021296@tsg.gob.ar
+${emailCiudadano}    test_olvidemiclave@dgr.misiones.gov.ar
 ${cuitCiudadano}    30709021296
 
 
@@ -241,3 +242,12 @@ ${tramiteBorrador}    //tbody/tr[1]
 ${botonContinuarBorrador}    //a[normalize-space()='Continuar Borrador']
 ${mensajeSeleccioneUnaAccionParaContinuar}    //p[contains(text(),'Seleccione una acción para continuar con el proces')]
 ${ubicacionArchivoBorrador}    (//td[@class='p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium'])[1]
+
+
+&{TRAMITE_ConsultaTributaria}    boton=${botonConsultaTributaria}    asunto=${asuntoConsultaTributaria}    detalle=${detalleConsultaTributaria}    cont=${contenidoConsultaTributaria}    lista=DNI del Solicitante
+&{TRAMITE_ConsultaVinculante}    boton=${botonConsultaVinculante}    asunto=${asuntoConsultaVinculante}    detalle=${detalleConsultaVinculante}    cont=${contenidoConsultaVinculante}    lista=DNI del Solicitante
+&{TRAMITE_ExencionImpuestoInmobiliarioBasico}    boton=${botonExencionImpuestoInmobiliarioBasico}    asunto=${asuntoExencionImpuestoIB}    detalle=${detalleExencionImpuestoIB}    cont=${contenidoExencionImpuestoIB}    lista=DNI del Solicitante
+&{TRAMITE_ExenciónImpuestoDeSellos}    boton=${botonExenciónImpuestoDeSellos}    asunto=${asuntoExenciónImpuestoDeSellos}    detalle=${detalleExenciónImpuestoDeSellos}    cont=${contenidoExenciónImpuestoDeSellos}    lista=Copia de DNI del solicitante
+&{TRAMITE_ExencionImpuestoProvincialAutomotor}    boton=${botonExencionImpuestoProvincialAutomotor}    asunto=${asuntoExencionImpuestoProvincialAutomotor}    detalle=${detalleExencionImpuestoProvincialAutomotor}    cont=${contenidoExencionImpuestoProvincialAutomotor}    lista=Copia del DNI del solicitante
+&{TRAMITE_ExencionImpuestoSobreLosIB}    boton=${botonExencionImpuestoSobreLosIngresosBrutos}    asunto=${asuntoExencionImpuestoSobreLosIngresosBrutos}    detalle=${detalleExencionImpuestoSobreLosIngresosBrutos}    cont=${contenidoImpuestoSobreLosIngresosBrutos}    lista=Presentación de Declaración jurada
+&{TRAMITE_NotaFormal}    boton=${botonNotaFormal}    asunto=${asuntoNotaFormal}    detalle=${detalleNotaFormal}    cont=${contenidoNotaFormal}    lista=DNI del Solicitante

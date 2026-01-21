@@ -1128,18 +1128,25 @@ Verificar Numero de Seguimiento
 
 Comparar Fecha Creacion
     [Arguments]    ${FECHA_RAW}
+    # 1. Separar por la coma para obtener solo "21/1/2026"
     ${partes}=    Split String    ${FECHA_RAW}    ,
-    ${FECHA_SOLO}=    Strip String    ${partes[0]}
-    Log To Console    Fecha sin hora: ${FECHA_SOLO}
+    ${fecha_solo}=    Strip String    ${partes[0]}
 
-    ${FECHA_ISO}=    Convertir Fecha Slash A ISO    ${FECHA_SOLO}
-    ${FECHA_ACTUAL}=    Get Current Date    result_format=%Y-%m-%d
+    # 2. Convertir a formato estándar ISO (YYYY-MM-DD)
+    # El date_format %d/%m/%Y es flexible con días/meses de 1 o 2 dígitos
+    ${fecha_iso}=    Convert Date    ${fecha_solo}
+    ...              date_format=%d/%m/%Y
+    ...              result_format=%Y-%m-%d
 
-    Log To Console    Fecha actual: ${FECHA_ACTUAL}
-    Log To Console    Fecha extraída (ISO): ${FECHA_ISO}
+    # 3. Obtener la fecha actual del sistema
+    ${fecha_actual}=    Get Current Date    result_format=%Y-%m-%d
 
-    Should Be Equal    ${FECHA_ISO}    ${FECHA_ACTUAL}
-    Log To Console    La fecha de creación coincide con la fecha actual
+    Log To Console    \n[INFO] Fecha en Web: ${fecha_iso}
+    Log To Console    [INFO] Fecha Actual: ${fecha_actual}
+
+    # 4. Comparación final
+    Should Be Equal    ${fecha_iso}    ${fecha_actual}
+    ...    msg=Error: La fecha del trámite (${fecha_iso}) no es igual a hoy (${fecha_actual})
 
 Convertir Fecha Slash A ISO
     [Arguments]    ${fecha_slash}
@@ -1152,26 +1159,20 @@ Convertir Fecha Slash A ISO
 
 Validar Datos Identidad
     [Arguments]    ${nombreEsperado}    ${emailEsperado}    ${dniEsperado}
-
-    ${nombreHTML}=    Get Text    xpath=//div[.//h3[normalize-space(.)='Ciudadano']]//h4[contains(@class, 'font-semibold')]
-    Log To Console    \nNombre extraido: ${nombreHTML}
-    Should Contain    ${nombreHTML}    ${nombreEsperado}
-
-    ${emailHTML}=    Get Text    xpath=//div[.//h3[normalize-space(.)='Ciudadano']]//p[contains(text(), '@')]
-    Log To Console    Email extraido: ${emailHTML}
-    Should Be Equal    ${emailHTML}    ${emailEsperado}
-
-    ${dniHTML}=    Get Text    xpath=//div[.//h3[normalize-space(.)='Ciudadano']]//p[contains(text(), 'DNI')]
-    Log To Console    DNI extraido: ${dniHTML}
-    Should Contain    ${dniHTML}    ${dniEsperado}
+    Wait Until Page Contains    Ciudadano    timeout=10s
+    Wait Until Element Is Visible    xpath=//div[.//h3[normalize-space(.)='Ciudadano']]//h4    timeout=5s
+    ${nombreHTML}=    Get Text       xpath=//div[.//h3[normalize-space(.)='Ciudadano']]//h4
+    Should Contain    ${nombreHTML}  ${nombreEsperado}
+    ${emailHTML}=     Get Text       xpath=//div[.//h3[normalize-space(.)='Ciudadano']]//p[contains(., '@')]
+    Should Be Equal   ${emailHTML}   ${emailEsperado}
+    ${dniHTML}=       Get Text       xpath=//div[.//h3[normalize-space(.)='Ciudadano']]//p[contains(., 'DNI')]
+    Should Contain    ${dniHTML}     ${dniEsperado}
 
 Validar Area Asignada
     [Arguments]    ${areaEsperada}
-    ${areaHTML}=    Get Text    xpath=//label[normalize-space(.)='Área Asignada']/following-sibling::div//span
-    Log To Console    Area extraida: ${areaHTML}
+    ${locator}=    Set Variable    xpath=//label[contains(., 'rea Asignada')]/following-sibling::div//span
 
-    IF    "${areaHTML}" == "${areaEsperada}"
-        Log To Console    Area asignada coincide con la esperada
-    ELSE
-        Fail    Area asignada no coincide: se esperaba '${areaEsperada}' pero se encontró '${areaHTML}'
-    END
+    Wait Until Element Is Visible    ${locator}    timeout=10s
+    ${areaHTML}=    Get Text         ${locator}
+
+    Should Be Equal As Strings    ${areaHTML}    ${areaEsperada}

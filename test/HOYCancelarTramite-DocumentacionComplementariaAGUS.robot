@@ -30,7 +30,7 @@ Test 1 - Crea un nuevo tramite [ciudadano]
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Crear un nuevo tramite de consulta tributaria
     Asignar Tag Numerado
-    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  //button[normalize-space()='Ingresar']
+    Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonIngresar}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
     Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
     Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria

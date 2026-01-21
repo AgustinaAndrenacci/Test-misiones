@@ -103,6 +103,20 @@ Crear tramite para X tipo
     Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
     Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
 
+Crea un nuevo tramite [ciudadano]
+    [Arguments]    ${datos}
+    # Uso de datos dinámicos del diccionario
+    Validar y hacer clic en el boton    ${datos}[boton]     botonTramite
+    Validar y completar campo    ${datos}[asunto]    Asunto    asunto
+    Validar y completar campo    ${datos}[detalle]   Descripcion  detalle
+    Validar y completar campo    ${datos}[cont]      Contenido  contenido
+
+    Subir Documento Correctamente    ${FILE3}    ${datos}[lista]    ${docLean}
+    Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
+
+    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
+    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
 Agregar documentacion complementaria
     [Arguments]    ${archivo}    ${tipo}
     Validar y hacer clic en el boton    ${botonSubir}    boton subir
@@ -118,12 +132,6 @@ No Agregar documentacion complementaria
     Validar y completar campo    ${campoDescripcion}    archivo ${tipo}    descripcion
     Verificar Y Esperar Visibilidad De Elemento    Tipo de archivo no permitido
 
-Verificar Texto Actualizado
-    [Arguments]    ${locator}    ${esperado}
-    Log to console   test
-    #${texto}=    Get Text    ${locator}
-    #Log to console    Texto actual: ${texto}
-    #Should Contain    ${texto}    ${esperado}
 
 
 
