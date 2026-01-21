@@ -226,8 +226,28 @@ Validar Estado con numero de tramite
 
     #Armar xpath de la fila
     ${xpathEstadoCelda}=    Set Variable    ${locatorTabla}//tbody/tr[td[1]="${numTramite}"]/td[${numColumnaEstado}]
+    #Espero
+    Verificar Y Esperar Visibilidad De Elemento    Acciones
+    Sleep  2s
+    #Verificar Y Esperar Visibilidad De Elemento por localizador    ${locatorTabla}
     #Obtener estado
     ${primerEstadoCelda}=    Get WebElement    xpath=${xpathEstadoCelda}
+    ${estado}=    Get Text    ${primerEstadoCelda}
+    #Chequeo si los estados son iguales
+    ${es_valido}=    Run Keyword And Return Status    Should Contain    ${permitidos}    ${estado}
+    #Fallar si el estado no es válido
+    Run Keyword If    not ${es_valido}
+    ...    Captura Screenshot In Log
+    ...    Fail    El trámite ${numTramite} tiene el estado: '${estado}', cuando se esperaba: ${permitidos}
+
+Validar Estado con numero de tramite2
+    [Arguments]    ${locatorTabla}    ${numColumnaEstado}    ${numTramite}    @{permitidos}
+
+    #Armar xpath de la fila
+    ${xpathEstadoCelda}=    Set Variable    ${locatorTabla}//tbody/tr[td[1]="${numTramite}"]/td[${numColumnaEstado}]
+    #Obtener estado
+    Wait Until Element Is Visible    ${xpathEstadoCelda}    timeout=10s
+    ${primerEstadoCelda}=    Get WebElement    ${xpathEstadoCelda}
     ${estado}=    Get Text    ${primerEstadoCelda}
     #Chequeo si los estados son iguales
     ${es_valido}=    Run Keyword And Return Status    Should Contain    ${permitidos}    ${estado}
