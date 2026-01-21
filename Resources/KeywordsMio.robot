@@ -220,6 +220,35 @@ Presionar x boton en la fila del tramite
 
 #Verificar Automatico------------------------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Verificar Texto Actualizado
+    [Arguments]    ${locator}    ${esperado}
+    ${texto}=    Get Text    ${locator}
+    Log to console    Texto actual: ${texto}
+    Should Contain    ${texto}    ${esperado}
+
+Subir Documento Correctamente
+    [Arguments]    ${FILE}    ${tipoDocumento}    ${nombreDoc}
+
+    # 1. Elegir tipo de documento
+    Click Element    //button[@role='combobox']
+    Click Element    //div[@role='option' and normalize-space()='${tipoDocumento}']
+    Wait Until Element Contains    //button[@role='combobox']    ${tipoDocumento}
+
+    # 2. Evitar el click en "Seleccionar" y trabajar directo con el input
+    Execute JavaScript    document.querySelector('input[type="file"]').style.display = 'block'
+
+    # 3. Subir archivo y disparar eventos
+    Choose File    //input[@type='file']    ${FILE}
+    Execute JavaScript    var input = document.querySelector('input[type="file"]'); if (input) { input.dispatchEvent(new Event("input", { bubbles: true })); input.dispatchEvent(new Event("change", { bubbles: true })); }
+
+    # 4. Añadir archivo (confirmar)
+    Validar y hacer clic en el boton    ${botonAniadir}    botonAniadir
+    Sleep    2s
+
+    # 5. Validar que aparece en la lista
+    Wait Until Element Is Visible    xpath=//span[contains(., '${nombreDoc}')]    timeout=10s
+
 Validar Estado con numero de tramite
     [Arguments]    ${locatorTabla}    ${numColumnaEstado}    ${numTramite}    @{permitidos}
 
