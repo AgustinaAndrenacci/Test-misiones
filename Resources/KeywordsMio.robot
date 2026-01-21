@@ -992,7 +992,6 @@ Verificar NO presencia de... con...
 
 #    NUEVAS KEYWORDS   CIUDADANO/PERSONAL
 
-
 Validar Estado Del Tramite
     [Arguments]    ${estado_esperado}
     ${visible}=    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=//span[normalize-space(text())='${estado_esperado}']    timeout=10s
