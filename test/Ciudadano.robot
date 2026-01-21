@@ -17,11 +17,9 @@ Resource        ../Resources/KeywordsPortal.robot
 Resource        ../Resources/KeywordsMio.robot
 Resource        ../Resources/VariablesPortal.robot
 
-Test Teardown  Cerrar navegador
+Test Teardown    Cerrar navegador
 
 Suite Setup    Inicializar Contador
-
-#Suite Setup    Inicializar Contador
 
 ***Test Cases***
 
