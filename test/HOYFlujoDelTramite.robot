@@ -27,25 +27,6 @@ Suite Setup    Inicializar Contador
 #************************************************************************************************************
 
 *** Variables ***
-${userDireccionAdministracion}    operador01
-${userDireccionAuditoriaPlanificacion}    operador02
-${userDireccionCoordinacionPoliticasFiscales}    operador03
-${userDireccionFiscalizacion}    operador04
-${userDireccionInformatica}    operador05
-${userDireccionRecaudaciones}    operador06
-${userDireccionJuridicaTecnica}    operador07
-${userDespachoDireccionGeneral}    operador10
-${userDespachoSubdireccionGeneral}    operador11
-${userPlanificacionYControlDeSistemasInformaticos}    operador26
-
-
-${areaDestino}    //button[@role='combobox']
-
-#${textoEjecutarAccion}    //p[contains(@class,'text-muted-foreground')]
-${textoEjecutarAccion}    //p[@id='radix-_r_k9_']
-
-${a}  Tu trámite TRAM-0105/2026 ha sido registrado y está siendo procesado. Recibirás actualizaciones por email.
-
 ${FILE3}    D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/ADJUNTO.pdf
 #${FILE3}       C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/ubicacion.png
 ${docLean}    ADJUNTO.pdf

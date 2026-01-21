@@ -116,7 +116,7 @@ ${botonGuardarBorrador}    //button[normalize-space()='Guardar Borrador']
 ${botonEnviarSolicitud}    //button[normalize-space()='Enviar Solicitud']
 
 ${tablaConTramite}    //tbody/tr[td[1]="${tramite}"]
-${abrirTramiteGenerado}    //td[normalize-space()='${tramite}']/..//a[contains(text(),'Continuar Borrador')]
+#${abrirTramiteGenerado}    //td[normalize-space()='${tramite}']/..//a[contains(text(),'Continuar Borrador')]
 ${botonEnviarTramite}    //button[normalize-space()='Enviar Trámite']
 
 ${botonVerDetalle}    //a[contains(., 'Ver Detalle')]
@@ -243,7 +243,7 @@ ${botonContinuarBorrador}    //a[normalize-space()='Continuar Borrador']
 ${mensajeSeleccioneUnaAccionParaContinuar}    //p[contains(text(),'Seleccione una acción para continuar con el proces')]
 ${ubicacionArchivoBorrador}    (//td[@class='p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium'])[1]
 
-
+#-------------------------------------------- Lista tramites -----------------------------------------------------------------
 &{TRAMITE_ConsultaTributaria}    boton=${botonConsultaTributaria}    asunto=${asuntoConsultaTributaria}    detalle=${detalleConsultaTributaria}    cont=${contenidoConsultaTributaria}    lista=DNI del Solicitante
 &{TRAMITE_ConsultaVinculante}    boton=${botonConsultaVinculante}    asunto=${asuntoConsultaVinculante}    detalle=${detalleConsultaVinculante}    cont=${contenidoConsultaVinculante}    lista=DNI del Solicitante
 &{TRAMITE_ExencionImpuestoInmobiliarioBasico}    boton=${botonExencionImpuestoInmobiliarioBasico}    asunto=${asuntoExencionImpuestoIB}    detalle=${detalleExencionImpuestoIB}    cont=${contenidoExencionImpuestoIB}    lista=DNI del Solicitante
@@ -251,3 +251,22 @@ ${ubicacionArchivoBorrador}    (//td[@class='p-4 align-middle [&:has([role=check
 &{TRAMITE_ExencionImpuestoProvincialAutomotor}    boton=${botonExencionImpuestoProvincialAutomotor}    asunto=${asuntoExencionImpuestoProvincialAutomotor}    detalle=${detalleExencionImpuestoProvincialAutomotor}    cont=${contenidoExencionImpuestoProvincialAutomotor}    lista=Copia del DNI del solicitante
 &{TRAMITE_ExencionImpuestoSobreLosIB}    boton=${botonExencionImpuestoSobreLosIngresosBrutos}    asunto=${asuntoExencionImpuestoSobreLosIngresosBrutos}    detalle=${detalleExencionImpuestoSobreLosIngresosBrutos}    cont=${contenidoImpuestoSobreLosIngresosBrutos}    lista=Presentación de Declaración jurada
 &{TRAMITE_NotaFormal}    boton=${botonNotaFormal}    asunto=${asuntoNotaFormal}    detalle=${detalleNotaFormal}    cont=${contenidoNotaFormal}    lista=DNI del Solicitante
+
+#------------------------------------------------- Usuarios --------------------------------------------------------------
+${userDireccionAdministracion}    operador01
+${userDireccionAuditoriaPlanificacion}    operador02
+${userDireccionCoordinacionPoliticasFiscales}    operador03
+${userDireccionFiscalizacion}    operador04
+${userDireccionInformatica}    operador05
+${userDireccionRecaudaciones}    operador06
+${userDireccionJuridicaTecnica}    operador08
+${userDespachoDireccionGeneral}    operador10
+${userDespachoSubdireccionGeneral}    operador11
+${userPlanificacionYControlDeSistemasInformaticos}    operador26
+
+${areaDestino}    //button[@role='combobox']
+
+${textoEjecutarAccion}    //p[contains(text(), 'Vas a ejecutar la acción')]
+
+${botonConsultaTramites}    //span[normalize-space()='Consulta de Trámites']
+
