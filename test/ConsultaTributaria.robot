@@ -77,6 +77,7 @@ Test 1 - Indicacion del numero de proceso creado
     Log To Console    Comentario del proceso
 
 Test 1 - Consulta Tributaria GuardarBorrador Chequear Estado Desde Usuario [ciudadano] Paso 1
+    Abrir Navegador en modo incognito    ${pageCiudadano}
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
@@ -84,6 +85,7 @@ Test 1 - Consulta Tributaria GuardarBorrador Chequear Estado Desde Usuario [ciud
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Borrador
 
 Test 1 - Consulta Tributaria: verificar que no aparezca el tramite(borrador) [operador mesa] Paso 1
+    Abrir Navegador en modo incognito    ${pagePersonal}
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     [Documentation]    Desde el operador mesa, se verifica que el tramite(borrador) no se visualice
     Asignar Tag Numerado
@@ -2373,7 +2375,7 @@ Test 10 - Consulta Tributaria Correcta Chequear Estado Desde Usuario [ciudadano]
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
-    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Cerrado
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Finalizado
 
 Test 10 - Consulta Tributaria: verificar que no aparezca el tramite [operador mesa] Paso 5
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
