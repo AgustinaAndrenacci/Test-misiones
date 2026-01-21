@@ -115,7 +115,7 @@ ${botonGuardarBorrador}    //button[normalize-space()='Guardar Borrador']
 ${botonEnviarSolicitud}    //button[normalize-space()='Enviar Solicitud']
 
 ${tablaConTramite}    //tbody/tr[td[1]="${tramite}"]
-${abrirTramiteGenerado}    //td[normalize-space()='${tramite}']/..//a[contains(text(),'Continuar Borrador')]
+#${abrirTramiteGenerado}    //td[normalize-space()='${tramite}']/..//a[contains(text(),'Continuar Borrador')]
 ${botonEnviarTramite}    //button[normalize-space()='Enviar Trámite']
 
 ${botonVerDetalle}    //a[contains(., 'Ver Detalle')]

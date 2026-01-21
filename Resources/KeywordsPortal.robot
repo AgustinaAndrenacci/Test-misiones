@@ -118,12 +118,6 @@ No Agregar documentacion complementaria
     Validar y completar campo    ${campoDescripcion}    archivo ${tipo}    descripcion
     Verificar Y Esperar Visibilidad De Elemento    Tipo de archivo no permitido
 
-Verificar Texto Actualizado
-    [Arguments]    ${locator}    ${esperado}
-    Log to console   test
-    #${texto}=    Get Text    ${locator}
-    #Log to console    Texto actual: ${texto}
-    #Should Contain    ${texto}    ${esperado}
 
 
 

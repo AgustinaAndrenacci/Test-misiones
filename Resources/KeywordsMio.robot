@@ -137,6 +137,20 @@ Contar Filas Reales En Tabla
     END
 
 #Abrir tramite por numero ----------------------------------------------------------------------------------------------
+Obtener Numero De Tramite Borrador
+    [Arguments]    ${selector}=//div[@class='text-sm opacity-90']
+    ${visible}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${selector}    timeout=5s
+    IF    ${visible}
+        ${texto}=    Get Text    ${selector}
+        ${partes}=    Split String    ${texto}    ${SPACE}
+        ${tramite}=    Set Variable    ${partes[6]}
+        Log To Console    TEXTO OBTENIDO: ${tramite}
+        RETURN    ${tramite}
+    ELSE
+        Log To Console    Elemento no visible, no se obtuvo número de trámite
+        RETURN    None
+    END
+
 Obtener Numero De Tramite
     [Arguments]    ${selector}=//div[@class='text-sm opacity-90']
     ${visible}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${selector}    timeout=5s
@@ -263,10 +277,10 @@ Validar Estado con numero de tramite
     ${estado}=    Get Text    ${primerEstadoCelda}
     #Chequeo si los estados son iguales
     ${es_valido}=    Run Keyword And Return Status    Should Contain    ${permitidos}    ${estado}
-    #Fallar si el estado no es válido
-    Run Keyword If    not ${es_valido}
-    ...    Captura Screenshot In Log
-    ...    Fail    El trámite ${numTramite} tiene el estado: '${estado}', cuando se esperaba: ${permitidos}
+    IF    not ${es_valido}
+        Captura Screenshot In Log
+        Fail    El trámite ${numTramite} tiene el estado: '${estado}', cuando se esperaba: ${permitidos}
+    END
 
 Validar Tramite Inexistente
     [Arguments]    ${locatorTabla}    ${numTramite}
@@ -440,7 +454,7 @@ Verificar y presionar ítem en lista index
 
 Validar y completar campo
     [Arguments]    ${selector}    ${valor}    ${mensaje}
-    ${visible} =    Run Keyword And Return Status    Wait Until Element Is Visible    ${selector}    timeout=5s
+    ${visible} =    Run Keyword And Return Status    Wait Until Element Is Visible    ${selector}    timeout=10s
     IF    ${visible}
         Input Text    ${selector}    ${valor}
     ELSE
