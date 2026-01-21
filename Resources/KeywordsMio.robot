@@ -220,7 +220,6 @@ Presionar x boton en la fila del tramite
 
 #Verificar Automatico------------------------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 Validar Estado con numero de tramite
     [Arguments]    ${locatorTabla}    ${numColumnaEstado}    ${numTramite}    @{permitidos}
 
@@ -239,7 +238,6 @@ Validar Estado con numero de tramite
     Run Keyword If    not ${es_valido}
     ...    Captura Screenshot In Log
     ...    Fail    El trámite ${numTramite} tiene el estado: '${estado}', cuando se esperaba: ${permitidos}
-
 
 Validar Tramite Inexistente
     [Arguments]    ${locatorTabla}    ${numTramite}
