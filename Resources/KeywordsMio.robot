@@ -226,25 +226,6 @@ Validar Estado con numero de tramite
 
     #Armar xpath de la fila
     ${xpathEstadoCelda}=    Set Variable    ${locatorTabla}//tbody/tr[td[1]="${numTramite}"]/td[${numColumnaEstado}]
-    #Espero
-    Verificar Y Esperar Visibilidad De Elemento    Acciones
-    Sleep  2s
-    #Verificar Y Esperar Visibilidad De Elemento por localizador    ${locatorTabla}
-    #Obtener estado
-    ${primerEstadoCelda}=    Get WebElement    xpath=${xpathEstadoCelda}
-    ${estado}=    Get Text    ${primerEstadoCelda}
-    #Chequeo si los estados son iguales
-    ${es_valido}=    Run Keyword And Return Status    Should Contain    ${permitidos}    ${estado}
-    #Fallar si el estado no es válido
-    Run Keyword If    not ${es_valido}
-    ...    Captura Screenshot In Log
-    ...    Fail    El trámite ${numTramite} tiene el estado: '${estado}', cuando se esperaba: ${permitidos}
-
-Validar Estado con numero de tramite2
-    [Arguments]    ${locatorTabla}    ${numColumnaEstado}    ${numTramite}    @{permitidos}
-
-    #Armar xpath de la fila
-    ${xpathEstadoCelda}=    Set Variable    ${locatorTabla}//tbody/tr[td[1]="${numTramite}"]/td[${numColumnaEstado}]
     #Obtener estado
     Wait Until Element Is Visible    ${xpathEstadoCelda}    timeout=10s
     ${primerEstadoCelda}=    Get WebElement    ${xpathEstadoCelda}
@@ -385,22 +366,6 @@ Captura Screenshot In Log
     [Arguments]    ${mensaje}=Captura
     ${VISUALIZAR_IMAGEN}=    Embed Clean Resized Base64    ${mensaje}
     Log    ${VISUALIZAR_IMAGEN}    html=True
-
-Verificar y presionar ítem en lista combobox
-    [Arguments]    ${selector}    ${item}
-    Wait Until Element Is Visible    ${selector}    timeout=10s
-    Click Element    ${selector}
-
-    ${xpath_opcion}=    Set Variable    //li[contains(., "${item}")] | //span[contains(., "${item}")]
-
-    ${visible}=    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=${xpath_opcion}    timeout=5s
-
-    IF    ${visible}
-        Click Element    xpath=${xpath_opcion}
-    ELSE
-        Captura Screenshot In Log
-        Fail    No se encontró la opción "${item}" dentro del combobox
-    END
 
 Verificar y presionar ítem en lista
     [Arguments]    ${selector}    ${item}
@@ -1023,11 +988,9 @@ Validar Estado Del Tramite
 
 Validar Detalle
     [Arguments]    ${detalle_esperado}
-    # Es recomendable esperar a que el elemento esté antes de obtener el texto
-    Wait Until Element Is Visible    xpath=//span[normalize-space(.)='Detalle']/following-sibling::span    timeout=5s
     ${detalle_actual}=    Get Text    xpath=//span[normalize-space(.)='Detalle']/following-sibling::span
     Log    Detalle capturado: ${detalle_actual}
-    Should Be Equal    ${detalle_actual}    ${detalle_esperado}    msg=El detalle no coincide. Esperado: ${detalle_esperado}, Actual: ${detalle_actual}
+    Run Keyword If    '${detalle_actual}' != '${detalle_esperado}'    Fail    El detalle no coincide con el esperado. Se esperaba: '${detalle_esperado}', sin embargo aparecio: '${detalle_actual}'
     Log    El detalle coincide con el valor esperado
 
 Validar Asunto
@@ -1050,19 +1013,14 @@ Verificar Tramite Y Capturar Numero
 
 
 Extraer Fecha Creado
-    Wait Until Element Is Visible    xpath=//main//span[contains(text(), 'Creado')]    timeout=10s
-    ${FECHA_CREADO_RAW}=    Get Text    xpath=//main//span[contains(text(), 'Creado')]
-    ${FECHA_LIMPIA}=    Replace String    ${FECHA_CREADO_RAW}    Creado:    ${EMPTY}
-    ${FECHA_FINAL}=    Strip String    ${FECHA_LIMPIA}
-    RETURN    ${FECHA_FINAL}
+    ${FECHA_CREADO_RAW}=    Get Text    xpath=//span[contains(text(), 'Creado')]
+    ${FECHA_CREADO_LIMPIA}=    Replace String    ${FECHA_CREADO_RAW}    Creado:    ${EMPTY}
+    RETURN    ${FECHA_CREADO_LIMPIA}
 
 Extraer Fecha Actualizado
-    Wait Until Element Is Visible    xpath=//span[contains(., 'Actualizado:')]    timeout=10s
-    ${TEXTO_COMPLETO}=    Get Text       xpath=//span[contains(., 'Actualizado:')]
-    ${PARTES}=    Split String    ${TEXTO_COMPLETO}    separator=:
-    ${FECHA_SUCIA}=    Set Variable    ${PARTES[1]}
-    ${FECHA_LIMPIA}=   Strip String    ${FECHA_SUCIA}
-    RETURN    ${FECHA_LIMPIA}
+    ${FECHA_CREADO_RAW}=    Get Text    xpath=//span[contains(text(), 'Actualizado')]
+    ${FECHA_CREADO_LIMPIA}=    Replace String    ${FECHA_CREADO_RAW}    Actualizado:     ${EMPTY}
+    RETURN    ${FECHA_CREADO_LIMPIA}
 
 Comparar Fechas
     [Arguments]    ${FECHA_EXTRAIDA_WEB}
@@ -1094,16 +1052,28 @@ Convertir Fecha Web A ISO
     RETURN    ${fecha_iso}
 
 Validar Acciones Disponibles
-    [Arguments]    ${debe_haber_acciones}=True
-    Wait Until Element Is Visible    xpath=//h3[contains(., 'Acciones Disponibles')]    timeout=10s
-    ${texto_bloque}=    Get Text    xpath=//h3[contains(., 'Acciones Disponibles')]/parent::div
-    ${no_hay_mensaje}=    Run Keyword And Return Status    Should Contain    ${texto_bloque}    No hay acciones disponibles
-    IF    ${debe_haber_acciones} and ${no_hay_mensaje}
-        Fail    ERROR: Se esperaba encontrar acciones, pero aparece el mensaje: "No hay acciones disponibles".
-    ELSE IF    not ${debe_haber_acciones} and not ${no_hay_mensaje}
-        Fail    ERROR: No se esperaba encontrar acciones, pero el mensaje de "No hay acciones" ha desaparecido (posibles acciones presentes).
+    [Arguments]    ${fallar_si_hay_acciones}=False
+    ${visible}=    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=//h3[normalize-space()='Acciones Disponibles']    timeout=10s
+    IF    ${visible}
+        Log    Verificado: 'Acciones Disponibles' está visible
+        ${texto_acciones}=    Get Text    xpath=//p[contains(text(), 'acciones disponibles')]
+        Log    Texto encontrado: ${texto_acciones}
+
+        ${hay_acciones}=    Run Keyword And Return Status    Should Not Contain    ${texto_acciones}    No hay acciones disponibles
+
+        IF    ${hay_acciones}
+            Log    Hay acciones disponibles
+            IF    ${fallar_si_hay_acciones}
+                Fail    Se detectaron acciones disponibles, y no deberia haber acciones disponibles
+            END
+        ELSE
+            Log    No hay acciones disponibles
+            IF    not ${fallar_si_hay_acciones}
+                Fail    No hay acciones disponibles, y deberia haber acciones disponibles
+            END
+        END
     ELSE
-        Log    Validación exitosa: El estado de las acciones es el esperado (Debe haber: ${debe_haber_acciones}).
+        Fail    El apartado de 'Acciones Disponibles' no se encuentra visible
     END
 
 Verificar Numero de Seguimiento
