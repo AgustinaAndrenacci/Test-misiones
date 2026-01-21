@@ -77,7 +77,6 @@ Se selecciona X accion con estado final
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
 
 #------------------------------------------------------------------------------------------------------------
-#------------------------------------------------------------------------------------------------------------
 
 Inicio sesion y verificacion de texto inicial - ciudadano
     [arguments]    ${user}    ${pasw}    ${elemento}

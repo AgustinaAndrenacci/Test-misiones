@@ -220,15 +220,23 @@ Presionar x boton en la fila del tramite
 
 #Verificar Automatico------------------------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 Validar Estado con numero de tramite
     [Arguments]    ${locatorTabla}    ${numColumnaEstado}    ${numTramite}    @{permitidos}
 
     #Armar xpath de la fila
     ${xpathEstadoCelda}=    Set Variable    ${locatorTabla}//tbody/tr[td[1]="${numTramite}"]/td[${numColumnaEstado}]
+<<<<<<< HEAD
     #Obtener estado
     Wait Until Element Is Visible    ${xpathEstadoCelda}    timeout=10s
     ${primerEstadoCelda}=    Get WebElement    ${xpathEstadoCelda}
+=======
+    #Espero
+    Verificar Y Esperar Visibilidad De Elemento    Acciones
+    Sleep  2s
+    #Verificar Y Esperar Visibilidad De Elemento por localizador    ${locatorTabla}
+    #Obtener estado
+    ${primerEstadoCelda}=    Get WebElement    xpath=${xpathEstadoCelda}
+>>>>>>> 21e475a997edea5357497d6083f1a5dfee2768f4
     ${estado}=    Get Text    ${primerEstadoCelda}
     #Chequeo si los estados son iguales
     ${es_valido}=    Run Keyword And Return Status    Should Contain    ${permitidos}    ${estado}
@@ -237,7 +245,10 @@ Validar Estado con numero de tramite
     ...    Captura Screenshot In Log
     ...    Fail    El trámite ${numTramite} tiene el estado: '${estado}', cuando se esperaba: ${permitidos}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 21e475a997edea5357497d6083f1a5dfee2768f4
 Validar Tramite Inexistente
     [Arguments]    ${locatorTabla}    ${numTramite}
     ${xpathFilaTramite}=    Set Variable    ${locatorTabla}//tbody/tr[td[1]="${numTramite}"]
