@@ -386,6 +386,22 @@ Captura Screenshot In Log
     ${VISUALIZAR_IMAGEN}=    Embed Clean Resized Base64    ${mensaje}
     Log    ${VISUALIZAR_IMAGEN}    html=True
 
+Verificar y presionar ítem en lista combobox
+    [Arguments]    ${selector}    ${item}
+    Wait Until Element Is Visible    ${selector}    timeout=10s
+    Click Element    ${selector}
+
+    ${xpath_opcion}=    Set Variable    //li[contains(., "${item}")] | //span[contains(., "${item}")]
+
+    ${visible}=    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=${xpath_opcion}    timeout=5s
+
+    IF    ${visible}
+        Click Element    xpath=${xpath_opcion}
+    ELSE
+        Captura Screenshot In Log
+        Fail    No se encontró la opción "${item}" dentro del combobox
+    END
+
 Verificar y presionar ítem en lista
     [Arguments]    ${selector}    ${item}
     ${visible} =    Run Keyword And Return Status    Wait Until Element Is Visible    ${selector}    timeout=5s

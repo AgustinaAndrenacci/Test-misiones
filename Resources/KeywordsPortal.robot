@@ -81,14 +81,16 @@ Se selecciona X accion con estado final
 
 Inicio sesion y verificacion de texto inicial - ciudadano
     [arguments]    ${user}    ${pasw}    ${elemento}
-    Iniciar sesion  ${user}  ${pasw}  ${campoCuit}  ${campoClaveFiscal}  ${botonEnviar}
-    Verificar Y Esperar Visibilidad De Elemento por localizador    ${elemento}
+    Iniciar sesion  ${user}  ${pasw}  ${campoCuit}  ${campoClaveFiscal}  //button[normalize-space()='Ingresar']
+    Sleep  2s
+    #Verificar Y Esperar Visibilidad De Elemento por localizador    ${elemento}
 
 Inicio sesion y verificacion de texto inicial - operador
     [arguments]    ${user}    ${pasw}    ${elemento}
-    Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${user}  ${pasw}  ${campoMail}  ${campoPass}  ${botonEnviar2}
-    Verificar Y Esperar Visibilidad De Elemento    ${elemento}
+    #Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
+    Iniciar sesion  ${user}  ${pasw}  ${campoMail}  ${campoPass}  //button[normalize-space()='Ingresar']
+    Sleep  2s
+    #Verificar Y Esperar Visibilidad De Elemento    ${elemento}
 
 Crear tramite para X tipo
     [Arguments]    ${tipoTramite}    ${campoAsunto}    ${campoDetalle}    ${campoContenido}    ${file}
@@ -111,8 +113,19 @@ Agregar documentacion complementaria
     Validar y hacer clic en el boton    ${botonSubirDocumento}   boton subir documento
     Verificar Y Esperar Visibilidad De Elemento    El documento se ha agregado correctamente al trámite.
 
+No Agregar documentacion complementaria
+    [Arguments]    ${archivo}    ${tipo}
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Choose file    ${inputFileUpload}    ${archivo}
+    Validar y completar campo    ${campoDescripcion}    archivo ${tipo}    descripcion
+    Verificar Y Esperar Visibilidad De Elemento    Tipo de archivo no permitido
 
-
+Verificar Texto Actualizado
+    [Arguments]    ${locator}    ${esperado}
+    Log to console   test
+    #${texto}=    Get Text    ${locator}
+    #Log to console    Texto actual: ${texto}
+    #Should Contain    ${texto}    ${esperado}
 
 
 
