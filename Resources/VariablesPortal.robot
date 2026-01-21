@@ -241,3 +241,22 @@ ${tramiteBorrador}    //tbody/tr[1]
 ${botonContinuarBorrador}    //a[normalize-space()='Continuar Borrador']
 ${mensajeSeleccioneUnaAccionParaContinuar}    //p[contains(text(),'Seleccione una acción para continuar con el proces')]
 ${ubicacionArchivoBorrador}    (//td[@class='p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium'])[1]
+
+
+
+
+${userDireccionAdministracion}    operador01
+${userDireccionAuditoriaPlanificacion}    operador02
+${userDireccionCoordinacionPoliticasFiscales}    operador03
+${userDireccionFiscalizacion}    operador04
+${userDireccionInformatica}    operador05
+${userDireccionRecaudaciones}    operador06
+${userDireccionJuridicaTecnica}    operador08
+${userDespachoDireccionGeneral}    operador10
+${userDespachoSubdireccionGeneral}    operador11
+
+${areaDestino}    //button[@role='combobox']
+
+${textoEjecutarAccion}    //p[contains(text(), 'Vas a ejecutar la acción')]
+
+${botonConsultaTramites}    //span[normalize-space()='Consulta de Trámites']
