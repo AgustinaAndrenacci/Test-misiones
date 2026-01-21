@@ -25,14 +25,14 @@ Test Teardown  Cerrar navegador
 #Login ciudadano --------------------------------------------------------------------------
 Login Ciudadano - Correcto
     [Documentation]    Se inicia sesion con un usuario ciudadano
-    [tags]    test_01
+    Asignar Tag Numerado
     Abrir Navegador en modo incognito    ${pageCiudadano}
     Iniciar sesion  ${userCiudadano2}  ${passCiudadano}  ${campoCuit}  ${campoClaveFiscal}  ${botonIngresar}
     Verificar presencia de  ${tituloPagina1}  No se pudo iniciar sesion
 
 Login Ciudadano - Incorrecto
-    [Documentation]    Se inicia sesion con un usuario ciudadano
-    [tags]    test_01
+    [Documentation]    Se inicia sesion con un usuario ciudadano incorrecto
+    Asignar Tag Numerado
     Abrir Navegador en modo incognito    ${pageCiudadano}
     Iniciar sesion  ${userFake}  ${passFake}  ${campoCuit}  ${campoClaveFiscal}  ${botonIngresar}
     ${texto_sucio}=    Get Text    xpath=//div[@role='alert']
@@ -43,35 +43,35 @@ Login Ciudadano - Incorrecto
 
 Login Ciudadano - sin completar campos
     [Documentation]    Se comprueba si no se loguea cuando no se completa el usuario y la contraseña
-    [tags]    test_02
+    Asignar Tag Numerado
     Abrir Navegador en modo incognito    ${pageCiudadano}
     Iniciar sesion  ${EMPTY}  ${EMPTY}  ${campoCuit}  ${campoClaveFiscal}  ${botonIngresar}
     Verificar presencia de... con...  ${leyendaIniciarSesion}  Por favor complete todos los campos
 
 Login Ciudadano - sin completar el user
     [Documentation]    Se comprueba si no se loguea cuando no se completa el usuario
-    [tags]    test_03
+    Asignar Tag Numerado
     Abrir Navegador en modo incognito    ${pageCiudadano}
     Iniciar sesion  ${EMPTY}  ${passFake}  ${campoCuit}  ${campoClaveFiscal}  ${botonIngresar}
     Verificar presencia de... con...  ${leyendaIniciarSesion}  Por favor complete todos los campos
 
 Login Ciudadano - sin completar la pass
     [Documentation]    Se comprueba si no se loguea cuando no se completa la contraseña
-    [tags]    test_04
+    Asignar Tag Numerado
     Abrir Navegador en modo incognito    ${pageCiudadano}
     Iniciar sesion  ${userFake}  ${EMPTY}  ${campoCuit}  ${campoClaveFiscal}  ${botonIngresar}
     Verificar presencia de... con...  ${leyendaIniciarSesion}  Por favor complete todos los campos
 
 Login Ciudadano - con cuit menor a 7 digitos
     [Documentation]    Se comprueba si no se loguea cuando se ingresa un cuit menor a 7 digitos
-    [tags]    test_05
+    Asignar Tag Numerado
     Abrir Navegador en modo incognito    ${pageCiudadano}
     Iniciar sesion  ${userFake7}  ${passFake}  ${campoCuit}  ${campoClaveFiscal}  ${botonIngresar}
     Verificar presencia de... con...  ${leyendaIniciarSesion}  El CUIT debe tener entre 8 y 11 dígitos
 
 Login Ciudadano - cuit con dato no numerico
     [Documentation]    Se comprueba si no se loguea cuando se ingresa un dato string en el campo cuit
-    [tags]    test_07
+    Asignar Tag Numerado
     Abrir Navegador en modo incognito    ${pageCiudadano}
     Iniciar sesion  cuitInvalido  ${passFake}  ${campoCuit}  ${campoClaveFiscal}  ${botonIngresar}
     Verificar presencia de... con...  ${leyendaIniciarSesion}  El CUIT solo debe contener números
@@ -79,35 +79,35 @@ Login Ciudadano - cuit con dato no numerico
 #Login personal-------------------------------------------------------------------------------
 Login Personal - Correcto
     [Documentation]    Se inicia sesion con un usuario del personal
-    [tags]    test_08
+    Asignar Tag Numerado
     Abrir Navegador en modo incognito    ${pagePersonal}
     Iniciar sesion  ${userOperadorMesa}  ${pass}  ${campoMail}  ${campoPass}  ${botonIngresar}
     Verificar presencia de  ${tituloPagina3}  No se pudo iniciar sesion
 
 Login Personal - Incorrecto
-    [Documentation]    Se inicia sesion con un usuario del personal
-    [tags]    test_08
+    [Documentation]    Se inicia sesion con un usuario del personal incorrecto
+    Asignar Tag Numerado
     Abrir Navegador en modo incognito    ${pagePersonal}
     Iniciar sesion  ${userFake}  ${passFake}  ${campoMail}  ${campoPass}  ${botonIngresar}
     Verificar presencia de... con...  ${leyendaIniciarSesion}  Usuario o contraseña incorrectos.
 
 Login Personal - sin completar campos
     [Documentation]    Se comprueba si no se loguea cuando no se completa el usuario y la contraseña
-    [tags]    test_09
+    Asignar Tag Numerado
     Abrir Navegador en modo incognito    ${pagePersonal}
     Iniciar sesion  ${EMPTY}  ${EMPTY}  ${campoMail}  ${campoPass}  ${botonIngresar}
     Verificar presencia de... con...  ${leyendaIniciarSesion}  Por favor complete todos los campos
 
 Login Personal - sin completar el user
     [Documentation]    Se comprueba si no se loguea cuando no se completa el usuario
-    [tags]    test_10
+    Asignar Tag Numerado
     Abrir Navegador en modo incognito    ${pagePersonal}
     Iniciar sesion  ${EMPTY}  ${passFake}  ${campoMail}  ${campoPass}  ${botonIngresar}
     Verificar presencia de... con...  ${leyendaIniciarSesion}  Por favor complete todos los campos
 
 Login Personal - sin completar la pass
     [Documentation]    Se comprueba si no se loguea cuando no se completa la contraseña
-    [tags]    test_11
+    Asignar Tag Numerado
     Abrir Navegador en modo incognito    ${pagePersonal}
     Iniciar sesion  ${userFake}  ${EMPTY}  ${campoMail}  ${campoPass}  ${botonIngresar}
     Verificar presencia de... con...  ${leyendaIniciarSesion}  Por favor complete todos los campos
@@ -115,7 +115,7 @@ Login Personal - sin completar la pass
 #Cerrar sesion -------------------------------------------------------------------------
 Cerrar sesion desde ciudadano
     [Documentation]    Se loguea con un usuario y se comprueba si se cierra sesion
-    [tags]    test_12
+    Asignar Tag Numerado
     #Iniciar sesion
     Abrir Navegador en modo incognito    ${pageCiudadano}
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
@@ -127,7 +127,7 @@ Cerrar sesion desde ciudadano
 
 Cerrar sesion desde personal
     [Documentation]    Se loguea con un usuario y se comprueba si se cierra sesion
-    [tags]    test_12
+    Asignar Tag Numerado
     #Iniciar sesion
     Abrir Navegador en modo incognito    ${pagePersonal}
     Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
@@ -140,26 +140,26 @@ Cerrar sesion desde personal
 #Valido los placeholder ---------------------------------------------------------------------
 PlaceHolder cuit - ciudadano
     [Documentation]    Se verifica si el campo cuit tiene el placeholder correcto
-    [tags]    test_13
+    Asignar Tag Numerado
     Abrir Navegador en modo incognito    ${pageCiudadano}
     Element Attribute Value Should Be    ${campoCuit}    placeholder    20201112220
 
 PlaceHolder clave fiscal - ciudadano
     [Documentation]    Se verifica si el campo clave fiscal tiene el placeholder correcto
-    [tags]    test_14
+    Asignar Tag Numerado
     Abrir Navegador en modo incognito    ${pageCiudadano}
     Element Attribute Value Should Be    ${campoClaveFiscal}    placeholder    Ingrese su clave fiscal
 
 PlaceHolder mail - personal
     [Documentation]    Se verifica si el campo mail tiene el placeholder correcto
-    [tags]    test_15
+    Asignar Tag Numerado
     Abrir Navegador en modo incognito    ${pagePersonal}
     Abrir Navegador en modo incognito    ${pagePersonal}
     Element Attribute Value Should Be    ${campoMail}    placeholder    admin o admin@municipio.gov.ar
 
 PlaceHolder contraseña - personal
     [Documentation]    Se verifica si el campo contraseña tiene el placeholder correcto
-    [tags]    test_16
+    Asignar Tag Numerado
     Abrir Navegador en modo incognito    ${pagePersonal}
     Abrir Navegador en modo incognito    ${pagePersonal}
     Element Attribute Value Should Be    ${campoPass}    placeholder    Ingrese su contraseña
