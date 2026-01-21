@@ -113,8 +113,19 @@ Agregar documentacion complementaria
     Validar y hacer clic en el boton    ${botonSubirDocumento}   boton subir documento
     Verificar Y Esperar Visibilidad De Elemento    El documento se ha agregado correctamente al trámite.
 
+No Agregar documentacion complementaria
+    [Arguments]    ${archivo}    ${tipo}
+    Validar y hacer clic en el boton    ${botonSubir}    boton subir
+    Choose file    ${inputFileUpload}    ${archivo}
+    Validar y completar campo    ${campoDescripcion}    archivo ${tipo}    descripcion
+    Verificar Y Esperar Visibilidad De Elemento    Tipo de archivo no permitido
 
-
+Verificar Texto Actualizado
+    [Arguments]    ${locator}    ${esperado}
+    Log to console   test
+    #${texto}=    Get Text    ${locator}
+    #Log to console    Texto actual: ${texto}
+    #Should Contain    ${texto}    ${esperado}
 
 
 

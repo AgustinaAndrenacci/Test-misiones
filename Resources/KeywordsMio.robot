@@ -138,15 +138,6 @@ Contar Filas Reales En Tabla
 
 #Abrir tramite por numero ----------------------------------------------------------------------------------------------
 Obtener Numero De Tramite
-<<<<<<< HEAD
-    ${texto}=    Get Text    //li[@role='status']
-    # dividir en palabras separadas por espacio
-    ${partes}=    Split String    ${texto}    ${SPACE}
-    # tercera palabra → índice 2
-    ${tramite}=    Set Variable    ${partes[2]}
-    Log To Console    TEXTO OBTENIDO: ${tramite}
-    RETURN    ${tramite}
-=======
     [Arguments]    ${selector}=//div[@class='text-sm opacity-90']
     ${visible}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${selector}    timeout=5s
     IF    ${visible}
@@ -159,7 +150,6 @@ Obtener Numero De Tramite
         Log To Console    Elemento no visible, no se obtuvo número de trámite
         RETURN    None
     END
->>>>>>> refs/remotes/origin/main
 
 Abrir Tramite Por Numero
     [Arguments]    ${numero_tramite}
@@ -236,6 +226,10 @@ Validar Estado con numero de tramite
 
     #Armar xpath de la fila
     ${xpathEstadoCelda}=    Set Variable    ${locatorTabla}//tbody/tr[td[1]="${numTramite}"]/td[${numColumnaEstado}]
+    #Espero
+    Verificar Y Esperar Visibilidad De Elemento    Acciones
+    Sleep  2s
+    #Verificar Y Esperar Visibilidad De Elemento por localizador    ${locatorTabla}
     #Obtener estado
     ${primerEstadoCelda}=    Get WebElement    xpath=${xpathEstadoCelda}
     ${estado}=    Get Text    ${primerEstadoCelda}
@@ -375,6 +369,22 @@ Captura Screenshot In Log
     [Arguments]    ${mensaje}=Captura
     ${VISUALIZAR_IMAGEN}=    Embed Clean Resized Base64    ${mensaje}
     Log    ${VISUALIZAR_IMAGEN}    html=True
+
+Verificar y presionar ítem en lista combobox
+    [Arguments]    ${selector}    ${item}
+    Wait Until Element Is Visible    ${selector}    timeout=10s
+    Click Element    ${selector}
+
+    ${xpath_opcion}=    Set Variable    //li[contains(., "${item}")] | //span[contains(., "${item}")]
+
+    ${visible}=    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=${xpath_opcion}    timeout=5s
+
+    IF    ${visible}
+        Click Element    xpath=${xpath_opcion}
+    ELSE
+        Captura Screenshot In Log
+        Fail    No se encontró la opción "${item}" dentro del combobox
+    END
 
 Verificar y presionar ítem en lista
     [Arguments]    ${selector}    ${item}

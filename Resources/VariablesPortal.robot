@@ -57,6 +57,8 @@ ${pestañaPersonal}    //button[text()='Personal']
 #----------------------------------------------------------------------------------------
 
 ${botonMesaEntradaVirtual}   //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Mesa de Entrada Virtual']
+${botonConsultaDeTramites}    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Consulta de Trámites']
+${botonTramitesFinalizados}    //span[normalize-space()='Trámites Finalizados']
 ${botonBandejaEntrada}    //span[@class='group-data-[collapsible=icon]:hidden'][normalize-space()='Bandeja de Entrada']
 ${abrirPrimerTramite}    //tbody/tr[1]/td[1]
 ${abrirPrimerTramiteAgus}    //tbody/tr[1]/td[1]//a
@@ -77,6 +79,12 @@ ${botonRechazar}    //h4[normalize-space()='Rechazar']
 ${informarContribuyente}    //h4[normalize-space()='Informar al Contribuyente']
 ${botonAgregarNota}    //button[normalize-space()='Agregar Nota']
 ${botonResponder}    //h4[normalize-space()='Responder']
+${botonAsignar}    //h4[normalize-space()='Asignar']
+${botonDerivar}    //h4[normalize-space()='Derivar']
+${botonRechazarInformarAlContribuyente}    //h4[normalize-space()='Rechazar e Informar al Contribuyente']
+${botonAprobarInformarAlContribuyente}    //h4[normalize-space()='Aprobar e Informar al Contribuyente']
+
+${NroExpediente}    //input[@placeholder='Ej: 001234/2025']
 
 ${subtituloConsultaTributaria}    //p[@class='text-muted-foreground']
 ${subtituloConsultaVinculante}    //p[@class='text-muted-foreground']
