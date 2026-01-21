@@ -81,14 +81,13 @@ Se selecciona X accion con estado final
 
 Inicio sesion y verificacion de texto inicial - ciudadano
     [arguments]    ${user}    ${pasw}    ${elemento}
-    Iniciar sesion  ${user}  ${pasw}  ${campoCuit}  ${campoClaveFiscal}  //button[normalize-space()='Ingresar']
+    Iniciar sesion  ${user}  ${pasw}  ${campoCuit}  ${campoClaveFiscal}  ${botonIngresar}
     Sleep  2s
     #Verificar Y Esperar Visibilidad De Elemento por localizador    ${elemento}
 
 Inicio sesion y verificacion de texto inicial - operador
     [arguments]    ${user}    ${pasw}    ${elemento}
-    #Validar y hacer clic en la seccion  ${pestañaPersonal}  pestañaPersonal
-    Iniciar sesion  ${user}  ${pasw}  ${campoMail}  ${campoPass}  //button[normalize-space()='Ingresar']
+    Iniciar sesion  ${user}  ${pasw}  ${campoMail}  ${campoPass}  ${botonIngresar}
     Sleep  2s
     #Verificar Y Esperar Visibilidad De Elemento    ${elemento}
 
