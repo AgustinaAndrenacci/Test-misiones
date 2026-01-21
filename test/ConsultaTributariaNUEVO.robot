@@ -18,28 +18,6 @@ Resource        ../Resources/VariablesPortal.robot
 
 Test Teardown    Cerrar Navegador
 
-*** Variables ***
-
-${userDireccionAdministracion}    operador01
-${userDireccionAuditoriaPlanificacion}    operador02
-${userDireccionCoordinacionPoliticasFiscales}    operador03
-${userDireccionFiscalizacion}    operador04
-${userDireccionInformatica}    operador05
-${userDireccionRecaudaciones}    operador06
-${userDireccionJuridicaTecnica}    operador08
-${userDespachoDireccionGeneral}    operador10
-${userDespachoSubdireccionGeneral}    operador11
-
-
-${areaDestino}    //button[@role='combobox']
-
-${textoEjecutarAccion}    //p[contains(text(), 'Vas a ejecutar la acción')]
-
-${botonConsultaTramites}    //span[normalize-space()='Consulta de Trámites']
-${botonTramitesFinalizados}    //span[normalize-space()='Trámites Finalizados']
-
-
-
 ***Test Cases***
 
 #-------INDICACION DE TESTS-------
@@ -270,7 +248,7 @@ Test 2 - Consulta Tributaria: el ciudadano avanza en el tramite [ciudadano] Paso
     Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
     Validar y hacer clic en el boton    ${botonResponder}    botonResponder
     Validar y completar campo    ${campoComentario}    Respuesta del Ciudadano    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE}
+    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
     Validar y hacer clic en el boton    ${botonEjecutarAccion}    botonEjecutarAccion
     Cerrar Navegador
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
