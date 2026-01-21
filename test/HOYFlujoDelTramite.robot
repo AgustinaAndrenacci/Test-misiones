@@ -21,10 +21,6 @@ Test Teardown  Cerrar navegador
 
 Suite Setup    Inicializar Contador
 
-#IMPORTANTE **************************************************************************************************
-#Leandro: ${FILE}
-#Agustina: ${FILEAgus}
-#************************************************************************************************************
 
 *** Variables ***
 ${FILE3}    D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/ADJUNTO.pdf
