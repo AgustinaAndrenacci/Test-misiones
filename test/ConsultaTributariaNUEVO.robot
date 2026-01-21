@@ -69,6 +69,22 @@ ${docLean}    ADJUNTO.pdf
 #Test 20: Aprobado desde Direccion Juridica y Tecnica
 #Test 21: Rechazado desde Direccion Juridica y Tecnica
 
+
+
+#EJEMPLO
+#Test 22 - Crea un nuevo tramite [ciudadano] Paso 1
+#    Abrir Navegador en modo incognito    ${pageCiudadano}
+#    [Documentation]    Crear un nuevo tramite
+#    Asignar Tag Numerado
+#    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+#    Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
+
+#    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
+#    ${tramite}=    Obtener Numero De Tramite
+#    Set Suite Variable    ${tramite}
+#    [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
+
 Test 1 - Consulta Tributaria Como Borrador [ciudadano] Paso 1
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Crear una nueva consulta tributaria como borrador
