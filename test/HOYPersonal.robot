@@ -216,6 +216,7 @@ Test 1 - Se selecciona la opcion "Enviar a direccion" [operador mesa]
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Close browser
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
 
 
@@ -337,6 +338,7 @@ Test 2 - Se selecciona la opcion "Derivar" [Direccion Informatica]
     Validar y completar campo    ${campoComentario}    Enviar a Planificación y Control de Sistemas Informáticos    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
+    Close browser
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
 
 

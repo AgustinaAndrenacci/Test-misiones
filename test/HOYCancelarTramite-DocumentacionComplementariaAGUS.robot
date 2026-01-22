@@ -71,6 +71,7 @@ Test 2 - Agregar documentacion complementaria - intentar subir documentacion sin
     Validar y completar campo    ${campoDescripcion}    archivo doc    descripcion
     Element Should Be Disabled    ${botonSubirDocumento}
     Validar y hacer clic en el boton    ${botonCancelar}   boton cancelar
+    Close browser
 
 #----------------------   NO SE SUBE LA DOCUMENTACION PORQUE SE PRESIONA EL BOTON CANCELAR   -----------------------
 Test 2 - Agregar documentacion complementaria - intentar que no se suba debido a que se presiona el boton cancelar [operador mesa]
@@ -89,6 +90,7 @@ Test 2 - Agregar documentacion complementaria - intentar que no se suba debido a
     Validar y hacer clic en el boton    ${botonSubir}    boton subir
     Element Attribute Value Should Be    ${campoDescripcion}    value    ${EMPTY}
     Verificar NO presencia de... con...    //div[@class='p-3 border rounded-lg bg-muted/50']    ${docAgus}
+    Close browser
 
 #------------------------- SE SUBE Y ELIMINA (ADEMÁS DEL CANCELAR) UNA DOC. COMPLEMENTARIA ---------------------
 #--------------------------  SE PRUEBA LA SUBIDA DE DIFERENTES TIPOS DE ARCHIVOS ---------------------------------
@@ -103,6 +105,7 @@ Test 2 - Se agrega documentacion complementaria - [operador mesa]
     Validar y hacer clic en el boton    ${botonMesaEntradaVirtual}    botonMesaEntradaVirtual
     Abrir Tramite Por Numero    ${tramite}
     Agregar documentacion complementaria    ${FILEdocAgus}  doc
+    Close browser
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 Test 2 - Se elimina la documentacion complementaria - [operador mesa]
@@ -133,6 +136,7 @@ Test 2 - Se agrega documentacion complementaria - archivo incorrecto: excel [ope
     Validar y hacer clic en el boton    ${botonMesaEntradaVirtual}    botonMesaEntradaVirtual
     Abrir Tramite Por Numero    ${tramite}
     No Agregar documentacion complementaria    ${FILEexcAgus}  excel
+    Close browser
     #Condicion para los proximos test
     #[Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -159,6 +163,7 @@ Test 2 - Se agrega documentacion complementaria - archivo: png [operador mesa]
     Validar y hacer clic en el boton    ${botonMesaEntradaVirtual}    botonMesaEntradaVirtual
     Abrir Tramite Por Numero    ${tramite}
     Agregar documentacion complementaria    ${FILEpngAgus}  png
+    Close browser
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -185,6 +190,7 @@ Test 2 - Se agrega documentacion complementaria - archivo: jpeg [operador mesa]
     Validar y hacer clic en el boton    ${botonMesaEntradaVirtual}    botonMesaEntradaVirtual
     Abrir Tramite Por Numero    ${tramite}
     Agregar documentacion complementaria    ${FILEjpegAgus}  jpeg
+    Close browser
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
@@ -211,6 +217,7 @@ Test 2 - Se agrega documentacion complementaria - archivo: pdf [operador mesa]
     Validar y hacer clic en el boton    ${botonMesaEntradaVirtual}    botonMesaEntradaVirtual
     Abrir Tramite Por Numero    ${tramite}
     Agregar documentacion complementaria    ${FILEpdfAgus}  pdf
+    Close browser
     #Condicion para los proximos test
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
