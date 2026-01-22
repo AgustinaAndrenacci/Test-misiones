@@ -29,10 +29,6 @@ ${docLean}    ADJUNTO.pdf
 #${docLean}    ubicacion.png
 
 *** Test Cases ***
-#Test 1: Aprobado desde Departamento de informatica
-#Test 2: Rechazado desde Departamento de informatica
-#Test 3: Solicita datos adicionales en operador, direccion y departamento + rechaza
-
 Test 1 - Crea un nuevo tramite [ciudadano]
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Crear un nuevo tramite
@@ -58,6 +54,7 @@ Test 1 - Se selecciona la opcion "Solicitar datos adicionales" [operador mesa]
     Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
     Validar y completar campo    ${campoComentario}    Solicitar Datos Adicionales    campoComentario
     Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Execute JavaScript    var input = document.querySelector('input[type="file"]'); if (input) { input.dispatchEvent(new Event("input", { bubbles: true })); input.dispatchEvent(new Event("change", { bubbles: true })); }
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -125,7 +122,6 @@ Test X - Se verifica el historial []
     ...    comentario=123456/1234
 
     Close browser
-
 
 Test 1 - Se selecciona la opcion "Solicitar datos adicionales" [direccion informatica]
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
@@ -374,6 +370,7 @@ Test 3 - Se selecciona la opcion "Rechazar e informar al contribuyente" [Planifi
 
 
 *** Keywords ***
+#Chequear el historial desde el ciudadano y desde el personal
 Verificar Registro En Historial
     [Arguments]    ${titulo}    ${operador}    ${comentario}
     [Documentation]    Busca un bloque de historial por título y verifica operador y comentario.
