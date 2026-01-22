@@ -263,6 +263,24 @@ ${userDireccionJuridicaTecnica}    operador08
 ${userDespachoDireccionGeneral}    operador10
 ${userDespachoSubdireccionGeneral}    operador11
 ${userPlanificacionYControlDeSistemasInformaticos}    operador26
+${userContabilidadPresupuesto}    operador27
+${userOperadorPatrimonioCompras}    operador29
+${userRecursosHumanos}    operador30
+${userTesoreria}    operador28
+${userProgramaciónControlGestión}    operador20
+${userControlEjecucionPF}    operador24
+${userControlFiscalEnRuta}    operador25
+${userFiscalizaciónInterna}    operador16
+${userFiscalizaciónExterna}    operador17
+${userSelecciónRevisión}    operador18
+${userLiquidaciónAdministración}    operador19
+${userImpuestos}    operador15
+${userIngresosBrutosControlObligacionesFiscales}    operador12
+${userProcesamientoControlRendicionesAgentesRecaudadores}    operador14
+${userSupervisiónAuditoríaDelegaciones}    operador13
+${userAsesoríaLegalTécnica}    operador21
+${userCobroJudicial}    operador22
+${userPenalTributariaJuiciosUniversales}    operador23
 
 ${areaDestino}    //button[@role='combobox']
 
