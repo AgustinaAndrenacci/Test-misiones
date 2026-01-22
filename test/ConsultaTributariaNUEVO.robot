@@ -18,6 +18,33 @@ Resource        ../Resources/VariablesPortal.robot
 
 Test Teardown    Cerrar Navegador
 
+
+*** Variables ***
+${textoEjecutarAccion}    //p[contains(text(), 'Vas a ejecutar la acción')]
+
+${botonConsultaTramites}    //span[normalize-space()='Consulta de Trámites']
+${botonTramitesFinalizados}    //span[normalize-space()='Trámites Finalizados']
+
+
+#*************************ATENCION*********************************************************************
+#Agus
+#${FILE3}    D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/ADJUNTO.pdf
+#${docLean}    ADJUNTO.pdf
+#Lean
+${FILE3}       C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/ubicacion.png
+${docLean}    ubicacion.png
+
+
+#-------------------Nombres de los tramites     - ATENCION, FALTA EL {
+#&TRAMITE_ConsultaTributaria}
+#&TRAMITE_ConsultaVinculante}
+#&TRAMITE_ExencionImpuestoInmobiliarioBasico}
+#&TRAMITE_ExenciónImpuestoDeSellos}
+#&TRAMITE_ExencionImpuestoProvincialAutomotor}
+#&TRAMITE_ExencionImpuestoSobreLosIB}
+#&TRAMITE_NotaFormal}
+
+
 ***Test Cases***
 
 #-------INDICACION DE TESTS-------
@@ -44,21 +71,16 @@ Test Teardown    Cerrar Navegador
 #Test 20: Aprobado desde Direccion Juridica y Tecnica
 #Test 21: Rechazado desde Direccion Juridica y Tecnica
 
+
 Test 1 - Consulta Tributaria Como Borrador [ciudadano] Paso 1
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Crear una nueva consulta tributaria como borrador
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
-    Wait Until Element Is Visible    ${botonGuardarBorrador}    timeout=10s
-    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
-    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
-    Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
-    Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
-    Validar y hacer clic en el boton    ${botonGuardarBorrador}    botonGuardarBorrador
-#    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite borrador [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite Borrador
     Set Suite Variable    ${tramite}
     Cerrar Navegador
@@ -164,10 +186,9 @@ Test 2 - Consulta Tributaria Solicitar Datos Adicionales [ciudadano] Paso 1
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Sleep  1s
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     Cerrar Navegador
@@ -299,9 +320,9 @@ Test 3 - Consulta Tributaria Documentacion NoCorresponde [ciudadano] Paso 1
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     Cerrar Navegador
@@ -379,15 +400,9 @@ Test 4 - Consulta Tributaria Aprobado desde Despacho Direccion General [ciudadan
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
-    Wait Until Element Is Visible    ${botonGuardarBorrador}    timeout=10s
-    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
-    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
-    Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
-    Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     Cerrar Navegador
@@ -517,15 +532,9 @@ Test 5 - Consulta Tributaria Rechazado desde Despacho Direccion General [ciudada
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
-    Wait Until Element Is Visible    ${botonGuardarBorrador}    timeout=10s
-    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
-    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
-    Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
-    Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     Cerrar Navegador
@@ -654,15 +663,9 @@ Test 6 - Consulta Tributaria Aprobado desde Despacho Subdirección General [ciud
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
-    Wait Until Element Is Visible    ${botonGuardarBorrador}    timeout=10s
-    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
-    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
-    Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
-    Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     Cerrar Navegador
@@ -792,15 +795,9 @@ Test 7 - Consulta Tributaria Rechazado desde Despacho Subdirección General [ciu
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
-    Wait Until Element Is Visible    ${botonGuardarBorrador}    timeout=10s
-    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
-    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
-    Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
-    Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     Cerrar Navegador
@@ -929,15 +926,9 @@ Test 8 - Consulta Tributaria Aprobado desde Direccion Administracion [ciudadano]
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
-    Wait Until Element Is Visible    ${botonGuardarBorrador}    timeout=10s
-    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
-    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
-    Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
-    Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     Cerrar Navegador
@@ -1067,15 +1058,9 @@ Test 9 - Consulta Tributaria Rechazado desde Direccion Administracion [ciudadano
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
-    Wait Until Element Is Visible    ${botonGuardarBorrador}    timeout=10s
-    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
-    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
-    Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
-    Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     Cerrar Navegador
@@ -1206,15 +1191,9 @@ Test 10 - Consulta Tributaria Aprobado desde Direccion Auditoria y Planificacion
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
-    Wait Until Element Is Visible    ${botonGuardarBorrador}    timeout=10s
-    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
-    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
-    Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
-    Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     Cerrar Navegador
@@ -1345,15 +1324,9 @@ Test 11 - Consulta Tributaria Rechazado desde Direccion Auditoria y Planificacio
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
-    Wait Until Element Is Visible    ${botonGuardarBorrador}    timeout=10s
-    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
-    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
-    Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
-    Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     Cerrar Navegador
@@ -1483,15 +1456,9 @@ Test 12 - Consulta Tributaria Aprobado desde Direccion de Coordinacion de Politi
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
-    Wait Until Element Is Visible    ${botonGuardarBorrador}    timeout=10s
-    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
-    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
-    Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
-    Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     Cerrar Navegador
@@ -1622,15 +1589,9 @@ Test 13 - Consulta Tributaria Rechazado desde Direccion de Coordinacion de Polit
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
-    Wait Until Element Is Visible    ${botonGuardarBorrador}    timeout=10s
-    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
-    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
-    Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
-    Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     Cerrar Navegador
@@ -1761,15 +1722,9 @@ Test 14 - Consulta Tributaria Aprobado desde Direccion de Fiscalizacion [ciudada
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
-    Wait Until Element Is Visible    ${botonGuardarBorrador}    timeout=10s
-    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
-    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
-    Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
-    Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     Cerrar Navegador
@@ -1899,15 +1854,9 @@ Test 15 - Consulta Tributaria Rechazado desde Direccion de Fiscalizacion [ciudad
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
-    Wait Until Element Is Visible    ${botonGuardarBorrador}    timeout=10s
-    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
-    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
-    Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
-    Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     Cerrar Navegador
@@ -2038,15 +1987,9 @@ Test 16 - Consulta Tributaria Aprobado desde Direccion de Informatica [ciudadano
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
-    Wait Until Element Is Visible    ${botonGuardarBorrador}    timeout=10s
-    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
-    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
-    Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
-    Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     Cerrar Navegador
@@ -2177,15 +2120,9 @@ Test 17 - Consulta Tributaria Rechazado desde Direccion de Informatica [ciudadan
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
-    Wait Until Element Is Visible    ${botonGuardarBorrador}    timeout=10s
-    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
-    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
-    Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
-    Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     Cerrar Navegador
@@ -2316,15 +2253,9 @@ Test 18 - Consulta Tributaria Aprobado desde Direccion de Recaudaciones [ciudada
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
-    Wait Until Element Is Visible    ${botonGuardarBorrador}    timeout=10s
-    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
-    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
-    Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
-    Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     Cerrar Navegador
@@ -2455,15 +2386,9 @@ Test 19 - Consulta Tributaria Rechazado desde Direccion de Recaudaciones [ciudad
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
-    Wait Until Element Is Visible    ${botonGuardarBorrador}    timeout=10s
-    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
-    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
-    Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
-    Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     Cerrar Navegador
@@ -2593,15 +2518,9 @@ Test 20 - Consulta Tributaria Aprobado desde Direccion Juridica y Tecnica [ciuda
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
-    Wait Until Element Is Visible    ${botonGuardarBorrador}    timeout=10s
-    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
-    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
-    Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
-    Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     Cerrar Navegador
@@ -2731,15 +2650,9 @@ Test 21 - Consulta Tributaria Rechazado desde Direccion Juridica y Tecnica [ciud
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
-    Validar y hacer clic en el boton    ${botonConsultaTributaria}    botonConsultaTributaria
-    Validar y completar campo    ${asuntoConsultaTributaria}  Asunto test 1    asuntoConsultaTributaria
-    Wait Until Element Is Visible    ${botonGuardarBorrador}    timeout=10s
-    Validar y completar campo    ${detalleConsultaTributaria}  Descripcion test 1  detalleConsultaTributaria
-    Validar y completar campo    ${contenidoConsultaTributaria}  Contenido test 1  contenidoConsultaTributaria
-    Subir Documento Correctamente    ${FILE3}    DNI del Solicitante    ${docLean}
-    Wait Until Page Does Not Contain Element    xpath=//*[contains(@class,'spinner')]    timeout=10s
-    Validar y hacer clic en el boton    ${botonEnviarSolicitud}    botonEnviarSolicitud
-    Verificar Y Esperar Visibilidad De Elemento    ha sido registrado y está siendo procesado
+
+    Crea un nuevo tramite [ciudadano]    ${TRAMITE_ConsultaTributaria}
+
     ${tramite}=    Obtener Numero De Tramite
     Set Suite Variable    ${tramite}
     Cerrar Navegador
