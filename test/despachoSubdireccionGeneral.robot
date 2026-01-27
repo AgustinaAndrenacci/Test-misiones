@@ -1,4 +1,7 @@
 *** Settings ***
+Documentation     Se realizan testeos creando tramites verificando si el flujo, los estados, los botones funciona de manera correcta.
+...               Se realizaron las siguientes pruebas:
+...               -Test 5: Se crea un tramite de la Direccion de recaudaciones y lo aprueba el Departamento de impuestos
 Library    SeleniumLibrary
 Library    String
 Library    Collections

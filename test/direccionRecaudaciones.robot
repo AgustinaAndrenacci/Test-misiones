@@ -2,11 +2,9 @@
 
 Documentation     Se realizan testeos creando tramites verificando si el flujo, los estados, los botones funciona de manera correcta.
 ...               Se realizaron las siguientes pruebas:
-...               El objetivo final es asegurar
-
-Test 5: Se crea un tramite de la DIRECCION DE RECAUDACIONES y lo aprueba el DEPARTAMENTO DE IMPUESTOS
-Test 6: Se crea un tramite de la DIRECCION DE RECAUDACIONES y lo rechaza el DEPARTAMENTO DE IMPUESTOS
-Test 7: Se crea un tramite de la DIRECCION DE RECAUDACIONES y el DEPARTAMENTO DE IMPUESTOS solicita datos adicionales
+...               -Test 5: Se crea un tramite de la Direccion de recaudaciones y lo aprueba el Departamento de impuestos
+...               -Test 6: Se crea un tramite de la DIRECCION DE RECAUDACIONES y lo rechaza el DEPARTAMENTO DE IMPUESTOS
+...               -Test 7: Se crea un tramite de la DIRECCION DE RECAUDACIONES y el DEPARTAMENTO DE IMPUESTOS solicita datos adicionales
 
 Library    SeleniumLibrary
 Library    String
