@@ -28,10 +28,10 @@ ${docLean}    ADJUNTO.pdf
 
 ***Test Cases***
 #DIRECCION
-#Test 8: Aprobado desde Direccion Administracion
-#Test 9: Rechazado desde Direccion Administracion
-#5:no corresponde desde dire
-#6:solicita datos desde dire
+#Test 1: Aprobado desde Direccion Administracion
+#Test 2: Rechazado desde Direccion Administracion
+#Test 3:no corresponde desde dire
+#Test 4:solicita datos desde dire
 
 #DEPARTAMENTO
 #Test 4: Aprobado desde Contabilidad y presupuesto
@@ -50,9 +50,9 @@ ${docLean}    ADJUNTO.pdf
 #Test 15: Rechazado desde Tesoreria
 #Test 16: Solicita datos adicionales en operador, direccion y departamento + rechaza
 
-Test 8 - Consulta Tributaria Aprobado desde Direccion Administracion [ciudadano] Paso 1
+Test 1 - Aprobado desde Direccion Administracion [ciudadano] Paso 1
     Abrir Navegador en modo incognito    ${pageCiudadano}
-    [Documentation]    Crear una nueva consulta tributaria como borrador
+    [Documentation]    Crea un nuevo tramite
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
@@ -64,7 +64,7 @@ Test 8 - Consulta Tributaria Aprobado desde Direccion Administracion [ciudadano]
     Cerrar Navegador
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
 
-Test 8 - Consulta Tributaria Aprobado desde Direccion Administracion Chequear Estado Desde Usuario [ciudadano] Paso 1
+Test 1 - Aprobado desde Direccion Administracion Chequear Estado Desde Usuario [ciudadano] Paso 2
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
@@ -73,7 +73,7 @@ Test 8 - Consulta Tributaria Aprobado desde Direccion Administracion Chequear Es
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
     Cerrar Navegador
 
-Test 8 - Consulta Tributaria: verificar el estado del tramite (pendiente) [operador mesa] Paso 1
+Test 1 - Aprobado desde Direccion Administracion verificar el estado del tramite (pendiente) [operador mesa] Paso 3
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     Abrir Navegador en modo incognito    ${pagePersonal}
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
@@ -83,7 +83,7 @@ Test 8 - Consulta Tributaria: verificar el estado del tramite (pendiente) [opera
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
     Cerrar Navegador
 
-Test 8 - Consulta Tributaria Aprobado desde Direccion Administracion [operador mesa] Paso 2
+Test 1 - Aprobado desde Direccion Administracion [operador mesa] Paso 4
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     Abrir Navegador en modo incognito    ${pagePersonal}
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
@@ -102,7 +102,7 @@ Test 8 - Consulta Tributaria Aprobado desde Direccion Administracion [operador m
     Cerrar Navegador
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
 
-Test 8 - Consulta Tributaria verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano] Paso 2
+Test 1 - Verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano] Paso 5
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
@@ -111,7 +111,7 @@ Test 8 - Consulta Tributaria verificar si el boton del tacho esta bloqueado - bo
     Element Should Be Disabled    //tbody/tr[td[1]="${tramite}"]//button
     Cerrar Navegador
 
-Test 8 - Consulta Tributaria verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano] Paso 2
+Test 1 - Verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano] Paso 6
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
@@ -122,7 +122,42 @@ Test 8 - Consulta Tributaria verificar si el boton cancelar tramite no existe - 
     Wait Until Page Does Not Contain Element    ${botonCancelartramite}
     Cerrar Navegador
 
-Test 8 - Consulta Tributaria: verificar si los botones de acciones son correctos [DireccionAdministracion] Paso 3
+Test 1 - Verificacion del estado del tramite (en curso) [ciudadano] Paso 7
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    Abrir Navegador en modo incognito    ${pageCiudadano}
+    [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
+    Asignar Tag Numerado
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
+
+Test 1 - Verificar que el tramite no exista [operador mesa] Paso 8
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    Abrir Navegador en modo incognito    ${pagePersonal}
+    [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonConsultaDeTramites}    botonConsultaDeTramites
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 1 - Verificar el estado del tramite (asignado) [DireccionAdministracion] Paso 9
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    Abrir Navegador en modo incognito    ${pagePersonal}
+    [Documentation]    Desde la Dirección de Administracion, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    Inicio sesion y verificacion de texto inicial - operador  ${userDireccionAdministracion}  ${pass}  Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
+
+Test 1 - Verificar el estado y la existencia del tramite en "Consulta de tramites" (Asignado) [operador mesa] Paso 10
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    Abrir Navegador en modo incognito    ${pagePersonal}
+    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta, ademas, se verifica que aparezca en la seccion de consulta de tramites
+    Asignar Tag Numerado
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonConsultaDeTramites}    botonConsultaDeTramites
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
+
+Test 1 - Aprobado desde Direccion Administracion verificar si los botones de acciones son correctos [DireccionAdministracion] Paso 11
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     Abrir Navegador en modo incognito    ${pagePersonal}
     [Documentation]    Se ingresa como Direccion y se verifica que aparezcan los botones de acciones correctos
@@ -146,7 +181,7 @@ Test 8 - Consulta Tributaria: verificar si los botones de acciones son correctos
     Verificar Boton Sin Fallar  ${botonAprobarInformarAlContribuyente}  botonAprobarInformarAlContribuyente
     Cerrar Navegador
 
-Test 8 - Consulta Tributaria Aprobado desde Direccion Administracion [DireccionAdministracion] Paso 3
+Test 1 - Aprobado desde Direccion Administracion [DireccionAdministracion] Paso 12
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     Abrir Navegador en modo incognito    ${pagePersonal}
     [Documentation]    Entra como Direccion y utiliza la opcion "Aprobar" para continuar con el proceso
@@ -162,17 +197,17 @@ Test 8 - Consulta Tributaria Aprobado desde Direccion Administracion [DireccionA
     Cerrar Navegador
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
 
-Test 8 - Consulta Tributaria: verificar el estado del tramite (Finalizado) [DireccionAdministracion] Paso 4
+Test 1 - Aprobado desde Direccion Administracion verificar el estado del tramite (Finalizado) [DireccionAdministracion] Paso 13
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     Abrir Navegador en modo incognito    ${pagePersonal}
-    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
+    [Documentation]    Desde el operador, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - operador  ${userDireccionAdministracion}  ${pass}  Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonTramitesFinalizados}    botonTramitesFinalizados
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Finalizado
     Cerrar Navegador
 
-Test 8 - Consulta Tributaria Aprobado desde Direccion Administracion Chequear Estado Desde Usuario [ciudadano] Paso 4
+Test 1 - Aprobado desde Direccion Administracion Chequear Estado Desde Usuario [ciudadano] Paso 14
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
@@ -182,9 +217,9 @@ Test 8 - Consulta Tributaria Aprobado desde Direccion Administracion Chequear Es
     Cerrar Navegador
 
 
-Test 9 - Consulta Tributaria Rechazado desde Direccion Administracion [ciudadano] Paso 1
+Test 2 - Rechazado desde Direccion Administracion [ciudadano] Paso 1
     Abrir Navegador en modo incognito    ${pageCiudadano}
-    [Documentation]    Crear una nueva consulta tributaria como borrador
+    [Documentation]    Crea un nuevo tramite
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
@@ -196,7 +231,7 @@ Test 9 - Consulta Tributaria Rechazado desde Direccion Administracion [ciudadano
     Cerrar Navegador
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
 
-Test 9 - Consulta Tributaria Rechazado desde Direccion Administracion Chequear Estado Desde Usuario [ciudadano] Paso 1
+Test 2 - Rechazado desde Direccion Administracion Chequear Estado Desde Usuario [ciudadano] Paso 2
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
@@ -205,7 +240,7 @@ Test 9 - Consulta Tributaria Rechazado desde Direccion Administracion Chequear E
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
     Cerrar Navegador
 
-Test 9 - Consulta Tributaria: verificar el estado del tramite (pendiente) [operador mesa] Paso 1
+Test 2 - Rechazado desde Direccion Administracion verificar el estado del tramite (pendiente) [operador mesa] Paso 3
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     Abrir Navegador en modo incognito    ${pagePersonal}
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
@@ -215,7 +250,7 @@ Test 9 - Consulta Tributaria: verificar el estado del tramite (pendiente) [opera
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
     Cerrar Navegador
 
-Test 9 - Consulta Tributaria Rechazado desde Direccion Administracion [operador mesa] Paso 2
+Test 2 - Rechazado desde Direccion Administracion [operador mesa] Paso 4
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     Abrir Navegador en modo incognito    ${pagePersonal}
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
@@ -234,7 +269,7 @@ Test 9 - Consulta Tributaria Rechazado desde Direccion Administracion [operador 
     Cerrar Navegador
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
 
-Test 9 - Consulta Tributaria verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano] Paso 2
+Test 2 - Verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano] Paso 5
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
@@ -243,7 +278,7 @@ Test 9 - Consulta Tributaria verificar si el boton del tacho esta bloqueado - bo
     Element Should Be Disabled    //tbody/tr[td[1]="${tramite}"]//button
     Cerrar Navegador
 
-Test 9 - Consulta Tributaria verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano] Paso 2
+Test 2 - Verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano] Paso 6
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
@@ -254,7 +289,42 @@ Test 9 - Consulta Tributaria verificar si el boton cancelar tramite no existe - 
     Wait Until Page Does Not Contain Element    ${botonCancelartramite}
     Cerrar Navegador
 
-Test 9 - Consulta Tributaria: verificar si los botones de acciones son correctos [DireccionAdministracion] Paso 3
+Test 2 - Verificacion del estado del tramite (en curso) [ciudadano] Paso 7
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    Abrir Navegador en modo incognito    ${pageCiudadano}
+    [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
+    Asignar Tag Numerado
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
+
+Test 2 - Verificar que el tramite no exista [operador mesa] Paso 8
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    Abrir Navegador en modo incognito    ${pagePersonal}
+    [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonConsultaDeTramites}    botonConsultaDeTramites
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 2 - Verificar el estado del tramite (asignado) [DireccionAdministracion] Paso 9
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    Abrir Navegador en modo incognito    ${pagePersonal}
+    [Documentation]    Desde la Dirección de Administracion, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    Inicio sesion y verificacion de texto inicial - operador  ${userDireccionAdministracion}  ${pass}  Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
+
+Test 2 - Verificar el estado y la existencia del tramite en "Consulta de tramites" (Asignado) [operador mesa] Paso 10
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    Abrir Navegador en modo incognito    ${pagePersonal}
+    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta, ademas, se verifica que aparezca en la seccion de consulta de tramites
+    Asignar Tag Numerado
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonConsultaDeTramites}    botonConsultaDeTramites
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
+
+Test 2 - Rechazado desde Direccion Administracion verificar si los botones de acciones son correctos [DireccionAdministracion] Paso 11
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     Abrir Navegador en modo incognito    ${pagePersonal}
     [Documentation]    Se ingresa como Direccion y se verifica que aparezcan los botones de acciones correctos
@@ -278,11 +348,10 @@ Test 9 - Consulta Tributaria: verificar si los botones de acciones son correctos
     Verificar Boton Sin Fallar  ${botonAprobarInformarAlContribuyente}  botonAprobarInformarAlContribuyente
     Cerrar Navegador
 
-
-Test 9 - Consulta Tributaria Rechazado desde Direccion Administracion [DireccionAdministracion] Paso 3
+Test 2 - Rechazado desde Direccion Administracion [DireccionAdministracion] Paso 12
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     Abrir Navegador en modo incognito    ${pagePersonal}
-    [Documentation]    Entra como DespachoSubdireccionGeneral y utiliza la opcion "RechazarInformarAlContribuyente" para continuar con el proceso
+    [Documentation]    Entra como Direccion y utiliza la opcion "RechazarInformarAlContribuyente" para continuar con el proceso
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - operador  ${userDireccionAdministracion}  ${pass}  Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -295,17 +364,17 @@ Test 9 - Consulta Tributaria Rechazado desde Direccion Administracion [Direccion
     Cerrar Navegador
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
 
-Test 9 - Consulta Tributaria: verificar el estado del tramite (Finalizado) [DireccionAdministracion] Paso 4
+Test 2 - Rechazado desde Direccion Administracion verificar el estado del tramite (Finalizado) [DireccionAdministracion] Paso 13
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     Abrir Navegador en modo incognito    ${pagePersonal}
-    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
+    [Documentation]    Desde el operador, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - operador  ${userDireccionAdministracion}  ${pass}  Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonTramitesFinalizados}    botonTramitesFinalizados
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Finalizado
     Cerrar Navegador
 
-Test 9 - Consulta Tributaria Rechazado desde Direccion Administracion Chequear Estado Desde Usuario [ciudadano] Paso 4
+Test 2 - Rechazado desde Direccion Administracion Chequear Estado Desde Usuario [ciudadano] Paso 14
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
@@ -315,9 +384,9 @@ Test 9 - Consulta Tributaria Rechazado desde Direccion Administracion Chequear E
     Cerrar Navegador
 
 
-Test 5 - Consulta Tributaria No Corresponde desde Direccion Administracion [ciudadano] Paso 1
+Test 3 - No Corresponde desde Direccion Administracion [ciudadano] Paso 1
     Abrir Navegador en modo incognito    ${pageCiudadano}
-    [Documentation]    Crear una nueva consulta tributaria como borrador
+    [Documentation]    Crea un nuevo tramite
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
@@ -328,7 +397,7 @@ Test 5 - Consulta Tributaria No Corresponde desde Direccion Administracion [ciud
     Set Suite Variable    ${tramite}
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
 
-Test 5 - Consulta Tributaria No Corresponde desde Direccion Administracion Chequear Estado Desde Usuario [ciudadano] Paso 2
+Test 3 - No Corresponde desde Direccion Administracion Chequear Estado Desde Usuario [ciudadano] Paso 2
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
@@ -336,7 +405,7 @@ Test 5 - Consulta Tributaria No Corresponde desde Direccion Administracion Chequ
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
-Test 5 - Consulta Tributaria: verificar el estado del tramite (pendiente) [operador mesa] Paso 3
+Test 3 - No Corresponde desde Direccion Administracion verificar el estado del tramite (pendiente) [operador mesa] Paso 3
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     Abrir Navegador en modo incognito    ${pagePersonal}
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
@@ -345,7 +414,7 @@ Test 5 - Consulta Tributaria: verificar el estado del tramite (pendiente) [opera
     Validar y hacer clic en el boton    ${botonMesaEntradaVirtual}    botonMesaEntradaVirtual
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
-Test 5 - Consulta Tributaria No Corresponde desde Direccion Administracion [operador mesa] Paso 4
+Test 3 - No Corresponde desde Direccion Administracion [operador mesa] Paso 4
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     Abrir Navegador en modo incognito    ${pagePersonal}
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
@@ -364,7 +433,7 @@ Test 5 - Consulta Tributaria No Corresponde desde Direccion Administracion [oper
     Close browser
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
 
-Test 5 - Consulta Tributaria verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano] Paso 5
+Test 3 - Verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano] Paso 5
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
@@ -373,7 +442,7 @@ Test 5 - Consulta Tributaria verificar si el boton del tacho esta bloqueado - bo
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    //tbody/tr[td[1]="${tramite}"]//button
 
-Test 5 - Consulta Tributaria verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano] Paso 6
+Test 3 - Verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano] Paso 6
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
@@ -384,7 +453,42 @@ Test 5 - Consulta Tributaria verificar si el boton cancelar tramite no existe - 
     Validar y hacer clic en el boton    ${botonVerDetalleTramite}    botonVerDetalle
     Wait Until Page Does Not Contain Element    ${botonCancelartramite}
 
-Test 5 - Consulta Tributaria: verificar si los botones de acciones son correctos [DireccionAdministracion] Paso 7
+Test 3 - Verificacion del estado del tramite (en curso) [ciudadano] Paso 7
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    Abrir Navegador en modo incognito    ${pageCiudadano}
+    [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
+    Asignar Tag Numerado
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
+
+Test 3 - Verificar que el tramite no exista [operador mesa] Paso 8
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    Abrir Navegador en modo incognito    ${pagePersonal}
+    [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonConsultaDeTramites}    botonConsultaDeTramites
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 3 - Verificar el estado del tramite (asignado) [DireccionAdministracion] Paso 9
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    Abrir Navegador en modo incognito    ${pagePersonal}
+    [Documentation]    Desde la Dirección de Administracion, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    Inicio sesion y verificacion de texto inicial - operador  ${userDireccionAdministracion}  ${pass}  Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
+
+Test 3 - Verificar el estado y la existencia del tramite en "Consulta de tramites" (Asignado) [operador mesa] Paso 10
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    Abrir Navegador en modo incognito    ${pagePersonal}
+    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta, ademas, se verifica que aparezca en la seccion de consulta de tramites
+    Asignar Tag Numerado
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonConsultaDeTramites}    botonConsultaDeTramites
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
+
+Test 3 - No Corresponde desde Direccion Administracion verificar si los botones de acciones son correctos [DireccionAdministracion] Paso 11
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     Abrir Navegador en modo incognito    ${pagePersonal}
     [Documentation]    Se ingresa como Direccion y se verifica que aparezcan los botones de acciones correctos
@@ -403,7 +507,7 @@ Test 5 - Consulta Tributaria: verificar si los botones de acciones son correctos
     Verificar Boton Sin Fallar  ${botonRechazarInformarAlContribuyente}  botonRechazarInformarAlContribuyente
     Verificar Boton Sin Fallar  ${botonAprobarInformarAlContribuyente}  botonAprobarInformarAlContribuyente
 
-Test 5 - Consulta Tributaria No Corresponde desde Direccion Administracion [DireccionAdministracion] Paso 8
+Test 3 - No Corresponde desde Direccion Administracion [DireccionAdministracion] Paso 12
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     Abrir Navegador en modo incognito    ${pagePersonal}
     [Documentation]    Entra como Direccion y utiliza la opcion "Aprobar" para continuar con el proceso
@@ -419,10 +523,10 @@ Test 5 - Consulta Tributaria No Corresponde desde Direccion Administracion [Dire
     Close browser
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
 
-Test 5 - Consulta Tributaria: verificar si los botones de acciones son correctos [operador mesa] Paso 9
+Test 3 - Verificar si los botones de acciones son correctos [operador mesa] Paso 13
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     Abrir Navegador en modo incognito    ${pagePersonal}
-    [Documentation]    Se ingresa como Direccion y se verifica que aparezcan los botones de acciones correctos
+    [Documentation]    Se ingresa como Operador y se verifica que aparezcan los botones de acciones correctos
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonMesaEntradaVirtual}    botonMesaEntradaVirtual
@@ -439,7 +543,7 @@ Test 5 - Consulta Tributaria: verificar si los botones de acciones son correctos
     Verificar boton Sin Fallar  ${botonSolicitarDatosAdicionales}  boton solicitar datos adicionales
     Verificar Boton Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
 
-Test 5 - Consulta Tributaria No Corresponde desde Direccion Administracion [operador mesa] Paso 10
+Test 3 - No Corresponde desde Direccion Administracion [operador mesa] Paso 14
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     Abrir Navegador en modo incognito    ${pagePersonal}
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
@@ -458,7 +562,7 @@ Test 5 - Consulta Tributaria No Corresponde desde Direccion Administracion [oper
     Close browser
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
 
-Test 5 - Consulta Tributaria No Corresponde desde Direccion Administracion [DireccionAdministracion] Paso 11
+Test 3 - No Corresponde desde Direccion Administracion [DireccionAdministracion] Paso 15
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     Abrir Navegador en modo incognito    ${pagePersonal}
     [Documentation]    Entra como Direccion y utiliza la opcion "Aprobar" para continuar con el proceso
@@ -474,16 +578,16 @@ Test 5 - Consulta Tributaria No Corresponde desde Direccion Administracion [Dire
     Close browser
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
 
-Test 5 - Consulta Tributaria: verificar el estado del tramite (Finalizado) [DireccionAdministracion] Paso 3
+Test 3 - No Corresponde desde Direccion Administracion verificar el estado del tramite (Finalizado) [DireccionAdministracion] Paso 16
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     Abrir Navegador en modo incognito    ${pagePersonal}
-    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
+    [Documentation]    Desde el operador, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - operador  ${userDireccionAdministracion}  ${pass}  Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonTramitesFinalizados}    botonTramitesFinalizados
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Finalizado
 
-Test 5 - Consulta Tributaria No Corresponde desde Direccion Administracion Chequear Estado Desde Usuario [ciudadano] Paso 12
+Test 3 - No Corresponde desde Direccion Administracion Chequear Estado Desde Usuario [ciudadano] Paso 17
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
@@ -493,9 +597,9 @@ Test 5 - Consulta Tributaria No Corresponde desde Direccion Administracion Chequ
 
 
 
-Test 6 - Consulta Tributaria SolicitarDatosAdicionales desde Direccion Administracion [ciudadano] Paso 1
+Test 4 - SolicitarDatosAdicionales desde Direccion Administracion [ciudadano] Paso 1
     Abrir Navegador en modo incognito    ${pageCiudadano}
-    [Documentation]    Crear una nueva consulta tributaria como borrador
+    [Documentation]    Crea un nuevo tramite
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar y hacer clic en el boton    ${botonComenzarAhora}    botonComenzarAhora
@@ -507,7 +611,7 @@ Test 6 - Consulta Tributaria SolicitarDatosAdicionales desde Direccion Administr
     Cerrar navegador
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
 
-Test 6 - Consulta Tributaria SolicitarDatosAdicionales desde Direccion Administracion Chequear Estado Desde Usuario [ciudadano] Paso 2
+Test 4 - SolicitarDatosAdicionales desde Direccion Administracion Chequear Estado Desde Usuario [ciudadano] Paso 2
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
@@ -515,7 +619,7 @@ Test 6 - Consulta Tributaria SolicitarDatosAdicionales desde Direccion Administr
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente
 
-Test 6 - Consulta Tributaria: verificar el estado del tramite (pendiente) [operador mesa] Paso 3
+Test 4 - Verificar el estado del tramite (pendiente) [operador mesa] Paso 3
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     Abrir Navegador en modo incognito    ${pagePersonal}
     [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
@@ -524,7 +628,7 @@ Test 6 - Consulta Tributaria: verificar el estado del tramite (pendiente) [opera
     Validar y hacer clic en el boton    ${botonMesaEntradaVirtual}    botonMesaEntradaVirtual
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Pendiente
 
-Test 6 - Consulta Tributaria SolicitarDatosAdicionales desde Direccion Administracion [operador mesa] Paso 4
+Test 4 - SolicitarDatosAdicionales desde Direccion Administracion [operador mesa] Paso 4
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     Abrir Navegador en modo incognito    ${pagePersonal}
     [Documentation]    Entra como operador mesa entrada para continuar con el proceso, enviando el tramite a Direccion
@@ -543,8 +647,7 @@ Test 6 - Consulta Tributaria SolicitarDatosAdicionales desde Direccion Administr
     Close browser
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
 
-
-Test 6 - Consulta Tributaria verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano] Paso 5
+Test 4 - Verificar si el boton del tacho esta bloqueado - boton cancelar tramite [ciudadano] Paso 5
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
@@ -553,7 +656,7 @@ Test 6 - Consulta Tributaria verificar si el boton del tacho esta bloqueado - bo
     Verificar Y Esperar Visibilidad De Elemento por localizador    ${circuloUsuario}
     Element Should Be Disabled    //tbody/tr[td[1]="${tramite}"]//button
 
-Test 6 - Consulta Tributaria verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano] Paso 6
+Test 4 - Verificar si el boton cancelar tramite no existe - boton cancelar tramite [ciudadano] Paso 6
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
@@ -564,7 +667,42 @@ Test 6 - Consulta Tributaria verificar si el boton cancelar tramite no existe - 
     Validar y hacer clic en el boton    ${botonVerDetalleTramite}    botonVerDetalle
     Wait Until Page Does Not Contain Element    ${botonCancelartramite}
 
-Test 6 - Consulta Tributaria: verificar si los botones de acciones son correctos [DireccionAdministracion] Paso 7
+Test 4 - Verificacion del estado del tramite (en curso) [ciudadano] Paso 7
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    Abrir Navegador en modo incognito    ${pageCiudadano}
+    [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
+    Asignar Tag Numerado
+    Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
+    Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    En curso
+
+Test 4 - Verificar que el tramite no exista [operador mesa] Paso 8
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    Abrir Navegador en modo incognito    ${pagePersonal}
+    [Documentation]    Desde el operador mesa, se verifica que no se pueda visualizar el tramite
+    Asignar Tag Numerado
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonConsultaDeTramites}    botonConsultaDeTramites
+    Validar Tramite Inexistente    ${tablaOperador}    ${tramite}
+
+Test 4 - Verificar el estado del tramite (asignado) [DireccionAdministracion] Paso 9
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    Abrir Navegador en modo incognito    ${pagePersonal}
+    [Documentation]    Desde la Dirección de Administracion, se verifica el estado del tramite para saber en que parte del ciclo esta
+    Asignar Tag Numerado
+    Inicio sesion y verificacion de texto inicial - operador  ${userDireccionAdministracion}  ${pass}  Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
+
+Test 4 - Verificar el estado y la existencia del tramite en "Consulta de tramites" (Asignado) [operador mesa] Paso 10
+    Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
+    Abrir Navegador en modo incognito    ${pagePersonal}
+    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta, ademas, se verifica que aparezca en la seccion de consulta de tramites
+    Asignar Tag Numerado
+    Inicio sesion y verificacion de texto inicial - operador  ${userOperadorMesa}  ${pass}  Reportes y Estadísticas
+    Validar y hacer clic en el boton    ${botonConsultaDeTramites}    botonConsultaDeTramites
+    Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Asignado
+
+Test 4 - Verificar si los botones de acciones son correctos [DireccionAdministracion] Paso 11
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     Abrir Navegador en modo incognito    ${pagePersonal}
     [Documentation]    Se ingresa como Direccion y se verifica que aparezcan los botones de acciones correctos
@@ -584,10 +722,10 @@ Test 6 - Consulta Tributaria: verificar si los botones de acciones son correctos
     Verificar Boton Sin Fallar  ${botonRechazarInformarAlContribuyente}  botonRechazarInformarAlContribuyente
     Verificar Boton Sin Fallar  ${botonAprobarInformarAlContribuyente}  botonAprobarInformarAlContribuyente
 
-Test 6 - Consulta Tributaria SolicitarDatosAdicionales desde Direccion Administracion [DireccionAdministracion] Paso 8
+Test 4 - SolicitarDatosAdicionales desde Direccion Administracion [DireccionAdministracion] Paso 12
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     Abrir Navegador en modo incognito    ${pagePersonal}
-    [Documentation]    Entra como Direccion y utiliza la opcion "Aprobar" para continuar con el proceso
+    [Documentation]    Entra como Direccion y utiliza la opcion "Solicitar Datos Adicionales" para continuar con el proceso
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - operador  ${userDireccionAdministracion}  ${pass}  Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonBandejaEntrada}    botonBandejaEntrada
@@ -600,7 +738,7 @@ Test 6 - Consulta Tributaria SolicitarDatosAdicionales desde Direccion Administr
     Close browser
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
 
-Test 6 - Consulta Tributaria Solicitar Datos Adicionales Chequear Estado Desde Usuario [ciudadano] Paso 9
+Test 4 - Solicitar Datos Adicionales Chequear Estado Desde Usuario [ciudadano] Paso 13
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló Solicitar Datos Adicionales desde Operador mesa
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
@@ -608,7 +746,7 @@ Test 6 - Consulta Tributaria Solicitar Datos Adicionales Chequear Estado Desde U
     Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Validar Estado con numero de tramite    ${tablaMisTramitesRecientes}    3    ${tramite}    Pendiente Contribuyente
 
-Test 6 - Consulta Tributaria: el ciudadano avanza en el tramite [ciudadano] Paso 10
+Test 4 - Solicitar Datos Adicionales El ciudadano avanza en el tramite [ciudadano] Paso 14
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló Solicitar Datos Adicionales desde Operador mesa
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Se verifica si el usuario puede avanzar en el tramite debido a que le solicitaron datos adicionales
@@ -626,7 +764,7 @@ Test 6 - Consulta Tributaria: el ciudadano avanza en el tramite [ciudadano] Paso
     Close browser
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
 
-Test 6 - Consulta Tributaria SolicitarDatosAdicionales desde Direccion Administracion [DireccionAdministracion] Paso 11
+Test 4 - SolicitarDatosAdicionales desde Direccion Administracion [DireccionAdministracion] Paso 15
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     Abrir Navegador en modo incognito    ${pagePersonal}
     [Documentation]    Entra como Direccion y utiliza la opcion "Aprobar" para continuar con el proceso
@@ -642,16 +780,16 @@ Test 6 - Consulta Tributaria SolicitarDatosAdicionales desde Direccion Administr
     Close browser
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
 
-Test 6 - Consulta Tributaria: verificar el estado del tramite (Finalizado) [DireccionAdministracion] Paso 3
+Test 4 - verificar el estado del tramite (Finalizado) [DireccionAdministracion] Paso 16
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque falló la creacion del tramite
     Abrir Navegador en modo incognito    ${pagePersonal}
-    [Documentation]    Desde el operador mesa, se verifica el estado del tramite para saber en que parte del ciclo esta
+    [Documentation]    Desde el operador , se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Inicio sesion y verificacion de texto inicial - operador  ${userDireccionAdministracion}  ${pass}  Reportes y Estadísticas
     Validar y hacer clic en el boton    ${botonTramitesFinalizados}    botonTramitesFinalizados
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Finalizado
 
-Test 6 - Consulta Tributaria SolicitarDatosAdicionales desde Direccion Administracion Chequear Estado Desde Usuario [ciudadano] Paso 11
+Test 4 - SolicitarDatosAdicionales desde Direccion Administracion Chequear Estado Desde Usuario [ciudadano] Paso 17
     Run Keyword If    '${TEST_OK}' != 'PASS'    Skip    Se omite el Test porque hubo un fallo en el flujo del tramite anteriormente
     Abrir Navegador en modo incognito    ${pageCiudadano}
     [Documentation]    Entra desde el usuario para chequear que se actualiza el Estado del tramite segun en que parte del ciclo esta
