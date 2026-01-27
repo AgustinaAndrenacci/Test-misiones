@@ -1,7 +1,14 @@
 *** Settings ***
 Documentation     Se realizan testeos creando tramites verificando si el flujo, los estados, los botones funciona de manera correcta.
+...
 ...               Se realizaron las siguientes pruebas:
-...               -Test 5: Se crea un tramite de la Direccion de recaudaciones y lo aprueba el Departamento de impuestos
+...
+...               -Test 5: Se crea un tramite de la Direccion de auditoria y planificacion y lo aprueba el Departamento de Programación y Control de Gestión
+...
+...               -Test 6: Se crea un tramite de la Direccion de auditoria y planificacion y lo rechaza el Departamento de Programación y Control de Gestión
+...
+...               -Test 7: Se crea un tramite de la Direccion de auditoria y planificacion y el Departamento de Programación y Control de Gestión solicita datos adicionales
+
 Library    SeleniumLibrary
 Library    String
 Library    Collections

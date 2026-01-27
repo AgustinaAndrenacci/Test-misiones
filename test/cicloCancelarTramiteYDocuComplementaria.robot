@@ -1,4 +1,14 @@
 *** Settings ***
+Documentation     Se realizan testeos para verificar si desde el lado del ciudadano se observa de manera correcta todos los datos
+...
+...               Test 1:Se crea un tramite
+...
+...               Test 2:Subir documentacion complementaria (subir, cancelar, eliminar, suba de diferentes archivos correctos e incorrectos, verificacion de archivos subidos)
+...
+...               Test 3:Cancelar tramite desde el icono del tacho (verificacion de los botones, acciones, existencia de tramite en las secciones, historial)
+...
+...               Test 4:Cancelar tramite desde el boton cancelar dentro del tramite (verificacion de los botones, acciones, existencia de tramite en las secciones, historial)
+
 Library    SeleniumLibrary
 Library    String
 Library    Collections
@@ -353,7 +363,7 @@ Test 4 - Crear otro tramite [ciudadano]
 
 #-----------------------------------------------ICONO TACHO DE CANCELAR TRAMITE ------------------------------------------
 #///////Cancelar tramite
-Test 5 - Cancelar tramite desde el tacho [ciudadano]
+Test 4 - Cancelar tramite desde el tacho [ciudadano]
     [Documentation]    Desde el ciudadano, se cancela el tramite presionando el icono del tacho del tramite
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -366,7 +376,7 @@ Test 5 - Cancelar tramite desde el tacho [ciudadano]
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST_STATUS}
 
 #///////Ver si los botones se bloquearon
-Test 5 - Verificar si el boton del tacho esta bloqueado - icono tacho de cancelar tramite [ciudadano]
+Test 4 - Verificar si el boton del tacho esta bloqueado - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton del tacho para cancelar el tramite se encuentre bloqueado
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -374,7 +384,7 @@ Test 5 - Verificar si el boton del tacho esta bloqueado - icono tacho de cancela
      Inicio sesion y verificacion de texto inicial - ciudadano  ${userCiudadano2}  ${passCiudadano}  ${circuloUsuario}
     Element Should Be Disabled    //tbody/tr[td[1]="${tramite}"]${botonTachoINICIO}
 
-Test 5 - Verificar si el boton cancelar tramite no existe - icono tacho de cancelar tramite [ciudadano]
+Test 4 - Verificar si el boton cancelar tramite no existe - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica que el boton cancelar tramite no exista dentro del tramite
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -384,7 +394,7 @@ Test 5 - Verificar si el boton cancelar tramite no existe - icono tacho de cance
     Wait Until Page Does Not Contain Element    ${botonCancelarTramite}
 
 #///////Ver el estado
-Test 5 - Verificar el estado del tramite (cancelado) - icono tacho de cancelar tramite [ciudadano]
+Test 4 - Verificar el estado del tramite (cancelado) - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el usuario del ciudadano, se verifica el estado del tramite para saber en que parte del ciclo esta
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -411,7 +421,7 @@ Test 3 - Verificar el estado y la existencia del tramite en "Consulta de tramite
     Validar Estado con numero de tramite    ${tablaOperador}    4    ${tramite}    Cancelado
 
 #///////Ver que el personal no pueda realizar ninguna accion
-Test 5 - Verificar que el personal no pueda realizar acciones - icono tacho de cancelar tramite [operador mesa]
+Test 4 - Verificar que el personal no pueda realizar acciones - icono tacho de cancelar tramite [operador mesa]
     [Documentation]    Se ingresa como operador mesa y se verifica que no aparezcan los botones de acciones para realizar sobre el tramite
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -434,7 +444,7 @@ Test 5 - Verificar que el personal no pueda realizar acciones - icono tacho de c
     Verificar si el boton no existe Sin Fallar  ${enviarDireccion}  boton enviar a Direccion
     Verificar si el boton no existe Sin Fallar  ${botonNoCorresponde}  boton no corresponde
 
-Test 5 - Verificar Historial - icono tacho de cancelar tramite [ciudadano]
+Test 4 - Verificar Historial - icono tacho de cancelar tramite [ciudadano]
     [Documentation]    Desde el ciudadano, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -445,7 +455,7 @@ Test 5 - Verificar Historial - icono tacho de cancelar tramite [ciudadano]
     Verificar presencia de    ${textoTramiteCanceladoExitosamente}    En el Historial no se encontro visible que el tramite se asigne a la "Mesa de Entrada Virtual"
 
 #porque desde aca se ve
-Test 5 - Verificar Historial - icono tacho de cancelar tramite [operador mesa]
+Test 4 - Verificar Historial - icono tacho de cancelar tramite [operador mesa]
     [Documentation]    Desde el operador mesa, se verifica que en el historial figure que se cancelo el tramite
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante

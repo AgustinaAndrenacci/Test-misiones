@@ -1,4 +1,75 @@
 *** Settings ***
+Documentation     Se realizan testeos para verificar si desde el lado del personal se observa de manera correcta todos los datos
+...
+...               Se realizaron las siguientes pruebas:
+...
+...               Test 1: Se crea un tramite
+...
+...               Test 1 - Paso 1:Verificar SubTitulo [operador mesa]
+...
+...               Test 1 - Paso 2:Verificar NumeroTramite [operador mesa]
+...
+...               Test 1 - Paso 3:Verificar Fecha de Creacion [operador mesa]
+...
+...               Test 1 - Paso 4:Verificar Numero de Seguimiento [operador mesa]
+...
+...               Test 1 - Paso 5:Verificar adjunto subido [operador mesa]
+...
+...               Test 1 - Paso 6:Verificar Asunto [operador mesa]
+...
+...               Test 1 - Paso 7:Verificar Detalle [operador mesa]
+...
+...               Test 1 - Paso 8:Verificar Estado [operador mesa]
+...
+...               Test 1 - Paso 9:Verificar Datos del Ciudadano [operador mesa]
+...
+...               Test 1 - Paso 10:Verificar Asignacion [operador mesa]
+...
+...               Test 2: Se crea un tramite
+...
+...               Test 2 - Paso 1:Verificar SubTitulo [Direccion]
+...
+...               Test 2 - Paso 2:Verificar NumeroTramite [Direccion]
+...
+...               Test 2 - Paso 3:Verificar Fecha de Creacion [Direccion]
+...
+...               Test 2 - Paso 4:Verificar Numero de Seguimiento [Direccion]
+...
+...               Test 2 - Paso 5:Verificar adjunto subido [Direccion]
+...
+...               Test 2 - Paso 6:Verificar Asunto [Direccion]
+...
+...               Test 2 - Paso 7:Verificar Detalle [Direccion]
+...
+...               Test 2 - Paso 8:Verificar Estado [Direccion]
+...
+...               Test 2 - Paso 9:Verificar Datos del Ciudadano [Direccion]
+...
+...               Test 2 - Paso 10:Verificar Asignacion [Direccion]
+...
+...               Test 3: Se crea un tramite
+...
+...               Test 3 - Paso 1:Verificar SubTitulo [Departamento]
+...
+...               Test 3 - Paso 2:Verificar NumeroTramite [Departamento]
+...
+...               Test 3 - Paso 3:Verificar Fecha de Creacion [Departamento]
+...
+...               Test 3 - Paso 4:Verificar Numero de Seguimiento [Departamento]
+...
+...               Test 3 - Paso 5:Verificar adjunto subido [Departamento]
+...
+...               Test 3 - Paso 6:Verificar Asunto [Departamento]
+...
+...               Test 3 - Paso 7:Verificar Detalle [Departamento]
+...
+...               Test 3 - Paso 8:Verificar Estado [Departamento]
+...
+...               Test 3 - Paso 9:Verificar Datos del Ciudadano [Departamento]
+...
+...               Test 3 - Paso 10:Verificar Asignacion [Departamento]
+...
+
 Library    SeleniumLibrary
 Library    String
 Library    Collections
@@ -35,42 +106,6 @@ ${docLean}    ADJUNTO.pdf
 ${espacioDeArchivosDocCom}    //div[@class='flex flex-col flex-1']//main
 
 ***Test Cases***
-
-#-------INDICACION DE TESTS-------
-
-#Test 1: Consulta Tributaria [operador mesa]
-#       Paso1:Verificar SubTitulo [operador mesa]
-#       Paso2:Verificar NumeroTramite [operador mesa]
-#       Paso3:Verificar Fecha de Creacion [operador mesa]
-#       Paso4:Verificar Numero de Seguimiento [operador mesa]
-#       Paso5:Verificar DatosPresentados Asunto [operador mesa]
-#       Paso6:Verificar DatosPresentados Detalle [operador mesa]
-#       Paso7:Verificar Estado [operador mesa]
-#       Paso8:Verificar Datos Ciudadano [operador mesa]
-#       Paso9:Verificar Asignacion [operador mesa]
-
-#Test 2: Consulta Tributaria [Direccion]
-#       Paso1:Verificar SubTitulo [Direccion]
-#       Paso2:Verificar NumeroTramite [Direccion]
-#       Paso3:Verificar Fecha de Creacion [Direccion]
-#       Paso4:Verificar Numero de Seguimiento [Direccion]
-#       Paso5:Verificar DatosPresentados Asunto [Direccion]
-#       Paso6:Verificar DatosPresentados Detalle [Direccion]
-#       Paso7:Verificar Estado [Direccion]
-#       Paso8:Verificar Datos Ciudadano [Direccion]
-#       Paso9:Verificar Asignacion [Direccion]
-
-#Test 3: Consulta Tributaria [Departamento]
-#       Paso1:Verificar SubTitulo [Gestion]
-#       Paso2:Verificar NumeroTramite [Gestion]
-#       Paso3:Verificar Fecha de Creacion [Gestion]
-#       Paso4:Verificar Numero de Seguimiento [Gestion]
-#       Paso5:Verificar DatosPresentados Asunto [Gestion]
-#       Paso6:Verificar DatosPresentados Detalle [Gestion]
-#       Paso7:Verificar Estado [Gestion]
-#       Paso8:Verificar Datos Ciudadano [Gestion]
-#       Paso9:Verificar Asignacion [Gestion]
-
 
 Test 1 - Crear Consulta Tributaria [ciudadano]
     Abrir Navegador en modo incognito    ${pageCiudadano}
@@ -139,7 +174,7 @@ Test 1 - Consulta Tributaria MesaEntrada Verificar Numero de Seguimiento [operad
     Abrir Tramite Por Numero    ${tramite}
     Verificar Numero de Seguimiento    ${tramite}
 
-Test 1 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Archivo [operador mesa] Paso 4.5
+Test 1 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Archivo [operador mesa] Paso 5
     [Documentation]    Verifica que el ciudadano pueda ver correctamente los Datos Presentados de la consulta tributaria, en este caso especificamente el adjunto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -149,7 +184,7 @@ Test 1 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Archivo [ope
     Abrir Tramite Por Numero    ${tramite}
     Verificar presencia de... con...    //div[@class='grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4']    DNI del Solicitante
 
-Test 1 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Asunto [operador mesa] Paso 5
+Test 1 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Asunto [operador mesa] Paso 6
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Asunto"
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -159,7 +194,7 @@ Test 1 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Asunto [oper
     Abrir Tramite Por Numero    ${tramite}
     Validar Asunto    Asunto test1
 
-Test 1 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Detalle [operador mesa] Paso 6
+Test 1 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Detalle [operador mesa] Paso 7
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Detalle"
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -169,7 +204,7 @@ Test 1 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Detalle [ope
     Abrir Tramite Por Numero    ${tramite}
     Validar Detalle    Descripcion test1
 
-Test 1 - Consulta Tributaria MesaEntrada Verificar Estado [operador mesa] Paso 7
+Test 1 - Consulta Tributaria MesaEntrada Verificar Estado [operador mesa] Paso 8
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que el "Estado del Tramite" sea visible y correcto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -179,7 +214,7 @@ Test 1 - Consulta Tributaria MesaEntrada Verificar Estado [operador mesa] Paso 7
     Abrir Tramite Por Numero    ${tramite}
     Validar Estado Del Tramite    Pendiente
 
-Test 1 - Consulta Tributaria MesaEntrada Verificar Datos Ciudadano [operador mesa] Paso 8
+Test 1 - Consulta Tributaria MesaEntrada Verificar Datos Ciudadano [operador mesa] Paso 9
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que los datos del ciudadano sean visibles y correctos
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -189,7 +224,7 @@ Test 1 - Consulta Tributaria MesaEntrada Verificar Datos Ciudadano [operador mes
     Abrir Tramite Por Numero    ${tramite}
     Validar Datos Identidad    ${nombreCiudadano}    ${emailCiudadano}    ${cuitCiudadano}
 
-Test 1 - Consulta Tributaria MesaEntrada Verificar Asignacion [operador mesa] Paso 9
+Test 1 - Consulta Tributaria MesaEntrada Verificar Asignacion [operador mesa] Paso 10
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que los datos de "Asignacion" sean visibles y correctos
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -262,7 +297,7 @@ Test 2 - Consulta Tributaria MesaEntrada Verificar Numero de Seguimiento [operad
     Abrir Tramite Por Numero    ${tramite}
     Verificar Numero de Seguimiento    ${tramite}
 
-Test 2 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Archivo [operador mesa] Paso 4.5
+Test 2 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Archivo [operador mesa] Paso 5
     [Documentation]    Verifica que el ciudadano pueda ver correctamente los Datos Presentados de la consulta tributaria, en este caso especificamente el adjunto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -272,7 +307,7 @@ Test 2 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Archivo [ope
     Abrir Tramite Por Numero    ${tramite}
     Verificar presencia de... con...    //div[@class='grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4']    DNI del Solicitante
 
-Test 2 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Asunto [operador mesa] Paso 5
+Test 2 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Asunto [operador mesa] Paso 6
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Asunto"
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -282,7 +317,7 @@ Test 2 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Asunto [oper
     Abrir Tramite Por Numero    ${tramite}
     Validar Asunto    Asunto test1
 
-Test 2 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Detalle [operador mesa] Paso 6
+Test 2 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Detalle [operador mesa] Paso 7
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Detalle"
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -292,7 +327,7 @@ Test 2 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Detalle [ope
     Abrir Tramite Por Numero    ${tramite}
     Validar Detalle    Descripcion test1
 
-Test 2 - Consulta Tributaria MesaEntrada Verificar Estado [operador mesa] Paso 7
+Test 2 - Consulta Tributaria MesaEntrada Verificar Estado [operador mesa] Paso 8
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que el "Estado del Tramite" sea visible y correcto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -302,7 +337,7 @@ Test 2 - Consulta Tributaria MesaEntrada Verificar Estado [operador mesa] Paso 7
     Abrir Tramite Por Numero    ${tramite}
     Validar Estado Del Tramite    Asignado
 
-Test 2 - Consulta Tributaria MesaEntrada Verificar Datos Ciudadano [operador mesa] Paso 8
+Test 2 - Consulta Tributaria MesaEntrada Verificar Datos Ciudadano [operador mesa] Paso 9
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que los datos del ciudadano sean visibles y correctos
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -312,7 +347,7 @@ Test 2 - Consulta Tributaria MesaEntrada Verificar Datos Ciudadano [operador mes
     Abrir Tramite Por Numero    ${tramite}
     Validar Datos Identidad    ${nombreCiudadano}    ${emailCiudadano}    ${cuitCiudadano}
 
-Test 2 - Consulta Tributaria MesaEntrada Verificar Asignacion [operador mesa] Paso 9
+Test 2 - Consulta Tributaria MesaEntrada Verificar Asignacion [operador mesa] Paso 10
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que los datos de "Asignacion" sean visibles y correctos
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -384,7 +419,7 @@ Test 3 - Consulta Tributaria MesaEntrada Verificar Numero de Seguimiento [operad
     Abrir Tramite Por Numero    ${tramite}
     Verificar Numero de Seguimiento    ${tramite}
 
-Test 3 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Archivo [operador mesa] Paso 4.5
+Test 3 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Archivo [operador mesa] Paso 5
     [Documentation]    Verifica que el ciudadano pueda ver correctamente los Datos Presentados de la consulta tributaria, en este caso especificamente el adjunto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -394,7 +429,7 @@ Test 3 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Archivo [ope
     Abrir Tramite Por Numero    ${tramite}
     Verificar presencia de... con...    //div[@class='grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4']    DNI del Solicitante
 
-Test 3 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Asunto [operador mesa] Paso 5
+Test 3 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Asunto [operador mesa] Paso 6
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Asunto"
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -404,7 +439,7 @@ Test 3 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Asunto [oper
     Abrir Tramite Por Numero    ${tramite}
     Validar Asunto    Asunto test1
 
-Test 3 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Detalle [operador mesa] Paso 6
+Test 3 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Detalle [operador mesa] Paso 7
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que en los Datos Presentados sea visible y correcto el "Detalle"
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -414,7 +449,7 @@ Test 3 - Consulta Tributaria MesaEntrada Verificar DatosPresentados Detalle [ope
     Abrir Tramite Por Numero    ${tramite}
     Validar Detalle    Descripcion test1
 
-Test 3 - Consulta Tributaria MesaEntrada Verificar Estado [operador mesa] Paso 7
+Test 3 - Consulta Tributaria MesaEntrada Verificar Estado [operador mesa] Paso 8
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que el "Estado del Tramite" sea visible y correcto
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -424,7 +459,7 @@ Test 3 - Consulta Tributaria MesaEntrada Verificar Estado [operador mesa] Paso 7
     Abrir Tramite Por Numero    ${tramite}
     Validar Estado Del Tramite    Asignado
 
-Test 3 - Consulta Tributaria MesaEntrada Verificar Datos Ciudadano [operador mesa] Paso 8
+Test 3 - Consulta Tributaria MesaEntrada Verificar Datos Ciudadano [operador mesa] Paso 9
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que los datos del ciudadano sean visibles y correctos
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
@@ -434,7 +469,7 @@ Test 3 - Consulta Tributaria MesaEntrada Verificar Datos Ciudadano [operador mes
     Abrir Tramite Por Numero    ${tramite}
     Validar Datos Identidad    ${nombreCiudadano}    ${emailCiudadano}    ${cuitCiudadano}
 
-Test 3 - Consulta Tributaria MesaEntrada Verificar Asignacion [operador mesa] Paso 9
+Test 3 - Consulta Tributaria MesaEntrada Verificar Asignacion [operador mesa] Paso 10
     [Documentation]    Desde la Mesa de Entrada, abre la Consulta Tributaria y comprueba que los datos de "Asignacion" sean visibles y correctos
     Asignar Tag Numerado
     Run Keyword If   '${TEST_OK}'!='PASS'    Skip   Se omite el test porque fallo un test importante
