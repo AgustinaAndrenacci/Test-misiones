@@ -247,7 +247,8 @@ Test 1 - Se selecciona la opcion "Enviar a direccion" [operador mesa]
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección de Informática
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Informática
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
+    #Choose file    ${botonSeleccionarArchivos}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -369,7 +370,8 @@ Test 2 - Se selecciona la opcion "Derivar" [Direccion Informatica]
     #Verificar y presionar ítem en lista combobox  ${areaDestino}  Planificación y Control de Sistemas Informáticos
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Planificación y Control de Sistemas Informáticos
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Planificación y Control de Sistemas Informáticos    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.

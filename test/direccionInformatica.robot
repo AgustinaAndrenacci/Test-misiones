@@ -33,7 +33,7 @@ Library    D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/QA/Misiones/Res
 
 Resource        ../Resources/KeywordsPortal.robot
 Resource        ../Resources/KeywordsMio.robot
-Resource        ../Resources/VariablesPortal.robot
+Resource        ../Resources/VariablesPor+tal.robot
 
 Test Teardown  Cerrar navegador
 
