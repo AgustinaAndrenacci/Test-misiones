@@ -106,7 +106,8 @@ Test 1 - Aprobado desde Direccion Juridica y Tecnica [operador mesa] Paso 4
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección Jurídica y Técnica
     Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección Jurídica y Técnica
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -202,7 +203,8 @@ Test 1 - Aprobado desde Direccion Juridica y Tecnica [DireccionJuridicaTecnica] 
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Cerrar Navegador
@@ -273,7 +275,8 @@ Test 2 - Rechazado desde Direccion Juridica y Tecnica [operador mesa] Paso 4
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección Jurídica y Técnica
     Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección Jurídica y Técnica
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -371,7 +374,8 @@ Test 2 - Rechazado desde Direccion Juridica y Tecnica [DireccionJuridicaTecnica]
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonRechazarInformarAlContribuyente}    botonRechazar
     Validar y completar campo    ${campoComentario}    Rechazado    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Cerrar Navegador
@@ -440,7 +444,8 @@ Test 3 - No Corresponde desde Direccion Juridica y Tecnica [operador mesa] Paso 
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección Jurídica y Técnica
     Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección Jurídica y Técnica
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -532,7 +537,8 @@ Test 3 - No Corresponde desde Direccion Juridica y Tecnica [DireccionJuridicaTec
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonNoCorresponde}    botonAprobar
     Validar y completar campo    ${campoComentario}    NoCorresponde    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -570,7 +576,8 @@ Test 3 - No Corresponde desde Direccion Juridica y Tecnica [operador mesa] Paso 
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección Jurídica y Técnica
     Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección Jurídica y Técnica
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -587,7 +594,8 @@ Test 3 - No Corresponde desde Direccion Juridica y Tecnica [DireccionJuridicaTec
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -655,7 +663,8 @@ Test 4 - SolicitarDatosAdicionales desde Direccion Juridica y Tecnica [operador 
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección Jurídica y Técnica
     Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección Jurídica y Técnica
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -747,7 +756,8 @@ Test 4 - SolicitarDatosAdicionales desde Direccion Juridica y Tecnica [Direccion
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
     Validar y completar campo    ${campoComentario}    solicito datos adicionales    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -773,7 +783,8 @@ Test 4 - SolicitarDatosAdicionales desde Direccion Juridica y Tecnica el ciudada
     Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
     Validar y hacer clic en el boton    ${botonResponder}    botonResponder
     Validar y completar campo    ${campoComentario}    Respuesta del Ciudadano    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Validar y hacer clic en el boton    ${botonEjecutarAccion}    botonEjecutarAccion
     Close browser
@@ -789,7 +800,8 @@ Test 4 - SolicitarDatosAdicionales desde Direccion Juridica y Tecnica [Direccion
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -905,7 +917,8 @@ Test 5 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 2
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección Jurídica y Técnica
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección Jurídica y Técnica
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -1007,7 +1020,8 @@ Test 5 - Se selecciona la opcion "Derivar" [Dirección Jurídica y Técnica] Pas
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Asesoría Legal y Técnica
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Asesoría Legal y Técnica
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Asesoría Legal y Técnica    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -1108,7 +1122,8 @@ Test 5 - Se selecciona la opcion "Aprobar e informar al contribuyente" [Asesorí
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -1265,7 +1280,8 @@ Test 6 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 2
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección Jurídica y Técnica
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección Jurídica y Técnica
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -1366,7 +1382,8 @@ Test 6 - Se selecciona la opcion "Derivar" [Dirección Jurídica y Técnica] Pas
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Asesoría Legal y Técnica
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Asesoría Legal y Técnica
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Asesoría Legal y Técnica    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -1467,7 +1484,8 @@ Test 6 - Se selecciona la opcion "Rechazar e informar al contribuyente" [Asesor�
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonRechazarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -1619,7 +1637,8 @@ Test 7 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 3
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección Jurídica y Técnica
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección Jurídica y Técnica
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -1720,7 +1739,8 @@ Test 7 - Se selecciona la opcion "Derivar" [Dirección Jurídica y Técnica] Pas
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Asesoría Legal y Técnica
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Asesoría Legal y Técnica
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Asesoría Legal y Técnica    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -1821,7 +1841,8 @@ Test 7 - Se selecciona la opcion "Solicitar datos adicionales" [AsesoríaLegalT�
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
     Validar y completar campo    ${campoComentario}    Solicitar Datos Adicionales    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -1885,7 +1906,8 @@ Test 7 - El usuario avanza con el tramite [ciudadano] Paso 6
     Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
     Validar y hacer clic en el boton    ${botonResponder}    botonResponder
     Validar y completar campo    ${campoComentario}    Respuesta del Ciudadano    campoComentario
-    Choose FILE    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonEjecutarAccion}    botonEjecutarAccion
     Close browser
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
@@ -2047,7 +2069,8 @@ Test 8 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 2
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección Jurídica y Técnica
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección Jurídica y Técnica
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -2149,7 +2172,8 @@ Test 8 - Se selecciona la opcion "Derivar" [Dirección Jurídica y Técnica] Pas
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Cobro Judicial
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    CobroJudicial
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a CobroJudicial    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -2250,7 +2274,8 @@ Test 8 - Se selecciona la opcion "Aprobar e informar al contribuyente" [CobroJud
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -2407,7 +2432,8 @@ Test 9 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 2
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección Jurídica y Técnica
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección Jurídica y Técnica
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -2508,7 +2534,8 @@ Test 9 - Se selecciona la opcion "Derivar" [Dirección Jurídica y Técnica] Pas
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Cobro Judicial
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    CobroJudicial
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a CobroJudicial    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -2609,7 +2636,8 @@ Test 9 - Se selecciona la opcion "Rechazar e informar al contribuyente" [CobroJu
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonRechazarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -2761,7 +2789,8 @@ Test 10 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 3
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección Jurídica y Técnica
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección Jurídica y Técnica
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -2861,7 +2890,8 @@ Test 10 - Se selecciona la opcion "Derivar" [Dirección Jurídica y Técnica] Pa
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Cobro Judicial
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    CobroJudicial
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a CobroJudicial    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -2962,7 +2992,8 @@ Test 10 - Se selecciona la opcion "Solicitar datos adicionales" [CobroJudicial] 
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
     Validar y completar campo    ${campoComentario}    Solicitar Datos Adicionales    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -3026,7 +3057,8 @@ Test 10 - El usuario avanza con el tramite [ciudadano] Paso 6
     Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
     Validar y hacer clic en el boton    ${botonResponder}    botonResponder
     Validar y completar campo    ${campoComentario}    Respuesta del Ciudadano    campoComentario
-    Choose FILE    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonEjecutarAccion}    botonEjecutarAccion
     Close browser
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
@@ -3187,7 +3219,8 @@ Test 11 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 2
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección Jurídica y Técnica
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección Jurídica y Técnica
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -3289,7 +3322,8 @@ Test 11 - Se selecciona la opcion "Derivar" [Dirección Jurídica y Técnica] Pa
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Penal Tributaria y Juicios Universales
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    PenalTributariaJuiciosUniversales
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a PenalTributariaJuiciosUniversales    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -3390,7 +3424,8 @@ Test 11 - Se selecciona la opcion "Aprobar e informar al contribuyente" [PenalTr
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -3547,7 +3582,8 @@ Test 12 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 2
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección Jurídica y Técnica
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección Jurídica y Técnica
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -3648,7 +3684,8 @@ Test 12 - Se selecciona la opcion "Derivar" [Dirección Jurídica y Técnica] Pa
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Penal Tributaria y Juicios Universales
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    PenalTributariaJuiciosUniversales
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a PenalTributariaJuiciosUniversales    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -3749,7 +3786,8 @@ Test 12 - Se selecciona la opcion "Rechazar e informar al contribuyente" [PenalT
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonRechazarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -3901,7 +3939,8 @@ Test 13 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 3
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección Jurídica y Técnica
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección Jurídica y Técnica
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -4002,7 +4041,8 @@ Test 13 - Se selecciona la opcion "Derivar" [Dirección Jurídica y Técnica] Pa
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Penal Tributaria y Juicios Universales
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    PenalTributariaJuiciosUniversales
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a PenalTributariaJuiciosUniversales    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -4103,7 +4143,8 @@ Test 13 - Se selecciona la opcion "Solicitar datos adicionales" [PenalTributaria
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
     Validar y completar campo    ${campoComentario}    Solicitar Datos Adicionales    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -4167,7 +4208,8 @@ Test 13 - El usuario avanza con el tramite [ciudadano] Paso 6
     Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
     Validar y hacer clic en el boton    ${botonResponder}    botonResponder
     Validar y completar campo    ${campoComentario}    Respuesta del Ciudadano    campoComentario
-    Choose FILE    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonEjecutarAccion}    botonEjecutarAccion
     Close browser
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}

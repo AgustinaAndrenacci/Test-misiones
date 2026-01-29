@@ -95,7 +95,8 @@ Test 1 - Se selecciona la opcion "Solicitar datos adicionales" [operador mesa]
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
     Validar y completar campo    ${campoComentario}    Se solicitan datos adicionales    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Execute JavaScript    var input = document.querySelector('input[type="file"]'); if (input) { input.dispatchEvent(new Event("input", { bubbles: true })); input.dispatchEvent(new Event("change", { bubbles: true })); }
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -145,7 +146,8 @@ Test 1 - El usuario avanza con el tramite [ciudadano]
     Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
     Validar y hacer clic en el boton    ${botonResponder}    botonResponder
     Validar y completar campo    ${campoComentario}    Respuesta del Ciudadano    campoComentario
-    Choose FILE    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonEjecutarAccion}    botonEjecutarAccion
     Close browser
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
@@ -194,7 +196,8 @@ Test 1 - Se selecciona la opcion "Enviar a direccion" [operador mesa]
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección de Informática
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Informática
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Se envia a la direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -241,7 +244,8 @@ Test 1 - Se selecciona la opcion "No corresponde" [direccion informatica]
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonNoCorresponde}    botonNoCorresponde
     Validar y completar campo    ${campoComentario}    no corresponde el area    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -290,7 +294,8 @@ Test 1 - Se selecciona la opcion "Enviar a direccion" [operador mesa]
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección de Informática
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Informática
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -309,7 +314,8 @@ Test 1 - Se selecciona la opcion "Derivar" [Direccion Informatica]
     #Verificar y presionar ítem en lista combobox  ${areaDestino}  Planificación y Control de Sistemas Informáticos
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Planificación y Control de Sistemas Informáticos
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Se envia a Planificación y Control de Sistemas Informáticos    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -357,7 +363,8 @@ Test 1 - Se selecciona la opcion "Aprobar e informar al contribuyente" [Planific
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    se aprueba    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -420,7 +427,8 @@ Test 2 - Se selecciona la opcion "No corresponde" [direccion informatica]
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonNoCorresponde}    botonNoCorresponde
     Validar y completar campo    ${campoComentario}    no corresponde aca    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -483,7 +491,8 @@ Test 3 - Se selecciona la opcion "Enviar a direccion" [operador mesa]
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección de Informática
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Informática
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -502,7 +511,8 @@ Test 3 - Se selecciona la opcion "Derivar" [Direccion Informatica]
     #Verificar y presionar ítem en lista combobox  ${areaDestino}  Planificación y Control de Sistemas Informáticos
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Planificación y Control de Sistemas Informáticos
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Planificación y Control de Sistemas Informáticos    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -520,7 +530,8 @@ Test 3 - Se selecciona la opcion "Rechazar e informar al contribuyente" [Planifi
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonRechazarInformarAlContribuyente}    botonRechazarInformarAlContribuyente
     Validar y completar campo    ${campoComentario}    se rechaza    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser

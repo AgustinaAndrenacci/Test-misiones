@@ -261,7 +261,8 @@ Test 2 - Consulta Tributaria: el ciudadano avanza en el tramite [ciudadano] Paso
     Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
     Validar y hacer clic en el boton    ${botonResponder}    botonResponder
     Validar y completar campo    ${campoComentario}    Respuesta del Ciudadano    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonEjecutarAccion}    botonEjecutarAccion
     Cerrar Navegador
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}

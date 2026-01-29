@@ -98,7 +98,8 @@ Test 1 - Aprobado desde Direccion de Coordinacion de Politicas Fiscales [operado
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección de Coordinación de Políticas Fiscales
     Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Coordinación de Políticas Fiscales
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -194,7 +195,8 @@ Test 1 - Aprobado desde Direccion de Coordinacion de Politicas Fiscales [Direcci
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Cerrar Navegador
@@ -265,7 +267,8 @@ Test 2 - Rechazado desde Direccion de Coordinacion de Politicas Fiscales [operad
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección de Coordinación de Políticas Fiscales
     Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Coordinación de Políticas Fiscales
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -397,7 +400,8 @@ Test 2 - Rechazado desde Direccion de Coordinacion de Politicas Fiscales [Direcc
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonRechazarInformarAlContribuyente}    botonRechazar
     Validar y completar campo    ${campoComentario}    Rechazado    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Cerrar Navegador
@@ -465,7 +469,8 @@ Test 3 - No Corresponde desde Direccion de Coordinacion de Politicas Fiscales [o
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección de Coordinación de Políticas Fiscales
     Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Coordinación de Políticas Fiscales
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -556,7 +561,8 @@ Test 3 - No Corresponde desde Direccion de Coordinacion de Politicas Fiscales [D
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonNoCorresponde}    botonAprobar
     Validar y completar campo    ${campoComentario}    NoCorresponde    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -594,7 +600,8 @@ Test 3 - No Corresponde desde Direccion de Coordinacion de Politicas Fiscales [o
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección de Coordinación de Políticas Fiscales
     Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Coordinación de Políticas Fiscales
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -611,7 +618,8 @@ Test 3 - No Corresponde desde Direccion de Coordinacion de Politicas Fiscales [D
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -678,7 +686,8 @@ Test 4 - SolicitarDatosAdicionales desde Direccion de Coordinacion de Politicas 
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección de Coordinación de Políticas Fiscales
     Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Coordinación de Políticas Fiscales
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -770,7 +779,8 @@ Test 4 - SolicitarDatosAdicionales desde Direccion de Coordinacion de Politicas 
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
     Validar y completar campo    ${campoComentario}    solicito datos adicionales    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -796,7 +806,8 @@ Test 4 - SolicitarDatosAdicionales desde Direccion de Coordinacion de Politicas 
     Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
     Validar y hacer clic en el boton    ${botonResponder}    botonResponder
     Validar y completar campo    ${campoComentario}    Respuesta del Ciudadano    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Validar y hacer clic en el boton    ${botonEjecutarAccion}    botonEjecutarAccion
     Close browser
@@ -812,7 +823,8 @@ Test 4 - SolicitarDatosAdicionales desde Direccion de Coordinacion de Politicas 
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -928,7 +940,8 @@ Test 5 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 2
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección de Coordinación de Políticas Fiscales
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Coordinación de Políticas Fiscales
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -1030,7 +1043,8 @@ Test 5 - Se selecciona la opcion "Derivar" [Dirección de Coordinación de Polí
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Control de Ejecución de Políticas Fiscales
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    ControlEjecuciónPolíticasFiscales
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a ControlEjecuciónPolíticasFiscales    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -1131,7 +1145,8 @@ Test 5 - Se selecciona la opcion "Aprobar e informar al contribuyente" [ControlE
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -1288,7 +1303,8 @@ Test 6 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 2
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección de Coordinación de Políticas Fiscales
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Coordinación de Políticas Fiscales
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -1389,7 +1405,8 @@ Test 6 - Se selecciona la opcion "Derivar" [Dirección de Coordinación de Polí
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Control de Ejecución de Políticas Fiscales
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    ControlEjecuciónPolíticasFiscales
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a ControlEjecuciónPolíticasFiscales    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -1490,7 +1507,8 @@ Test 6 - Se selecciona la opcion "Rechazar e informar al contribuyente" [Control
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonRechazarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -1642,7 +1660,8 @@ Test 7 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 3
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección de Coordinación de Políticas Fiscales
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Coordinación de Políticas Fiscales
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -1743,7 +1762,8 @@ Test 7 - Se selecciona la opcion "Derivar" [Dirección de Coordinación de Polí
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Control de Ejecución de Políticas Fiscales
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    ControlEjecuciónPolíticasFiscales
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a ControlEjecuciónPolíticasFiscales    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -1844,7 +1864,8 @@ Test 7 - Se selecciona la opcion "Solicitar datos adicionales" [ControlEjecució
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
     Validar y completar campo    ${campoComentario}    Solicitar Datos Adicionales    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -1908,7 +1929,8 @@ Test 7 - El usuario avanza con el tramite [ciudadano] Paso 6
     Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
     Validar y hacer clic en el boton    ${botonResponder}    botonResponder
     Validar y completar campo    ${campoComentario}    Respuesta del Ciudadano    campoComentario
-    Choose FILE    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonEjecutarAccion}    botonEjecutarAccion
     Close browser
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
@@ -2069,7 +2091,8 @@ Test 8 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 2
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección de Coordinación de Políticas Fiscales
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Coordinación de Políticas Fiscales
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -2171,7 +2194,8 @@ Test 8 - Se selecciona la opcion "Derivar" [Dirección de Coordinación de Polí
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Control Fiscal en Ruta
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    ControlFiscalEnRuta
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a ControlFiscalEnRuta    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -2272,7 +2296,8 @@ Test 8 - Se selecciona la opcion "Aprobar e informar al contribuyente" [ControlF
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -2429,7 +2454,8 @@ Test 9 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 2
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección de Coordinación de Políticas Fiscales
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Coordinación de Políticas Fiscales
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -2530,7 +2556,8 @@ Test 9 - Se selecciona la opcion "Derivar" [Dirección de Coordinación de Polí
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Control Fiscal en Ruta
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    ControlFiscalEnRuta
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a ControlFiscalEnRuta    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -2631,7 +2658,8 @@ Test 9 - Se selecciona la opcion "Rechazar e informar al contribuyente" [Control
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonRechazarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -2784,7 +2812,8 @@ Test 10 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 3
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Dirección de Coordinación de Políticas Fiscales
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Coordinación de Políticas Fiscales
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -2885,7 +2914,8 @@ Test 10 - Se selecciona la opcion "Derivar" [Dirección de Coordinación de Pol�
     Verificar y presionar ítem en lista combobox  ${areaDestino}  Control Fiscal en Ruta
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    ControlFiscalEnRuta
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a ControlFiscalEnRuta    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -2985,7 +3015,8 @@ Test 10 - Se selecciona la opcion "Solicitar datos adicionales" [ControlFiscalEn
     Abrir Tramite Por Numero    ${tramite}
     Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
     Validar y completar campo    ${campoComentario}    Solicitar Datos Adicionales    campoComentario
-    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -3049,7 +3080,8 @@ Test 10 - El usuario avanza con el tramite [ciudadano] Paso 6
     Validar y hacer clic en el boton    ${botonCancelar}    botonCancelar
     Validar y hacer clic en el boton    ${botonResponder}    botonResponder
     Validar y completar campo    ${campoComentario}    Respuesta del Ciudadano    campoComentario
-    Choose FILE    ${botonSeleccionarArchivos}    ${FILE3}
+    #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
+    Choose file    //input[@type='file']    ${FILE3}
     Validar y hacer clic en el boton    ${botonEjecutarAccion}    botonEjecutarAccion
     Close browser
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}

@@ -245,7 +245,7 @@ ${ubicacionArchivoBorrador}    (//td[@class='p-4 align-middle [&:has([role=check
 
 #-------------------------------------------- Lista tramites -----------------------------------------------------------------
 &{TRAMITE_ConsultaTributaria}    boton=${botonConsultaTributaria}    asunto=${asuntoConsultaTributaria}    detalle=${detalleConsultaTributaria}    cont=${contenidoConsultaTributaria}    lista=DNI del Solicitante
-&{TRAMITE_ConsultaVinculante}    boton=${botonConsultaVinculante}    asunto=${asuntoConsultaVinculante}    detalle=${detalleConsultaVinculante}    cont=${contenidoConsultaVinculante}    lista=DNI del Solicitante
+&{TRAMITE_ConsultaVinculante}    boton=${botonConsultaVinculante}    asunto=${asuntoConsultaVinculante}    detalle  ante}    cont=${contenidoConsultaVinculante}    lista=DNI del Solicitante
 &{TRAMITE_ExencionImpuestoInmobiliarioBasico}    boton=${botonExencionImpuestoInmobiliarioBasico}    asunto=${asuntoExencionImpuestoIB}    detalle=${detalleExencionImpuestoIB}    cont=${contenidoExencionImpuestoIB}    lista=DNI del Solicitante
 &{TRAMITE_ExenciónImpuestoDeSellos}    boton=${botonExenciónImpuestoDeSellos}    asunto=${asuntoExenciónImpuestoDeSellos}    detalle=${detalleExenciónImpuestoDeSellos}    cont=${contenidoExenciónImpuestoDeSellos}    lista=Copia de DNI del solicitante
 &{TRAMITE_ExencionImpuestoProvincialAutomotor}    boton=${botonExencionImpuestoProvincialAutomotor}    asunto=${asuntoExencionImpuestoProvincialAutomotor}    detalle=${detalleExencionImpuestoProvincialAutomotor}    cont=${contenidoExencionImpuestoProvincialAutomotor}    lista=Copia del DNI del solicitante
