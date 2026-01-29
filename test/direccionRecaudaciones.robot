@@ -113,7 +113,7 @@ Test 1 - Aprobado desde Direccion de Recaudaciones [operador mesa] Paso 4
     Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Recaudaciones
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -211,7 +211,7 @@ Test 1 - Aprobado desde Direccion de Recaudaciones [DireccionRecaudaciones] Paso
     Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Cerrar Navegador
@@ -283,7 +283,7 @@ Test 2 - Rechazado desde Direccion de Recaudaciones [operador mesa] Paso 4
     Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Recaudaciones
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -380,7 +380,7 @@ Test 2 - Rechazado desde Direccion de Recaudaciones [DireccionRecaudaciones] Pas
     Validar y hacer clic en el boton    ${botonRechazarInformarAlContribuyente}    botonRechazar
     Validar y completar campo    ${campoComentario}    Rechazado    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Cerrar Navegador
@@ -449,7 +449,7 @@ Test 3 - No Corresponde desde Direccion de Recaudaciones [operador mesa] Paso 4
     Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Recaudaciones
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -541,7 +541,7 @@ Test 3 - No Corresponde desde Direccion de Recaudaciones [DireccionRecaudaciones
     Validar y hacer clic en el boton    ${botonNoCorresponde}    botonAprobar
     Validar y completar campo    ${campoComentario}    NoCorresponde    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -580,7 +580,7 @@ Test 3 - No Corresponde desde Direccion de Recaudaciones [operador mesa] Paso 14
     Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Recaudaciones
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -598,7 +598,7 @@ Test 3 - No Corresponde desde Direccion de Recaudaciones [DireccionRecaudaciones
     Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -667,7 +667,7 @@ Test 4 - SolicitarDatosAdicionales desde Direccion de Recaudaciones [operador me
     Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Recaudaciones
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -760,7 +760,7 @@ Test 4 - SolicitarDatosAdicionales desde Direccion de Recaudaciones [DireccionRe
     Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
     Validar y completar campo    ${campoComentario}    solicito datos adicionales    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -787,7 +787,7 @@ Test 4 - SolicitarDatosAdicionales desde Direccion de Recaudaciones el ciudadano
     Validar y hacer clic en el boton    ${botonResponder}    botonResponder
     Validar y completar campo    ${campoComentario}    Respuesta del Ciudadano    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Validar y hacer clic en el boton    ${botonEjecutarAccion}    botonEjecutarAccion
     Close browser
@@ -804,7 +804,7 @@ Test 4 - SolicitarDatosAdicionales desde Direccion de Recaudaciones [DireccionRe
     Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -921,7 +921,7 @@ Test 5 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 2
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Recaudaciones
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -1024,7 +1024,7 @@ Test 5 - Se selecciona la opcion "Derivar" [Dirección de Recaudaciones] Paso 3
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Impuestos
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Impuestos    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -1126,7 +1126,7 @@ Test 5 - Se selecciona la opcion "Aprobar e informar al contribuyente" [Impuesto
     Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -1284,7 +1284,7 @@ Test 6 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 2
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Recaudaciones
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -1386,7 +1386,7 @@ Test 6 - Se selecciona la opcion "Derivar" [Dirección de Recaudaciones] Paso 3
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Impuestos
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Impuestos    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -1488,7 +1488,7 @@ Test 6 - Se selecciona la opcion "Rechazar e informar al contribuyente" [Impuest
     Validar y hacer clic en el boton    ${botonRechazarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -1642,7 +1642,7 @@ Test 7 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 3
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Recaudaciones
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -1744,7 +1744,7 @@ Test 7 - Se selecciona la opcion "Derivar" [Dirección de Recaudaciones] Paso 5
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Impuestos
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Impuestos    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -1846,7 +1846,7 @@ Test 7 - Se selecciona la opcion "Solicitar datos adicionales" [Impuestos] Paso 
     Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
     Validar y completar campo    ${campoComentario}    Solicitar Datos Adicionales    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -1911,7 +1911,7 @@ Test 7 - El usuario avanza con el tramite [ciudadano] Paso 6
     Validar y hacer clic en el boton    ${botonResponder}    botonResponder
     Validar y completar campo    ${campoComentario}    Respuesta del Ciudadano    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonEjecutarAccion}    botonEjecutarAccion
     Close browser
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
@@ -2073,7 +2073,7 @@ Test 8 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 2
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Recaudaciones
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -2176,7 +2176,7 @@ Test 8 - Se selecciona la opcion "Derivar" [Dirección de Recaudaciones] Paso 3
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    IngresosBrutosControlObligacionesFiscales
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a IngresosBrutosControlObligacionesFiscales    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -2278,7 +2278,7 @@ Test 8 - Se selecciona la opcion "Aprobar e informar al contribuyente" [Ingresos
     Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -2436,7 +2436,7 @@ Test 9 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 2
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Recaudaciones
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -2538,7 +2538,7 @@ Test 9 - Se selecciona la opcion "Derivar" [Dirección de Recaudaciones] Paso 3
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    IngresosBrutosControlObligacionesFiscales
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a IngresosBrutosControlObligacionesFiscales    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -2640,7 +2640,7 @@ Test 9 - Se selecciona la opcion "Rechazar e informar al contribuyente" [Ingreso
     Validar y hacer clic en el boton    ${botonRechazarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -2794,7 +2794,7 @@ Test 10 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 3
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Recaudaciones
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -2896,7 +2896,7 @@ Test 10 - Se selecciona la opcion "Derivar" [Dirección de Recaudaciones] Paso 5
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    IngresosBrutosControlObligacionesFiscales
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a IngresosBrutosControlObligacionesFiscales    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -2998,7 +2998,7 @@ Test 10 - Se selecciona la opcion "Solicitar datos adicionales" [IngresosBrutosC
     Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
     Validar y completar campo    ${campoComentario}    Solicitar Datos Adicionales    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -3063,7 +3063,7 @@ Test 10 - El usuario avanza con el tramite [ciudadano] Paso 6
     Validar y hacer clic en el boton    ${botonResponder}    botonResponder
     Validar y completar campo    ${campoComentario}    Respuesta del Ciudadano    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonEjecutarAccion}    botonEjecutarAccion
     Close browser
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
@@ -3226,7 +3226,7 @@ Test 11 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 2
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Recaudaciones
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -3329,7 +3329,7 @@ Test 11 - Se selecciona la opcion "Derivar" [Dirección de Recaudaciones] Paso 3
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    ProcesamientoControlRendicionesAgentesRecaudadores
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a ProcesamientoControlRendicionesAgentesRecaudadores    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -3431,7 +3431,7 @@ Test 11 - Se selecciona la opcion "Aprobar e informar al contribuyente" [Procesa
     Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -3589,7 +3589,7 @@ Test 12 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 2
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Recaudaciones
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -3691,7 +3691,7 @@ Test 12 - Se selecciona la opcion "Derivar" [Dirección de Recaudaciones] Paso 3
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    ProcesamientoControlRendicionesAgentesRecaudadores
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a ProcesamientoControlRendicionesAgentesRecaudadores    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -3793,7 +3793,7 @@ Test 12 - Se selecciona la opcion "Rechazar e informar al contribuyente" [Proces
     Validar y hacer clic en el boton    ${botonRechazarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -3947,7 +3947,7 @@ Test 13 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 3
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Recaudaciones
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -4050,7 +4050,7 @@ Test 13 - Se selecciona la opcion "Derivar" [Dirección de Recaudaciones] Paso 5
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    ProcesamientoControlRendicionesAgentesRecaudadores
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a ProcesamientoControlRendicionesAgentesRecaudadores    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -4152,7 +4152,7 @@ Test 13 - Se selecciona la opcion "Solicitar datos adicionales" [ProcesamientoCo
     Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
     Validar y completar campo    ${campoComentario}    Solicitar Datos Adicionales    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -4217,7 +4217,7 @@ Test 13 - El usuario avanza con el tramite [ciudadano] Paso 6
     Validar y hacer clic en el boton    ${botonResponder}    botonResponder
     Validar y completar campo    ${campoComentario}    Respuesta del Ciudadano    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonEjecutarAccion}    botonEjecutarAccion
     Close browser
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
@@ -4379,7 +4379,7 @@ Test 14 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 2
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Recaudaciones
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -4482,7 +4482,7 @@ Test 14 - Se selecciona la opcion "Derivar" [Dirección de Recaudaciones] Paso 3
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    SupervisiónAuditoríaDelegaciones
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a SupervisiónAuditoríaDelegaciones    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -4584,7 +4584,7 @@ Test 14 - Se selecciona la opcion "Aprobar e informar al contribuyente" [Supervi
     Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -4742,7 +4742,7 @@ Test 15 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 2
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Recaudaciones
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -4844,7 +4844,7 @@ Test 15 - Se selecciona la opcion "Derivar" [Dirección de Recaudaciones] Paso 3
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    SupervisiónAuditoríaDelegaciones
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a SupervisiónAuditoríaDelegaciones    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -4946,7 +4946,7 @@ Test 15 - Se selecciona la opcion "Rechazar e informar al contribuyente" [Superv
     Validar y hacer clic en el boton    ${botonRechazarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -5099,7 +5099,7 @@ Test 16 - Se selecciona la opcion "Enviar a direccion" [operador mesa] Paso 3
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    Dirección de Recaudaciones
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -5201,7 +5201,7 @@ Test 16 - Se selecciona la opcion "Derivar" [Dirección de Recaudaciones] Paso 5
     #Verificar Texto Actualizado    ${textoEjecutarAccion}    SupervisiónAuditoríaDelegaciones
     #Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a SupervisiónAuditoríaDelegaciones    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -5303,7 +5303,7 @@ Test 16 - Se selecciona la opcion "Solicitar datos adicionales" [SupervisiónAud
     Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
     Validar y completar campo    ${campoComentario}    Solicitar Datos Adicionales    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Close browser
@@ -5368,7 +5368,7 @@ Test 16 - El usuario avanza con el tramite [ciudadano] Paso 6
     Validar y hacer clic en el boton    ${botonResponder}    botonResponder
     Validar y completar campo    ${campoComentario}    Respuesta del Ciudadano    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonEjecutarAccion}    botonEjecutarAccion
     Close browser
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}

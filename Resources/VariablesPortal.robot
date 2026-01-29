@@ -133,7 +133,7 @@ ${select}    //select
 ${botonSeleccionarArchivos}    //button[normalize-space()='Seleccionar archivos']
 
 ${inputFileUpload}    //input[@id='file-upload']
-${InputTypeFile}    xpath=//input[@type='file']
+${InputFile}    //input[@type='file']
 ${FILE}       C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/DniPrueba.png
 ${FILEAgus}      D:/Agus/OneDrive/Lap_Agus_Dell/Usuario/Escritorio/Lpa/Archivos - excel, word, img, pdf/ADJUNTO.pdf
 ${FILE3}       C:/Users/apoke/Desktop/LPA/Misiones/Test-misiones/Resources/ubicacion.png

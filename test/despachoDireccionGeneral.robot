@@ -92,7 +92,7 @@ Test 1 - Aprobado desde Despacho Direccion General [operador mesa] Paso 4
     Verificar Texto Actualizado    ${textoEjecutarAccion}    Despacho de Dirección General
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -189,7 +189,7 @@ Test 1 - Aprobado desde Despacho Direccion General [DespachoDireccionGeneral] Pa
     Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Cerrar Navegador
@@ -261,7 +261,7 @@ Test 2 - Rechazado desde Despacho Direccion General [operador mesa] Paso 4
     Verificar Texto Actualizado    ${textoEjecutarAccion}    Despacho de Dirección General
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -357,7 +357,7 @@ Test 2 - Rechazado desde Despacho Direccion General [DespachoDireccionGeneral] P
     Validar y hacer clic en el boton    ${botonRechazarInformarAlContribuyente}    botonRechazar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     Cerrar Navegador
@@ -428,7 +428,7 @@ Test 3 - No Corresponde desde Despacho Direccion General [operador mesa] Paso 4
     Verificar Texto Actualizado    ${textoEjecutarAccion}    Despacho de Dirección General
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -519,7 +519,7 @@ Test 3 - No Corresponde desde Despacho Direccion General [DespachoDireccionGener
     Validar y hacer clic en el boton    ${botonNoCorresponde}    botonAprobar
     Validar y completar campo    ${campoComentario}    NoCorresponde    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
@@ -557,7 +557,7 @@ Test 3 - No Corresponde desde Despacho Direccion General [operador mesa] Paso 14
     Verificar Texto Actualizado    ${textoEjecutarAccion}    Despacho de Dirección General
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -574,7 +574,7 @@ Test 3 - No Corresponde desde Despacho Direccion General [DespachoDireccionGener
     Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
@@ -642,7 +642,7 @@ Test 4 - SolicitarDatosAdicionales desde Despacho Direccion General [operador me
     Verificar Texto Actualizado    ${textoEjecutarAccion}    Despacho de Dirección General
     Validar y completar campo    ${NroExpediente}    123456/1234    NroExpediente
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y completar campo    ${campoComentario}    Enviar a Direccion    campoComentario
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
@@ -734,7 +734,7 @@ Test 4 - SolicitarDatosAdicionales desde Despacho Direccion General [DespachoDir
     Validar y hacer clic en el boton    ${botonSolicitarDatosAdicionales}    botonSolicitarDatosAdicionales
     Validar y completar campo    ${campoComentario}    solicito datos adicionales    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
@@ -760,7 +760,7 @@ Test 4 - SolicitarDatosAdicionales desde Despacho Direccion General el ciudadano
     Validar y hacer clic en el boton    ${botonResponder}    botonResponder
     Validar y completar campo    ${campoComentario}    Respuesta del Ciudadano    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Validar y hacer clic en el boton    ${botonEjecutarAccion}    botonEjecutarAccion
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}
@@ -776,7 +776,7 @@ Test 4 - SolicitarDatosAdicionales desde Despacho Direccion General [DespachoDir
     Validar y hacer clic en el boton    ${botonAprobarInformarAlContribuyente}    botonAprobar
     Validar y completar campo    ${campoComentario}    Aprobado    campoComentario
     #    Choose file    ${botonSeleccionarArchivos}    ${FILE3}
-    Choose file    //input[@type='file']    ${FILE3}
+    Choose file    ${InputFile}    ${FILE3}
     Validar y hacer clic en el boton    ${botonConfirmar}    botonConfirmar
     Verificar Y Esperar Visibilidad De Elemento    La acción se ha ejecutado correctamente.
     [Teardown]    Set Suite Variable    ${TEST_OK}    ${TEST STATUS}

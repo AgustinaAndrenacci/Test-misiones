@@ -253,7 +253,7 @@ Subir Documento Correctamente
     Execute JavaScript    document.querySelector('input[type="file"]').style.display = 'block'
 
     # 3. Subir archivo y disparar eventos
-    Choose File    //input[@type='file']    ${FILE}
+    Choose File    ${InputFile}    ${FILE}
     Execute JavaScript    var input = document.querySelector('input[type="file"]'); if (input) { input.dispatchEvent(new Event("input", { bubbles: true })); input.dispatchEvent(new Event("change", { bubbles: true })); }
 
     # 4. Añadir archivo (confirmar)
